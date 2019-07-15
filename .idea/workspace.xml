@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ccd62d48-afed-41e6-ba05-00c6ceb20331" name="Default Changelist" comment="" />
+    <list default="true" id="ccd62d48-afed-41e6-ba05-00c6ceb20331" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,8 +167,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="49">
-                      <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
+                    <state relative-caret-position="279">
+                      <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
                       <folding>
                         <element signature="e#40#68#0#PHP" expanded="true" />
                       </folding>
@@ -288,6 +290,9 @@
       <find>console</find>
       <find>val</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -485,6 +490,7 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -685,12 +691,12 @@
       <workItem from="1562681550472" duration="5543000" />
       <workItem from="1562869830794" duration="10003000" />
       <workItem from="1563049747163" duration="822000" />
-      <workItem from="1563153956979" duration="598000" />
+      <workItem from="1563153956979" duration="613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387379000" />
+    <option name="totallyTimeSpent" value="387394000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -716,7 +722,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32975295" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" type="SLIDING" weight="0.28141782" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" weight="0.32991803" />
@@ -1199,8 +1205,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
+        <state relative-caret-position="279">
+          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>

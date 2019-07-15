@@ -49,6 +49,6 @@ class empleadoController extends Controller
         $newUser->usu_area=$request->input('area');
         $newUser->usu_especialidad=$request->input('');
         $newUser->save();
-        return " tengo que aprender";
+        return " tengo que aprender mucho";
     }
 }

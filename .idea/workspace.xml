@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccd62d48-afed-41e6-ba05-00c6ceb20331" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +50,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="343">
+                <state relative-caret-position="348">
                   <caret line="221" column="101" selection-start-line="221" selection-start-column="84" selection-end-line="221" selection-end-column="101" />
                 </state>
               </provider>
@@ -86,7 +86,7 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/asincrono/recHumEmp.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="84">
+                    <state relative-caret-position="113">
                       <caret line="184" column="50" selection-start-line="184" selection-start-column="50" selection-end-line="184" selection-end-column="50" />
                       <folding>
                         <element signature="n#!!block;n#listTodosEmp#0" />
@@ -167,7 +167,7 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="279">
+                    <state relative-caret-position="245">
                       <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
                       <folding>
                         <element signature="e#40#68#0#PHP" expanded="true" />
@@ -691,12 +691,13 @@
       <workItem from="1562681550472" duration="5543000" />
       <workItem from="1562869830794" duration="10003000" />
       <workItem from="1563049747163" duration="822000" />
-      <workItem from="1563153956979" duration="892000" />
+      <workItem from="1563153956979" duration="1487000" />
+      <workItem from="1563214066078" duration="822000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387673000" />
+    <option name="totallyTimeSpent" value="389090000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1050,7 +1051,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
+        <state relative-caret-position="348">
           <caret line="221" column="101" selection-start-line="221" selection-start-column="84" selection-end-line="221" selection-end-column="101" />
         </state>
       </provider>
@@ -1103,7 +1104,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/asincrono/recHumEmp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
+        <state relative-caret-position="113">
           <caret line="184" column="50" selection-start-line="184" selection-start-column="50" selection-end-line="184" selection-end-column="50" />
           <folding>
             <element signature="n#!!block;n#listTodosEmp#0" />
@@ -1205,7 +1206,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
+        <state relative-caret-position="245">
           <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />

@@ -140,9 +140,25 @@ function createUser(tip) {
     switch (tip) {
         case 1 :
             var form= document.getElementById('formuladio1');
-            // prubb();
             if (form.checkValidity()){
-                showModalCreateUser2();
+                var data={'_token': $('meta[name=csrf-token]').attr('content'),
+                            'ci':$('#createUserCi').val(),
+                            'email':$('#email').val()
+                        };
+                $.post('/C.S.J.O.bo/RRHH/personal/revCiEmail',data).done(function (data) {
+                    switch (data) {
+                        case "ciYaExistente":
+                            notif('2','CI ya registrado!');
+                            break;
+                        case "emailYaExistente":
+                            notif('2','Email ya registrado!');
+                            break;
+                        case "true":
+                            showModalCreateUser2();
+                            break;
+
+                    }
+                }).fail();
             } else{
                 notif('2','Complete los datos con * !')
             }
@@ -183,6 +199,7 @@ function createUser2() {
                 'telfRef':$('#telfRef').val(),
                 'zona':$('#zona').val(),
                 'domicilio':$('#domicilio').val(),
+                'email':$('#email').val(),
         /*datos2*/
                 'fechaContratacion':$('#fechaContratacion').val(),
                 'tituloOb':$('#tituloOb').val(),
@@ -190,7 +207,7 @@ function createUser2() {
                 'areaDesignada':$('#areaDesignada').val(),
                 'cargo':$('#cargo').val(),
                 'contrato':$('#contrato').val(),
-                'accesoSistema':"SyN",
+                'accesoSistema':"1",
                 'seguroNombreInstitucion':$('#seguroNombreInstitucion').val(),
                 'numNua':$('#numNua').val(),
                 'numCNS':$('#numCNS').val()

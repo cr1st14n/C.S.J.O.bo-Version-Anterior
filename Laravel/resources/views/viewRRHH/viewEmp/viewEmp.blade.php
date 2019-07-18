@@ -158,6 +158,12 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
+                            <label class="control-label">Correo electronico</label>
+                            <div>
+                                <input class="form-control" type="email" id="email" placeholder="nombre@gmail.com" required onkeyup="validar('email')">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label">Estado Civil</label>
                             <div>
                                 <select class="form-control" name="" id="estadoCivil" required>
@@ -171,7 +177,7 @@
                             <label class="control-label">Telf / Cel</label>
                             <div>
                                 <div class="input-icon"> <i class="fa fa-map-marker ico"></i>
-                                    <input class="form-control " type="text" pattern="[0-9]+" id="telf" required onkeyup="validar('telf')">
+                                    <input class="form-control " type="text" pattern="[0-9]+" id="telf"  maxlength="10"  required onkeyup="validar('telf')">
                                 </div>
                             </div>
                         </div>
@@ -179,7 +185,7 @@
                             <label class="control-label">Telf / Cel Referencia</label>
                             <div>
                                 <div class="input-icon"> <i class="fa fa-user ico"></i>
-                                    <input class="form-control " type="text" id="telfRef" pattern="[0-9]+" onkeyup="validar('telfRef')">
+                                    <input class="form-control " type="text" id="telfRef" pattern="[0-9]+" maxlength="10" onkeyup="validar('telfRef')">
                                 </div>
                             </div>
                         </div>

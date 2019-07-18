@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ccd62d48-afed-41e6-ba05-00c6ceb20331" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Laravel/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asincrono/recHumEmp.js" beforeDir="false" afterPath="$PROJECT_DIR$/asincrono/recHumEmp.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +21,7 @@
     <favorites_list name="C.S.J.O.bo" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.56329787">
+    <splitter split-orientation="horizontal" split-proportion="0.53723407">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -50,8 +54,9 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="348">
-                  <caret line="221" column="101" selection-start-line="221" selection-start-column="84" selection-end-line="221" selection-end-column="101" />
+                <state relative-caret-position="631">
+                  <caret line="179" column="118" selection-start-line="179" selection-start-column="118" selection-end-line="179" selection-end-column="118" />
+                  <caret line="187" column="120" selection-start-line="187" selection-start-column="120" selection-end-line="187" selection-end-column="120" />
                 </state>
               </provider>
             </entry>
@@ -86,8 +91,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/asincrono/recHumEmp.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="113">
-                      <caret line="184" column="50" selection-start-line="184" selection-start-column="50" selection-end-line="184" selection-end-column="50" />
+                    <state relative-caret-position="172">
+                      <caret line="147" column="60" selection-start-line="147" selection-start-column="60" selection-end-line="147" selection-end-column="60" />
                       <folding>
                         <element signature="n#!!block;n#listTodosEmp#0" />
                         <element signature="n#!!block;n#showDatosEmp#0" />
@@ -151,11 +156,11 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/Laravel/routes/web.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="2714">
-                      <caret line="194" column="21" selection-start-line="194" selection-start-column="21" selection-end-line="194" selection-end-column="21" />
+                    <state relative-caret-position="248">
+                      <caret line="195" column="32" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="32" />
                       <folding>
                         <element signature="e#4515#7815#1#PHP" />
                         <element signature="e#7906#8863#1#PHP" />
@@ -164,11 +169,11 @@
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="245">
-                      <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+                    <state relative-caret-position="239">
+                      <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
                       <folding>
                         <element signature="e#40#68#0#PHP" expanded="true" />
                       </folding>
@@ -335,11 +340,11 @@
         <option value="$PROJECT_DIR$/Laravel/app/atencion.php" />
         <option value="$PROJECT_DIR$/Laravel/app/User.php" />
         <option value="$PROJECT_DIR$/asincrono/homeJs.js" />
-        <option value="$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php" />
-        <option value="$PROJECT_DIR$/Laravel/routes/web.php" />
-        <option value="$PROJECT_DIR$/asincrono/recHumEmp.js" />
         <option value="$PROJECT_DIR$/Laravel/app/Http/Controllers/UsersController.php" />
         <option value="$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php" />
+        <option value="$PROJECT_DIR$/Laravel/routes/web.php" />
+        <option value="$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php" />
+        <option value="$PROJECT_DIR$/asincrono/recHumEmp.js" />
       </list>
     </option>
   </component>
@@ -425,7 +430,7 @@
       <path value="$PROJECT_DIR$/Laravel/vendor/phar-io/version" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="287" />
     <option name="y" value="30" />
     <option name="width" value="983" />
@@ -692,12 +697,14 @@
       <workItem from="1562869830794" duration="10003000" />
       <workItem from="1563049747163" duration="822000" />
       <workItem from="1563153956979" duration="1487000" />
-      <workItem from="1563214066078" duration="822000" />
+      <workItem from="1563214066078" duration="2771000" />
+      <workItem from="1563254567939" duration="1977000" />
+      <workItem from="1563395375477" duration="4729000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389090000" />
+    <option name="totallyTimeSpent" value="397745000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -709,7 +716,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1936" height="1066" extended-state="7" />
+    <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" x="7" y="173" width="271" height="976" id="Project" order="0" sideWeight="0.49692622" type="SLIDING" weight="0.21329787" />
@@ -739,41 +746,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/asincrono/recHumEmp.js</url>
-          <line>153</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/asincrono/recHumEmp.js</url>
-          <line>177</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/asincrono/recHumEmp.js</url>
-          <line>178</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/asincrono/recHumEmp.js</url>
-          <line>180</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/asincrono/recHumEmp.js</url>
-          <line>186</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/asincrono/recHumEmp.js</url>
-          <line>187</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/asincrono/recHumEmp.js</url>
-          <line>188</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Laravel/routes/web.php</url>
           <line>194</line>
@@ -1049,13 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="221" column="101" selection-start-line="221" selection-start-column="84" selection-end-line="221" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/asincrono/homeJs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="759">
@@ -1098,37 +1063,6 @@
             <element signature="e#76#387#0" />
             <element signature="e#428#856#0" />
             <element signature="e#888#1714#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/asincrono/recHumEmp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="184" column="50" selection-start-line="184" selection-start-column="50" selection-end-line="184" selection-end-column="50" />
-          <folding>
-            <element signature="n#!!block;n#listTodosEmp#0" />
-            <element signature="n#!!block;n#showDatosEmp#0" />
-            <element signature="n#!!block;n#showDatos#0" />
-            <element signature="n#!!block;n#showEditDat1User#0" />
-            <element signature="n#!!block;n#showEditDat2User#0" />
-            <element signature="n#!!block;n#showDocUser#0" />
-            <element signature="n#!!block;n#showUserVacaciones#0" />
-            <element signature="n#!!block;n#showUserFalPerm#0" />
-            <element signature="n#!!block;n#listFaltas#0" />
-            <element signature="n#!!block;n#listPermisos#0" />
-            <element signature="n#!!block;n#listCambioTurno#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Laravel/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2714">
-          <caret line="194" column="21" selection-start-line="194" selection-start-column="21" selection-end-line="194" selection-end-column="21" />
-          <folding>
-            <element signature="e#4515#7815#1#PHP" />
-            <element signature="e#7906#8863#1#PHP" />
           </folding>
         </state>
       </provider>
@@ -1206,10 +1140,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+        <state relative-caret-position="239">
+          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="179" column="118" selection-start-line="179" selection-start-column="118" selection-end-line="179" selection-end-column="118" />
+          <caret line="187" column="120" selection-start-line="187" selection-start-column="120" selection-end-line="187" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Laravel/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="195" column="32" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="32" />
+          <folding>
+            <element signature="e#4515#7815#1#PHP" />
+            <element signature="e#7906#8863#1#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asincrono/recHumEmp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="147" column="60" selection-start-line="147" selection-start-column="60" selection-end-line="147" selection-end-column="60" />
+          <folding>
+            <element signature="n#!!block;n#listTodosEmp#0" />
+            <element signature="n#!!block;n#showDatosEmp#0" />
+            <element signature="n#!!block;n#showDatos#0" />
+            <element signature="n#!!block;n#showEditDat1User#0" />
+            <element signature="n#!!block;n#showEditDat2User#0" />
+            <element signature="n#!!block;n#showDocUser#0" />
+            <element signature="n#!!block;n#showUserVacaciones#0" />
+            <element signature="n#!!block;n#showUserFalPerm#0" />
+            <element signature="n#!!block;n#listFaltas#0" />
+            <element signature="n#!!block;n#listPermisos#0" />
+            <element signature="n#!!block;n#listCambioTurno#0" />
           </folding>
         </state>
       </provider>

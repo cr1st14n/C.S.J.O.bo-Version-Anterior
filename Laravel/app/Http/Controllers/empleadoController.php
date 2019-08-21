@@ -11,7 +11,7 @@ class empleadoController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('auth');
+       $this->middleware('auth');
     }
     function index(){
         return view('viewRRHH.viewEmp.viewEmp');
@@ -62,6 +62,7 @@ class empleadoController extends Controller
         $newUser->usu_sexo=$request->input('sexo');
         $newUser->usu_telf=$request->input('telf');
         $newUser->usu_telfref=$request->input('telfRef');
+        $newUser->usu_zonaSufragio=$request->input('zonaSufragio');
         $newUser->usu_zona=$request->input('zona');
         $newUser->usu_domicilio=$request->input('domicilio');
         $newUser->usu_fechnac=$request->input('fechaNacimiento');

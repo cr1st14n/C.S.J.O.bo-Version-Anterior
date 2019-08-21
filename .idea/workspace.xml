@@ -4,8 +4,8 @@
     <list default="true" id="ccd62d48-afed-41e6-ba05-00c6ceb20331" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laravel/app/area.php" beforeDir="false" afterPath="$PROJECT_DIR$/Laravel/app/area.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Laravel/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asincrono/recHumEmp.js" beforeDir="false" afterPath="$PROJECT_DIR$/asincrono/recHumEmp.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,13 +21,13 @@
     <favorites_list name="C.S.J.O.bo" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.53723407">
+    <splitter split-orientation="horizontal" split-proportion="0.5755319">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Laravel/resources/views/layouts/admLay1.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="23">
+                <state>
                   <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
                 </state>
               </provider>
@@ -36,7 +36,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Laravel/resources/views/layouts/recHumLay.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="92">
+                <state>
                   <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
                 </state>
               </provider>
@@ -45,7 +45,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/homeRH.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="828">
+                <state>
                   <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
                 </state>
               </provider>
@@ -54,9 +54,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="631">
-                  <caret line="179" column="118" selection-start-line="179" selection-start-column="118" selection-end-line="179" selection-end-column="118" />
-                  <caret line="187" column="120" selection-start-line="187" selection-start-column="120" selection-end-line="187" selection-end-column="120" />
+                <state relative-caret-position="290">
+                  <caret line="114" column="30" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
                 </state>
               </provider>
             </entry>
@@ -64,7 +63,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewAreas/homeAreas.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3611">
+                <state>
                   <caret line="157" column="74" selection-start-line="157" selection-start-column="74" selection-end-line="157" selection-end-column="74" />
                 </state>
               </provider>
@@ -79,7 +78,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/asincrono/homeJs.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="759">
+                    <state>
                       <caret line="39" selection-start-line="39" selection-end-line="39" />
                       <folding>
                         <element signature="n#!!block;n#veriNull#0" />
@@ -88,11 +87,11 @@
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/asincrono/recHumEmp.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="172">
-                      <caret line="147" column="60" selection-start-line="147" selection-start-column="60" selection-end-line="147" selection-end-column="60" />
+                    <state relative-caret-position="134">
+                      <caret line="220" column="38" selection-start-line="220" selection-start-column="38" selection-end-line="220" selection-end-column="38" />
                       <folding>
                         <element signature="n#!!block;n#listTodosEmp#0" />
                         <element signature="n#!!block;n#showDatosEmp#0" />
@@ -105,16 +104,17 @@
                         <element signature="n#!!block;n#listFaltas#0" />
                         <element signature="n#!!block;n#listPermisos#0" />
                         <element signature="n#!!block;n#listCambioTurno#0" />
+                        <element signature="n#!!block;n#createUser2#0" />
                       </folding>
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/asincrono/recHumAreas.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="184">
-                      <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+                    <state relative-caret-position="92">
+                      <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
                     </state>
                   </provider>
                 </entry>
@@ -122,7 +122,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/asincrono/pacientes.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="736">
+                    <state>
                       <caret line="59" column="41" selection-start-line="56" selection-start-column="8" selection-end-line="59" selection-end-column="41" />
                       <folding>
                         <element signature="n#!!doc" expanded="true" />
@@ -141,7 +141,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/asincrono/recHum.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="92">
+                    <state>
                       <caret line="55" selection-start-line="55" selection-end-line="55" />
                       <folding>
                         <element signature="e#76#387#0" />
@@ -156,10 +156,10 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/Laravel/routes/web.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="248">
+                    <state>
                       <caret line="195" column="32" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="32" />
                       <folding>
                         <element signature="e#4515#7815#1#PHP" />
@@ -169,10 +169,10 @@
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="239">
+                    <state relative-caret-position="136">
                       <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
                       <folding>
                         <element signature="e#40#68#0#PHP" expanded="true" />
@@ -184,7 +184,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/RecHumanController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="552">
+                    <state>
                       <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
                       <folding>
                         <element signature="e#40#57#0#PHP" expanded="true" />
@@ -196,7 +196,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/AtencionController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="690">
+                    <state>
                       <caret line="91" column="44" selection-start-line="91" selection-start-column="44" selection-end-line="91" selection-end-column="44" />
                       <folding>
                         <element signature="e#40#59#0#PHP" expanded="true" />
@@ -222,7 +222,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/Laravel/app/User.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="506">
+                    <state>
                       <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
                       <folding>
                         <element signature="e#23#63#0#PHP" expanded="true" />
@@ -234,7 +234,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/UsersController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1173">
+                    <state>
                       <caret line="58" column="75" selection-start-line="45" selection-start-column="12" selection-end-line="58" selection-end-column="75" />
                       <folding>
                         <element signature="e#40#53#0#PHP" expanded="true" />
@@ -246,7 +246,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/Laravel/app/atencion.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="598">
+                    <state>
                       <caret line="26" selection-start-line="26" selection-end-line="26" />
                     </state>
                   </provider>
@@ -255,7 +255,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/AtencionController1.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="345">
+                    <state>
                       <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
                       <folding>
                         <element signature="e#40#68#0#PHP" expanded="true" />
@@ -294,6 +294,8 @@
       <find>join</find>
       <find>console</find>
       <find>val</find>
+      <find>hide</find>
+      <find>modal</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -431,7 +433,7 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="287" />
+    <option name="x" value="286" />
     <option name="y" value="30" />
     <option name="width" value="983" />
     <option name="height" value="530" />
@@ -500,70 +502,13 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="C.S.J.O.bo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C.S.J.O.bo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C.S.J.O.bo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C.S.J.O.bo" type="462c0819:PsiDirectoryNode" />
-              <item name="asincrono" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C.S.J.O.bo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C.S.J.O.bo" type="462c0819:PsiDirectoryNode" />
-              <item name="Laravel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C.S.J.O.bo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C.S.J.O.bo" type="462c0819:PsiDirectoryNode" />
-              <item name="Laravel" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C.S.J.O.bo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C.S.J.O.bo" type="462c0819:PsiDirectoryNode" />
-              <item name="Laravel" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C.S.J.O.bo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C.S.J.O.bo" type="462c0819:PsiDirectoryNode" />
-              <item name="Laravel" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C.S.J.O.bo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C.S.J.O.bo" type="462c0819:PsiDirectoryNode" />
-              <item name="Laravel" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C.S.J.O.bo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C.S.J.O.bo" type="462c0819:PsiDirectoryNode" />
-              <item name="Laravel" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -699,12 +644,16 @@
       <workItem from="1563153956979" duration="1487000" />
       <workItem from="1563214066078" duration="2771000" />
       <workItem from="1563254567939" duration="1977000" />
-      <workItem from="1563395375477" duration="4729000" />
+      <workItem from="1563395375477" duration="5924000" />
+      <workItem from="1563468756401" duration="614000" />
+      <workItem from="1563573700841" duration="4966000" />
+      <workItem from="1563761569138" duration="248000" />
+      <workItem from="1563856519590" duration="803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="397745000" />
+    <option name="totallyTimeSpent" value="405571000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -717,7 +666,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" x="7" y="173" width="271" height="976" id="Project" order="0" sideWeight="0.49692622" type="SLIDING" weight="0.21329787" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -742,17 +690,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/Laravel/routes/web.php</url>
-          <line>194</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRecepcion/FormEditAtencion.blade.php">
@@ -995,35 +932,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/resources/views/layouts/admLay1.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
+        <state>
           <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/resources/views/layouts/recHumLay.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
+        <state>
           <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/homeRH.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
+        <state>
           <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewAreas/homeAreas.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3611">
+        <state>
           <caret line="157" column="74" selection-start-line="157" selection-start-column="74" selection-end-line="157" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="114" column="30" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/asincrono/homeJs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
+        <state>
           <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="n#!!block;n#veriNull#0" />
@@ -1031,16 +975,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/asincrono/recHumAreas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/asincrono/pacientes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
+        <state>
           <caret line="59" column="41" selection-start-line="56" selection-start-column="8" selection-end-line="59" selection-end-column="41" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1057,7 +994,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/asincrono/recHum.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
+        <state>
           <caret line="55" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="e#76#387#0" />
@@ -1067,9 +1004,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/asincrono/recHumEmp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="220" column="38" selection-start-line="220" selection-start-column="38" selection-end-line="220" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!block;n#listTodosEmp#0" />
+            <element signature="n#!!block;n#showDatosEmp#0" />
+            <element signature="n#!!block;n#showDatos#0" />
+            <element signature="n#!!block;n#showEditDat1User#0" />
+            <element signature="n#!!block;n#showEditDat2User#0" />
+            <element signature="n#!!block;n#showDocUser#0" />
+            <element signature="n#!!block;n#showUserVacaciones#0" />
+            <element signature="n#!!block;n#showUserFalPerm#0" />
+            <element signature="n#!!block;n#listFaltas#0" />
+            <element signature="n#!!block;n#listPermisos#0" />
+            <element signature="n#!!block;n#listCambioTurno#0" />
+            <element signature="n#!!block;n#createUser2#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Laravel/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="195" column="32" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="32" />
+          <folding>
+            <element signature="e#4515#7815#1#PHP" />
+            <element signature="e#7906#8863#1#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/RecHumanController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
+        <state>
           <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
@@ -1079,7 +1048,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/AtencionController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
+        <state>
           <caret line="91" column="44" selection-start-line="91" selection-start-column="44" selection-end-line="91" selection-end-column="44" />
           <folding>
             <element signature="e#40#59#0#PHP" expanded="true" />
@@ -1103,7 +1072,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
+        <state>
           <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
           <folding>
             <element signature="e#23#63#0#PHP" expanded="true" />
@@ -1113,7 +1082,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
+        <state>
           <caret line="58" column="75" selection-start-line="45" selection-start-column="12" selection-end-line="58" selection-end-column="75" />
           <folding>
             <element signature="e#40#53#0#PHP" expanded="true" />
@@ -1123,14 +1092,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/app/atencion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
+        <state>
           <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/AtencionController1.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state>
           <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
@@ -1140,7 +1109,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Laravel/app/Http/Controllers/empleadoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="136">
           <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
@@ -1148,42 +1117,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Laravel/resources/views/viewRRHH/viewEmp/viewEmp.blade.php">
+    <entry file="file://$PROJECT_DIR$/asincrono/recHumAreas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="179" column="118" selection-start-line="179" selection-start-column="118" selection-end-line="179" selection-end-column="118" />
-          <caret line="187" column="120" selection-start-line="187" selection-start-column="120" selection-end-line="187" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Laravel/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="195" column="32" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="32" />
-          <folding>
-            <element signature="e#4515#7815#1#PHP" />
-            <element signature="e#7906#8863#1#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/asincrono/recHumEmp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="147" column="60" selection-start-line="147" selection-start-column="60" selection-end-line="147" selection-end-column="60" />
-          <folding>
-            <element signature="n#!!block;n#listTodosEmp#0" />
-            <element signature="n#!!block;n#showDatosEmp#0" />
-            <element signature="n#!!block;n#showDatos#0" />
-            <element signature="n#!!block;n#showEditDat1User#0" />
-            <element signature="n#!!block;n#showEditDat2User#0" />
-            <element signature="n#!!block;n#showDocUser#0" />
-            <element signature="n#!!block;n#showUserVacaciones#0" />
-            <element signature="n#!!block;n#showUserFalPerm#0" />
-            <element signature="n#!!block;n#listFaltas#0" />
-            <element signature="n#!!block;n#listPermisos#0" />
-            <element signature="n#!!block;n#listCambioTurno#0" />
-          </folding>
+        <state relative-caret-position="92">
+          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
         </state>
       </provider>
     </entry>

@@ -1,4 +1,4 @@
-@extends('layouts.admLay1')
+@extends('layouts.admLay2')
 @section('refUbi')
 <ol class="breadcrumb">
 	<li><a href="#">Administracion</a></li>
@@ -8,12 +8,53 @@
 @endsection
 @section('content')
 <div class="col-lg-12">
-            <section class="panel">
-                    <header class="panel-heading  align-lg-center">
-                            <h2><strong>C.S.J.O.</strong>Bienvenido  Administracion</h2>
-                    </header>
-            </section>
+    <section class="panel">
+            <header class="panel-heading  align-lg-center">
+                    <h2><strong>C.S.J.O.</strong>Bienvenido  Administracion</h2>
+            </header>
+    </section>
+</div>
+<div class="row pricing">
+        <div class="col-lg-3 col-md-3 col-xs-6">
+                <ul class="plan corner-flip flip-gray">
+                        <li class="plan-name"> Recepcion </li>
+                        <li class="plan-price"> 99874<span>Pancientes registrados</span> </li>
+                        <li> <strong>--</strong> -- </li>
+                        <li> <strong>--</strong> -- </li>
+                        <li> <strong>--</strong> -- </li>
+                        <li> <strong>--</strong> -- </li>
+                        <li> <strong>--</strong> -- </li>
+                        <li class="plan-action"> <a href="{{route('home-admRecep')}}" class="btn btn-theme-inverse">Ingresar</a> </li>
+                </ul>
         </div>
+        <div class="col-lg-3 col-md-3 col-xs-6">
+                <ul class="plan featured corner-flip flip-gray">
+                        <li class="plan-name"> Caja </li>
+                        <li class="plan-price"> 14500<span>pagos</span> </li>
+                        <li> <strong>// </strong> -- </li>
+                        <li> <strong>// </strong> -- </li>
+                        <li> <strong>// </strong> -- </li>
+                        <li> <strong>// </strong> -- </li>
+                        <li> <strong>// </strong> -- </li>
+                        <li class="plan-action"> <a href="{{route('home-admRecep')}}" class="btn btn-theme-inverse">Ingresar</a> </li>
+                </ul>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-6">
+                <ul class="plan corner-flip flip-gray">
+                        <li class="plan-name"> RRHH </li>
+                        <li class="plan-price"> 50 <span>Usuarios registrados</span> </li>
+                        <li> <strong>// </strong> -- </li>
+                        <li> <strong>// </strong> -- </li>
+                        <li> <strong>// </strong> -- </li>
+                        <li> <strong>// </strong> -- </li>
+                        <li> <strong>// </strong> -- </li>
+                        <li class="plan-action"> <a href="{{route('rrhh_home')}}" class="btn  btn-theme-inverse">Ingresar</a> </li>
+                </ul>
+        </div>
+        
+        <div class="clearfix"></div>
+
+</div>
 
 @endsection
 

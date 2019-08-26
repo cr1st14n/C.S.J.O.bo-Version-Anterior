@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="panel corner-flip">
+                <section hidden class="panel corner-flip">
                     <header class="panel-heading no-borders">
                         <h2><strong>LINE</strong> Chart </h2>
                         <label class="color">Plugin <strong> Morris chart</strong></label>
@@ -56,7 +56,7 @@
                 </section>
 
 
-                <section class="panel corner-flip">
+                <section hidden class="panel corner-flip">
                     <header class="panel-heading no-borders">
                         <h2><strong>Area</strong> Chart </h2>
                         <label class="color">Plugin <strong>Morris chart</strong></label>
@@ -67,7 +67,7 @@
                 </section>
 
 
-                <section class="panel corner-flip">
+                <section hidden class="panel corner-flip">
                     <header class="panel-heading no-borders">
                         <h2><strong>Bar</strong> Chart </h2>
                         <label class="color">Plugin <strong> Morris</strong></label>

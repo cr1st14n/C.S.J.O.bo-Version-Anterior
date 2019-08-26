@@ -106,7 +106,11 @@ Route::group(['middleware' => ['administracion'],'prefix' =>'/adm'],function(){
 		Route::any('reporteDiario_Imprimir','cajaController@reporteDiario')->name('reporteDiario_adm');
 		Route::any('reporteMensual','cajaController@reporteMensual')->name('reporteMensual_adm');
 	});
-
+	Route::group(['prefix'=> '/admRecepHome'],function(){
+		Route::get('/','admRecepController@index')->name('home-admRecep');
+		Route::any('reporteDiario_Imprimir','cajaController@reporteDiario');
+		Route::any('reporteMensual','cajaController@reporteMensual');
+	});
 });
 
 //--------------RECEPCION---------//

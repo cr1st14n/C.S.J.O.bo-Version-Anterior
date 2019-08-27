@@ -9,7 +9,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-4">
-        <div class="well bg-info">
+        <div class="well bg-inverse">
             <div class="widget-tile">
                 <section>
                     <h5><strong>Clientes </strong> Registrados </h5>
@@ -19,7 +19,10 @@
                     </div>
                 </section>
                 <div class="hold-icon"><i class="fa fa-bar-chart-o"></i></div>
-                <button class="btn btn-block btn-inverse " data-toggle="modal" data-target="#md-full-width"> Listar pacientes registrados </button>
+                <div class=" ">
+                    <button class="btn btn-transparent btn-theme-inverse " data-toggle="modal" data-target="#md-informePacientes"><i class="glyphicon glyphicon-signal"></i></button>
+                    <button class="btn btn-transparent btn-theme-inverse " data-toggle="modal" data-target="#md-full-width"><i class="fa fa-search"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -27,35 +30,20 @@
         <div class="well bg-inverse">
             <div class="widget-tile">
                 <section>
-                    <h5><strong>Pacientes </strong> citas medicas </h5>
+                    <h5><strong>citas </strong>medicas </h5>
                     <h2>478</h2>
                     <div class="progress progress-xs progress-white progress-over-tile">
                         <div class="progress-bar  progress-bar-white" aria-valuetransitiongoal="478" aria-valuemax="1000"></div>
                     </div>
-                    <button class="btn btn-block btn-inverse " data-toggle="modal" data-target="#md-full-width"> Listar citas pagadas </button>
+                    <button class="btn btn-transparent btn-theme-inverse " data-toggle="modal" data-target="#md-infoCaja"><i class="glyphicon glyphicon-signal"></i></button>
                 </section>
                 <div class="hold-icon"><i class="fa fa-shopping-cart"></i></div>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="well bg-theme">
-            <div class="widget-tile">
-                <section>
-                    <h5><strong>Pacientes</strong> que no pagaron </h5>
-                    <h2>84</h2>
-                    <div class="progress progress-xs progress-white progress-over-tile">
-                        <div class="progress-bar  progress-bar-white" aria-valuetransitiongoal="97584" aria-valuemax="300000"></div>
-                    </div>
-                    <button class="btn btn-block btn-inverse "> Listar citas pendientes </button>
-                </section>
-                <div class="hold-icon"><i class="fa fa-laptop"></i></div>
-            </div>
-        </div>
-    </div>
+
 </div>
 <div class="row">
-
     <div class="col-lg-8">
         <section class="panel corner-flip">
             <div class="widget-chart bg-lightseagreen bg-gradient-green">
@@ -163,13 +151,81 @@
         </section>
     </div>
 </div>
-<div id="md-normal" class="modal fade">
+
+
+//? Modal para filtrar
+<div id="md-informePacientes" class="modal fade">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title">Modals normal</h4>
+        <h4 class="modal-title">Informe de registro de pacientes</h4>
     </div>
     <!-- //modal-header-->
     <div class="modal-body">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-7">
+                    <h3><strong>Porcentaje </strong>registro</h3>
+                    <br>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-purple" aria-valuetransitiongoal="45"></div>
+                    </div>
+                    <label class="progress-label">Hombre 45% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-danger" aria-valuetransitiongoal="62"></div>
+                    </div>
+                    <label class="progress-label">Mujeres 62% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-shine progress-sm">
+                        <div class="progress-bar bg-inverse" aria-valuetransitiongoal="57"></div>
+                    </div>
+                    <label class="progress-label">Edad entre 0-25 años 57% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-theme-inverse" aria-valuetransitiongoal="33"></div>
+                    </div>
+                    <label class="progress-label">Edad entre 26-50 33% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
+                    </div>
+                    <label class="progress-label">Edad entre 51-adelante 24% </label>
+                    <!-- //progress-->
+                    <h4>Filtrar por rango de fechas</h4>
+                    <div class="align-lg-center ">
+                        <input class="form-control" type="date" name="" id="">a
+                        <input class="form-control" type="date" name="" id="">
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <h3><strong>Total</strong> pacientes </h3>
+                    <br>
+                    <ol class="rectangle-list">
+                        <li><a href="#">Hombres <span class="pull-right">17,485</span></a></li>
+                        <li><a href="#">Mujeres <span class="pull-right">11,452</span></a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //modal-body-->
+</div>
+
+<div id="md-full-width" class="modal fade container">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title">Pacientes registrados</h4>
+    </div>
+    <!-- //modal-header-->
+    <div class="modal-body">
+        
+        <div class="col-lg-3">
+            <input type="text" class="form-control" placeholder="CI / HCL">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" placeholder="Nombre apellico">
+        </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -209,20 +265,131 @@
     </div>
     <!-- //modal-body-->
 </div>
-<!-- //modal-->
 
-<!--
-		/////////////////////////////////////////////////////////////////////
-		//////////     MODAL FULL WIDTH    //////////
-		//////////////////////////////////////////////////////////////////
-		-->
-<div id="md-full-width" class="modal fade container">
+<div id="md-infoCaja" class="modal fade">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title">Modals full width</h4>
+        <h4 class="modal-title">Informe de caja</h4>
     </div>
     <!-- //modal-header-->
     <div class="modal-body">
+        <div class="panel-body">
+            <div class="row">
+            <h4>Filtrar por rango de fechas</h4>
+                    <div class="align-lg-center ">
+                        <input class="form-control" type="date" name="" id="">a
+                        <input class="form-control" type="date" name="" id="">
+                    </div>
+                <div class="col-md-6">
+                    <h3><strong>Porcentaje </strong>%</h3>
+                    <br>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-purple" aria-valuetransitiongoal="45"></div>
+                    </div>
+                    <label class="progress-label">Emfermeria 45% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-danger" aria-valuetransitiongoal="62"></div>
+                    </div>
+                    <label class="progress-label">pediatria 62% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-shine progress-sm">
+                        <div class="progress-bar bg-inverse" aria-valuetransitiongoal="57"></div>
+                    </div>
+                    <label class="progress-label">Odontologia 57% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-theme-inverse" aria-valuetransitiongoal="33"></div>
+                    </div>
+                    <label class="progress-label">------- 33% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
+                    </div>
+                    <label class="progress-label">------ 24% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
+                    </div>
+                    <label class="progress-label">------ 24% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
+                    </div>
+                    <label class="progress-label">------ 24% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
+                    </div>
+                    <label class="progress-label">------ 24% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
+                    </div>
+                    <label class="progress-label">------ 24% </label>
+                    <!-- //progress-->
+                    <div class="progress progress-sm">
+                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
+                    </div>
+                    <label class="progress-label">------ 24% </label>
+                    <!-- //progress-->
+                </div>
+
+                <div class="col-md-6">
+                    <h3><strong>Total</strong>.-  </h3>
+                    <br>
+                    <ol class="rectangle-list">
+                        <li><a href="#"> ******<span class="pull-right">17,485</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //modal-body-->
+</div>
+<div id="md-full-width" class="modal fade container">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title">Pacientes registrados</h4>
+    </div>
+    <!-- //modal-header-->
+    <div class="modal-body">
+        <div class="col-lg-2">
+            <button class="btn  btn-primary">Filtrar</button>
+        </div>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" placeholder="CI / HCL">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" placeholder="Nombre apellico">
+        </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>

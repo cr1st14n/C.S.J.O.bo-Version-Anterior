@@ -189,8 +189,10 @@ Route::group(['middleware'=>['caja'], 'prefix'=>'/caja'],function(){
 //---------------RRHH------//
 Route::group([/*'middleware'=>['caja'],*/ 'prefix'=>'/RRHH'],function(){
     Route::get('/home','RecHumanController@index')->name('rrhh_home');
-    Route::get('/1','RecHumanController@create');
-
+	Route::get('/1','RecHumanController@create');
+	Route::group(['prefix'=>'tablero'],function(){
+		Route::get('/','rhTableroController@index')->name('rrhh_tablero');
+	});
     Route::group(['prefix'=>'personal'],function(){
         Route::get('/','empleadoController@index')->name('empleado_home');
         Route::get('showEmpTodos','empleadoController@showEmpTodos');

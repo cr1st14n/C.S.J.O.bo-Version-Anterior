@@ -14,7 +14,7 @@
 						<div class="tab-content">
 								<div class="row">
 								
-										<div class="col-lg-12" >
+										<div class="col-lg-8" >
 												<div id="calendar"></div>
 										</div>
 										<!-- //content > row > col-lg-8 -->

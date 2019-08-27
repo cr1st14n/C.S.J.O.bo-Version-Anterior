@@ -48,7 +48,7 @@
                         <li> <strong>// </strong> -- </li>
                         <li> <strong>// </strong> -- </li>
                         <li> <strong>// </strong> -- </li>
-                        <li class="plan-action"> <a href="{{route('rrhh_home')}}" class="btn  btn-theme-inverse">Ingresar</a> </li>
+                        <li class="plan-action"> <a href="{{route('rrhh_tablero')}}" class="btn  btn-theme-inverse">Ingresar</a> </li>
                 </ul>
         </div>
         

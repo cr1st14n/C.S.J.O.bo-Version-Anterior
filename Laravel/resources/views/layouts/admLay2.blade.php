@@ -86,9 +86,8 @@
 		<!-- //main-->
 		<nav id="menu"  data-search="close">
 			<ul>
-				<li><a href="{{route('rrhh_home')}}"><i class="icon  fa fa-user "></i> Recursos Humanos</a></li>
+				<li><a href="{{route('rrhh_tablero')}}"><i class="icon  fa fa-user "></i> Recursos Humanos</a></li>
 				<li><a href="{{route('rrhh_home')}}"><i class="icon  fa fa-plus-square"></i> Recepcion</a></li>
-				<li><a href="{{route('rrhh_home')}}"><i class="icon  fa fa-list-alt"></i> Caja</a></li>
 			</ul>
 		</nav>
 	

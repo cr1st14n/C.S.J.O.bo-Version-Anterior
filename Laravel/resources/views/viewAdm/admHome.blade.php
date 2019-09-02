@@ -27,18 +27,7 @@
                         <li class="plan-action"> <a href="{{route('home-admRecep')}}" class="btn btn-theme-inverse">Ingresar</a> </li>
                 </ul>
         </div>
-        <div class="col-lg-3 col-md-3 col-xs-6">
-                <ul class="plan featured corner-flip flip-gray">
-                        <li class="plan-name"> Caja </li>
-                        <li class="plan-price"> 14500<span>pagos</span> </li>
-                        <li> <strong>// </strong> -- </li>
-                        <li> <strong>// </strong> -- </li>
-                        <li> <strong>// </strong> -- </li>
-                        <li> <strong>// </strong> -- </li>
-                        <li> <strong>// </strong> -- </li>
-                        <li class="plan-action"> <a href="{{route('home-admRecep')}}" class="btn btn-theme-inverse">Ingresar</a> </li>
-                </ul>
-        </div>
+        
         <div class="col-lg-3 col-md-3 col-xs-6">
                 <ul class="plan corner-flip flip-gray">
                         <li class="plan-name"> RRHH </li>

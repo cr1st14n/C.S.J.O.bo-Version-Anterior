@@ -108,8 +108,7 @@ Route::group(['middleware' => ['administracion'],'prefix' =>'/adm'],function(){
 	});
 	Route::group(['prefix'=> '/admRecepHome'],function(){
 		Route::get('/','admRecepController@index')->name('home-admRecep');
-		Route::any('reporteDiario_Imprimir','cajaController@reporteDiario');
-		Route::any('reporteMensual','cajaController@reporteMensual');
+		Route::get('1','admRecepController@uno');
 	});
 });
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\pacientes;
 
 class admRecepController extends Controller
 {
@@ -16,69 +17,56 @@ class admRecepController extends Controller
         return view('viewAdm.admRecepHome');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
+    }
+    
+    public function uno(){
+        $total=pacientes::count();
+        $paHombre=pacientes::where('pa_sexo','M')->count();
+        $paMujer=pacientes::where('pa_sexo','F')->count();
+        $sinSexo=pacientes::count()-$paMujer-$paHombre;
+
+        $paH=round (floatval(($paHombre*100)/$total),2);
+        $paM=round (floatval(($paMujer*100)/$total),2);
+        $paS=round (floatval(($sinSexo*100)/$total),2);
+
+
+        $array=['Total'=>$total,
+                'TotalHombre'=>$paHombre,
+                'TotalMujer'=>$paMujer,    
+                'TotalSinSexo'=>$sinSexo,
+                'porcentajeHombre'=>$paH,   
+                'porcentajeMujer'=>$paM,
+                'porcentajeSinSexo'=>$paS];
+        $array1=['1'=>$array,'2'=>$array];
+        return $array;
+
     }
 }

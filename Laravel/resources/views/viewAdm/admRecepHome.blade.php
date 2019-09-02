@@ -58,51 +58,51 @@
                     <tbody>
                         <tr>
                             <th>ENE</th>
-                            <td>1000</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>FEB</th>
-                            <td>1</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>MAR</th>
-                            <td>1015</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>ABR</th>
-                            <td>2500</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>MAY</th>
-                            <td>0</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>JUN</th>
-                            <td>15700</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>JUL</th>
-                            <td>2315</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>AGO</th>
-                            <td>200</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>SEP</th>
-                            <td>5605</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>OCT</th>
-                            <td>1900</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>NOV</th>
-                            <td>1900</td>
+                            <td>11</td>
                         </tr>
                         <tr>
                             <th>DIC</th>
-                            <td>1900</td>
+                            <td>11</td>
                         </tr>
                     </tbody>
                 </table>
@@ -163,7 +163,7 @@
     <div class="modal-body">
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-7" id="informe1">
                     <h3><strong>Porcentaje </strong>registro</h3>
                     <br>
                     <div class="progress progress-sm">
@@ -432,4 +432,5 @@
 @endsection
 
 @section('scripts')
+<script type="text/javascript" src="{{ asset('asincrono/admRecepHome.js') }}"></script>
 @endsection

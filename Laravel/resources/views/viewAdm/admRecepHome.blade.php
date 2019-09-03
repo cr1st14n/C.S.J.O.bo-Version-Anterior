@@ -1,4 +1,7 @@
 @extends('layouts.admLay2')
+@section('head')
+
+@endsection
 @section('refUbi')
 <ol class="breadcrumb">
     <li><a href="#">Administracion</a></li>
@@ -13,14 +16,14 @@
             <div class="widget-tile">
                 <section>
                     <h5><strong>Clientes </strong> Registrados </h5>
-                    <h2>8,590</h2>
+                    <h2>{{$total}}</h2>
                     <div class="progress progress-xs progress-white progress-over-tile">
                         <div class="progress-bar  progress-bar-white" aria-valuetransitiongoal="8590" aria-valuemax="10000"></div>
                     </div>
                 </section>
                 <div class="hold-icon"><i class="fa fa-bar-chart-o"></i></div>
                 <div class=" ">
-                    <button class="btn btn-transparent btn-theme-inverse " data-toggle="modal" data-target="#md-informePacientes"><i class="glyphicon glyphicon-signal"></i></button>
+                    <button class="btn btn-transparent btn-theme-inverse " data-toggle="modal" data-target="#md-informePacientes" onclick="informe1()"><i class="glyphicon glyphicon-signal"></i></button>
                     <button class="btn btn-transparent btn-theme-inverse " data-toggle="modal" data-target="#md-full-width"><i class="fa fa-search"></i></button>
                 </div>
             </div>
@@ -163,47 +166,45 @@
     <div class="modal-body">
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-7" id="informe1">
+                <div class="col-md-7">
                     <h3><strong>Porcentaje </strong>registro</h3>
                     <br>
                     <div class="progress progress-sm">
-                        <div class="progress-bar bg-purple" aria-valuetransitiongoal="45"></div>
+                        <div class="progress-bar bg-purple" aria-valuetransitiongoal={{$HomPor}}></div>
                     </div>
-                    <label class="progress-label">Hombre 45% </label>
+                    <label class="progress-label">Hombre {{$HomPor}}% </label>
                     <!-- //progress-->
                     <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" aria-valuetransitiongoal="62"></div>
+                        <div class="progress-bar bg-danger" aria-valuetransitiongoal={{$MujPor}}></div>
                     </div>
-                    <label class="progress-label">Mujeres 62% </label>
+                    <label class="progress-label">Mujeres {{$MujPor}}% </label>
                     <!-- //progress-->
                     <div class="progress progress-shine progress-sm">
-                        <div class="progress-bar bg-inverse" aria-valuetransitiongoal="57"></div>
+                        <div class="progress-bar bg-inverse" aria-valuetransitiongoal={{$edad1P}}></div>
                     </div>
-                    <label class="progress-label">Edad entre 0-25 años 57% </label>
+                    <label class="progress-label">Edad entre 0-25 años {{$edad1P}}%  {{$edad1}} pacientes</label>
                     <!-- //progress-->
                     <div class="progress progress-sm">
-                        <div class="progress-bar bg-theme-inverse" aria-valuetransitiongoal="33"></div>
+                        <div class="progress-bar bg-theme-inverse" aria-valuetransitiongoal={{$edad2P}}></div>
                     </div>
-                    <label class="progress-label">Edad entre 26-50 33% </label>
+                    <label class="progress-label">Edad entre 26-50 {{$edad2P}}% {{$edad2}} pacientes</label>
                     <!-- //progress-->
                     <div class="progress progress-sm">
-                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
+                        <div class="progress-bar bg-info" aria-valuetransitiongoal={{$edad3P}}></div>
                     </div>
-                    <label class="progress-label">Edad entre 51-adelante 24% </label>
+                    <label class="progress-label">Edad entre 51-adelante {{$edad3P}}% {{$edad3}} pacientes</label>
                     <!-- //progress-->
-                    <h4>Filtrar por rango de fechas</h4>
-                    <div class="align-lg-center ">
-                        <input class="form-control" type="date" name="" id="">a
-                        <input class="form-control" type="date" name="" id="">
-                    </div>
+                    
                 </div>
 
                 <div class="col-md-5">
                     <h3><strong>Total</strong> pacientes </h3>
                     <br>
                     <ol class="rectangle-list">
-                        <li><a href="#">Hombres <span class="pull-right">17,485</span></a></li>
-                        <li><a href="#">Mujeres <span class="pull-right">11,452</span></a></li>
+                        <li><a href="#">Total  <span class="pull-right">{{$total}}</span></a></li>
+                        <li><a href="#">Hombres <span class="pull-right">{{$HomTotal}}</span></a></li>
+                        <li><a href="#">Mujeres <span class="pull-right">{{$MujTotal}} </span></a></li>
+                        <li><a href="#">sin registro de genero <span class="pull-right">{{$sinSex}} </span></a></li>
                     </ol>
                 </div>
             </div>
@@ -219,7 +220,7 @@
     </div>
     <!-- //modal-header-->
     <div class="modal-body">
-        
+
         <div class="col-lg-3">
             <input type="text" class="form-control" placeholder="CI / HCL">
         </div>
@@ -275,11 +276,11 @@
     <div class="modal-body">
         <div class="panel-body">
             <div class="row">
-            <h4>Filtrar por rango de fechas</h4>
-                    <div class="align-lg-center ">
-                        <input class="form-control" type="date" name="" id="">a
-                        <input class="form-control" type="date" name="" id="">
-                    </div>
+                <h4>Filtrar por rango de fechas</h4>
+                <div class="align-lg-center ">
+                    <input class="form-control" type="date" name="" id="">a
+                    <input class="form-control" type="date" name="" id="">
+                </div>
                 <div class="col-md-6">
                     <h3><strong>Porcentaje </strong>%</h3>
                     <br>
@@ -336,7 +337,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <h3><strong>Total</strong>.-  </h3>
+                    <h3><strong>Total</strong>.- </h3>
                     <br>
                     <ol class="rectangle-list">
                         <li><a href="#"> ******<span class="pull-right">17,485</span></a></li>
@@ -433,4 +434,5 @@
 
 @section('scripts')
 <script type="text/javascript" src="{{ asset('asincrono/admRecepHome.js') }}"></script>
+
 @endsection

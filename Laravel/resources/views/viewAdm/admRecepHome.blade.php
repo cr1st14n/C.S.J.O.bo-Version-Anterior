@@ -166,46 +166,12 @@
     <div class="modal-body">
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-7">
-                    <h3><strong>Porcentaje </strong>registro</h3>
-                    <br>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-purple" aria-valuetransitiongoal={{$HomPor}}></div>
-                    </div>
-                    <label class="progress-label">Hombre {{$HomPor}}% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" aria-valuetransitiongoal={{$MujPor}}></div>
-                    </div>
-                    <label class="progress-label">Mujeres {{$MujPor}}% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-shine progress-sm">
-                        <div class="progress-bar bg-inverse" aria-valuetransitiongoal={{$edad1P}}></div>
-                    </div>
-                    <label class="progress-label">Edad entre 0-25 años {{$edad1P}}%  {{$edad1}} pacientes</label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-theme-inverse" aria-valuetransitiongoal={{$edad2P}}></div>
-                    </div>
-                    <label class="progress-label">Edad entre 26-50 {{$edad2P}}% {{$edad2}} pacientes</label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-info" aria-valuetransitiongoal={{$edad3P}}></div>
-                    </div>
-                    <label class="progress-label">Edad entre 51-adelante {{$edad3P}}% {{$edad3}} pacientes</label>
-                    <!-- //progress-->
-                    
+                <div class="col-md-7" id="porcentajeRegistro">
+
                 </div>
 
-                <div class="col-md-5">
-                    <h3><strong>Total</strong> pacientes </h3>
-                    <br>
-                    <ol class="rectangle-list">
-                        <li><a href="#">Total  <span class="pull-right">{{$total}}</span></a></li>
-                        <li><a href="#">Hombres <span class="pull-right">{{$HomTotal}}</span></a></li>
-                        <li><a href="#">Mujeres <span class="pull-right">{{$MujTotal}} </span></a></li>
-                        <li><a href="#">sin registro de genero <span class="pull-right">{{$sinSex}} </span></a></li>
-                    </ol>
+                <div class="col-md-5" id="totalRegistros">
+
                 </div>
             </div>
         </div>
@@ -381,15 +347,20 @@
         <h4 class="modal-title">Pacientes registrados</h4>
     </div>
     <!-- //modal-header-->
+
+
+
     <div class="modal-body">
-        <div class="col-lg-2">
-            <button class="btn  btn-primary">Filtrar</button>
-        </div>
-        <div class="col-lg-3">
-            <input type="text" class="form-control" placeholder="CI / HCL">
-        </div>
-        <div class="col-lg-3">
-            <input type="text" class="form-control" placeholder="Nombre apellico">
+        <div class="row">
+            <div class="col-sm-2">
+                <input type="text" class="form-control" placeholder="CI / HCL">
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" placeholder="Nombre apellico">
+            </div>
+            <div class="col-sm-4">
+                <button class="btn  btn-primary">Filtrar</button>
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table">

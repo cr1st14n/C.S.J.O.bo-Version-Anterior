@@ -94,6 +94,20 @@ class admRecepController extends Controller
         $paM=round (floatval(($paMujer*100)/$total),2);
         $paS=round (floatval(($sinSexo*100)/$total),2);
 
+        $año=Carbon::now()->format('Y');
+        $edad1=pacientes::whereYear('pa_fechnac','<',$año)->count();
+        $edad2=pacientes::whereYear('pa_fechnac','<',$año-25)->count();
+        $edad3=pacientes::whereYear('pa_fechnac','<',$año-50)->count();
+
+        $edad1=($edad2+$edad3)-$edad1;
+        $edad2=$edad2-$edad3;
+        $edad3=$edad3;
+        $edadTotal=$edad1+$edad2+$edad3;
+        
+        $edad1P=round (floatval($edad1*100/$edadTotal),2);
+        $edad2P=round (floatval($edad2*100/$edadTotal),2);
+        $edad3P=round (floatval($edad3*100/$edadTotal),2);
+
 
         $array=['Total'=>$total,
                 'TotalHombre'=>$paHombre,
@@ -101,8 +115,13 @@ class admRecepController extends Controller
                 'TotalSinSexo'=>$sinSexo,
                 'porcentajeHombre'=>$paH,   
                 'porcentajeMujer'=>$paM,
-                'porcentajeSinSexo'=>$paS];
-        $array1=['1'=>$array,'2'=>$array];
+                'porcentajeSinSexo'=>$paS,
+                'edad1'=>$edad1,
+                'edad2'=>$edad2,
+                'edad3'=>$edad3,
+                'edad1P'=>$edad1P,
+                'edad2P'=>$edad2P,
+                'edad3P'=>$edad3P];
         return $array;
 
     }

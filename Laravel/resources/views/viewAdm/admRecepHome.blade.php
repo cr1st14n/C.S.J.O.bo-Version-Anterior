@@ -188,7 +188,7 @@
     <div class="modal-body">
 
         <div class="col-lg-3">
-            <input type="text" class="form-control" placeholder="CI / HCL">
+            <input type="text" class="form-control" placeholder="CI / HCL" oninput="buscarCiHCL(this.value)">
         </div>
         <div class="col-lg-3">
             <input type="text" class="form-control" placeholder="Nombre apellico">
@@ -369,6 +369,7 @@
                         <th>#</th>
                         <th>Username</th>
                         <th>Email</th>
+                        
                         <th>Status</th>
                         <th>Manager</th>
                     </tr>

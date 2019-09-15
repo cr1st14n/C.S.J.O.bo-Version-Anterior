@@ -53,3 +53,7 @@ function informe1() {
     })
     .fail(function() {});
 }
+
+function buscarCiHCL(dato) { 
+    console.log(dato);
+ }

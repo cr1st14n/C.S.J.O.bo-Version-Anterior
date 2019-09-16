@@ -54,6 +54,58 @@ function informe1() {
     .fail(function() {});
 }
 
-function buscarCiHCL(dato) { 
-    console.log(dato);
+function buscarCiHCL(dato, tipo) { 
+    // console.log(dato,tipo);
+    console.log(dato.length);   
+    if(dato.length == 0){
+        
+        var hatmVacio= `<tr>
+                            Ingrese datos para buscar!
+                        </tr>`;
+            document.getElementById('listPacientes').innerHTML=hatmVacio;
+    }else{
+
+        var data={'dato':dato,'tipo':tipo}
+        $.get("admRecepHome/BuscHCL", data).done(function(data){
+            if (data== 'vacio') {
+                console.log('vacio');
+                var hatmVacio= `<tr>
+                                Informacion no encontrada!
+                                </tr>`;
+                document.getElementById('listPacientes').innerHTML=hatmVacio;
+            }else{
+                console.log(data);
+                listPacientes(data);
+            }
+    
+        }).fail(function(){
+    
+        });
+    }
+
  }
+
+ function listPacientes(data) {
+    var html=data.map(function (elem,index) {    
+        return(`<tr>
+                    <td>${elem.pa_hcl}</td>
+                    <td>${elem.pa_ci}</td>
+                    <td>${elem.pa_nombre}</td>
+                    <td>${elem.pa_appaterno} / ${elem.pa_apmaterno}</td>
+                    <td>
+                        <span class="tooltip-area">
+                        <button name="${elem.pa_id}" class="btn btn-default btn-sm" title="Atender"><i class="fa  fa-plus-square"></i></button>
+                        </span>
+                    </td>
+                    
+                </tr>`);
+    }).join(" ");
+    document.getElementById('listPacientes').innerHTML=html;
+
+}
+
+function cuadroEstadistico() {
+    console.log('hola');
+    var html = '1000';
+    document.getElementById('tablaEstadistica').innerText=html;
+  }

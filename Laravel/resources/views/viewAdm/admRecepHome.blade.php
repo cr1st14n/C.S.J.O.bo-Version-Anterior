@@ -49,7 +49,7 @@
 <div class="row">
     <div class="col-lg-8">
         <section class="panel corner-flip">
-            <div class="widget-chart bg-lightseagreen bg-gradient-green">
+            <div class="widget-chart bg-lightseagreen bg-gradient-green" onclick="cuadroEstadistico()" >
                 <h2>Estado anual registro de pacientes</h2>
                 <table class="flot-chart" data-type="lines" data-tick-color="rgba(255,255,255,0.2)" data-width="100%" data-height="220px">
                     <thead>
@@ -58,54 +58,54 @@
                             <th style="color : #FFF;">Test</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         <tr>
                             <th>ENE</th>
-                            <td>11</td>
+                            <td>{{$enero}}</td>
                         </tr>
                         <tr>
                             <th>FEB</th>
-                            <td>11</td>
+                            <td>{{$febrero}}</td>
                         </tr>
                         <tr>
                             <th>MAR</th>
-                            <td>11</td>
+                            <td>{{$marzo}}</td>
                         </tr>
                         <tr>
                             <th>ABR</th>
-                            <td>11</td>
+                            <td>{{$abril}}</td>
                         </tr>
                         <tr>
                             <th>MAY</th>
-                            <td>11</td>
+                            <td>{{$mayo}}</td>
                         </tr>
                         <tr>
                             <th>JUN</th>
-                            <td>11</td>
+                            <td>{{$junio}}</td>
                         </tr>
                         <tr>
                             <th>JUL</th>
-                            <td>11</td>
+                            <td>{{$julio}}</td>
                         </tr>
                         <tr>
                             <th>AGO</th>
-                            <td>11</td>
+                            <td>{{$agosto}}</td>
                         </tr>
                         <tr>
                             <th>SEP</th>
-                            <td>11</td>
+                            <td>{{$septiembre}}</td>
                         </tr>
                         <tr>
                             <th>OCT</th>
-                            <td>11</td>
+                            <td>{{$octubre}}</td>
                         </tr>
                         <tr>
                             <th>NOV</th>
-                            <td>11</td>
+                            <td>{{$noviembre}}</td>
                         </tr>
                         <tr>
                             <th>DIC</th>
-                            <td>11</td>
+                            <td>{{$diciembre}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -188,43 +188,27 @@
     <div class="modal-body">
 
         <div class="col-lg-3">
-            <input type="text" class="form-control" placeholder="CI / HCL" oninput="buscarCiHCL(this.value)">
+            <input type="number" class="form-control" placeholder="CI / HCL" id="buscNumHCL" oninput="buscarCiHCL(this.value,1)" onkeyup="validar('buscNumHCL')" pattern="[0-9]+">
         </div>
         <div class="col-lg-3">
-            <input type="text" class="form-control" placeholder="Nombre apellico">
+            <input type="text" class="form-control" placeholder="Nombre apellico" oninput="buscarCiHCL(this.value,2)">
         </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Status</th>
-                        <th>Manager</th>
+                        <th># HCL</th>
+                        <th>CI</th>
+                        <th>Nombre </th>
+                        <th>apellico</th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody align="center">
+                <tbody align="center" id="listPacientes">
                     <tr>
-                        <td>1</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
+                        <td>
+                            Ingrese datos para buscar!
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -318,22 +302,7 @@
                         <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
                         <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
                         <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
+                        
                     </ol>
                 </div>
             </div>
@@ -369,7 +338,7 @@
                         <th>#</th>
                         <th>Username</th>
                         <th>Email</th>
-                        
+
                         <th>Status</th>
                         <th>Manager</th>
                     </tr>
@@ -406,5 +375,6 @@
 
 @section('scripts')
 <script type="text/javascript" src="{{ asset('asincrono/admRecepHome.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asincrono/homejs.js') }}"></script>
 
 @endsection

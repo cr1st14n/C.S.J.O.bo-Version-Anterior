@@ -109,6 +109,7 @@ Route::group(['middleware' => ['administracion'],'prefix' =>'/adm'],function(){
 	Route::group(['prefix'=> '/admRecepHome'],function(){
 		Route::get('/','admRecepController@index')->name('home-admRecep');
 		Route::get('1','admRecepController@uno');
+		Route::get('BuscHCL','admRecepController@buscasrHCL');
 	});
 });
 

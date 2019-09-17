@@ -194,7 +194,7 @@
             <input type="text" class="form-control" placeholder="Nombre apellico" oninput="buscarCiHCL(this.value,2)">
         </div>
         <div class="table-responsive">
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th># HCL</th>
@@ -310,7 +310,7 @@
     </div>
     <!-- //modal-body-->
 </div>
-<div id="md-full-width" class="modal fade container">
+<div id="md-full-width01" class="modal fade container">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h4 class="modal-title">Pacientes registrados</h4>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\pacientes;
 use App\especialidad;
+use App\atencion;
 use Illuminate\Support\Carbon;
 
 class admRecepController extends Controller
@@ -213,14 +214,23 @@ class admRecepController extends Controller
 
     public function InfoCajaList(Request $request){
       $especialidades=especialidad::select('id','nombre')->get();
-      $lista=array();
-      
+      $lista=array();      
       foreach( $especialidades as $es){
-        $var=array($es->nombre,$es->id);
+        if ($request->mez=='Anual') {
+          $atencion=atencion::where('ate_especialidad',$es->id)->whereYear('created_at',$request->año)->count();
+        }else {
+          $atencion=atencion::where('ate_especialidad',$es->id)
+          ->whereMonth('created_at',$request->mez)
+          ->whereYear('created_at',$request->año)->count();
+        }
+        $var=array("nombre"=>$es->nombre,"id"=>$es->id,"cantidad"=>$atencion);
 
         array_push($lista,$var);
       }
-
+      // $lista=atencion::whereMonth('created_at',1)
+      // ->whereYear('created_at',2017)
+      // ->where('ate_especialidad',22)
+      // ->count();
 
       return $lista;
 

@@ -260,8 +260,8 @@
                 <div class="col-md-12">
                     <h3><strong>Total</strong>.- </h3>
                     <br>
-                    <ol class="rectangle-list">
-                        <li><a href="#"> ******<span class="pull-right">17,485</span></a></li>
+                    <ol class="rectangle-list" id="listReporteCaja"
+                        <li><a href="#"> ****** <span class="pull-right">17,485</span></a></li>
                         <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
                         <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
                         <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>

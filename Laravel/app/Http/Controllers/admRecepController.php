@@ -220,8 +220,9 @@ class admRecepController extends Controller
           $atencion=atencion::where('ate_especialidad',$es->id)->whereYear('created_at',$request->año)->count();
         }else {
           $atencion=atencion::where('ate_especialidad',$es->id)
+          ->whereYear('created_at',$request->año)
           ->whereMonth('created_at',$request->mez)
-          ->whereYear('created_at',$request->año)->count();
+          ->count();
         }
         $var=array("nombre"=>$es->nombre,"id"=>$es->id,"cantidad"=>$atencion);
 

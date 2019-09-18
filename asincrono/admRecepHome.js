@@ -113,6 +113,14 @@ function InfoCajaList(param) {
     var datos= {'mez':$('#infCajaMez').val(),'año':$('#infoCajaAño').val()}
     $.get('admRecepHome/InfoCajaList',datos).done(function (data) {
         console.log(data);
+        var html=data.map(function (elem,index) {
+            return(`
+                <li><a href="#"> ${elem.nombre} <span class="pull-right">${elem.cantidad}</span></a></li>
+            `);
+          }).join(" ");
+          $("#listReporteCaja").html(html);
+
+
         
     }).fail(function (params) {
         

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\pacientes;
+use App\especialidad;
 use Illuminate\Support\Carbon;
 
 class admRecepController extends Controller
@@ -14,20 +15,10 @@ class admRecepController extends Controller
     }
     public function index(){
         $total=pacientes::count();
-        $enero=85;
-        $febrero=85;
-        $marzo=85;
-        $abril=85;
-        $mayo=85;
-        $junio=85;
-        $julio=85;
-        $agosto=85;
-        $septiembre=85;
-        $octubre=85;
-        $noviembre=85;
-        $diciembre=85;
-        
-        $year=2018;
+
+
+  
+        $year=2019;
         $enero=pacientes::whereYear('created_at',$year)->whereMonth('created_at',1)->count();
         $febrero=pacientes::whereYear('created_at',$year)->whereMonth('created_at',2)->count();
         $marzo=pacientes::whereYear('created_at',$year)->whereMonth('created_at',3)->count();
@@ -57,8 +48,6 @@ class admRecepController extends Controller
         ->with("diciembre" ,$diciembre);
     }
 
-   
-    
     public function uno(){
         $total=pacientes::count();
         $paHombre=pacientes::where('pa_sexo','M')->count();
@@ -101,8 +90,7 @@ class admRecepController extends Controller
 
     }
 
-    public function buscasrHCL(Request $request)
-    {
+    public function buscasrHCL(Request $request){
         // return $request['dato'];
         $resultado='';   
         if ($request['tipo']==1) {
@@ -117,8 +105,8 @@ class admRecepController extends Controller
         }
         return $resultado;
     }
-    public function buscarPacientesText($texto)
-    {
+
+    public function buscarPacientesText($texto){
     	#return $texto;
         $var_Busqueda='';
         $apep='';
@@ -212,7 +200,7 @@ class admRecepController extends Controller
 	            # code...
 	          //echo "octava iteracion N==> '$nom' AP==> '$apep' AM==> '$apem' '$dato1' ";
 	            $tabla='0';
-	          return view('viewRecepcion.formBuscarPaciente')->with("tabla",$tabla)->with("num",$var_num)->with("Busqueda",$var_Busqueda);
+	          // return view('viewRecepcion.formBuscarPaciente')->with("tabla",$tabla)->with("num",|$var_num)->with("Busqueda",$var_Busqueda);
 
 	            break;
 
@@ -220,6 +208,24 @@ class admRecepController extends Controller
 	            # code...
 	            break;
 	        }
-		return "error revisar AjaxPacienteController";        
+		  return "error revisar AjaxPacienteController";        
+    }
+
+    public function InfoCajaList(Request $request){
+      $especialidades=especialidad::select('id','nombre')->get();
+      $lista=array();
+      
+      foreach( $especialidades as $es){
+        $var=array($es->nombre,$es->id);
+
+        array_push($lista,$var);
+      }
+
+
+      return $lista;
+
+
+
+
     }
 }

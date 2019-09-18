@@ -49,7 +49,7 @@
 <div class="row">
     <div class="col-lg-8">
         <section class="panel corner-flip">
-            <div class="widget-chart bg-lightseagreen bg-gradient-green" onclick="cuadroEstadistico()" >
+            <div class="widget-chart bg-lightseagreen bg-gradient-green" onclick="cuadroEstadistico()">
                 <h2>Estado anual registro de pacientes</h2>
                 <table class="flot-chart" data-type="lines" data-tick-color="rgba(255,255,255,0.2)" data-width="100%" data-height="220px">
                     <thead>
@@ -58,7 +58,7 @@
                             <th style="color : #FFF;">Test</th>
                         </tr>
                     </thead>
-                    <tbody >
+                    <tbody>
                         <tr>
                             <th>ENE</th>
                             <td>{{$enero}}</td>
@@ -226,67 +226,38 @@
     <div class="modal-body">
         <div class="panel-body">
             <div class="row">
-                <h4>Filtrar por rango de fechas</h4>
-                <div class="align-lg-center ">
-                    <input class="form-control" type="date" name="" id="">a
-                    <input class="form-control" type="date" name="" id="">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button class="btn btn-theme-inverse btn-sm btn-block" onclick="InfoCajaList()">filtrar</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="align-lg-center ">
+                             <select name="" id="infCajaMez" class="form-control">
+                                 <option value="Anual">Anual</option>
+                                 <option value="1">enero</option>
+                                 <option value="2">Febrero</option>
+                                 <option value="3">Marzo</option>
+                                 <option value="4">Abril</option>
+                                 <option value="5">Mayo</option>
+                                 <option value="6">Junio</option>
+                                 <option value="7">Julio</option>
+                                 <option value="8">Agosto</option>
+                                 <option value="9">Septiembre</option>
+                                 <option value="10">Octubre</option>
+                                 <option value="11">Noviembre</option>
+                                 <option value="12">Diciembre</option>
+                             </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="align-lg-center ">
+                            <input class="form-control" type="number" name="" id="infoCajaAño" placeholder="Año" value="2019">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h3><strong>Porcentaje </strong>%</h3>
-                    <br>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-purple" aria-valuetransitiongoal="45"></div>
-                    </div>
-                    <label class="progress-label">Emfermeria 45% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" aria-valuetransitiongoal="62"></div>
-                    </div>
-                    <label class="progress-label">pediatria 62% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-shine progress-sm">
-                        <div class="progress-bar bg-inverse" aria-valuetransitiongoal="57"></div>
-                    </div>
-                    <label class="progress-label">Odontologia 57% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-theme-inverse" aria-valuetransitiongoal="33"></div>
-                    </div>
-                    <label class="progress-label">------- 33% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
-                    </div>
-                    <label class="progress-label">------ 24% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
-                    </div>
-                    <label class="progress-label">------ 24% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
-                    </div>
-                    <label class="progress-label">------ 24% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
-                    </div>
-                    <label class="progress-label">------ 24% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
-                    </div>
-                    <label class="progress-label">------ 24% </label>
-                    <!-- //progress-->
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-info" aria-valuetransitiongoal="24"></div>
-                    </div>
-                    <label class="progress-label">------ 24% </label>
-                    <!-- //progress-->
-                </div>
+                
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <h3><strong>Total</strong>.- </h3>
                     <br>
                     <ol class="rectangle-list">
@@ -302,7 +273,7 @@
                         <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
                         <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
                         <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        
+
                     </ol>
                 </div>
             </div>

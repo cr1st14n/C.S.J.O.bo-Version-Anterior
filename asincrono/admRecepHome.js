@@ -109,3 +109,12 @@ function cuadroEstadistico() {
     var html = '1000';
     document.getElementById('tablaEstadistica').innerText=html;
   }
+function InfoCajaList(param) {
+    var datos= {'mez':$('#infCajaMez').val(),'año':$('#infoCajaAño').val()}
+    $.get('admRecepHome/InfoCajaList',datos).done(function (data) {
+        console.log(data);
+        
+    }).fail(function (params) {
+        
+    });
+  }

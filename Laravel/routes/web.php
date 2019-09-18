@@ -110,6 +110,7 @@ Route::group(['middleware' => ['administracion'],'prefix' =>'/adm'],function(){
 		Route::get('/','admRecepController@index')->name('home-admRecep');
 		Route::get('1','admRecepController@uno');
 		Route::get('BuscHCL','admRecepController@buscasrHCL');
+		Route::get('InfoCajaList','admRecepController@InfoCajaList');
 	});
 });
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\pacientes;
 use App\especialidad;
 use App\atencion;
+use App\User;
 use Illuminate\Support\Carbon;
 
 class admRecepController extends Controller
@@ -17,8 +18,8 @@ class admRecepController extends Controller
     public function index(){
         $total=pacientes::count();
 
+        $usuariosArea=User::where('usu_area',"Recepcion")->get();
 
-  
         $year=2019;
         $enero=pacientes::whereYear('created_at',$year)->whereMonth('created_at',1)->count();
         $febrero=pacientes::whereYear('created_at',$year)->whereMonth('created_at',2)->count();
@@ -46,7 +47,8 @@ class admRecepController extends Controller
         ->with("septiembre" ,$septiembre)
         ->with("octubre" ,$octubre)
         ->with("noviembre" ,$noviembre)
-        ->with("diciembre" ,$diciembre);
+        ->with("diciembre" ,$diciembre)
+        ->with("usuarios" ,$usuariosArea);
     }
 
     public function uno(){
@@ -213,7 +215,7 @@ class admRecepController extends Controller
     }
 
     public function InfoCajaList(Request $request){
-      $especialidades=especialidad::select('id','nombre')->get();
+      $especialidades=especialidad::select('id','nombre')->orderBy('nombre','asc')->get();
       $lista=array();      
       foreach( $especialidades as $es){
         if ($request->mez=='Anual') {
@@ -228,15 +230,40 @@ class admRecepController extends Controller
 
         array_push($lista,$var);
       }
-      // $lista=atencion::whereMonth('created_at',1)
-      // ->whereYear('created_at',2017)
-      // ->where('ate_especialidad',22)
-      // ->count();
+        return $lista;
+    }
+    function detalleCajaEspecialidad(Request $request){
+        $enero=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',1)->count();
+        $febrero=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',2)->count();
+        $marzo=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',3)->count();
+        $abril=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',4)->count();
+        $mayo=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',5)->count();
+        $junio=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',6)->count();
+        $julio=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',7)->count();
+        $agosto=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',8)->count();
+        $septiembre=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',9)->count();
+        $octubre=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',10)->count();
+        $noviembre=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',11)->count();
+        $diciembre=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',12)->count();
+        $lista=array();
+        array_push($lista,["elapsed"=>"ene","value"=>$enero]);
+        array_push($lista,["elapsed"=>"feb","value"=>$febrero]);
+        array_push($lista,["elapsed"=>"mar","value"=>$marzo]);
+        array_push($lista,["elapsed"=>"abr","value"=>$abril]);
+        array_push($lista,["elapsed"=>"may","value"=>$mayo]);
+        array_push($lista,["elapsed"=>"jun","value"=>$junio]);
+        array_push($lista,["elapsed"=>"jul","value"=>$julio]);
+        array_push($lista,["elapsed"=>"ago","value"=>$agosto]);
+        array_push($lista,["elapsed"=>"sep","value"=>$septiembre]);
+        array_push($lista,["elapsed"=>"oct","value"=>$octubre]);
+        array_push($lista,["elapsed"=>"nov","value"=>$noviembre]);
+        array_push($lista,["elapsed"=>"dic","value"=>$diciembre]);
+        return $lista;
 
-      return $lista;
-
-
-
-
+    }
+    function historiaHCLAte($id)
+    {
+      $historia=atencion::where('pa_id',$id)->get();
+      return $historia;
     }
 }

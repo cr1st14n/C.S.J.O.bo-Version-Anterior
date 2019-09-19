@@ -111,6 +111,8 @@ Route::group(['middleware' => ['administracion'],'prefix' =>'/adm'],function(){
 		Route::get('1','admRecepController@uno');
 		Route::get('BuscHCL','admRecepController@buscasrHCL');
 		Route::get('InfoCajaList','admRecepController@InfoCajaList');
+		Route::get('detalleCajaEspecialidad','admRecepController@detalleCajaEspecialidad');
+		Route::get('historiaHCLAte/{id}','admRecepController@historiaHCLAte');
 	});
 });
 

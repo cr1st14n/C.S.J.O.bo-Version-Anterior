@@ -94,7 +94,7 @@ function buscarCiHCL(dato, tipo) {
                     <td>${elem.pa_appaterno} / ${elem.pa_apmaterno}</td>
                     <td>
                         <span class="tooltip-area">
-                        <button name="${elem.pa_id}" class="btn btn-default btn-sm" title="Atender"><i class="fa  fa-plus-square"></i></button>
+                        <button name="${elem.pa_id}" class="btn btn-default btn-sm" title="Historia" onClick="pacihistMedica(this.name)" ><i class="fa  fa-bars"></i></button>
                         </span>
                     </td>
                     
@@ -115,7 +115,7 @@ function InfoCajaList(param) {
         console.log(data);
         var html=data.map(function (elem,index) {
             return(`
-                <li><a href="#" onClick="ShowModalDetalleCajaEsp()"> ${elem.nombre} <span class="pull-right">${elem.cantidad}</span></a></li>
+                <li><a href="#" onClick="ShowModalDetalleCajaEsp(${elem.id},'${elem.nombre}')"> ${elem.nombre} <span class="pull-right">${elem.cantidad}</span></a></li>
             `);
           }).join(" ");
           $("#listReporteCaja").html(html);
@@ -126,29 +126,44 @@ function InfoCajaList(param) {
         
     });
   }
-function ShowModalDetalleCajaEsp() {
+function ShowModalDetalleCajaEsp(id,nombre) {
+    $("#IdDeEspecialidadDC").text(id);
+    $("#nombreDeEspecialidadDC").text(nombre);
+    $("#estadoAnualEst").html("");
+    var año=$('#infoCajaAño').val();
+    if (año.length==0) {
+        año=2019;
+    }
+    $('#infoCajaAñoDetalle').val(año);
+    setTimeout(showDataEstEsp, 250);
+    // showDataEstEsp();
     $("#md-DetalleCajaEsp").modal('show');
   }
 function showDataEstEsp() {
-    new Morris.Line({
-        element: 'estadoAnualEst',
-        data: [
-            {"elapsed": "ene", "value": 34},
-            {"elapsed": "feb", "value": 24},
-            {"elapsed": "mar", "value": 3},
-            {"elapsed": "abri", "value": 12},
-            {"elapsed": "may", "value": 13},
-            {"elapsed": "jun", "value": 22},
-            {"elapsed": "jul", "value": 5},
-            {"elapsed": "ago", "value": 26},
-            {"elapsed": "sep", "value": 12},
-            {"elapsed": "oct", "value": 45},
-            {"elapsed": "nov", "value": 33},
-            {"elapsed": "dic", "value": 78}
-          ],
-        xkey: 'elapsed',
-        ykeys: ['value'],
-        labels: ['value'],
-        parseTime: false
-      });
+    $("#estadoAnualEst").html("");
+    var año =$('#infoCajaAñoDetalle').val();
+    var id=$('#IdDeEspecialidadDC').text();
+    if (año.length==0) {
+        notif('2','Verificar año!')
+    }else{
+        var dat={"id":id,"año":año};
+        $.get('admRecepHome/detalleCajaEspecialidad/',dat).done(function (data) {
+            console.log(data);
+            new Morris.Line({
+                element: 'estadoAnualEst',
+                data: data,
+                xkey: 'elapsed',
+                ykeys: ['value'],
+                labels: ['value'],
+                parseTime: false
+              });
+          }).fail(function () {console.log("error de server resgrese")});
+    }
   }
+  function pacihistMedica(id) {
+      $.get('admRecepHome/historiaHCLAte/'+id+'').done(function (param) {
+        console.log(param);
+        }).fail(function () {
+
+        });
+    }

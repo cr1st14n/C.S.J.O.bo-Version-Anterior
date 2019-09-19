@@ -137,25 +137,17 @@
                 <h2><strong>Usuarios </strong> en el area</h2>
             </header>
             <ul class="list-group">
-                <li class="list-group-item">
-                    Elena
-                </li>
-                <li class="list-group-item">
-                    Monica
-                </li>
-                <li class="list-group-item">
-                    --
-                </li>
-                <li class="list-group-item">
-                    --
-                </li>
+                @foreach($usuarios as $usu)
+                    <li class="list-group-item">
+                        {{$usu->usu_nombre}} {{$usu->usu_appaterno}} {{$usu->usu_apMaterno}}
+                    </li>
+                @endforeach
             </ul>
         </section>
     </div>
 </div>
 
 
-//? Modal para filtrar
 <div id="md-informePacientes" class="modal fade md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
@@ -186,10 +178,10 @@
     <!-- //modal-header-->
     <div class="modal-body">
 
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <input type="number" class="form-control" placeholder="CI / HCL" id="buscNumHCL" oninput="buscarCiHCL(this.value,1)" onkeyup="validar('buscNumHCL')" pattern="[0-9]+">
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-8">
             <input type="text" class="form-control" placeholder="Nombre apellico" oninput="buscarCiHCL(this.value,2)">
         </div>
         <div class="table-responsive">
@@ -271,13 +263,14 @@
 <div id="md-DetalleCajaEsp" class="modal fade container md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title">estado </h4>
+        <h4 class="modal-title">Estado anual de atencion de: <strong id="nombreDeEspecialidadDC"></strong></h4>
+        <label id="IdDeEspecialidadDC" hidden ></label>
     </div>
     <!-- //modal-header-->
     <div class="modal-body">
         <div class="row">
             <div class="col-sm-4">
-                <input type="number" class="form-control" placeholder="Año">
+                <input type="number" class="form-control" placeholder="Año" id="infoCajaAñoDetalle">
             </div>
             <div class="col-sm-8">
                 <button class="btn  btn-theme-inverse btn-block" onclick="showDataEstEsp()">Filtrar</button>

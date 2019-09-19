@@ -112,9 +112,10 @@
 <script type="text/javascript" src="{{ asset('assets/plugins/miscellaneous/miscellaneous.js') }}"></script>
 <!-- Library Themes Customize-->
 <script type="text/javascript" src="{{ asset('assets/js/caplet.custom.js') }}"></script>
-<!-- Library datable -->
-<script type="text/javascript" src="{{ asset('assets/plugins/datable/jquery.dataTables.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/plugins/datable/dataTables.bootstrap.js') }}"></script>
+<!-- Library Morris Chart-->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script type="text/javascript" src="{{ asset('assets/plugins/morris/morris.js') }}"></script>
+<link type="text/css" rel="stylesheet" href="{{ asset('assets/plugins/morris/morris.css') }}" />
 
 
 

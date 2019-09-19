@@ -115,7 +115,7 @@ function InfoCajaList(param) {
         console.log(data);
         var html=data.map(function (elem,index) {
             return(`
-                <li><a href="#"> ${elem.nombre} <span class="pull-right">${elem.cantidad}</span></a></li>
+                <li><a href="#" onClick="ShowModalDetalleCajaEsp()"> ${elem.nombre} <span class="pull-right">${elem.cantidad}</span></a></li>
             `);
           }).join(" ");
           $("#listReporteCaja").html(html);
@@ -125,4 +125,30 @@ function InfoCajaList(param) {
     }).fail(function (params) {
         
     });
+  }
+function ShowModalDetalleCajaEsp() {
+    $("#md-DetalleCajaEsp").modal('show');
+  }
+function showDataEstEsp() {
+    new Morris.Line({
+        element: 'estadoAnualEst',
+        data: [
+            {"elapsed": "ene", "value": 34},
+            {"elapsed": "feb", "value": 24},
+            {"elapsed": "mar", "value": 3},
+            {"elapsed": "abri", "value": 12},
+            {"elapsed": "may", "value": 13},
+            {"elapsed": "jun", "value": 22},
+            {"elapsed": "jul", "value": 5},
+            {"elapsed": "ago", "value": 26},
+            {"elapsed": "sep", "value": 12},
+            {"elapsed": "oct", "value": 45},
+            {"elapsed": "nov", "value": 33},
+            {"elapsed": "dic", "value": 78}
+          ],
+        xkey: 'elapsed',
+        ykeys: ['value'],
+        labels: ['value'],
+        parseTime: false
+      });
   }

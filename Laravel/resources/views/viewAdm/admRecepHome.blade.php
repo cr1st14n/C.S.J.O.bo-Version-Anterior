@@ -1,6 +1,5 @@
 @extends('layouts.admLay2')
 @section('head')
-
 @endsection
 @section('refUbi')
 <ol class="breadcrumb">
@@ -157,7 +156,7 @@
 
 
 //? Modal para filtrar
-<div id="md-informePacientes" class="modal fade">
+<div id="md-informePacientes" class="modal fade md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h4 class="modal-title">Informe de registro de pacientes</h4>
@@ -179,7 +178,7 @@
     <!-- //modal-body-->
 </div>
 
-<div id="md-full-width" class="modal fade container">
+<div id="md-full-width" class="modal fade md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h4 class="modal-title">Pacientes registrados</h4>
@@ -217,7 +216,7 @@
     <!-- //modal-body-->
 </div>
 
-<div id="md-infoCaja" class="modal fade">
+<div id="md-infoCaja" class="modal fade md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h4 class="modal-title">Informe de caja</h4>
@@ -232,21 +231,21 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="align-lg-center ">
-                             <select name="" id="infCajaMez" class="form-control">
-                                 <option value="Anual">Anual</option>
-                                 <option value="01">enero</option>
-                                 <option value="02">Febrero</option>
-                                 <option value="03">Marzo</option>
-                                 <option value="04">Abril</option>
-                                 <option value="05">Mayo</option>
-                                 <option value="06">Junio</option>
-                                 <option value="07">Julio</option>
-                                 <option value="08">Agosto</option>
-                                 <option value="09">Septiembre</option>
-                                 <option value="10">Octubre</option>
-                                 <option value="11">Noviembre</option>
-                                 <option value="12">Diciembre</option>
-                             </select>
+                            <select name="" id="infCajaMez" class="form-control">
+                                <option value="Anual">Anual</option>
+                                <option value="01">enero</option>
+                                <option value="02">Febrero</option>
+                                <option value="03">Marzo</option>
+                                <option value="04">Abril</option>
+                                <option value="05">Mayo</option>
+                                <option value="06">Junio</option>
+                                <option value="07">Julio</option>
+                                <option value="08">Agosto</option>
+                                <option value="09">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -255,25 +254,13 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 <div class="col-md-12">
                     <h3><strong>Total</strong>.- </h3>
                     <br>
-                    <ol class="rectangle-list" id="listReporteCaja"
-                        <li><a href="#"> ****** <span class="pull-right">17,485</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-                        <li><a href="#"> ****** <span class="pull-right">11,452</span></a></li>
-
+                    <ol class="rectangle-list" id="listReporteCaja">
+                        <li><a href="#"> ** ** <span class="pull-right">## ##</span></a></li>
                     </ol>
                 </div>
             </div>
@@ -281,63 +268,23 @@
     </div>
     <!-- //modal-body-->
 </div>
-<div id="md-full-width01" class="modal fade container">
+<div id="md-DetalleCajaEsp" class="modal fade container md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title">Pacientes registrados</h4>
+        <h4 class="modal-title">estado </h4>
     </div>
     <!-- //modal-header-->
-
-
-
     <div class="modal-body">
         <div class="row">
-            <div class="col-sm-2">
-                <input type="text" class="form-control" placeholder="CI / HCL">
-            </div>
             <div class="col-sm-4">
-                <input type="text" class="form-control" placeholder="Nombre apellico">
+                <input type="number" class="form-control" placeholder="Año">
             </div>
-            <div class="col-sm-4">
-                <button class="btn  btn-primary">Filtrar</button>
+            <div class="col-sm-8">
+                <button class="btn  btn-theme-inverse btn-block" onclick="showDataEstEsp()">Filtrar</button>
             </div>
         </div>
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Username</th>
-                        <th>Email</th>
+        <div id="estadoAnualEst">
 
-                        <th>Status</th>
-                        <th>Manager</th>
-                    </tr>
-                </thead>
-                <tbody align="center">
-                    <tr>
-                        <td>1</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
     <!-- //modal-body-->
@@ -347,5 +294,4 @@
 @section('scripts')
 <script type="text/javascript" src="{{ asset('asincrono/admRecepHome.js') }}"></script>
 <script type="text/javascript" src="{{ asset('asincrono/homejs.js') }}"></script>
-
 @endsection

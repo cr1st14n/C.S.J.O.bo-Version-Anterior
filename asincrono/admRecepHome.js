@@ -38,7 +38,7 @@ function informe1() {
       <label class="progress-label">Edad entre 51-adelante ${data.edad3P}% ${data.edad3} pacientes</label>
       <!-- //progress-->`;
 
-      var html2=`<h3><strong>Total</strong> pacientes </h3>
+      var html2 = `<h3><strong>Total</strong> pacientes </h3>
       <br>
       <ol class="rectangle-list">
           <li><a >Total <span class="pull-right">${data.Total}</span></a></li>
@@ -54,40 +54,37 @@ function informe1() {
     .fail(function() {});
 }
 
-function buscarCiHCL(dato, tipo) { 
-    // console.log(dato,tipo);
-    console.log(dato.length);   
-    if(dato.length == 0){
-        
-        var hatmVacio= `<tr>
+function buscarCiHCL(dato, tipo) {
+  // console.log(dato,tipo);
+  console.log(dato.length);
+  if (dato.length == 0) {
+    var hatmVacio = `<tr>
                             Ingrese datos para buscar!
                         </tr>`;
-            document.getElementById('listPacientes').innerHTML=hatmVacio;
-    }else{
-
-        var data={'dato':dato,'tipo':tipo}
-        $.get("admRecepHome/BuscHCL", data).done(function(data){
-            if (data== 'vacio') {
-                console.log('vacio');
-                var hatmVacio= `<tr>
+    document.getElementById("listPacientes").innerHTML = hatmVacio;
+  } else {
+    var data = { dato: dato, tipo: tipo };
+    $.get("admRecepHome/BuscHCL", data)
+      .done(function(data) {
+        if (data == "vacio") {
+          console.log("vacio");
+          var hatmVacio = `<tr>
                                 Informacion no encontrada!
                                 </tr>`;
-                document.getElementById('listPacientes').innerHTML=hatmVacio;
-            }else{
-                console.log(data);
-                listPacientes(data);
-            }
-    
-        }).fail(function(){
-    
-        });
-    }
+          document.getElementById("listPacientes").innerHTML = hatmVacio;
+        } else {
+          console.log(data);
+          listPacientes(data);
+        }
+      })
+      .fail(function() {});
+  }
+}
 
- }
-
- function listPacientes(data) {
-    var html=data.map(function (elem,index) {    
-        return(`<tr>
+function listPacientes(data) {
+  var html = data
+    .map(function(elem, index) {
+      return `<tr>
                     <td>${elem.pa_hcl}</td>
                     <td>${elem.pa_ci}</td>
                     <td>${elem.pa_nombre}</td>
@@ -98,72 +95,89 @@ function buscarCiHCL(dato, tipo) {
                         </span>
                     </td>
                     
-                </tr>`);
-    }).join(" ");
-    document.getElementById('listPacientes').innerHTML=html;
-
+                </tr>`;
+    })
+    .join(" ");
+  document.getElementById("listPacientes").innerHTML = html;
 }
 
 function cuadroEstadistico() {
-    console.log('hola');
-    var html = '1000';
-    document.getElementById('tablaEstadistica').innerText=html;
-  }
+  console.log("hola");
+  var html = "1000";
+  document.getElementById("tablaEstadistica").innerText = html;
+}
 function InfoCajaList(param) {
-    var datos= {'mez':$('#infCajaMez').val(),'año':$('#infoCajaAño').val()}
-    $.get('admRecepHome/InfoCajaList',datos).done(function (data) {
-        console.log(data);
-        var html=data.map(function (elem,index) {
-            return(`
+  var datos = { mez: $("#infCajaMez").val(), año: $("#infoCajaAño").val() };
+  $.get("admRecepHome/InfoCajaList", datos)
+    .done(function(data) {
+      console.log(data);
+      var html = data
+        .map(function(elem, index) {
+          return `
                 <li><a href="#" onClick="ShowModalDetalleCajaEsp(${elem.id},'${elem.nombre}')"> ${elem.nombre} <span class="pull-right">${elem.cantidad}</span></a></li>
-            `);
-          }).join(" ");
-          $("#listReporteCaja").html(html);
-
-
-        
-    }).fail(function (params) {
-        
-    });
+            `;
+        })
+        .join(" ");
+      $("#listReporteCaja").html(html);
+    })
+    .fail(function(params) {});
+}
+function ShowModalDetalleCajaEsp(id, nombre) {
+  $("#IdDeEspecialidadDC").text(id);
+  $("#nombreDeEspecialidadDC").text(nombre);
+  $("#estadoAnualEst").html("");
+  var año = $("#infoCajaAño").val();
+  if (año.length == 0) {
+    año = 2019;
   }
-function ShowModalDetalleCajaEsp(id,nombre) {
-    $("#IdDeEspecialidadDC").text(id);
-    $("#nombreDeEspecialidadDC").text(nombre);
-    $("#estadoAnualEst").html("");
-    var año=$('#infoCajaAño').val();
-    if (año.length==0) {
-        año=2019;
-    }
-    $('#infoCajaAñoDetalle').val(año);
-    setTimeout(showDataEstEsp, 250);
-    // showDataEstEsp();
-    $("#md-DetalleCajaEsp").modal('show');
-  }
+  $("#infoCajaAñoDetalle").val(año);
+  setTimeout(showDataEstEsp, 250);
+  // showDataEstEsp();
+  $("#md-DetalleCajaEsp").modal("show");
+}
 function showDataEstEsp() {
-    $("#estadoAnualEst").html("");
-    var año =$('#infoCajaAñoDetalle').val();
-    var id=$('#IdDeEspecialidadDC').text();
-    if (año.length==0) {
-        notif('2','Verificar año!')
-    }else{
-        var dat={"id":id,"año":año};
-        $.get('admRecepHome/detalleCajaEspecialidad/',dat).done(function (data) {
-            console.log(data);
-            new Morris.Line({
-                element: 'estadoAnualEst',
-                data: data,
-                xkey: 'elapsed',
-                ykeys: ['value'],
-                labels: ['value'],
-                parseTime: false
-              });
-          }).fail(function () {console.log("error de server resgrese")});
-    }
-  }
-  function pacihistMedica(id) {
-      $.get('admRecepHome/historiaHCLAte/'+id+'').done(function (param) {
-        console.log(param);
-        }).fail(function () {
-
+  $("#estadoAnualEst").html("");
+  var año = $("#infoCajaAñoDetalle").val();
+  var id = $("#IdDeEspecialidadDC").text();
+  if (año.length == 0) {
+    notif("2", "Verificar año!");
+  } else {
+    var dat = { id: id, año: año };
+    $.get("admRecepHome/detalleCajaEspecialidad/", dat)
+      .done(function(data) {
+        console.log(data);
+        new Morris.Line({
+          element: "estadoAnualEst",
+          data: data,
+          xkey: "elapsed",
+          ykeys: ["value"],
+          labels: ["value"],
+          parseTime: false
         });
-    }
+      })
+      .fail(function() {
+        console.log("error de server resgrese");
+      });
+  }
+}
+function pacihistMedica(id) {
+  $.get("admRecepHome/historiaHCLAte/" + id + "")
+    .done(function(param) {
+      console.log(param);
+      var nombre=`${param['apellido1']} ${param['apellido2']}, ${param['nombre']}, #HCL: ${param['hcl']}`;
+      $('#nombreDelPaciente').text(nombre);
+      var html = param['datos'].map(function(elem) {
+        return `
+        <tr>
+            <td>${elem.created_at}</td>
+            <td valign="middle">${elem.ate_procedimiento}</td>
+            <td>${elem.nombre}</td>
+            <td>${elem.ps_nombre} ${elem.ps_appaterno} ${elem.ps_apmaterno} </td>
+        </tr>
+          `;
+      }).join(" ");
+      $("#tabPaciHistMed").html(html);
+      $("#md-HclHistorial").modal("show");
+    })
+    .fail(function() {});
+}

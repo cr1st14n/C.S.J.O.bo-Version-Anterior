@@ -138,9 +138,9 @@
             </header>
             <ul class="list-group">
                 @foreach($usuarios as $usu)
-                    <li class="list-group-item">
-                        {{$usu->usu_nombre}} {{$usu->usu_appaterno}} {{$usu->usu_apMaterno}}
-                    </li>
+                <li class="list-group-item">
+                    {{$usu->usu_nombre}} {{$usu->usu_appaterno}} {{$usu->usu_apMaterno}}
+                </li>
                 @endforeach
             </ul>
         </section>
@@ -264,7 +264,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h4 class="modal-title">Estado anual de atencion de: <strong id="nombreDeEspecialidadDC"></strong></h4>
-        <label id="IdDeEspecialidadDC" hidden ></label>
+        <label id="IdDeEspecialidadDC" hidden></label>
     </div>
     <!-- //modal-header-->
     <div class="modal-body">
@@ -278,6 +278,31 @@
         </div>
         <div id="estadoAnualEst">
 
+        </div>
+    </div>
+    <!-- //modal-body-->
+</div>
+<div id="md-HclHistorial" class="modal fade container md-stickTop">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title">Historial de atencion del paciente: <strong id="nombreDelPaciente"></strong></h4>
+        <label id="IdDeEspecialidadDC" hidden></label>
+    </div>
+    <!-- //modal-header-->
+    <div class="modal-body">
+        <div class="table-responsive">
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Procedimiento</th>
+                        <th>Especialidad</th>
+                        <th>Medico</th>
+                    </tr>
+                </thead>
+                <tbody align="center" id="tabPaciHistMed">
+                </tbody>
+            </table>
         </div>
     </div>
     <!-- //modal-body-->

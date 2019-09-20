@@ -232,6 +232,7 @@ class admRecepController extends Controller
       }
         return $lista;
     }
+
     function detalleCajaEspecialidad(Request $request){
         $enero=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',1)->count();
         $febrero=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',2)->count();
@@ -261,9 +262,17 @@ class admRecepController extends Controller
         return $lista;
 
     }
+
     function historiaHCLAte($id)
     {
-      $historia=atencion::where('pa_id',$id)->get();
-      return $historia;
+      $paciente=pacientes::where('pa_id',$id)->select('pa_hcl','pa_nombre','pa_appaterno','pa_apmaterno','pa_ci')->first();
+      $historia=atencion::where('pa_id',$id)
+      ->join('especialidad as esp','esp.id','atencion.ate_especialidad')
+      ->join('personalsalud as ps','ps.id','atencion.ate_med')
+      ->select('atencion.created_at','atencion.ate_procedimiento','esp.nombre','ps.ps_nombre','ps.ps_appaterno','ps.ps_apmaterno')
+      ->get();
+
+      $res=array("datos"=>$historia,"hcl"=>$paciente->pa_hcl,"nombre"=>$paciente->pa_nombre,"apellido1"=>$paciente->pa_appaterno,"apellido2"=>$paciente->pa_apmaterno);
+      return $res;
     }
 }

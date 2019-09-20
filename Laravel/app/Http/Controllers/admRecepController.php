@@ -34,6 +34,9 @@ class admRecepController extends Controller
         $noviembre=pacientes::whereYear('created_at',$year)->whereMonth('created_at',11)->count();
         $diciembre=pacientes::whereYear('created_at',$year)->whereMonth('created_at',12)->count();
 
+        
+
+
         return view('viewAdm.admRecepHome')
         ->with("total",$total)
         ->with("enero" ,$enero)

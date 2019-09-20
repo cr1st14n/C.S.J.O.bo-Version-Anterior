@@ -161,21 +161,27 @@ function showDataEstEsp() {
   }
 }
 function pacihistMedica(id) {
+  var dateString = "2017-01-10";
+  console.log(moment(dateString).format("DD/MM/YYYY"));
   $.get("admRecepHome/historiaHCLAte/" + id + "")
     .done(function(param) {
       console.log(param);
-      var nombre=`${param['apellido1']} ${param['apellido2']}, ${param['nombre']}, #HCL: ${param['hcl']}`;
-      $('#nombreDelPaciente').text(nombre);
-      var html = param['datos'].map(function(elem) {
-        return `
+      var nombre = `${param["apellido1"]} ${param["apellido2"]}, ${
+        param["nombre"]
+      }, #HCL: ${param["hcl"]}`;
+      $("#nombreDelPaciente").text(nombre);
+      var html = param["datos"]
+        .map(function(elem) {
+          return `
         <tr>
-            <td>${elem.created_at}</td>
+            <td>${moment(elem.created_at).format("DD-MM-YYYY h:mm ") }</td>
             <td valign="middle">${elem.ate_procedimiento}</td>
             <td>${elem.nombre}</td>
             <td>${elem.ps_nombre} ${elem.ps_appaterno} ${elem.ps_apmaterno} </td>
         </tr>
           `;
-      }).join(" ");
+        })
+        .join(" ");
       $("#tabPaciHistMed").html(html);
       $("#md-HclHistorial").modal("show");
     })

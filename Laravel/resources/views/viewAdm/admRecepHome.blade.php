@@ -110,9 +110,10 @@
                 </table>
             </div>
             <div class="panel-body">
-                <h3>Estado mes actual</h3>
+                <h3>Estado de registro en la jornada actual</h3> <br>
                 <div class="row align-lg-center">
                     <div class="col-sm-6">
+                        <h5>Turno Mañana</h5>
                         <div class="showcase showcase-pie-easy clearfix">
                             <span class="easy-chart pull-left" data-percent="75" data-color="purple" data-track-color="#EDEDED" data-line-width="15" data-size="140">
                                 <span class="percent"></span>
@@ -124,12 +125,20 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-
+                        <h5>Turno Tarde</h5>
+                        <div class="showcase showcase-pie-easy clearfix">
+                            <span class="easy-chart pull-left" data-percent="75" data-color="purple" data-track-color="#EDEDED" data-line-width="15" data-size="140">
+                                <span class="percent"></span>
+                            </span>
+                            <ul>
+                                <li>548<small>Pacientes registrados</small></li>
+                                <li>3,984<small>Pacientes atendidos</small></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
     </div>
     <div class="col-lg-4">
         <section class="panel">
@@ -147,7 +156,7 @@
     </div>
 </div>
 
-
+<!-- Seccin modals -->
 <div id="md-informePacientes" class="modal fade md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>

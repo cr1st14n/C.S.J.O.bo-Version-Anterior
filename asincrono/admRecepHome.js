@@ -108,6 +108,7 @@ function cuadroEstadistico() {
   var html = "1000";
   document.getElementById("tablaEstadistica").innerText = html;
 }
+
 function InfoCajaList(param) {
   var datos = { mez: $("#infCajaMez").val(), año: $("#infoCajaAño").val() };
   $.get("admRecepHome/InfoCajaList", datos)
@@ -124,6 +125,7 @@ function InfoCajaList(param) {
     })
     .fail(function(params) {});
 }
+
 function ShowModalDetalleCajaEsp(id, nombre) {
   $("#IdDeEspecialidadDC").text(id);
   $("#nombreDeEspecialidadDC").text(nombre);
@@ -137,6 +139,7 @@ function ShowModalDetalleCajaEsp(id, nombre) {
   // showDataEstEsp();
   $("#md-DetalleCajaEsp").modal("show");
 }
+
 function showDataEstEsp() {
   $("#estadoAnualEst").html("");
   var año = $("#infoCajaAñoDetalle").val();
@@ -162,6 +165,7 @@ function showDataEstEsp() {
       });
   }
 }
+
 function pacihistMedica(id) {
   var dateString = "2017-01-10";
   console.log(moment(dateString).format("DD/MM/YYYY"));

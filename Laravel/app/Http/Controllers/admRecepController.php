@@ -278,4 +278,18 @@ class admRecepController extends Controller
       $res=array("datos"=>$historia,"hcl"=>$paciente->pa_hcl,"nombre"=>$paciente->pa_nombre,"apellido1"=>$paciente->pa_appaterno,"apellido2"=>$paciente->pa_apmaterno);
       return $res;
     }
+    function actRegistroPaci()
+    {
+      $fecha=Carbon::now()->format('Y-m-d');
+      $regPacMañana=pacientes::whereDate('created_at',$fecha)
+                  ->whereTime('created_at','>=','00:00')
+                  ->whereTime('created_at','<=','12:00')
+                  ->count();
+      $regPacTarde=pacientes::whereDate('created_at',$fecha)
+                  ->whereTime('created_at','>=','12:00')
+                  ->whereTime('created_at','<=','24:00')
+                  ->count();
+      $respuesta=array('regPacMañana'=>$regPacMañana,'regPacTarde'=>$regPacTarde);
+      return $respuesta;
+    }
 }

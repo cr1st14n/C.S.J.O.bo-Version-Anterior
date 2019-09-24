@@ -43,6 +43,21 @@
             </div>
         </div>
     </div>
+    <div class="col-md-4">
+        <div class="well bg-inverse">
+            <div class="widget-tile">
+                <section>
+                    <h5><strong>Usuarios </strong>en el area </h5>
+                    @foreach($usuarios as $usu)
+                    <h5 >
+                        - {{$usu->usu_nombre}} {{$usu->usu_appaterno}} {{$usu->usu_apMaterno}}
+                    </h5>
+                    @endforeach
+                </section>
+                <div class="hold-icon"><i class="fa fa-users"></i></div>
+            </div>
+        </div>
+    </div>
 
 </div>
 <div class="row">
@@ -110,48 +125,15 @@
                 </table>
             </div>
             <div class="panel-body">
-                <h3>Estado de registro en la jornada actual</h3> <br>
-                <div class="row align-lg-center">
-                    <div class="col-sm-6">
-                        <h5>Turno Mañana</h5>
-                        <div class="showcase showcase-pie-easy clearfix">
-                            <span class="easy-chart pull-left" data-percent="75" data-color="purple" data-track-color="#EDEDED" data-line-width="15" data-size="140">
-                                <span class="percent"></span>
-                            </span>
-                            <ul>
-                                <li>548<small>Pacientes registrados</small></li>
-                                <li>3,984<small>Pacientes atendidos</small></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <h5>Turno Tarde</h5>
-                        <div class="showcase showcase-pie-easy clearfix">
-                            <span class="easy-chart pull-left" data-percent="75" data-color="purple" data-track-color="#EDEDED" data-line-width="15" data-size="140">
-                                <span class="percent"></span>
-                            </span>
-                            <ul>
-                                <li>548<small>Pacientes registrados</small></li>
-                                <li>3,984<small>Pacientes atendidos</small></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
     </div>
     <div class="col-lg-4">
         <section class="panel">
-            <header class="panel-heading">
-                <h2><strong>Usuarios </strong> en el area</h2>
-            </header>
-            <ul class="list-group">
-                @foreach($usuarios as $usu)
-                <li class="list-group-item">
-                    {{$usu->usu_nombre}} {{$usu->usu_appaterno}} {{$usu->usu_apMaterno}}
-                </li>
-                @endforeach
-            </ul>
+            <h4 align="center"><strong>Actividad de pacientes registrados</strong></h4>
+            <div id="estado1" style= "height:280px "></div>
+            <button class="btn btn-block btn-sm btn-theme-inverse" onclick="actEstado1()">Actualizar</button>
         </section>
     </div>
 </div>

@@ -1,3 +1,5 @@
+actEstado1();
+
 function informe1() {
   $.get("admRecepHome/1")
     .done(function(data) {
@@ -174,10 +176,12 @@ function pacihistMedica(id) {
         .map(function(elem) {
           return `
         <tr>
-            <td>${moment(elem.created_at).format("DD-MM-YYYY h:mm ") }</td>
+            <td>${moment(elem.created_at).format("DD-MM-YYYY h:mm ")}</td>
             <td valign="middle">${elem.ate_procedimiento}</td>
             <td>${elem.nombre}</td>
-            <td>${elem.ps_nombre} ${elem.ps_appaterno} ${elem.ps_apmaterno} </td>
+            <td>${
+              elem.ps_nombre
+            } ${elem.ps_appaterno} ${elem.ps_apmaterno} </td>
         </tr>
           `;
         })
@@ -186,4 +190,15 @@ function pacihistMedica(id) {
       $("#md-HclHistorial").modal("show");
     })
     .fail(function() {});
+}
+
+function actEstado1(param) {
+  $.get('admRecepHome/actRegistroPaci').done(function (data) {
+    new Morris.Donut({
+      element: "estado1",
+      data: [{ label: "Mañana", value: data['regPacMañana'] }, { label: "Tarde", value: data['regPacTarde'] }],
+      colors: ["#06AAF1", "#20CF42"]
+    });
+
+    }).fail();
 }

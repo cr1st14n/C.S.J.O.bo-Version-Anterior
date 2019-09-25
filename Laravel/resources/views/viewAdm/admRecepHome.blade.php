@@ -49,7 +49,7 @@
                 <section>
                     <h5><strong>Usuarios </strong>en el area </h5>
                     @foreach($usuarios as $usu)
-                    <h5 >
+                    <h5>
                         - {{$usu->usu_nombre}} {{$usu->usu_appaterno}} {{$usu->usu_apMaterno}}
                     </h5>
                     @endforeach
@@ -61,7 +61,14 @@
 
 </div>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-3">
+        <section class="panel">
+            <h4 align="center"><strong>Pacientes registrados Jornada actual</strong></h4>
+            <div id="estado1" style="height:280px "></div>
+            <button class="btn btn-block btn-sm btn-theme-inverse" onclick="actEstado1()">Actualizar</button>
+        </section>
+    </div>
+    <div class="col-lg-6">
         <section class="panel corner-flip">
             <div class="widget-chart bg-lightseagreen bg-gradient-green" onclick="cuadroEstadistico()">
                 <h2>Estado anual registro de pacientes</h2>
@@ -125,14 +132,50 @@
                 </table>
             </div>
             <div class="panel-body">
-                
+
             </div>
         </section>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
         <section class="panel">
-            <h4 align="center"><strong>Actividad de pacientes registrados</strong></h4>
-            <div id="estado1" style= "height:280px "></div>
+            <h4 align="center"><strong>Citas medicas</strong></h4>
+            <div id="estado2" style="height:280px ">
+                <div class="widget-chart">
+                    <div class="label-flot-custom-title"><span>Custom title</span></div>
+                    <table id="example_pieDonut" class="flot-chart" data-type="pie" data-inner-radius="0.7" data-pie-style="shadow" data-tool-tip="show" data-width="100%" data-height="220px">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th style="color : #3db9af;">Other</th>
+                                <th style="color : #DC4D79;">Webboard</th>
+                                <th style="color : #BD3B47;">Article</th>
+                                <th style="color : #DD4444;">Other</th>
+                                <th style="color : #FD9C35;">Product Review</th>
+                                <th style="color : #FEC42C;">Webboard</th>
+                                <th style="color : #D4DF5A;">Article</th>
+                                <th style="color : #575757;">Product Review</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <td>44</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!-- // widget-chart -->
+
+                <div class="align-lg-center">
+                    <div class="label-flot-custom" data-flot-id="#example_pieDonut"></div>
+                </div>
+            </div>
             <button class="btn btn-block btn-sm btn-theme-inverse" onclick="actEstado1()">Actualizar</button>
         </section>
     </div>
@@ -303,4 +346,5 @@
 @section('scripts')
 <script type="text/javascript" src="{{ asset('asincrono/admRecepHome.js') }}"></script>
 <script type="text/javascript" src="{{ asset('asincrono/homejs.js') }}"></script>
+
 @endsection

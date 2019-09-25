@@ -51,3 +51,7 @@ function validar(id) {
         elemento.style.backgroundColor = "#ffd3d3";
     }
 }
+function colorRandom() {
+    var res='#' + Math.floor(Math.random()*16777215).toString(16);
+    return res;
+}

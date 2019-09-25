@@ -117,6 +117,9 @@
 <script type="text/javascript" src="{{ asset('assets/plugins/morris/morris.js') }}"></script>
 <link type="text/css" rel="stylesheet" href="{{ asset('assets/plugins/morris/morris.css') }}" />
 
+<!-- Library  5+ plugins for bootstrap -->
+<script type="text/javascript" src="{{asset('assets/plugins/pluginsForBS/pluginsForBS.js')}}"></script>
+
 
 
 <!-- scripts propios del sistema-->

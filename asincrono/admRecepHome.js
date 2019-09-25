@@ -1,4 +1,5 @@
 actEstado1();
+actEstado2();
 
 function informe1() {
   $.get("admRecepHome/1")
@@ -201,4 +202,52 @@ function actEstado1(param) {
     });
 
     }).fail();
+}
+function actEstado2(param) {
+  // $.get('admRecepHome/actRegistroPaci').done(function (data) {
+  //   new Morris.Donut({
+  //     element: "estado2",
+  //     data: [{ label: "Mañana", value: data['regPacMañana'] }, 
+  //           { label: "Tarde", value: data['regPacTarde'] },
+  //           { label: "Tarde", value: data['regPacTarde'] },
+  //           { label: "Tarde", value: data['regPacTarde'] }],
+  //     // colors: ["#06AAF1", "#20CF42"]
+  //   });
+
+  //   }).fail();
+
+    html2=`<div class="widget-chart">
+    <div class="label-flot-custom-title"><span>Custom title</span></div>
+    <table id="example_pieDonut" class="flot-chart" data-type="pie" data-inner-radius="0.7" data-pie-style="shadow" data-tool-tip="show" data-width="100%" data-height="220px" >
+        <thead>
+            <tr>
+                <th></th>
+                <th style="color : #3db9af;">Other</th>
+                <th style="color : #DC4D79;">Webboard</th>
+                <th style="color : #BD3B47;">Article</th>
+                <th style="color : #DD4444;">Other</th>
+                <th style="color : #FD9C35;">Product Review</th>
+                <th style="color : #FEC42C;">Webboard</th>
+                <th style="color : #D4DF5A;">Article</th>
+                <th style="color : #575757;">Product Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th></th>
+                <td>44</td>
+                <td>8</td>
+                <td>8</td>
+                <td>8</td>
+                <td>8</td>
+                <td>8</td>
+                <td>8</td>
+                <td>8</td>
+            </tr>
+        </tbody>
+    </table>
+</div>`;
+// document.getElementById('estado2').innerHTML=html2;
+var t = '#' + Math.floor(Math.random()*16777215).toString(16);
+console.log(t);
 }

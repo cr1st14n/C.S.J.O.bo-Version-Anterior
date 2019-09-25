@@ -16,7 +16,7 @@ class admRecepController extends Controller
         $this->middleware('auth');
     }
     public function index(){
-        $total=pacientes::count();
+        $total=pacientes::max('pa_hcl');
 
         $usuariosArea=User::where('usu_area',"Recepcion")->get();
 
@@ -250,18 +250,18 @@ class admRecepController extends Controller
         $noviembre=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',11)->count();
         $diciembre=atencion::where('ate_especialidad',$request->id)->whereYear('created_at',$request->año)->whereMonth('created_at',12)->count();
         $lista=array();
-        array_push($lista,["elapsed"=>"ene","value"=>$enero]);
-        array_push($lista,["elapsed"=>"feb","value"=>$febrero]);
-        array_push($lista,["elapsed"=>"mar","value"=>$marzo]);
-        array_push($lista,["elapsed"=>"abr","value"=>$abril]);
-        array_push($lista,["elapsed"=>"may","value"=>$mayo]);
-        array_push($lista,["elapsed"=>"jun","value"=>$junio]);
-        array_push($lista,["elapsed"=>"jul","value"=>$julio]);
-        array_push($lista,["elapsed"=>"ago","value"=>$agosto]);
-        array_push($lista,["elapsed"=>"sep","value"=>$septiembre]);
-        array_push($lista,["elapsed"=>"oct","value"=>$octubre]);
-        array_push($lista,["elapsed"=>"nov","value"=>$noviembre]);
-        array_push($lista,["elapsed"=>"dic","value"=>$diciembre]);
+        array_push($lista,["elapsed"=>"ene: $enero","value"=>$enero]);
+        array_push($lista,["elapsed"=>"feb: $febrero","value"=>$febrero]);
+        array_push($lista,["elapsed"=>"mar: $marzo","value"=>$marzo]);
+        array_push($lista,["elapsed"=>"abr: $abril","value"=>$abril]);
+        array_push($lista,["elapsed"=>"may: $mayo","value"=>$mayo]);
+        array_push($lista,["elapsed"=>"jun: $junio","value"=>$junio]);
+        array_push($lista,["elapsed"=>"jul: $julio","value"=>$julio]);
+        array_push($lista,["elapsed"=>"ago: $agosto","value"=>$agosto]);
+        array_push($lista,["elapsed"=>"sep: $septiembre","value"=>$septiembre]);
+        array_push($lista,["elapsed"=>"oct: $octubre","value"=>$octubre]);
+        array_push($lista,["elapsed"=>"nov: $noviembre","value"=>$noviembre]);
+        array_push($lista,["elapsed"=>"dic: $diciembre","value"=>$diciembre]);
         return $lista;
 
     }
@@ -281,6 +281,7 @@ class admRecepController extends Controller
     function actRegistroPaci()
     {
       $fecha=Carbon::now()->format('Y-m-d');
+      $fecha='2019-09-19';
       $regPacMañana=pacientes::whereDate('created_at',$fecha)
                   ->whereTime('created_at','>=','00:00')
                   ->whereTime('created_at','<=','12:00')

@@ -127,7 +127,7 @@ function InfoCajaList(param) {
 }
 
 function ShowModalDetalleCajaEsp(id, nombre) {
-  $("#IdDeEspecialidadDC").text(id);
+  $("#IdDeEspecialidadDC").val(id);
   $("#nombreDeEspecialidadDC").text(nombre);
   $("#estadoAnualEst").html("");
   var año = $("#infoCajaAño").val();
@@ -135,17 +135,22 @@ function ShowModalDetalleCajaEsp(id, nombre) {
     año = 2019;
   }
   $("#infoCajaAñoDetalle").val(año);
-  setTimeout(showDataEstEsp, 250);
+  setTimeout(showDataEstEsp, 200);
   // showDataEstEsp();
   $("#md-DetalleCajaEsp").modal("show");
 }
 
 function showDataEstEsp() {
-  // $("#estadoAnualEst").html("");
+  $("#estadoAnualEst").html("");
   var año = $("#infoCajaAñoDetalle").val();
-  var id = $("#IdDeEspecialidadDC").text();
+  var id = $("#IdDeEspecialidadDC").val();
+  if (id == null) {
+    id = $("#IdDeEspecialidadDC").val();
+  }
   if (año.length == 0) {
     notif("2", "Verificar año!");
+  } else if (id.length == 0) {
+    $("#md-DetalleCajaEsp").modal("hide");
   } else {
     var dat = { id: id, año: año };
     $.get("admRecepHome/detalleCajaEspecialidad/", dat)

@@ -265,6 +265,28 @@
     </div>
     <!-- //modal-body-->
 </div>
+<div id="md-DetalleCajaEsp" class="modal fade container md-stickTop">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title">Estado anual de atencion de: <strong id="nombreDeEspecialidadDC"></strong></h4>
+        <input type="text" id="IdDeEspecialidadDC" hidden >
+    </div>
+    <!-- //modal-header-->
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="number" class="form-control" placeholder="Año" id="infoCajaAñoDetalle">
+            </div>
+            <div class="col-sm-8">
+                <button class="btn  btn-theme-inverse btn-block" onclick="showDataEstEsp()">Filtrar</button>
+            </div>
+        </div>
+        <div id="estadoAnualEst">
+
+        </div>
+    </div>
+    <!-- //modal-body-->
+</div>
 <div id="md-infoCaja2" class="modal fade md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
@@ -311,28 +333,6 @@
                     </ol>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- //modal-body-->
-</div>
-<div id="md-DetalleCajaEsp" class="modal fade container md-stickTop">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title">Estado anual de atencion de: <strong id="nombreDeEspecialidadDC"></strong></h4>
-        <input id="IdDeEspecialidadDC" hidden>
-    </div>
-    <!-- //modal-header-->
-    <div class="modal-body">
-        <div class="row">
-            <div class="col-sm-4">
-                <input type="number" class="form-control" placeholder="Año" id="infoCajaAñoDetalle">
-            </div>
-            <div class="col-sm-8">
-                <button class="btn  btn-theme-inverse btn-block" onclick="showDataEstEsp()">Filtrar</button>
-            </div>
-        </div>
-        <div id="estadoAnualEst">
-
         </div>
     </div>
     <!-- //modal-body-->

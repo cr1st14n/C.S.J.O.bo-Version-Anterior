@@ -265,7 +265,7 @@ class admRecepController extends Controller
 
   function detalleCajaEspecialidad(Request $request)
   {
-    return $request;
+    // return $request;
     $enero = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 1)->count();
     $febrero = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 2)->count();
     $marzo = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 3)->count();

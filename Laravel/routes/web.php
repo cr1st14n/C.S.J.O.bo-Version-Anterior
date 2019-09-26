@@ -114,6 +114,8 @@ Route::group(['middleware' => ['administracion'],'prefix' =>'/adm'],function(){
 		Route::get('detalleCajaEspecialidad','admRecepController@detalleCajaEspecialidad');
 		Route::get('historiaHCLAte/{id}','admRecepController@historiaHCLAte');
 		Route::get('actRegistroPaci','admRecepController@actRegistroPaci');
+		Route::get('actRegistroEsp','admRecepController@actRegistroEsp');
+		Route::get('actRegistroMed','admRecepController@actRegistroMed');
 	});
 });
 

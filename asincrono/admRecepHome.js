@@ -1,5 +1,4 @@
 actEstado1();
-actEstado2();
 
 function informe1() {
   $.get("admRecepHome/1")
@@ -139,7 +138,7 @@ function ShowModalDetalleCajaEsp(id, nombre) {
   $("#md-DetalleCajaEsp").modal("show");
 }
 function showDataEstEsp() {
-  $("#estadoAnualEst").html("");
+  // $("#estadoAnualEst").html("");
   var año = $("#infoCajaAñoDetalle").val();
   var id = $("#IdDeEspecialidadDC").text();
   if (año.length == 0) {
@@ -194,60 +193,53 @@ function pacihistMedica(id) {
 }
 
 function actEstado1(param) {
-  $.get('admRecepHome/actRegistroPaci').done(function (data) {
-    new Morris.Donut({
-      element: "estado1",
-      data: [{ label: "Mañana", value: data['regPacMañana'] }, { label: "Tarde", value: data['regPacTarde'] }],
-      colors: ["#06AAF1", "#20CF42"]
-    });
-
-    }).fail();
+  $.get("admRecepHome/actRegistroPaci")
+    .done(function(data) {
+      new Morris.Donut({
+        element: "estado1",
+        data: [
+          { label: "Mañana", value: data["regPacMañana"] },
+          { label: "Tarde", value: data["regPacTarde"] }
+        ],
+        colors: ["#06AAF1", "#20CF42"]
+      });
+    })
+    .fail();
 }
 function actEstado2(param) {
-  // $.get('admRecepHome/actRegistroPaci').done(function (data) {
-  //   new Morris.Donut({
-  //     element: "estado2",
-  //     data: [{ label: "Mañana", value: data['regPacMañana'] }, 
-  //           { label: "Tarde", value: data['regPacTarde'] },
-  //           { label: "Tarde", value: data['regPacTarde'] },
-  //           { label: "Tarde", value: data['regPacTarde'] }],
-  //     // colors: ["#06AAF1", "#20CF42"]
-  //   });
+  var datows = { tipo: "med", fecha: "dia" };
+  $.get("admRecepHome/actRegistroEsp", datows)
+    .done(function(dat) {
+      console.log(dat);
+      var data = [];
+      dat.forEach(function(elemento, indice, array) {
+        console.log(elemento.nombre, elemento.cantidad);
+        // var array={label:'elemento.nombre'}
+        data.push({ label: elemento.nombre, value: elemento.cantidad });
+      });
+      console.log(data);
+      data.sort(function(a, b) {
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
 
-  //   }).fail();
-
-    html2=`<div class="widget-chart">
-    <div class="label-flot-custom-title"><span>Custom title</span></div>
-    <table id="example_pieDonut" class="flot-chart" data-type="pie" data-inner-radius="0.7" data-pie-style="shadow" data-tool-tip="show" data-width="100%" data-height="220px" >
-        <thead>
-            <tr>
-                <th></th>
-                <th style="color : #3db9af;">Other</th>
-                <th style="color : #DC4D79;">Webboard</th>
-                <th style="color : #BD3B47;">Article</th>
-                <th style="color : #DD4444;">Other</th>
-                <th style="color : #FD9C35;">Product Review</th>
-                <th style="color : #FEC42C;">Webboard</th>
-                <th style="color : #D4DF5A;">Article</th>
-                <th style="color : #575757;">Product Review</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th></th>
-                <td>44</td>
-                <td>8</td>
-                <td>8</td>
-                <td>8</td>
-                <td>8</td>
-                <td>8</td>
-                <td>8</td>
-                <td>8</td>
-            </tr>
-        </tbody>
-    </table>
-</div>`;
-// document.getElementById('estado2').innerHTML=html2;
-var t = '#' + Math.floor(Math.random()*16777215).toString(16);
-console.log(t);
+      new Morris.Donut({
+        element: "estado2",
+        data: data
+        // [
+        //   { label: "Mañana", value:55  },
+        //   { label: "Tarde", value: 56 },
+        //   { label: "Tarde", value: 88 },
+        //   { label: "Tarde", value: 14 }
+        // ]
+        // colors: ["#06AAF1", "#20CF42"]
+      });
+    })
+    .fail();
 }

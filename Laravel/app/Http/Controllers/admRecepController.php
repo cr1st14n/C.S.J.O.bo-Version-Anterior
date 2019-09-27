@@ -352,8 +352,55 @@ class admRecepController extends Controller
     }
     return $lista;
   }
-  function actRegistroMed(Type $var = null)
+  function actRegistroMed(Request  $request)
   {
-    # code...
+    $ps=personalSalud::select('id','ps_appaterno','ps_especialidad')->orderBy('ps_appaterno','asc')->get();
+    $lista=array();
+    if ($request->gestion=="anual") {
+      foreach ($ps as $ps) {
+        $count=atencion::where('ate_med',$ps->id)
+        ->whereYear('created_at',$request->año)
+        ->count();
+        array_push($lista,array("id"=>$ps->id,'apellido'=>$ps->ps_appaterno,'especialidad'=>$ps->ps_especialidad,"cantidad"=>$count));
+      }
+    }else{
+      foreach ($ps as $ps) {
+        $count=atencion::where('ate_med',$ps->id)
+        ->whereYear('created_at',$request->año)
+        ->whereMonth('created_at',$request->gestion)
+        ->count();
+        array_push($lista,array("id"=>$ps->id,'apellido'=>$ps->ps_appaterno,'especialidad'=>$ps->ps_especialidad,"cantidad"=>$count));
+      }
+    }
+    return $lista;
+  }
+  function DatosEstAnualesMedico(Request $request)
+  {
+    $enero = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 1)->count();
+    $febrero = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 2)->count();
+    $marzo = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 3)->count();
+    $abril = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 4)->count();
+    $mayo = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 5)->count();
+    $junio = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 6)->count();
+    $julio = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 7)->count();
+    $agosto = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 8)->count();
+    $septiembre = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 9)->count();
+    $octubre = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 10)->count();
+    $noviembre = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 11)->count();
+    $diciembre = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 12)->count();
+    $lista = array();
+    array_push($lista, ["elapsed" => "ene: $enero", "value" => $enero]);
+    array_push($lista, ["elapsed" => "feb: $febrero", "value" => $febrero]);
+    array_push($lista, ["elapsed" => "mar: $marzo", "value" => $marzo]);
+    array_push($lista, ["elapsed" => "abr: $abril", "value" => $abril]);
+    array_push($lista, ["elapsed" => "may: $mayo", "value" => $mayo]);
+    array_push($lista, ["elapsed" => "jun: $junio", "value" => $junio]);
+    array_push($lista, ["elapsed" => "jul: $julio", "value" => $julio]);
+    array_push($lista, ["elapsed" => "ago: $agosto", "value" => $agosto]);
+    array_push($lista, ["elapsed" => "sep: $septiembre", "value" => $septiembre]);
+    array_push($lista, ["elapsed" => "oct: $octubre", "value" => $octubre]);
+    array_push($lista, ["elapsed" => "nov: $noviembre", "value" => $noviembre]);
+    array_push($lista, ["elapsed" => "dic: $diciembre", "value" => $diciembre]);
+    return $lista;
   }
 }

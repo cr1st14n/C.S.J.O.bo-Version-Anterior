@@ -215,40 +215,38 @@ function actEstado1(param) {
     })
     .fail();
 }
-function actEstado2(param) {
-  var datows = { tipo: "med", fecha: "dia" };
-  $.get("admRecepHome/actRegistroEsp", datows)
-    .done(function(dat) {
-      console.log(dat);
-      var data = [];
-      dat.forEach(function(elemento, indice, array) {
-        console.log(elemento.nombre, elemento.cantidad);
-        // var array={label:'elemento.nombre'}
-        data.push({ label: elemento.nombre, value: elemento.cantidad });
-      });
-      console.log(data);
-      data.sort(function(a, b) {
-        if (a.name > b.name) {
-          return 1;
-        }
-        if (a.name < b.name) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
-      });
 
-      new Morris.Donut({
-        element: "estado2",
-        data: data
-        // [
-        //   { label: "Mañana", value:55  },
-        //   { label: "Tarde", value: 56 },
-        //   { label: "Tarde", value: 88 },
-        //   { label: "Tarde", value: 14 }
-        // ]
-        // colors: ["#06AAF1", "#20CF42"]
-      });
-    })
-    .fail();
+function showDetMed(param) {
+  $('#md-infoCaja2').modal('show');
+  }
+function actEstado2(param) {
+  document.getElementById('listReporteCaja2').innerHTML="";
+  var date=$('#IdDetMedCajaAño').val();
+  var gestion=$('#IdDetMedCajaDate').val();
+  $.get("admRecepHome/actRegistroMed",{gestion:gestion,año:date},
+    function (data) {
+      console.log(data);
+      var html=data.map(function (elem,index) {
+        return`
+        <li><a href="#" onClick="ShowModalDetalleCajaMed(${elem.id},'${elem.apellido}','${elem.especialidad}')"> ${elem.apellido} / ${elem.especialidad}<span class="pull-right">${elem.cantidad}</span></a></li>
+        `;
+        }).join(" ");
+        document.getElementById('listReporteCaja2').innerHTML=html;
+    }
+  ).fail();
 }
+function ShowModalDetalleCajaMed(id,nombre,especlialidad) { 
+ console.log(id + nombre + especlialidad);
+ document.getElementById('nombreDeMedicoDC').innerText=nombre+'-'+especlialidad;
+ document.getElementById('idNombreDeMedicoDC').value=id;
+ShowModalDetalleCajaMed2();
+ }
+ function ShowModalDetalleCajaMed2() {
+   var año=document.getElementById('infoCajaAñoDetalleMed').value;
+   var id=document.getElementById('idNombreDeMedicoDC').value;
+   $.get("admRecepHome/DatosEstAnualesMedico",{id:id,año:año},
+     function (data) {
+      console.log(data); 
+     }
+   );
+   }

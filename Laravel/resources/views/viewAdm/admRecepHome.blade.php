@@ -38,7 +38,7 @@
                         <div class="progress-bar  progress-bar-white" aria-valuetransitiongoal="478" aria-valuemax="1000"></div>
                     </div>
                     <button class="btn btn-transparent btn-theme-inverse " data-toggle="modal" data-target="#md-infoCaja"><i class="fa fa-plus-square"></i></button>
-                    <button class="btn btn-transparent btn-theme-inverse " data-toggle="modal" data-target="#md-infoCaja2"><i class="fa fa-user-md"></i></button>
+                    <button class="btn btn-transparent btn-theme-inverse " onclick="showDetMed()"><i class="fa fa-user-md"></i></button>
                 </section>
                 <div class="hold-icon"><i class="fa fa-user-md"></i></div>
             </div>
@@ -62,7 +62,7 @@
 
 </div>
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-9">
         <section class="panel corner-flip">
             <div class="widget-chart bg-lightseagreen bg-gradient-green" onclick="cuadroEstadistico()">
                 <h2>Estado anual registro de pacientes</h2>
@@ -126,28 +126,15 @@
                 </table>
             </div>
             <div class="panel-body">
-                <div class="col-lg-4">
-                    <section class="panel">
-                        <h4 align="center"><strong>Pacientes registrados Jornada actual</strong></h4>
-                        <div id="estado1" style="height:280px "></div>
-                        <button class="btn btn-block btn-sm btn-theme-inverse" onclick="actEstado1()">Actualizar</button>
-                    </section>
-                </div>
-                <div class="col-lg-4">
-                    <section class="panel">
-                        <h4 align="center"><strong>Citas medicas</strong></h4>
-                        <div id="estado2" style="height:280px ">
-                        </div>
-                        <button class="btn  btn-sm btn-theme-inverse" onclick="actEstado2()">Especialidad</button>
-                        <button class="btn  btn-sm btn-theme-inverse" onclick="actEstado2()">Medico</button>
-                    </section>
-                </div>
-                <div class="col-lg-4">
-                    <div class="align-lg-center">
 
-                    </div>
-                </div>
             </div>
+        </section>
+    </div>
+    <div class="col-lg-3">
+        <section class="panel">
+            <h4 align="center"><strong>Pacientes registrados Jornada actual</strong></h4>
+            <div id="estado1" style="height:280px "></div>
+            <button class="btn btn-block btn-sm btn-theme-inverse" onclick="actEstado1()">Actualizar</button>
         </section>
     </div>
 </div>
@@ -174,7 +161,31 @@
     </div>
     <!-- //modal-body-->
 </div>
-
+<div id="md-HclHistorial" class="modal fade container md-stickTop">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title">Historial de atencion del paciente: <strong id="nombreDelPaciente"></strong></h4>
+        <label id="IdDeEspecialidadDC" hidden></label>
+    </div>
+    <!-- //modal-header-->
+    <div class="modal-body">
+        <div class="table-responsive">
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Procedimiento</th>
+                        <th>Especialidad</th>
+                        <th>Medico</th>
+                    </tr>
+                </thead>
+                <tbody align="center" id="tabPaciHistMed">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- //modal-body-->
+</div>
 <div id="md-full-width" class="modal fade md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
@@ -212,7 +223,6 @@
     </div>
     <!-- //modal-body-->
 </div>
-
 <div id="md-infoCaja" class="modal fade md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
@@ -269,7 +279,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h4 class="modal-title">Estado anual de atencion de: <strong id="nombreDeEspecialidadDC"></strong></h4>
-        <input type="text" id="IdDeEspecialidadDC" hidden >
+        <input type="text" id="IdDeEspecialidadDC" hidden>
     </div>
     <!-- //modal-header-->
     <div class="modal-body">
@@ -290,78 +300,70 @@
 <div id="md-infoCaja2" class="modal fade md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title">Informe de caja</h4>
+        <h4 class="modal-title">Detalle de atencion Personal Medico</h4>
     </div>
     <!-- //modal-header-->
     <div class="modal-body">
-        <div class="panel-body">
-            <div class="row">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <button class="btn btn-theme-inverse btn-sm btn-block" onclick="InfoCajaList()">filtrar</button>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="align-lg-center ">
-                            <select name="" id="infCajaMez" class="form-control">
-                                <option value="Anual">Anual</option>
-                                <option value="01">enero</option>
-                                <option value="02">Febrero</option>
-                                <option value="03">Marzo</option>
-                                <option value="04">Abril</option>
-                                <option value="05">Mayo</option>
-                                <option value="06">Junio</option>
-                                <option value="07">Julio</option>
-                                <option value="08">Agosto</option>
-                                <option value="09">Septiembre</option>
-                                <option value="10">Octubre</option>
-                                <option value="11">Noviembre</option>
-                                <option value="12">Diciembre</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="align-lg-center ">
-                            <input class="form-control" type="number" name="" id="infoCajaAño2" placeholder="Año" value="2019">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <h3><strong>Total</strong>.- </h3>
-                    <br>
-                    <ol class="rectangle-list" id="listReporteCaja2">
-                        <li><a href="#"> ** ** <span class="pull-right">## ##</span></a></li>
-                    </ol>
-                </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <select class="selectpicker form-control" style="display: none;" id="IdDetMedCajaDate">
+                    <option value="anual">Anual </option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" type="number" name="" id="IdDetMedCajaAño" placeholder="Gestion" value="2019">
+
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-block  btn-theme-inverse" onclick="actEstado2()"> Filtrar </button>
+
             </div>
         </div>
+        <div class="col-md-12">
+            <ol class="rectangle-list" id="listReporteCaja2">
+                <li><a href="#"> ** ** <span class="pull-right">## ##</span></a></li>
+            </ol>
+        </div>
+
     </div>
     <!-- //modal-body-->
 </div>
-<div id="md-HclHistorial" class="modal fade container md-stickTop">
+<div id="md-DetalleCajaMed" class="modal fade container md-stickTop">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title">Historial de atencion del paciente: <strong id="nombreDelPaciente"></strong></h4>
-        <label id="IdDeEspecialidadDC" hidden></label>
+        <h4 class="modal-title">Estado anual de atencion de: <strong id="nombreDeMedicoDC"></strong></h4>
+        <input type="text" id="idNombreDeMedicoDC" hidden>
     </div>
     <!-- //modal-header-->
     <div class="modal-body">
-        <div class="table-responsive">
-            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Procedimiento</th>
-                        <th>Especialidad</th>
-                        <th>Medico</th>
-                    </tr>
-                </thead>
-                <tbody align="center" id="tabPaciHistMed">
-                </tbody>
-            </table>
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="number" class="form-control" placeholder="Año" id="infoCajaAñoDetalleMed">
+            </div>
+            <div class="col-sm-8">
+                <button class="btn  btn-theme-inverse btn-block" onclick="showDataEstEsp()">Filtrar</button>
+            </div>
+        </div>
+        <div id="estadoAnualEst">
+
         </div>
     </div>
     <!-- //modal-body-->
 </div>
+
 @endsection
 
 @section('scripts')

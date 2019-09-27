@@ -116,6 +116,7 @@ Route::group(['middleware' => ['administracion'],'prefix' =>'/adm'],function(){
 		Route::get('actRegistroPaci','admRecepController@actRegistroPaci');
 		Route::get('actRegistroEsp','admRecepController@actRegistroEsp');
 		Route::get('actRegistroMed','admRecepController@actRegistroMed');
+		Route::get('DatosEstAnualesMedico','admRecepController@DatosEstAnualesMedico');
 	});
 });
 

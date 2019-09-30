@@ -1,5 +1,5 @@
-console.log("hola");
-
+var formCreatuser1=document.getElementById('formuladio1');
+formCreatuser1.addEventListener('submit',function (event) {event.preventDefault(); createUser(1) });
 function showListEmp() {
 
 }
@@ -142,8 +142,8 @@ function listCambioTurno() {
 }
 /* funciones para crud usuarios*/
 function showModalCreateUser() {
-    $('#md-createUser').addClass('md-flipHor').modal('show');
-    $('#formuladio1').trigger("reset");
+    $('#formuladio1').parsley('destroy');
+    $('#md-createUser').modal('show');
 }
 
 function showModalCreateUser2() {

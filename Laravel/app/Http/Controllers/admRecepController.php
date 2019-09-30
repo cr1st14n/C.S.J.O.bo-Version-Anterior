@@ -309,7 +309,7 @@ class admRecepController extends Controller
   function actRegistroPaci()
   {
     $fecha = Carbon::now()->format('Y-m-d');
-    $fecha = '2019-09-19';
+    // $fecha = '2019-09-19';
     $regPacMañana = pacientes::whereDate('created_at', $fecha)
       ->whereTime('created_at', '>=', '00:00')
       ->whereTime('created_at', '<=', '12:00')

@@ -32,73 +32,13 @@
                     </tr>
                     </thead>
                     <tbody align="center" id="tableUser">
-                    {{--<tr>
-                        <td>1</td>
-                        <td valign="middle">Sander</td>
-                        <td>example@demo.com</td>
-                        <td><span class="label label-success">Purchased</span></td>
-                        <td>
-                            <span class="tooltip-area">
-                            <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)"  class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Martie</td>
-                        <td>example@demo.com</td>
-                        <td><span class="label label-warning">Pending</span></td>
-                        <td>
-                            <span class="tooltip-area">
-                            <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)"  class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Lucien</td>
-                        <td>example@demo.com</td>
-                        <td><span class="label label-success ">Purchased</span></td>
-                        <td>
-																									<span class="tooltip-area">
-																									<a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-																									<a href="javascript:void(0)"  class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
-																									</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Fulvio</td>
-                        <td>example@demo.com</td>
-                        <td><span class="label label-warning">Pending</span></td>
-                        <td>
-																									<span class="tooltip-area">
-																									<a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-																									<a href="javascript:void(0)"  class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
-																									</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Shavonne</td>
-                        <td>example@demo.com</td>
-                        <td><span class="label label-danger">Suspended</span></td>
-                        <td>
-																									<span class="tooltip-area">
-																									<a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-																									<a href="javascript:void(0)"  class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
-																									</span>
-                        </td>
-                    </tr>--}}
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
-    {{-- modal crud User--}}
-    <div id="md-createUser" class="modal fade  " tabindex="-1" data-width="800">
+    <!-- modal crud User -->
+    <div id="md-createUser" class="modal fade md-flipHor " tabindex="-1" data-width="800">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
             <h3>Datos Personales</h3> <h6>(Los campos con * son obligatorios)</h6>
@@ -213,7 +153,8 @@
                         </div>
                         <div class="form-group offset">
                             <div>
-                                <button type="button" class="btn btn-theme-inverse" onclick="createUser(1)" >Continuar registro</button>
+                                <button type="submit" class="btn btn-theme-inverse" >Continuar registro</button>
+                                <!-- <button type="button" class="btn btn-theme-inverse" onclick="createUser(1)" >Continuar registro</button> -->
                             </div>
                         </div>
                     </div>

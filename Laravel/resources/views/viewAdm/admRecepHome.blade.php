@@ -354,11 +354,10 @@
                 <input type="number" class="form-control" placeholder="Año" id="infoCajaAñoDetalleMed">
             </div>
             <div class="col-sm-8">
-                <button class="btn  btn-theme-inverse btn-block" onclick="showDataEstEsp()">Filtrar</button>
+                <button class="btn  btn-theme-inverse btn-block" onclick="ShowModalDetalleCajaMed2()">Filtrar</button>
             </div>
         </div>
-        <div id="estadoAnualEst">
-
+        <div id="estadoAnualEst11">
         </div>
     </div>
     <!-- //modal-body-->

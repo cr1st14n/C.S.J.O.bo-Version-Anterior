@@ -58,7 +58,7 @@ function informe1() {
 
 function buscarCiHCL(dato, tipo) {
   // console.log(dato,tipo);
-  console.log(dato.length);
+  // console.log(dato.length);
   if (dato.length == 0) {
     var hatmVacio = `<tr>
                             Ingrese datos para buscar!
@@ -69,13 +69,13 @@ function buscarCiHCL(dato, tipo) {
     $.get("admRecepHome/BuscHCL", data)
       .done(function(data) {
         if (data == "vacio") {
-          console.log("vacio");
+          // console.log("vacio");
           var hatmVacio = `<tr>
                                 Informacion no encontrada!
                                 </tr>`;
           document.getElementById("listPacientes").innerHTML = hatmVacio;
         } else {
-          console.log(data);
+          // console.log(data);
           listPacientes(data);
         }
       })
@@ -104,7 +104,7 @@ function listPacientes(data) {
 }
 
 function cuadroEstadistico() {
-  console.log("hola");
+  // console.log("hola");
   var html = "1000";
   document.getElementById("tablaEstadistica").innerText = html;
 }
@@ -113,7 +113,7 @@ function InfoCajaList(param) {
   var datos = { mez: $("#infCajaMez").val(), año: $("#infoCajaAño").val() };
   $.get("admRecepHome/InfoCajaList", datos)
     .done(function(data) {
-      console.log(data);
+      // console.log(data);
       var html = data
         .map(function(elem, index) {
           return `
@@ -155,7 +155,7 @@ function showDataEstEsp() {
     var dat = { id: id, año: año };
     $.get("admRecepHome/detalleCajaEspecialidad/", dat)
       .done(function(data) {
-        console.log(data);
+        // console.log(data);
         new Morris.Line({
           element: "estadoAnualEst",
           data: data,
@@ -173,10 +173,10 @@ function showDataEstEsp() {
 
 function pacihistMedica(id) {
   var dateString = "2017-01-10";
-  console.log(moment(dateString).format("DD/MM/YYYY"));
+  // console.log(moment(dateString).format("DD/MM/YYYY"));
   $.get("admRecepHome/historiaHCLAte/" + id + "")
     .done(function(param) {
-      console.log(param);
+      // console.log(param);
       var nombre = `${param["apellido1"]} ${param["apellido2"]}, ${
         param["nombre"]
       }, #HCL: ${param["hcl"]}`;
@@ -217,36 +217,54 @@ function actEstado1(param) {
 }
 
 function showDetMed(param) {
-  $('#md-infoCaja2').modal('show');
-  }
+  $("#md-infoCaja2").modal("show");
+}
 function actEstado2(param) {
-  document.getElementById('listReporteCaja2').innerHTML="";
-  var date=$('#IdDetMedCajaAño').val();
-  var gestion=$('#IdDetMedCajaDate').val();
-  $.get("admRecepHome/actRegistroMed",{gestion:gestion,año:date},
-    function (data) {
-      console.log(data);
-      var html=data.map(function (elem,index) {
-        return`
+  document.getElementById("listReporteCaja2").innerHTML = "";
+  aniCarga('listReporteCaja2');
+  var date = $("#IdDetMedCajaAño").val();
+  var gestion = $("#IdDetMedCajaDate").val();
+  $.get(
+    "admRecepHome/actRegistroMed",
+    { gestion: gestion, año: date },
+    function(data) {
+      // console.log(data);
+      var html = data
+        .map(function(elem, index) {
+          return `
         <li><a href="#" onClick="ShowModalDetalleCajaMed(${elem.id},'${elem.apellido}','${elem.especialidad}')"> ${elem.apellido} / ${elem.especialidad}<span class="pull-right">${elem.cantidad}</span></a></li>
         `;
-        }).join(" ");
-        document.getElementById('listReporteCaja2').innerHTML=html;
+        })
+        .join(" ");
+      document.getElementById("listReporteCaja2").innerHTML = html;
     }
   ).fail();
 }
-function ShowModalDetalleCajaMed(id,nombre,especlialidad) { 
- console.log(id + nombre + especlialidad);
- document.getElementById('nombreDeMedicoDC').innerText=nombre+'-'+especlialidad;
- document.getElementById('idNombreDeMedicoDC').value=id;
-ShowModalDetalleCajaMed2();
- }
- function ShowModalDetalleCajaMed2() {
-   var año=document.getElementById('infoCajaAñoDetalleMed').value;
-   var id=document.getElementById('idNombreDeMedicoDC').value;
-   $.get("admRecepHome/DatosEstAnualesMedico",{id:id,año:año},
-     function (data) {
-      console.log(data); 
-     }
-   );
-   }
+function ShowModalDetalleCajaMed(id, nombre, especlialidad) {
+  $("#md-DetalleCajaMed").modal("show");
+  // console.log(id + nombre + especlialidad);
+  document.getElementById("nombreDeMedicoDC").innerText =
+    nombre + "-" + especlialidad;
+  document.getElementById("idNombreDeMedicoDC").value = id;
+  $('#infoCajaAñoDetalleMed').val($('#IdDetMedCajaAño').val());
+  ShowModalDetalleCajaMed2();
+}
+function ShowModalDetalleCajaMed2() {
+  aniCarga('estadoAnualEst11');
+  var año = document.getElementById("infoCajaAñoDetalleMed").value;
+  var id = document.getElementById("idNombreDeMedicoDC").value;
+  $.get("admRecepHome/DatosEstAnualesMedico", { id: id, año: año }, function(
+    data
+  ) {
+    // console.log(data);
+    $('#estadoAnualEst11').html("");
+    new Morris.Line({
+      element: "estadoAnualEst11",
+      data: data,
+      xkey: "elapsed",
+      ykeys: ["value"],
+      labels: ["value"],
+      parseTime: false
+    });
+  });
+}

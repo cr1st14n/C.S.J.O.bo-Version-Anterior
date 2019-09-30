@@ -376,18 +376,19 @@ class admRecepController extends Controller
   }
   function DatosEstAnualesMedico(Request $request)
   {
-    $enero = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 1)->count();
-    $febrero = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 2)->count();
-    $marzo = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 3)->count();
-    $abril = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 4)->count();
-    $mayo = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 5)->count();
-    $junio = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 6)->count();
-    $julio = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 7)->count();
-    $agosto = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 8)->count();
-    $septiembre = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 9)->count();
-    $octubre = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 10)->count();
-    $noviembre = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 11)->count();
-    $diciembre = atencion::where('ate_especialidad', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 12)->count();
+    // return $request;
+    $enero = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 1)->count();
+    $febrero = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 2)->count();
+    $marzo = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 3)->count();
+    $abril = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 4)->count();
+    $mayo = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 5)->count();
+    $junio = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 6)->count();
+    $julio = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 7)->count();
+    $agosto = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 8)->count();
+    $septiembre = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 9)->count();
+    $octubre = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 10)->count();
+    $noviembre = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 11)->count();
+    $diciembre = atencion::where('ate_med', $request->id)->whereYear('created_at', $request->año)->whereMonth('created_at', 12)->count();
     $lista = array();
     array_push($lista, ["elapsed" => "ene: $enero", "value" => $enero]);
     array_push($lista, ["elapsed" => "feb: $febrero", "value" => $febrero]);

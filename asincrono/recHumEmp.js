@@ -3,6 +3,100 @@ formCreatuser1.addEventListener('submit',function (event) {event.preventDefault(
 function showListEmp() {
 
 }
+// ? func create usuario
+function showModalCreateUser() {
+    $('#formuladio1').trigger('reset');
+    $('#md-createUser').modal('show');
+}
+
+function createUser(tip) {
+    switch (tip) {
+        case 1:
+            var form = document.getElementById('formuladio1');
+            if (form.checkValidity()) {
+                var data = {
+                    '_token': $('meta[name=csrf-token]').attr('content'),
+                    'ci': $('#createUserCi').val(),
+                    'email': $('#email').val()
+                };
+                $.post('/C.S.J.O.bo/RRHH/personal/revCiEmail', data).done(function(data) {
+                    switch (data) {
+                        case "ciYaExistente":
+                            notif('2', 'CI ya registrado!');
+                            break;
+                        case "emailYaExistente":
+                            notif('2', 'Email ya registrado!');
+                            break;
+                        case "true":
+                            showModalCreateUser2();
+                            break;
+
+                    }
+                }).fail();
+            } else {
+                notif('2', 'Complete los datos con * !')
+            }
+            break;
+        case 2:
+            var form2 = document.getElementById('formulario2');
+            console.log(createUser2());
+            if (form2.checkValidity()) {
+                var data = createUser2();
+                $.post('/C.S.J.O.bo/RRHH/personal/createUser', data).done(function(rest) {
+                    console.log(rest);
+                    if (rest == "true") {
+                        notif('1', 'Usuario registrado!');
+                        limpiarFomrUserCreate();
+                    } else {
+                        notif('2', 'Erro. Vuelva a intentarlo!');
+                    }
+                }).fail(function() {
+                    notif(2, 'Error. Reinicie actividad');
+                });
+
+            } else {
+                notif('2', 'Completa los campos con *');
+            }
+            break;
+    }
+}
+function showModalCreateUser2() {
+    $('#formulario2').trigger("reset");
+    $('#md-createUser2').modal('show');
+}
+
+function createUser2() {
+    var data = {
+        '_token': $('meta[name=csrf-token]').attr('content'),
+        'ci': $('#createUserCi').val(),
+        'nombre': $('#nombre').val(),
+        'apellido1': $('#apellido1').val(),
+        'apellido2': $('#apellido2').val(),
+        'fechaNacimiento': $('#fechaNacimiento').val(),
+        'lugarNacimiento': $('#lugarNacimiento').val(),
+        'tipoSangre': $('#tipoSangre').val(),
+        'sexo': document.getElementsByName("name=sexo").checked = true,
+        'estadoCivil': $('#estadoCivil').val(),
+        'telf': $('#telf').val(),
+        'telfRef': $('#telfRef').val(),
+        'zonaSufragio': $('#zonaSufragio').val(),
+        'zona': $('#zona').val(),
+        'domicilio': $('#domicilio').val(),
+        'email': $('#email').val(),
+        /*datos2*/
+        'fechaContratacion': $('#fechaContratacion').val(),
+        'tituloOb': $('#tituloOb').val(),
+        'profecionOb': $('#profecionOb').val(),
+        'areaDesignada': $('#areaDesignada').val(),
+        'cargo': $('#cargo').val(),
+        'contrato': $('#contrato').val(),
+        'accesoSistema': document.getElementsByName("name=accesoSis").checked = true,
+        'seguroNombreInstitucion': $('#seguroNombreInstitucion').val(),
+        'numNua': $('#numNua').val(),
+        'numCNS': $('#numCNS').val()
+    };
+    return data;
+}
 
 function listTodosEmp() {
     console.log("listara los empleados");
@@ -139,101 +233,6 @@ function listCambioTurno() {
             </tr>`;
     document.getElementById('listFaltasPermisos').innerHTML = html;
     document.getElementById('sectorBottonFaltasPermisos').innerHTML = boton;
-}
-/* funciones para crud usuarios*/
-function showModalCreateUser() {
-    $('#formuladio1').parsley('destroy');
-    $('#md-createUser').modal('show');
-}
-
-function showModalCreateUser2() {
-    $('#formulario2').trigger("reset");
-    $('#md-createUser2').addClass('md-flipHor').modal('show');
-}
-
-function createUser(tip) {
-    switch (tip) {
-        case 1:
-            var form = document.getElementById('formuladio1');
-            if (form.checkValidity()) {
-                var data = {
-                    '_token': $('meta[name=csrf-token]').attr('content'),
-                    'ci': $('#createUserCi').val(),
-                    'email': $('#email').val()
-                };
-                $.post('/C.S.J.O.bo/RRHH/personal/revCiEmail', data).done(function(data) {
-                    switch (data) {
-                        case "ciYaExistente":
-                            notif('2', 'CI ya registrado!');
-                            break;
-                        case "emailYaExistente":
-                            notif('2', 'Email ya registrado!');
-                            break;
-                        case "true":
-                            showModalCreateUser2();
-                            break;
-
-                    }
-                }).fail();
-            } else {
-                notif('2', 'Complete los datos con * !')
-            }
-            break;
-        case 2:
-            var form2 = document.getElementById('formulario2');
-            console.log(createUser2());
-            if (form2.checkValidity()) {
-                var data = createUser2();
-                $.post('/C.S.J.O.bo/RRHH/personal/createUser', data).done(function(rest) {
-                    console.log(rest);
-                    if (rest == "true") {
-                        notif('1', 'Usuario registrado!');
-                        limpiarFomrUserCreate();
-                    } else {
-                        notif('2', 'Erro. Vuelva a intentarlo!');
-                    }
-                }).fail(function() {
-                    notif(2, 'Error. Reinicie actividad');
-                });
-
-            } else {
-                notif('2', 'Completa los campos con *');
-            }
-            break;
-    }
-}
-
-function createUser2() {
-    var data = {
-        '_token': $('meta[name=csrf-token]').attr('content'),
-        'ci': $('#createUserCi').val(),
-        'nombre': $('#nombre').val(),
-        'apellido1': $('#apellido1').val(),
-        'apellido2': $('#apellido2').val(),
-        'fechaNacimiento': $('#fechaNacimiento').val(),
-        'lugarNacimiento': $('#lugarNacimiento').val(),
-        'tipoSangre': $('#tipoSangre').val(),
-        'sexo': document.getElementsByName("name=sexo").checked = true,
-        'estadoCivil': $('#estadoCivil').val(),
-        'telf': $('#telf').val(),
-        'telfRef': $('#telfRef').val(),
-        'zonaSufragio': $('#zonaSufragio').val(),
-        'zona': $('#zona').val(),
-        'domicilio': $('#domicilio').val(),
-        'email': $('#email').val(),
-        /*datos2*/
-        'fechaContratacion': $('#fechaContratacion').val(),
-        'tituloOb': $('#tituloOb').val(),
-        'profecionOb': $('#profecionOb').val(),
-        'areaDesignada': $('#areaDesignada').val(),
-        'cargo': $('#cargo').val(),
-        'contrato': $('#contrato').val(),
-        'accesoSistema': document.getElementsByName("name=accesoSis").checked = true,
-        'seguroNombreInstitucion': $('#seguroNombreInstitucion').val(),
-        'numNua': $('#numNua').val(),
-        'numCNS': $('#numCNS').val()
-    };
-    return data;
 }
 
 function limpiarFomrUserCreate() {

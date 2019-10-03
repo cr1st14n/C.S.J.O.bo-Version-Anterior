@@ -39,7 +39,7 @@ function veriNull(texto) {
 function validar(id) {
   var elemento = document.getElementById(id);
   if (elemento.checkValidity()) {
-    elemento.style.borderColor = "green";
+    elemento.style.borderColor = "";
     elemento.style.backgroundColor = "";
   } else if (elemento.value == "") {
     elemento.style.borderColor = "";

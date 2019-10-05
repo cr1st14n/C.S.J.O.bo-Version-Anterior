@@ -74,9 +74,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Lugar de nacimiento*:</label>
+                        <label class="control-label">Pais de nacimiento*:</label>
                         <div>
-                            <input type="text" class="form-control rounded" id="lugarNacimiento" pattern="[A-Za-z ]+" onkeyup="validar('lugarNacimiento')" required>
+                            <input type="text" class="form-control rounded" id="paisNacimiento" pattern="[A-Za-z ]+" onkeyup="validar('lugarNacimiento')" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Departamento nacimiento*:</label>
+                        <div>
+                            <input type="text" class="form-control rounded" id="depNacimiento" pattern="[A-Za-z ]+" onkeyup="validar('lugarNacimiento')" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -180,6 +186,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="control-label">Tipo de Contrato:</label>
+                        <div>
+                            <select class="form-control" name="" id="contrato">
+                                <option value="planta">Planta</option>
+                                <option value="eventual">Eventual</option>
+                                <option value="estudiante">Estudiante (Segun Convenio)</option>
+                                <option value="voluntario">Voluntario</option>
+                                <option value="otro">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label">Titulo y Profecion*:</label>
                         <div>
                             <input type="text" class="form-control rounded" id="tituloOb" placeholder="Titulo obtenido" pattern="[A-Za-z ]+" required><br>
@@ -206,18 +224,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label">Tipo de Contrato:</label>
-                        <div>
-                            <select class="form-control" name="" id="contrato">
-                                <option value="planta">Planta</option>
-                                <option value="eventual">Eventual</option>
-                                <option value="estudiante">Estudiante (Segun Convenio)</option>
-                                <option value="voluntario">Voluntario</option>
-                                <option value="otro">Otros</option>
-                            </select>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">

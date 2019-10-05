@@ -18,7 +18,6 @@ class CreateUserDatosInstsTable extends Migration
             $table->timestamps();
             
             $table->integer('cod_usu')->nullable();
-            $table->string('di_cargo')->nullable();
             $table->string('di_contrato')->nullable();
             $table->string('di_titulo')->nullable();
             $table->string('di_profeccion')->nullable();

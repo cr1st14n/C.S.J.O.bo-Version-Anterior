@@ -259,7 +259,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-block btn-sm btn-theme-inverse" type="button" onclick="createUser(2)">Concluir Registro</button>
+                <button class="btn btn-block btn-sm btn-theme-inverse" type="submit" onclick="createUser(2)">Concluir Registro</button>
             </form>
         </div>
     </div>

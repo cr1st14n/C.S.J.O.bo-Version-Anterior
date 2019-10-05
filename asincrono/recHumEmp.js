@@ -1,8 +1,13 @@
-var formCreatuser1=document.getElementById('formuladio1');
-formCreatuser1.addEventListener('submit',function (event) {event.preventDefault(); createUser(1) });
-function showListEmp() {
-
-}
+var formCreatuser1 = document.getElementById("formuladio1");
+formCreatuser1.addEventListener("submit", function(event) {
+    event.preventDefault();
+  createUser(1);
+});
+$('#formulario2').on('submit',function(event){
+  event.preventDefault();
+  createUser(2);
+})
+function showListEmp() {}
 // ? func create usuario
 function showModalCreateUser() {
     $('#formuladio1').trigger('reset');
@@ -48,7 +53,7 @@ function createUser(tip) {
                         notif('1', 'Usuario registrado!');
                         limpiarFomrUserCreate();
                     } else {
-                        notif('2', 'Erro. Vuelva a intentarlo!');
+                        notif('2', 'Error. Vuelva a intentarlo!');
                     }
                 }).fail(function() {
                     notif(2, 'Error. Reinicie actividad');
@@ -100,38 +105,51 @@ function createUser2() {
 }
 
 function listTodosEmp() {
-    console.log("listara los empleados");
-    $.get('/C.S.J.O.bo/RRHH/personal/showEmpTodos').done(function(data) {
-        console.log(data);
-        var html = data.map(function(elem) {
-            return (`<tr>
+  console.log("listara los empleados");
+  $.get("/C.S.J.O.bo/RRHH/personal/showEmpTodos")
+    .done(function(data) {
+      console.log(data);
+      var html = data
+        .map(function(elem) {
+          return `<tr>
                     <td>${elem.usu_ci}</td>
-                    <td align="left">${elem.usu_appaterno} ${elem.usu_apmaterno}, ${elem.usu_nombre}</td>
+                    <td align="left">${
+                      elem.usu_appaterno
+                    } ${elem.usu_apmaterno}, ${elem.usu_nombre}</td>
                     <td>${veriNull(elem.usu_especialidad)}</td>
                     <td>${elem.usu_cargo}</td>
                     <td>${elem.usu_area}</td>
                     <td>
                         <span class="tooltip-area">
-                        <a class="btn btn-default btn-sm" title="Faltas Permisos" onclick="showUserFalPerm(${elem.id})"><i class="fa fa-exclamation"></i></a>
-                        <a class="btn btn-default btn-sm" title="Vacaciones" onclick="showUserVacaciones(${elem.id})"><i class="fa fa-tag"></i></a>
-                        <a class="btn btn-default btn-sm" title="Datos Registrados" onclick="showDatosEmp(${elem.id})"><i class="fa fa-user"></i></a>
+                        <a class="btn btn-default btn-sm" title="Faltas Permisos" onclick="showUserFalPerm(${
+                          elem.id
+                        })"><i class="fa fa-exclamation"></i></a>
+                        <a class="btn btn-default btn-sm" title="Vacaciones" onclick="showUserVacaciones(${
+                          elem.id
+                        })"><i class="fa fa-tag"></i></a>
+                        <a class="btn btn-default btn-sm" title="Datos Registrados" onclick="showDatosEmp(${
+                          elem.id
+                        })"><i class="fa fa-user"></i></a>
                         <a class="btn btn-default btn-sm" title="Doc presentados" onclick="showDocUser()"><i class="fa fa-archive"></i></a>
                         <a class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
                         </span>
                     </td>
-                    </tr>`);
-        }).join(" ");
-        document.getElementById('tableUser').innerHTML = html;
-    }).fail(function() {
-        notif('1', 'ERROR SERVER LTE');
+                    </tr>`;
+        })
+        .join(" ");
+      document.getElementById("tableUser").innerHTML = html;
+    })
+    .fail(function() {
+      notif("1", "ERROR SERVER LTE");
     });
 }
 
 function showDatosEmp(id) {
-    console.log(id);
-    $.get('/C.S.J.O.bo/RRHH/personal/showDatosEmp/' + id + '').done(function(elem) {
-        console.log(elem);
-        var datosEMP = `CI: <strong>${elem.usu_ci}</strong><br>
+  console.log(id);
+  $.get("/C.S.J.O.bo/RRHH/personal/showDatosEmp/" + id + "")
+    .done(function(elem) {
+      console.log(elem);
+      var datosEMP = `CI: <strong>${elem.usu_ci}</strong><br>
                   Nombre: <strong>${elem.usu_nombre} </strong><br>
                   Apellidos: <strong>${elem.usu_appaterno} ${elem.usu_apmaterno}</strong> <br>
                   Sexo: <strong>${elem.usu_sexo}</strong><br>
@@ -148,8 +166,8 @@ function showDatosEmp(id) {
                   Domicilio: <strong>${elem.usu_domicilio}</strong><br><hr>
                   Lugar donde Sufragia: <strong>La paz el alto</strong>
                   `;
-        document.getElementById('datosEmp').innerHTML = datosEMP;
-        var html2 = `
+      document.getElementById("datosEmp").innerHTML = datosEMP;
+      var html2 = `
                 Fecha de contratacion: <strong>08-12-2008</strong><br>
                 Titulo: <strong>Licenciada</strong><br><hr>
                 Area : <strong>${elem.usu_area}</strong><br>
@@ -161,102 +179,117 @@ function showDatosEmp(id) {
                 # de NUA: <strong>868768</strong> <br>
                 # de asegurado C.N.S: <strong>8767865765</strong> <br>
                 `;
-        document.getElementById('datosInst').innerHTML = html2;
+      document.getElementById("datosInst").innerHTML = html2;
 
-        $('#md-stack1').addClass("md-flipHor").modal('show');
-
-    }).fail(function() {
-        notif('2', 'ERROR SERVER');
+      $("#md-stack1")
+        .addClass("md-flipHor")
+        .modal("show");
+    })
+    .fail(function() {
+      notif("2", "ERROR SERVER");
     });
-
 }
 
 function showDatos() {
-    $('#md-stack2').addClass('md-flipHor').modal('show');
+  $("#md-stack2")
+    .addClass("md-flipHor")
+    .modal("show");
 }
 
 function showEditDat1User() {
-    $('#md-editDatUser').addClass('md-flipHor').modal('show');
+  $("#md-editDatUser")
+    .addClass("md-flipHor")
+    .modal("show");
 }
 
 function showEditDat2User() {
-    $('#md-editDatInstUser').addClass('md-flipHor').modal('show');
+  $("#md-editDatInstUser")
+    .addClass("md-flipHor")
+    .modal("show");
 }
 
 function showDocUser() {
-    $('#md-DocUser').addClass('md-flipHor').modal('show');
+  $("#md-DocUser")
+    .addClass("md-flipHor")
+    .modal("show");
 }
 
 function showUserVacaciones() {
-    $('#md-UserVacaciones').addClass('md-flipHor').modal('show');
+  $("#md-UserVacaciones")
+    .addClass("md-flipHor")
+    .modal("show");
 }
 
 function showUserFalPerm() {
-    document.getElementById('listFaltasPermisos').innerHTML = "";
-    document.getElementById('sectorBottonFaltasPermisos').innerHTML = "";
-    $('#md-UserFalPer').addClass('md-flipHor').modal('show');
+  document.getElementById("listFaltasPermisos").innerHTML = "";
+  document.getElementById("sectorBottonFaltasPermisos").innerHTML = "";
+  $("#md-UserFalPer")
+    .addClass("md-flipHor")
+    .modal("show");
 }
 
 function listFaltas() {
-    var boton = `<button class="btn btn-theme" id="btnRegisFalta">Registrar Falta</button>`;
-    var html = `<tr>
+  var boton = `<button class="btn btn-theme" id="btnRegisFalta">Registrar Falta</button>`;
+  var html = `<tr>
                 <td>17-05-2018</td>
                 <td>1</td>
                 <td>Falta</td>
                 <td>No se presento a su turno</td>
                 <td></td>
             </tr>`;
-    document.getElementById('listFaltasPermisos').innerHTML = html;
-    document.getElementById('sectorBottonFaltasPermisos').innerHTML = boton;
+  document.getElementById("listFaltasPermisos").innerHTML = html;
+  document.getElementById("sectorBottonFaltasPermisos").innerHTML = boton;
 }
 
 function listPermisos() {
-    var boton = `<button class="btn btn-theme" id="btnRegisPerm">Registrar Permiso</button>`;
-    var html = `<tr>
+  var boton = `<button class="btn btn-theme" id="btnRegisPerm">Registrar Permiso</button>`;
+  var html = `<tr>
                 <td>12-06-2018 // 20-06-2018</td>
                 <td>8</td> 
                 <td>Permiso</td>
                 <td>Solicitud de falta</td>
                 <td></td>
             </tr>`;
-    document.getElementById('listFaltasPermisos').innerHTML = html;
-    document.getElementById('sectorBottonFaltasPermisos').innerHTML = boton;
+  document.getElementById("listFaltasPermisos").innerHTML = html;
+  document.getElementById("sectorBottonFaltasPermisos").innerHTML = boton;
 }
 
 function listCambioTurno() {
-    var boton = `<button class="btn btn-theme" id="">Registrar Cambio de turno</button>`;
-    var html = `<tr>
+  var boton = `<button class="btn btn-theme" id="">Registrar Cambio de turno</button>`;
+  var html = `<tr>
                 <td>12-06-2018 // 20-06-2018</td>
                 <td>8</td> 
                 <td>Permiso</td>
                 <td>Solicitud de falta</td>
                 <td></td>
             </tr>`;
-    document.getElementById('listFaltasPermisos').innerHTML = html;
-    document.getElementById('sectorBottonFaltasPermisos').innerHTML = boton;
+  document.getElementById("listFaltasPermisos").innerHTML = html;
+  document.getElementById("sectorBottonFaltasPermisos").innerHTML = boton;
 }
 
 function limpiarFomrUserCreate() {
-    $('#md-createUser2').modal('hide');
-    $('#md-createUser').modal('hide');
-
+  $("#md-createUser2").modal("hide");
+  $("#md-createUser").modal("hide");
 }
 
 function prubb() {
-    $.get('/C.S.J.O.bo/RRHH/personal/22').done(function(data) {
-        console.log(data);
-    }).fail(function(data) {
-        console.log(data);
+  $.get("/C.S.J.O.bo/RRHH/personal/22")
+    .done(function(data) {
+      console.log(data);
     })
+    .fail(function(data) {
+      console.log(data);
+    });
 }
 
 function jose(params) {
-    notif('1','hola');
+  notif("1", "hola");
 
-    if (condition) {
-        var a = 1 + 1;
-    }
+  if (condition) {
+    var a = 1 + 1;
+  }
 }
+
 function marww(data) {
-    return data;
+  return data;
 }

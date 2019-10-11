@@ -27,7 +27,7 @@ class empleadoController extends Controller
     }
     function segun()
     {
-//        return User::join('atencion','atencion.usu_ci','users.usu_ci')->paginate(25);
+    //    return User::join('atencion','atencion.usu_ci','users.usu_ci')->paginate(25);
         return User::Usuarios()->paginate(50);
     }
     function revCiEmail(Request $request){
@@ -50,24 +50,25 @@ class empleadoController extends Controller
         if ($revEmail!=null){
             return "emailYaExistente";
         }
-//        se registrara al usuario
+    //    se registrara al usuario
         $newUser=new User;
 
         $newUser->usu_ci=$request->input('ci');
         $newUser->email=$request->input('email');
-        $newUser->password=12345;
+        $newUser->password=bcrypt('12345');
         $newUser->usu_nombre=$request->input('nombre');
         $newUser->usu_appaterno=$request->input('apellido1');
         $newUser->usu_apmaterno=$request->input('apellido2');
         $newUser->usu_sexo=$request->input('sexo');
+        $newUser->usu_fechnac=$request->input('fechaNacimiento');
+        $newUser->usu_paisnac=$request->input('paisNacimiento');
+        $newUser->usu_depnac=$request->input('depNacimiento');
+        $newUser->usu_estadocivil=$request->input('estadoCivil');
         $newUser->usu_telf=$request->input('telf');
         $newUser->usu_telfref=$request->input('telfRef');
-        $newUser->usu_zonaSufragio=$request->input('zonaSufragio');
         $newUser->usu_zona=$request->input('zona');
         $newUser->usu_domicilio=$request->input('domicilio');
-        $newUser->usu_fechnac=$request->input('fechaNacimiento');
-        $newUser->usu_paisnac=$request->input('lugarNacimiento');
-        $newUser->usu_estadocivil=$request->input('estadoCivil');
+        $newUser->usu_zonaSufragio=$request->input('zonaSufragio');
         $newUser->usu_tipoSangre=$request->input('tipoSangre');
         /*datos2 */
         $newUser->usu_area=$request->input('area');
@@ -82,6 +83,8 @@ class empleadoController extends Controller
         $newUser->usu_numCns=$request->input('numCNS');
         $resp=$newUser->save();
         if ($resp){
+
+
             return"true";
         }else{
             return"false";

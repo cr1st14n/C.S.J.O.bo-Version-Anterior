@@ -95,10 +95,10 @@
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio" id="inlineRadio1" name="sexo" value="option1" checked>
+                                <input type="radio"  name="sexo" value="option1" checked>
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio" id="inlineRadio2" name="sexo" value="option2">
+                                <input type="radio"  name="sexo" value="option2">
                                 Femenino </label>
                         </div>
                     </div>
@@ -394,7 +394,7 @@
                                 <th>--//--</th>
                             </tr>
                         </thead>
-                        <tbody id="">
+                        <tbody >
                             <tr>
                                 <td>10-08-2018 / 15-08-2018</td>
                                 <td>5</td>
@@ -540,17 +540,17 @@
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio" id="inlineRadio1" name="sexo" value="option1" checked>
+                                <input type="radio"  name="sexo" value="option1" checked>
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio" id="inlineRadio2" name="sexo" value="option2">
+                                <input type="radio"  name="sexo" value="option2">
                                 Femenino </label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Estado Civil</label>
                         <div>
-                            <select class="form-control" name="" id="">
+                            <select class="form-control" name="" >
                                 <option value="soltero">Soltero</option>
                                 <option value="casado">Casado</option>
                                 <option value="viudo">Viudo</option>
@@ -641,17 +641,17 @@
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio" id="inlineRadio1" name="sexo" value="option1" checked>
+                                <input type="radio"  name="sexo" value="option1" checked>
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio" id="inlineRadio2" name="sexo" value="option2">
+                                <input type="radio"  name="sexo" value="option2">
                                 Femenino </label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Estado Civil</label>
                         <div>
-                            <select class="form-control" name="" id="">
+                            <select class="form-control" name="" >
                                 <option value="soltero">Soltero</option>
                                 <option value="casado">Casado</option>
                                 <option value="viudo">Viudo</option>

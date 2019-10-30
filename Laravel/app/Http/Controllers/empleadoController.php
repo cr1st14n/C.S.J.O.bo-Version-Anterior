@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\atencion;
+use App\usuContrato;
+use App\userDatosInst;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 class empleadoController extends Controller
@@ -71,21 +73,16 @@ class empleadoController extends Controller
         $newUser->usu_zonaSufragio=$request->input('zonaSufragio');
         $newUser->usu_tipoSangre=$request->input('tipoSangre');
         /*datos2 */
-        $newUser->usu_area=$request->input('area');
-        $newUser->usu_fechContratacion=$request->input('fechaContratacion');
-        $newUser->usu_titulo=$request->input('tituloOb');
-        $newUser->usu_profesion=$request->input('profecionOb');
-        $newUser->usu_contrato=$request->input('contrato');
-        $newUser->usu_cargo=$request->input('cargo');
         $newUser->usu_acceso=$request->input('accesoSistema');
-        $newUser->usu_SI=$request->input('seguroNombreInstitucion');
-        $newUser->usu_numNua=$request->input('numNua');
-        $newUser->usu_numCns=$request->input('numCNS');
+        $newUser->usu_area=$request->input('area');
         $resp=$newUser->save();
+        $idNewuser=$newUser->id;
         if ($resp){
+            // $newUser2=new userDatosInst();
+            // $newUser2->cod_usu=$idNewuser;
+            // $newUser2->
 
-
-            return"true";
+            // return"true";
         }else{
             return"false";
         }

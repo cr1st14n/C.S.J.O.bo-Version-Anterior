@@ -18,17 +18,19 @@ class CreateUserDatosInstsTable extends Migration
             $table->timestamps();
             
             $table->integer('cod_usu')->nullable();
-            $table->string('di_contrato')->nullable();
             $table->string('di_titulo')->nullable();
-            $table->string('di_profeccion')->nullable();
+            $table->string('di_profecion')->nullable();
             $table->string('di_especialidad')->nullable();
-            $table->string('di_area')->nullable();
-            $table->string('di_cargo')->nullable();
             $table->string('di_seguroNombre')->nullable();
             $table->string('di_seguroNua')->nullable();
             $table->string('di_seguroCns')->nullable();
-            
 
+            $table->integer('ud_carnet')->nullable();
+            $table->integer('ud_crokis')->nullable();
+            $table->integer('ud_factLuz')->nullable();
+            $table->integer('ud_factAgua')->nullable();
+            $table->integer('ud_certProvicion')->nullable();
+            $table->integer('ud_certNacimiento')->nullable();
 
             //campos de auditoria 
             $table->integer('ca_usu_cod')->nullable();
@@ -37,7 +39,6 @@ class CreateUserDatosInstsTable extends Migration
             $table->integer('ca_estado')->nullable();
         });
     }
-
     /**
      * Reverse the migrations.
      *

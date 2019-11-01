@@ -18,11 +18,13 @@ class CreateUsuContratosTable extends Migration
             $table->timestamps();
             
             $table->integer('cod_usu')->nullable();
-            $table->integer('uc_nroContrato')->nullable();
             $table->date('uc_fechaInicio')->nullable();
             $table->date('uc_fechafinal')->nullable();
-            $table->string('uc_eatado')->nullable();
+            $table->integer('uc_nroContrato')->nullable();
             $table->string('uc_tipoContrato')->nullable();
+            $table->string('uc_estado')->nullable();
+            $table->string('uc_area')->nullable();
+            $table->string('uc_cargoDesignado')->nullable();
 
 
              //campos de auditoria 

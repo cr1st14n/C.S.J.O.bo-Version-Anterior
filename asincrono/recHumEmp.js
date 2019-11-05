@@ -35,7 +35,6 @@ function createUser(tip) {
                         case "true":
                             showModalCreateUser2();
                             break;
-
                     }
                 }).fail();
             } else {
@@ -77,7 +76,7 @@ function createUser2() {
         'nombre': $('#nombre').val(),
         'apellido1': $('#apellido1').val(),
         'apellido2': $('#apellido2').val(),
-        'sexo': document.getElementsByName("name=sexo").checked = true,
+        'sexo': document.querySelector('input[name=sexo]:checked').value,
         'fechaNacimiento': $('#fechaNacimiento').val(),
         'paisNacimiento': $('#paisNacimiento').val(),
         'depNacimiento': $('#depNacimiento').val(),
@@ -96,7 +95,7 @@ function createUser2() {
         'profecionOb': $('#profecionOb').val(),
         'areaDesignada': $('#areaDesignada').val(),
         'cargo': $('#cargo').val(),
-        'accesoSistema': document.getElementsByName("name=accesoSis").checked = true,
+        'accesoSistema': document.querySelector('input[name=accesoSis]:checked').value,
         'seguroNombreInstitucion': $('#seguroNombreInstitucion').val(),
         'numNua': $('#numNua').val(),
         'numCNS': $('#numCNS').val()
@@ -105,10 +104,10 @@ function createUser2() {
 }
 
 function listTodosEmp() {
-  console.log("listara los empleados");
+  // console.log("listara los empleados");
   $.get("/C.S.J.O.bo/RRHH/personal/showEmpTodos")
     .done(function(data) {
-      console.log(data);
+      // console.log(data);
       var html = data
         .map(function(elem) {
           return `<tr>
@@ -145,10 +144,10 @@ function listTodosEmp() {
 }
 
 function showDatosEmp(id) {
-  console.log(id);
+  // console.log(id);
   $.get("/C.S.J.O.bo/RRHH/personal/showDatosEmp/" + id + "")
     .done(function(elem) {
-      console.log(elem);
+      // console.log(elem);
       var datosEMP = `CI: <strong>${elem.usu_ci}</strong><br>
                   Nombre: <strong>${elem.usu_nombre} </strong><br>
                   Apellidos: <strong>${elem.usu_appaterno} ${elem.usu_apmaterno}</strong> <br>

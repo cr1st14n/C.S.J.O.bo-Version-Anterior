@@ -7,7 +7,7 @@ use App\User;
 use App\atencion;
 use App\usuContrato;
 use App\userDatosInst;
-use phpDocumentor\Reflection\DocBlock\Tags\Return_;
+// use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 class empleadoController extends Controller
 {
@@ -35,6 +35,9 @@ class empleadoController extends Controller
     function revCiEmail(Request $request){
         $revCI=User::where('usu_ci',$request->input('ci'))->first();
         $revEmail=User::where('email',$request->input('email'))->first();
+        if ($request->input('email')==null) {
+            $revEmail=null;
+        }
         if ($revCI!=null){
             return "ciYaExistente";
         }
@@ -49,6 +52,9 @@ class empleadoController extends Controller
             return "ciYaExistente";
         }
         $revEmail=User::where('email',$request->input('email'))->first();
+        if ($request->input('ci')==null) {
+            $revEmail=null;
+        }
         if ($revEmail!=null){
             return "emailYaExistente";
         }

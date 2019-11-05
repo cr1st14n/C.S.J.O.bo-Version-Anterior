@@ -76,13 +76,13 @@
                     <div class="form-group">
                         <label class="control-label">Pais de nacimiento*:</label>
                         <div>
-                            <input type="text" class="form-control rounded" id="paisNacimiento" pattern="[A-Za-z ]+" onkeyup="validar('lugarNacimiento')" required>
+                            <input type="text" class="form-control rounded" id="paisNacimiento" pattern="[A-Za-z ]+" onkeyup="validar('paisNacimiento')" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Departamento nacimiento*:</label>
                         <div>
-                            <input type="text" class="form-control rounded" id="depNacimiento" pattern="[A-Za-z ]+" onkeyup="validar('lugarNacimiento')" required>
+                            <input type="text" class="form-control rounded" id="depNacimiento" pattern="[A-Za-z ]+" onkeyup="validar('depNacimiento')" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -95,10 +95,10 @@
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexo" value="option1" checked>
+                                <input type="radio"  name="sexo" value="masculino" checked>
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexo" value="option2">
+                                <input type="radio"  name="sexo" value="femenino">
                                 Femenino </label>
                         </div>
                     </div>
@@ -107,13 +107,13 @@
                     <div class="form-group">
                         <label class="control-label">Correo electronico*</label>
                         <div>
-                            <input class="form-control" type="email" id="email" placeholder="nombre@gmail.com" required onkeyup="validar('email')">
+                            <input class="form-control" type="email" id="email" placeholder="nombre@gmail.com" onkeyup="validar('email')">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Estado Civil</label>
                         <div>
-                            <select class="form-control" name="" id="estadoCivil" required>
+                            <select class="form-control" id="estadoCivil" required>
                                 <option value="soltero">Soltero</option>
                                 <option value="casado">Casado</option>
                                 <option value="viudo">Viudo</option>
@@ -540,10 +540,10 @@
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexo" value="option1" checked>
+                                <input type="radio"  name="sexoEdit" value="option1" checked>
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexo" value="option2">
+                                <input type="radio"  name="sexoEdit" value="option2">
                                 Femenino </label>
                         </div>
                     </div>
@@ -641,10 +641,10 @@
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexo" value="option1" checked>
+                                <input type="radio"  name="sexo3" value="option1" checked>
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexo" value="option2">
+                                <input type="radio"  name="sexo3" value="option2">
                                 Femenino </label>
                         </div>
                     </div>
@@ -700,6 +700,5 @@
 </div>
 @endsection
 @section('scripts')
-<script type="text/javascript" src="{{ asset('/asincrono/homeJs.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/asincrono/recHumEmp.js') }}"></script>
 @endsection

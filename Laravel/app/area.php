@@ -8,4 +8,3 @@ class area extends Model
 {
     protected $table ='area';
 }
-aquiyahorajuegosfortheface2.blogspot.com.es

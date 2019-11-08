@@ -10,7 +10,7 @@ function notif(tipo, texto) {
       break;
     case "2":
       data.life = 3000;
-      data.theme = "danger";
+      data.theme = "danger" ;
       $.notific8(texto, data);
       break;
     case "3":

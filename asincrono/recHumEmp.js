@@ -48,7 +48,7 @@ function createUser(tip) {
                 var data = createUser2();
                 $.post('/C.S.J.O.bo/RRHH/personal/createUser', data).done(function(rest) {
                     console.log(rest);
-                    if (rest == "true") {
+                    if (rest == "succes") {
                         notif('1', 'Usuario registrado!');
                         limpiarFomrUserCreate();
                     } else {
@@ -95,6 +95,7 @@ function createUser2() {
         'profecionOb': $('#profecionOb').val(),
         'areaDesignada': $('#areaDesignada').val(),
         'cargo': $('#cargo').val(),
+        'accModSis': $('#accModSis').val(),
         'accesoSistema': document.querySelector('input[name=accesoSis]:checked').value,
         'seguroNombreInstitucion': $('#seguroNombreInstitucion').val(),
         'numNua': $('#numNua').val(),

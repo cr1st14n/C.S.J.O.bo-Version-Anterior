@@ -228,6 +228,16 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
+                        <label class="control-label">Modulo del sistema Web</label>
+                        <div>
+                            <select  id="accModSis" class="form-control">
+                                <option value="Administracion">Administracion</option>
+                                <option value="Recepcion">Recepcion</option>
+                                <option value="Caja">Caja</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label">Acceso al sistema:</label>
                         <div>
                             <label class="radio-inline">

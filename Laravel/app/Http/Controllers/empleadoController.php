@@ -118,7 +118,6 @@ class empleadoController extends Controller
                 $nuC->ca_fecha = Carbon::now()->format('Y-m-d');
                 $nuC->ca_estado = 0;
                 if ($resp1) {
-
                     return "succes";
                 }
             }

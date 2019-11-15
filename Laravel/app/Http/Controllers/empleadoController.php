@@ -27,7 +27,14 @@ class empleadoController extends Controller
     }
     function showEmpTodos()
     {
-        return User::get();
+        // return User::orderBy('created_at','desc')->get();
+        return User::select('usu_nombre','usu_appaterno','usu_apmaterno','usu_area','usu_ci','users.created_at')
+            ->join('usu_contratos as cot','users.id','cot.cod_usu')
+            ->addSelect('cot.uc_area')
+            ->join('user_datos_insts as udi','users.id','udi.cod_usu')
+            ->addSelect('udi.di_profecion')->orderBy('created_at','desc')->get();
+
+        
     }
     function showDatosEmp($id)
     {
@@ -55,6 +62,7 @@ class empleadoController extends Controller
     }
     function createUser(Request $request)
     {
+        // return $request;
         $revCI = User::where('usu_ci', $request->input('ci'))->first();
         if ($revCI != null) {
             return "ciYaExistente";
@@ -87,6 +95,7 @@ class empleadoController extends Controller
         $newUser->usu_zonaSufragio = $request->input('zonaSufragio');
         $newUser->usu_tipoSangre = $request->input('tipoSangre');
         /*datos2 */
+        $newUser->usu_cod = Auth::user()->usu_ci;
         $newUser->usu_acceso = $request->input('accesoSistema');
         $newUser->usu_area = $request->input('accModSis');
         $resp = $newUser->save();
@@ -103,21 +112,22 @@ class empleadoController extends Controller
             $nub->ca_usu_cod = Auth::user()->usu_ci;
             $nub->ca_tipo = "create";
             $nub->ca_fecha = Carbon::now()->format('Y-m-d');
-            $nub->ca_estado = 0;
+            $nub->ca_estado = 1;
             $resp1 = $nub->save();
             if ($resp1) {
                 $nuC = new usuContrato();
                 $nuC->cod_usu = $idNewuser;
                 $nuC->uc_fechaInicio = $request->input('fechaContratacion');
                 $nuC->uc_tipoContrato = $request->input('contrato');
-                $nuC->uc_estado = 0;
+                $nuC->uc_estado = 1;
                 $nuC->uc_area = $request->input('areaDesignada');
                 $nuC->uc_cargoDesignado = $request->input('cargo');
                 $nuC->ca_usu_cod = Auth::user()->usu_ci;
                 $nuC->ca_tipo = 'create';
                 $nuC->ca_fecha = Carbon::now()->format('Y-m-d');
-                $nuC->ca_estado = 0;
-                if ($resp1) {
+                $nuC->ca_estado = 1;
+                $resp2 = $nuC->save();
+                if ($resp2) {
                     return "succes";
                 }
             }

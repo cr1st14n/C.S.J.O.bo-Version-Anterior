@@ -19,7 +19,7 @@ function notif(tipo, texto) {
       $.notific8(texto, data);
       break;
     case "4":
-      data.life = 3000;
+      data.life = 5000;
       data.theme = "inverse";
       $.notific8(texto, data);
       break;

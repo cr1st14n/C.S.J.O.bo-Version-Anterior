@@ -1,111 +1,118 @@
 var formCreatuser1 = document.getElementById("formuladio1");
 formCreatuser1.addEventListener("submit", function(event) {
-    event.preventDefault();
+  event.preventDefault();
   createUser(1);
 });
-$('#formulario2').on('submit',function(event){
+$("#formulario2").on("submit", function(event) {
   event.preventDefault();
   createUser(2);
-})
+});
 function showListEmp() {}
 // ? func create usuario
 function showModalCreateUser() {
-    $('#formuladio1').trigger('reset');
-    $('#md-createUser').modal('show');
+  $("#formuladio1").trigger("reset");
+  $("#md-createUser").modal("show");
 }
 
 function createUser(tip) {
-    switch (tip) {
-        case 1:
-            var form = document.getElementById('formuladio1');
-            if (form.checkValidity()) {
-                var data = {
-                    '_token': $('meta[name=csrf-token]').attr('content'),
-                    'ci': $('#createUserCi').val(),
-                    'email': $('#email').val()
-                };
-                $.post('/C.S.J.O.bo/RRHH/personal/revCiEmail', data).done(function(data) {
-                    switch (data) {
-                        case "ciYaExistente":
-                            notif('2', 'CI ya registrado!');
-                            break;
-                        case "emailYaExistente":
-                            notif('2', 'Email ya registrado!');
-                            break;
-                        case "true":
-                            showModalCreateUser2();
-                            break;
-                    }
-                }).fail();
-            } else {
-                notif('2', 'Complete los datos con * !')
+  switch (tip) {
+    case 1:
+      var form = document.getElementById("formuladio1");
+      if (form.checkValidity()) {
+        var data = {
+          _token: $("meta[name=csrf-token]").attr("content"),
+          ci: $("#createUserCi").val(),
+          email: $("#email").val()
+        };
+        $.post("/C.S.J.O.bo/RRHH/personal/revCiEmail", data)
+          .done(function(data) {
+            switch (data) {
+              case "ciYaExistente":
+                notif("2", "CI ya registrado!");
+                break;
+              case "emailYaExistente":
+                notif("2", "Email ya registrado!");
+                break;
+              case "true":
+                showModalCreateUser2();
+                break;
             }
-            break;
-        case 2:
-            var form2 = document.getElementById('formulario2');
-            console.log(createUser2());
-            if (form2.checkValidity()) {
-                var data = createUser2();
-                $.post('/C.S.J.O.bo/RRHH/personal/createUser', data).done(function(rest) {
-                    console.log(rest);
-                    if (rest == "succes") {
-                        notif('1', 'Usuario registrado!');
-                        limpiarFomrUserCreate();
-                    } else {
-                        notif('2', 'Error. Vuelva a intentarlo!');
-                    }
-                }).fail(function() {
-                    notif(2, 'Error. Reinicie actividad');
-                });
-
-            } else {
-                notif('2', 'Completa los campos con *');
+          })
+          .fail();
+      } else {
+        notif("2", "Complete los datos con * !");
+      }
+      break;
+    case 2:
+      var form2 = document.getElementById("formulario2");
+      // console.log(createUser2());
+      if (form2.checkValidity()) {
+        var data = createUser2();
+        $.post("/C.S.J.O.bo/RRHH/personal/createUser", data)
+          .done(function(rest) {
+            // console.log(rest);
+            if (rest == "succes") {
+              notif("1", "Usuario registrado!");
+              limpiarFomrUserCreate();
+              listTodosEmp();
+            } else if (rest=='emailYaExistente') {
+              notif("2", "Error. registro de correo electronico!");
+              notif("4", "Correo electronico ya registrado !");
+            }else{
+              notif("2", "Error. Vuelva a intentarlo!");
             }
-            break;
-    }
+          })
+          .fail(function() {
+            notif(2, "Error. Reinicie actividad");
+          });
+      } else {
+        notif("2", "Completa los campos con *");
+      }
+      break;
+  }
 }
 function showModalCreateUser2() {
-    $('#formulario2').trigger("reset");
-    $('#md-createUser2').modal('show');
+  $("#formulario2").trigger("reset");
+  $("#md-createUser2").modal("show");
 }
 
 function createUser2() {
-    var data = {
-        '_token': $('meta[name=csrf-token]').attr('content'),
-        'ci': $('#createUserCi').val(),
-        'nombre': $('#nombre').val(),
-        'apellido1': $('#apellido1').val(),
-        'apellido2': $('#apellido2').val(),
-        'sexo': document.querySelector('input[name=sexo]:checked').value,
-        'fechaNacimiento': $('#fechaNacimiento').val(),
-        'paisNacimiento': $('#paisNacimiento').val(),
-        'depNacimiento': $('#depNacimiento').val(),
-        'tipoSangre': $('#tipoSangre').val(),
-        'estadoCivil': $('#estadoCivil').val(),
-        'telf': $('#telf').val(),
-        'telfRef': $('#telfRef').val(),
-        'zona': $('#zona').val(),
-        'domicilio': $('#domicilio').val(),
-        'zonaSufragio': $('#zonaSufragio').val(),
-        'email': $('#email').val(),
-        /*datos2*/
-        'fechaContratacion': $('#fechaContratacion').val(),
-        'contrato': $('#contrato').val(),
-        'tituloOb': $('#tituloOb').val(),
-        'profecionOb': $('#profecionOb').val(),
-        'areaDesignada': $('#areaDesignada').val(),
-        'cargo': $('#cargo').val(),
-        'accModSis': $('#accModSis').val(),
-        'accesoSistema': document.querySelector('input[name=accesoSis]:checked').value,
-        'seguroNombreInstitucion': $('#seguroNombreInstitucion').val(),
-        'numNua': $('#numNua').val(),
-        'numCNS': $('#numCNS').val()
-    };
-    return data;
+  var data = {
+    _token: $("meta[name=csrf-token]").attr("content"),
+    ci: $("#createUserCi").val(),
+    nombre: $("#nombre").val(),
+    apellido1: $("#apellido1").val(),
+    apellido2: $("#apellido2").val(),
+    sexo: document.querySelector("input[name=sexo]:checked").value,
+    fechaNacimiento: $("#fechaNacimiento").val(),
+    paisNacimiento: $("#paisNacimiento").val(),
+    depNacimiento: $("#depNacimiento").val(),
+    tipoSangre: $("#tipoSangre").val(),
+    estadoCivil: $("#estadoCivil").val(),
+    telf: $("#telf").val(),
+    telfRef: $("#telfRef").val(),
+    zona: $("#zona").val(),
+    domicilio: $("#domicilio").val(),
+    zonaSufragio: $("#zonaSufragio").val(),
+    email: $("#email").val(),
+    /*datos2*/
+    fechaContratacion: $("#fechaContratacion").val(),
+    contrato: $("#contrato").val(),
+    tituloOB: $("#tituloOb").val(),
+    profecionOB: $("#profecionOb").val(),
+    areaDesignada: $("#areaDesignada").val(),
+    cargo: $("#cargo").val(),
+    accModSis: $("#accModSis").val(),
+    accesoSistema: document.querySelector("input[name=accesoSis]:checked")
+      .value,
+    seguroNombreInstitucion: $("#seguroNombreInstitucion").val(),
+    numNua: $("#numNua").val(),
+    numCNS: $("#numCNS").val()
+  };
+  return data;
 }
 
 function listTodosEmp() {
-  // console.log("listara los empleados");
   $.get("/C.S.J.O.bo/RRHH/personal/showEmpTodos")
     .done(function(data) {
       // console.log(data);
@@ -116,8 +123,8 @@ function listTodosEmp() {
                     <td align="left">${
                       elem.usu_appaterno
                     } ${elem.usu_apmaterno}, ${elem.usu_nombre}</td>
-                    <td>${veriNull(elem.usu_especialidad)}</td>
-                    <td>${elem.usu_cargo}</td>
+                    <td>${veriNull(elem.di_profecion)}</td>
+                    <td>${elem.uc_area}</td>
                     <td>${elem.usu_area}</td>
                     <td>
                         <span class="tooltip-area">
@@ -145,10 +152,8 @@ function listTodosEmp() {
 }
 
 function showDatosEmp(id) {
-  // console.log(id);
   $.get("/C.S.J.O.bo/RRHH/personal/showDatosEmp/" + id + "")
     .done(function(elem) {
-      // console.log(elem);
       var datosEMP = `CI: <strong>${elem.usu_ci}</strong><br>
                   Nombre: <strong>${elem.usu_nombre} </strong><br>
                   Apellidos: <strong>${elem.usu_appaterno} ${elem.usu_apmaterno}</strong> <br>
@@ -180,7 +185,6 @@ function showDatosEmp(id) {
                 # de asegurado C.N.S: <strong>8767865765</strong> <br>
                 `;
       document.getElementById("datosInst").innerHTML = html2;
-
       $("#md-stack1")
         .addClass("md-flipHor")
         .modal("show");

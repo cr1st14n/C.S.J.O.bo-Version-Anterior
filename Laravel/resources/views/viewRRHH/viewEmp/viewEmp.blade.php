@@ -26,8 +26,8 @@
                         <th>CI</th>
                         <th>Nombre</th>
                         <th>Profesión</th>
-                        <th>Cargo</th>
-                        <th>Area</th>
+                        <th>Area </th>
+                        <th>Modulo sistema</th>
                         <th width="22%">Action</th>
                     </tr>
                 </thead>
@@ -51,54 +51,54 @@
                     <div class="form-group">
                         <label class="control-label">CI*:</label>
                         <div>
-                            <input type="number" min="0" class="form-control rounded" placeholder="# de C.I." id="createUserCi" onkeyup="validar('createUserCi')" required>
+                            <input type="number" min="0" class="form-control rounded" placeholder="# de C.I." id="createUserCi" onkeyup="validar('createUserCi')" required autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Nombre*:</label>
                         <div>
-                            <input type="text" class="form-control rounded" id="nombre" placeholder="Nombre completo" pattern="[A-Za-z ]+" onkeyup="validar('nombre')" required>
+                            <input type="text" class="form-control rounded" id="nombre" placeholder="Nombre completo" pattern="[A-ZñÑa-z ]+" onkeyup="validar('nombre')" required autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Apellidos*:</label>
                         <div>
-                            <input type="text" class="form-control rounded" id="apellido1" placeholder="Apellido paterno" pattern="[A-Za-z ]+" onkeyup="validar('apellido1')" required><br>
-                            <input type="text" class="form-control rounded" id="apellido2" placeholder="Apellido materno" pattern="[A-Za-z ]+" onkeyup="validar('apellido2')">
+                            <input type="text" class="form-control rounded" id="apellido1" placeholder="Apellido paterno" pattern="[A-ZñÑa-z ]+" onkeyup="validar('apellido1')" required autocomplete="off"><br>
+                            <input type="text" class="form-control rounded" id="apellido2" placeholder="Apellido materno" pattern="[A-ZñÑa-z ]+" onkeyup="validar('apellido2')" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="inputTwo">Fecha Nacimiento*:</label>
                         <div>
-                            <input type="date" class="form-control rounded" id="fechaNacimiento" required>
+                            <input type="date" class="form-control rounded" id="fechaNacimiento" required autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Pais de nacimiento*:</label>
                         <div>
-                            <input type="text" class="form-control rounded" id="paisNacimiento" pattern="[A-Za-z ]+" onkeyup="validar('paisNacimiento')" required>
+                            <input type="text" class="form-control rounded" id="paisNacimiento" pattern="[A-ZñÑa-z ]+" onkeyup="validar('paisNacimiento')" required autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Departamento nacimiento*:</label>
                         <div>
-                            <input type="text" class="form-control rounded" id="depNacimiento" pattern="[A-Za-z ]+" onkeyup="validar('depNacimiento')" required>
+                            <input type="text" class="form-control rounded" id="depNacimiento" pattern="[A-ZñÑa-z ]+" onkeyup="validar('depNacimiento')" required autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Tipo de Sangre:</label>
                         <div>
-                            <input type="text" class="form-control rounded" id="tipoSangre" onkeyup="validar('tipoSangre')">
+                            <input type="text" class="form-control rounded" id="tipoSangre" onkeyup="validar('tipoSangre')" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexo" value="masculino" checked>
+                                <input type="radio" name="sexo" value="masculino" checked>
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexo" value="femenino">
+                                <input type="radio" name="sexo" value="femenino">
                                 Femenino </label>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                     <div class="form-group">
                         <label class="control-label">Correo electronico*</label>
                         <div>
-                            <input class="form-control" type="email" id="email" placeholder="nombre@gmail.com" onkeyup="validar('email')">
+                            <input class="form-control" type="email" id="email" placeholder="nombre@gmail.com" onkeyup="validar('email')" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
@@ -124,7 +124,7 @@
                         <label class="control-label">Telf / Cel*</label>
                         <div>
                             <div class="input-icon"> <i class="fa fa-map-marker ico"></i>
-                                <input class="form-control " type="text" pattern="[0-9]+" id="telf" maxlength="10" required onkeyup="validar('telf')">
+                                <input class="form-control " type="text" pattern="[0-9]+" id="telf" maxlength="10" required onkeyup="validar('telf')" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                         <label class="control-label">Telf / Cel Referencia</label>
                         <div>
                             <div class="input-icon"> <i class="fa fa-user ico"></i>
-                                <input class="form-control " type="text" id="telfRef" pattern="[0-9]+" maxlength="10" onkeyup="validar('telfRef')">
+                                <input class="form-control " type="text" id="telfRef" pattern="[0-9]+" maxlength="10" onkeyup="validar('telfRef')" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                         <label class="control-label">Zona donde sufragia*:</label>
                         <div>
                             <div class="input-icon right"> <i class="fa fa-keyboard-o ico "></i>
-                                <input class="form-control " type="text" placeholder="Zona Especifica donde sufragia" pattern="[A-Za-z0-9 ]+" id="zonaSufragio" onkeyup="validar('zonaSufragio')" required>
+                                <input class="form-control " type="text" placeholder="Zona Especifica donde sufragia" pattern="[A-ZñÑa-z0-9 ]+" id="zonaSufragio" onkeyup="validar('zonaSufragio')" required autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -148,14 +148,14 @@
                         <label class="control-label">Zona donde recide*:</label>
                         <div>
                             <div class="input-icon right"> <i class="fa fa-keyboard-o ico "></i>
-                                <input class="form-control " type="text" placeholder="Zona Especifica donde recide" pattern="[A-Za-z0-9 ]+" id="zona" onkeyup="validar('zona')" required>
+                                <input class="form-control " type="text" placeholder="Zona Especifica donde recide" pattern="[A-ZñÑa-z0-9# ]+" id="zona" onkeyup="validar('zona')" required autocomplete="off">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Domicilio</label>
                         <div>
-                            <input class="form-control" type="text" placeholder="Direccion del domicilio" pattern="[A-Za-z0-9 ]+" id="domicilio" onkeyup="validar('domicilio')">
+                            <input class="form-control" type="text" placeholder="Direccion del domicilio" pattern="[A-ZÑña-z0-9# ]+" id="domicilio" onkeyup="validar('domicilio')" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group offset">
@@ -200,8 +200,8 @@
                     <div class="form-group">
                         <label class="control-label">Titulo y Profecion*:</label>
                         <div>
-                            <input type="text" class="form-control rounded" id="tituloOb" placeholder="Titulo obtenido" pattern="[A-Za-z ]+" required><br>
-                            <input type="text" class="form-control rounded" id="profecionOb" placeholder="Profecion obtenida" pattern="[A-Za-z ]+">
+                            <input type="text" class="form-control rounded" id="tituloOb" placeholder="Titulo obtenido" pattern="[A-ZñÑa-z ]+" required><br>
+                            <input type="text" class="form-control rounded" id="profecionOb" placeholder="Profecion obtenida" pattern="[A-ZñÑa-z ]+">
                         </div>
                     </div>
                     <hr>
@@ -224,13 +224,13 @@
                             </select>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label class="control-label">Modulo del sistema Web</label>
                         <div>
-                            <select  id="accModSis" class="form-control">
+                            <select id="accModSis" class="form-control">
                                 <option value="Administracion">Administracion</option>
                                 <option value="Recepcion">Recepcion</option>
                                 <option value="Caja">Caja</option>
@@ -253,23 +253,23 @@
                     <div class="form-group">
                         <label class="control-label">Nombre de la institucion:</label>
                         <div>
-                            <input type="text" class="form-control rounded" id="seguroNombreInstitucion" pattern="[A-Za-z0-9 ]+" required>
+                            <input type="text" class="form-control rounded" id="seguroNombreInstitucion" pattern="[A-ZÑña-z0-9 ]+" required autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Numero de NUA:</label>
                         <div>
-                            <input type="number" class="form-control rounded" id="numNua" pattern="[0-9]+">
+                            <input type="number" class="form-control rounded" id="numNua" pattern="[0-9]+" autocapitalize="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Numero de C.N.S.::</label>
                         <div>
-                            <input type="number" class="form-control rounded" id="numCNS" pattern="[0-9]+">
+                            <input type="number" class="form-control rounded" id="numCNS" pattern="[0-9]+" autocapitalize="off">
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-block btn-sm btn-theme-inverse" type="submit" onclick="createUser(2)">Concluir Registro</button>
+                <button class="btn btn-block btn-sm btn-theme-inverse" type="submit">Concluir Registro</button>
             </form>
         </div>
     </div>
@@ -404,7 +404,7 @@
                                 <th>--//--</th>
                             </tr>
                         </thead>
-                        <tbody >
+                        <tbody>
                             <tr>
                                 <td>10-08-2018 / 15-08-2018</td>
                                 <td>5</td>
@@ -550,17 +550,17 @@
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexoEdit" value="option1" checked>
+                                <input type="radio" name="sexoEdit" value="option1" checked>
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexoEdit" value="option2">
+                                <input type="radio" name="sexoEdit" value="option2">
                                 Femenino </label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Estado Civil</label>
                         <div>
-                            <select class="form-control" name="" >
+                            <select class="form-control" name="">
                                 <option value="soltero">Soltero</option>
                                 <option value="casado">Casado</option>
                                 <option value="viudo">Viudo</option>
@@ -651,17 +651,17 @@
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexo3" value="option1" checked>
+                                <input type="radio" name="sexo3" value="option1" checked>
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio"  name="sexo3" value="option2">
+                                <input type="radio" name="sexo3" value="option2">
                                 Femenino </label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Estado Civil</label>
                         <div>
-                            <select class="form-control" name="" >
+                            <select class="form-control" name="">
                                 <option value="soltero">Soltero</option>
                                 <option value="casado">Casado</option>
                                 <option value="viudo">Viudo</option>

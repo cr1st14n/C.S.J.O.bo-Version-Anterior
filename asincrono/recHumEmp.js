@@ -1,3 +1,4 @@
+//?----------- onclick de formularios
 var formCreatuser1 = document.getElementById("formuladio1");
 formCreatuser1.addEventListener("submit", function(event) {
   event.preventDefault();
@@ -7,6 +8,16 @@ $("#formulario2").on("submit", function(event) {
   event.preventDefault();
   createUser(2);
 });
+$("#formCreatePermiso").on("submit", function(e) {
+  e.preventDefault();
+  permisoCreate();
+});
+$("#formEditPermiso").on("submit", function(e) {
+  e.preventDefault();
+  permisoUpdate();
+});
+//! -----------------------------------------------------------------------
+
 function showListEmp() {}
 // ? func create usuario
 function showModalCreateUser() {
@@ -55,10 +66,10 @@ function createUser(tip) {
               notif("1", "Usuario registrado!");
               limpiarFomrUserCreate();
               listTodosEmp();
-            } else if (rest=='emailYaExistente') {
+            } else if (rest == "emailYaExistente") {
               notif("2", "Error. registro de correo electronico!");
               notif("4", "Correo electronico ya registrado !");
-            }else{
+            } else {
               notif("2", "Error. Vuelva a intentarlo!");
             }
           })
@@ -224,11 +235,13 @@ function showUserVacaciones() {
     .modal("show");
 }
 
-function showUserFalPerm() {
+function showUserFalPerm(codUsu1) {
   document.getElementById("listFaltasPermisos").innerHTML = "";
   document.getElementById("sectorBottonFaltasPermisos").innerHTML = "";
+  document.getElementById("codUsu1").value = "";
+  document.getElementById("codUsu1").value = codUsu1;
   $("#md-UserFalPer")
-    .addClass("md-flipHor")
+    // .addClass("md-flipHor")
     .modal("show");
 }
 
@@ -246,16 +259,49 @@ function listFaltas() {
 }
 
 function listPermisos() {
-  var boton = `<button class="btn btn-theme" id="btnRegisPerm">Registrar Permiso</button>`;
-  var html = `<tr>
-                <td>12-06-2018 // 20-06-2018</td>
-                <td>8</td> 
-                <td>Permiso</td>
-                <td>Solicitud de falta</td>
-                <td></td>
-            </tr>`;
-  document.getElementById("listFaltasPermisos").innerHTML = html;
+  var boton = `<button class="btn btn-theme" onClick="SMRPermisos()">Registrar Permiso</button>`;
   document.getElementById("sectorBottonFaltasPermisos").innerHTML = boton;
+  var headhtml = `<tr>
+  <th>Cod Doc</th>
+  <th>Motivo</th>
+  <th>Remplazo</th>
+  <th>Fecha de Solicitud</th>
+  <th>Fecha a Solicitar</th>
+  <th>Tiempo</th>
+  <th>*</th>
+  </tr>`;
+  document.getElementById("head-listFaltasPermisos").innerHTML = headhtml;
+
+  var data = { userId: $("#codUsu1").val() };
+  $.get("/C.S.J.O.bo/RRHH/personal/permiso/show", data, function(
+    data,
+    textStatus,
+    jqXHR
+  ) {
+    var html = data
+      .map(function(e) {
+        return `<tr>
+                  <td>${e.up_codRespaldoDoc}</td>
+                  <td>${e.up_motivo}</td>
+                  <td>${e.up_remplazo}</td>
+                  <td>${moment(e.up_fechaSolicitud).format("DD/MM/YYYY")}</td>
+                  <td>${moment(e.up_fechaPermiso).format("DD/MM/YYYY")}</td>
+                  <td>${e.up_horaInicio} - ${e.up_horaFinal}</td>
+                  <td>
+                    <span class="tooltip-area">
+                    <a class="btn btn-default btn-sm" title="Editar" onclick="ShowModalEditPermiso(${
+                      e.id
+                    })"><i class="fa fa-pencil"></i></a>
+                    <a class="btn btn-default btn-sm" title="Eliminar" onclick="showDatosEmp(${
+                      e.id
+                    })"><i class="fa fa-trash-o"></i></a>
+                    </span>
+                  </td>
+                </tr>`;
+      })
+      .join(" ");
+    document.getElementById("listFaltasPermisos").innerHTML = html;
+  });
 }
 
 function listCambioTurno() {
@@ -297,3 +343,74 @@ function jose(params) {
 function marww(data) {
   return data;
 }
+
+// ? funciones para permisos de personal
+function SMRPermisos() {
+  $("#md-permisos1").modal("show");
+  $("#formCreatePermiso").trigger("reset");
+}
+
+function permisoCreate() {
+  var data = {
+    _token: $("meta[name=csrf-token]").attr("content"),
+    codUsu1: $("#codUsu1").val(),
+    motivo: $("#motivo").val(),
+    remplazo: $("#remplazo").val(),
+    fechaSolicitud: $("#fechaSolicitud").val(),
+    fechaPermiso: $("#fechaPermiso").val(),
+    horaInicio: $("#horaInicio").val(),
+    horaFinal: $("#horaFinal").val(),
+    codRespaldoDoc: $("#codRespaldoDoc").val()
+  };
+  $.post("/C.S.J.O.bo/RRHH/personal/permiso/create", data, function(
+    data,
+    textStatus,
+    jqXHR
+  ) {
+    if (data == "success") {
+      $("#md-permisos1").modal("toggle");
+      notif("1", "Permiso registrado Exitosamente.");
+      listPermisos();
+    } else {
+      notif("2", "Error!, Vuelva a intentarlo");
+    }
+  }).fail(function() {
+    console.log("error de server 987");
+  });
+}
+function ShowModalEditPermiso(idPermiso) {
+  var data = { id: idPermiso };
+  $.get("/C.S.J.O.bo/RRHH/personal/permiso/edit", data, function(
+    data,textStatus,jqXHR) {
+    $("#CodPermisoUp").val(data.id);
+    $("#motivoUp").val(data.up_motivo);
+    $("#remplazoUp").val(data.up_remplazo);
+    $("#fechaSolicitudUp").val(data.up_fechaSolicitud);
+    $("#fechaPermisoUp").val(data.up_fechaPermiso);
+    $("#horaInicioUp").val(data.up_horaInicio);
+    $("#horaFinalUp").val(data.up_horaFinal);
+    $("#codRespaldoDocUp").val(data.up_codRespaldoDoc);
+  }).fail(function() {});
+  $("#md-permisos2").modal("show");
+}
+function permisoUpdate(param) {
+  data={
+    _token: $("meta[name=csrf-token]").attr("content"),
+     id:$("#CodPermisoUp").val(),
+     up_motivo:$("#motivoUp").val(),
+     up_remplazo:$("#remplazoUp").val(),
+     up_fechaSolicitud:$("#fechaSolicitudUp").val(),
+     up_fechaPermiso:$("#fechaPermisoUp").val(),
+     up_horaInicio:$("#horaInicioUp").val(),
+     up_horaFinal:$("#horaFinalUp").val(),
+     up_codRespaldoDoc:$("#codRespaldoDocUp").val()
+  }
+  $.post("/C.S.J.O.bo/RRHH/personal/permiso/update", data,
+    function (dat, textStatus, jqXHR) {
+      console.log(dat);  
+      listPermisos();
+      document.getElementById('btn-md-permisos1-close').click();
+    }).fail(function () {notif('2','error server ACP')  });
+
+  }
+  

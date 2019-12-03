@@ -206,7 +206,14 @@ Route::group([/*'middleware'=>['caja'],*/ 'prefix'=>'/RRHH'],function(){
         Route::get('showDatosEmp/{id}','empleadoController@showDatosEmp');
         Route::get('22','empleadoController@segun');
         Route::post( 'createUser','empleadoController@createUser');
-        Route::post( 'revCiEmail','empleadoController@revCiEmail');
+		Route::post( 'revCiEmail','empleadoController@revCiEmail');
+		//* rutas permisos de personal
+			Route::group(['prefix'=>'permiso'],function(){
+				Route::post('create','PermisosController@create');
+				Route::get('show','PermisosController@show');
+				Route::get('edit','PermisosController@edit');
+				Route::post('update','PermisosController@update');
+			});
     });
     Route::group(['prefix'=>'Areas'],function(){
         Route::get('/','areaController@homeArea')->name('home_area');

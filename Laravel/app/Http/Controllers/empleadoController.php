@@ -28,7 +28,7 @@ class empleadoController extends Controller
     function showEmpTodos()
     {
         // return User::orderBy('created_at','desc')->get();
-        return User::select('usu_nombre','usu_appaterno','usu_apmaterno','usu_area','usu_ci','users.created_at')
+        return User::select('usu_nombre','usu_appaterno','usu_apmaterno','usu_area','usu_ci','users.created_at','users.id')
             ->join('usu_contratos as cot','users.id','cot.cod_usu')
             ->addSelect('cot.uc_area')
             ->join('user_datos_insts as udi','users.id','udi.cod_usu')

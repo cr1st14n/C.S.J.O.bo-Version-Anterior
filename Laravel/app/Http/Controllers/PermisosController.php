@@ -116,8 +116,13 @@ class PermisosController extends Controller
      * @param  \App\permisos  $permisos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(permisos $permisos)
+    public function destroy(Request $request)
     {
-        //
+        $r=usuPermiso::where('id',$request->input('id'))->delete();
+        if ($r) {
+            return "success";
+        }else {
+            return "fail";
+        }
     }
 }

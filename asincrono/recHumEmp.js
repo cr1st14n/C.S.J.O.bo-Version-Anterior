@@ -292,7 +292,7 @@ function listPermisos() {
                     <a class="btn btn-default btn-sm" title="Editar" onclick="ShowModalEditPermiso(${
                       e.id
                     })"><i class="fa fa-pencil"></i></a>
-                    <a class="btn btn-default btn-sm" title="Eliminar" onclick="showDatosEmp(${
+                    <a class="btn btn-default btn-sm" title="Eliminar" onclick="permisoDestroy(${
                       e.id
                     })"><i class="fa fa-trash-o"></i></a>
                     </span>
@@ -414,3 +414,19 @@ function permisoUpdate(param) {
 
   }
   
+  function permisoDestroy(id) {
+    var data= {'id': id};
+    $.get("/C.S.J.O.bo/RRHH/personal/permiso/destroy", data,
+      function (data, textStatus, jqXHR) {
+        if (data=="success") {
+          notif('1','Permiso eliminado, Exitosamente');
+          listPermisos();
+        } else {
+          notif('2','Error. Server 401');
+        }
+      }
+    );
+  }
+
+//?------ 
+  function () {  }

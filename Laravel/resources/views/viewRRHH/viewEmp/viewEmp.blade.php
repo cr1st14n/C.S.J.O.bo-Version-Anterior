@@ -837,6 +837,45 @@
         </section>
     </div>
 </div>
+<div id="md-fata" class="modal fade md-flipHor" tabindex="-1" data-width="400">
+    <div class="modal-header">
+        <button type="button" class="close" id="btn-md-permisos1-close"  data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h3>Registrar Falta</h3>
+    </div>
+    <div class="modal-body">
+        <section class="panel">
+            <div class="panel-body">
+                <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formEditPermiso">
+                    <input type="text" id="CodPermisoUp" hidden>
+                    <div class="form-group">
+                        <label class="control-label">Motivo</label>
+                        <div>
+                            <input type="text" class="form-control rounded" required pattern="[A-ZñÑa-z ]+" id="motivoUp" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Fecha</label>
+                        <div>
+                            <input type="text" class="form-control rounded" autocomplete="off" required pattern="[A-ZñÑa-z ]+" id="remplazoUp" autocomplete="off">
+                            <!-- <span class="help-block">A block of <a href="#">help text.</a> <i class="fa fa-info"></i></span> -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" >Horario</label>
+                        <div>
+                            <select name="" id="horario"> 
+                                <option value="mañana">mañana</option>
+                                <option value="tarde">Tarde</option>
+                                <option value="noche">Noche</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Registrar</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
 @endsection
 @section('scripts')
 <script type="text/javascript" src="{{ asset('/asincrono/recHumEmp.js') }}"></script>

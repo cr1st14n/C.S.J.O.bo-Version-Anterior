@@ -213,6 +213,7 @@ Route::group([/*'middleware'=>['caja'],*/ 'prefix'=>'/RRHH'],function(){
 				Route::get('show','PermisosController@show');
 				Route::get('edit','PermisosController@edit');
 				Route::post('update','PermisosController@update');
+				Route::get('destroy','PermisosController@destroy');
 			});
     });
     Route::group(['prefix'=>'Areas'],function(){

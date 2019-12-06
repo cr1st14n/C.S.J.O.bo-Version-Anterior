@@ -283,7 +283,7 @@ function listFaltas() {
        <a class="btn btn-default btn-sm" title="Editar" onclick="ShowModalEditFalta(${
          e.id
        })"><i class="fa fa-pencil"></i></a>
-       <a class="btn btn-default btn-sm" title="Eliminar" onclick="permisoDestroy(${
+       <a class="btn btn-default btn-sm" title="Eliminar" onclick="deleteFalta(${
          e.id
        })"><i class="fa fa-trash-o"></i></a>
        </span>
@@ -527,18 +527,37 @@ function updateFalta() {
     uf_fecha: $("#FaltaFechaUp").val(),
     uf_horario: $("#FaltaHorarioUp").val()
   };
-  $.post("/C.S.J.O.bo/RRHH/personal/faltas/update", data,
-    function (data, textStatus, jqXHR) {
-     if (data=="success") {
-       notif('1','Falta actulizada');
-       listFaltas();
-       document.getElementById("btn-md-falta2-close").click();
-     } else {
-       notif('2','Error Vuelva al intentarlo');
-     } 
+  $.post("/C.S.J.O.bo/RRHH/personal/faltas/update", data, function(
+    data,
+    textStatus,
+    jqXHR
+  ) {
+    if (data == "success") {
+      notif("1", "Falta actulizada");
+      listFaltas();
+      document.getElementById("btn-md-falta2-close").click();
+    } else {
+      notif("2", "Error Vuelva al intentarlo");
     }
-  );
+  });
 }
-function deleteFalta() {
-  
+function deleteFalta(id) {
+  var data = {
+    _token: $("meta[name=csrf-token]").attr("content"),
+    'id':id
+  };
+  var r=confirm('Confirma eliminar El registro de falta?');
+  if (r==true) {
+    console.log(data);
+    $.post("/C.S.J.O.bo/RRHH/personal/faltas/delete", data,
+      function (data, textStatus, jqXHR) {
+       if (data=='success') {
+         notif('1','Falta, eliminada');
+         listFaltas();
+       } else {
+         notif('2','Error. Vuelva a intentarlo');
+       } 
+      }
+    );
   }
+}

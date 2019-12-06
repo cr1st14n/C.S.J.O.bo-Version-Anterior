@@ -52,4 +52,14 @@ class UsuFaltaController extends Controller
         }
         
     }
+    public function delete(Request $request)
+    {
+        $r = usuFalta::where('id',$request->input('id'))->delete();
+        if ($r) {
+            return "success";
+        } else {
+            return "fail";
+        }
+        
+    }
 }

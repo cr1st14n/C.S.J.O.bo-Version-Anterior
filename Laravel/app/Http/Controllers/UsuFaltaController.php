@@ -12,75 +12,44 @@ class UsuFaltaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function list(Request $request)
     {
-        //
+        return usuFalta::where('cod_usu',$request->input('userId'))->get();
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
-        $newFalta=usuFalta();
+        $nf=new usuFalta();
+        $nf->cod_usu=$request->input('codUsu1');
+        $nf->uf_motivo=$request->input('uf_motivo');
+        $nf->uf_fecha=$request->input('uf_fecha');
+        $nf->uf_horario=$request->input('uf_horario');
+        $nf->uf_codDoc=$request->input('uf_codDoc');
+        $r=$nf->save();
+        if ($r) {
+            return "success";
+        } else {
+            return "fail";
+        }  
+        return "fail";
+    }
+    public function edit(Request $request)
+    {
+        return usuFalta::where('id',$request->input('id'))
+        ->select('cod_usu','uf_codDoc','uf_motivo','uf_fecha','uf_horario','id')
+        ->first();
+    }
+    public function update(Request $request)
+    {
+        $r=usuFalta::where('id',$request->input('id'))
+            ->update(['uf_motivo'=>$request->input('uf_motivo'),
+                        'uf_fecha'=>$request->input('uf_fecha'),
+                        'uf_horario'=>$request->input('uf_horario'),
+                        'uf_codDoc'=>$request->input('uf_codDoc')]);
+        if ($r) {
+            return "success";
+        } else {
+            return "fail";
+        }
         
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\usuFalta  $usuFalta
-     * @return \Illuminate\Http\Response
-     */
-    public function show(usuFalta $usuFalta)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\usuFalta  $usuFalta
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(usuFalta $usuFalta)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\usuFalta  $usuFalta
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, usuFalta $usuFalta)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\usuFalta  $usuFalta
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(usuFalta $usuFalta)
-    {
-        //
     }
 }

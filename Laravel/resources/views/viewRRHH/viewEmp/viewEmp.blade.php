@@ -837,37 +837,86 @@
         </section>
     </div>
 </div>
-<div id="md-fata" class="modal fade md-flipHor" tabindex="-1" data-width="400">
+<div id="md-faltaCreate" class="modal fade md-flipHor" tabindex="-1" data-width="400">
     <div class="modal-header">
-        <button type="button" class="close" id="btn-md-permisos1-close"  data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <button type="button" class="close" id="btn-md-falta1-close"  data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Registrar Falta</h3>
     </div>
     <div class="modal-body">
         <section class="panel">
             <div class="panel-body">
-                <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formEditPermiso">
+                <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formCreateFalta">
                     <input type="text" id="CodPermisoUp" hidden>
                     <div class="form-group">
                         <label class="control-label">Motivo</label>
                         <div>
-                            <input type="text" class="form-control rounded" required pattern="[A-ZñÑa-z ]+" id="motivoUp" autocomplete="off">
+                            <input type="text" class="form-control rounded" required pattern="[A-ZñÑa-z ]+" id="FaltaMotivo" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Fecha</label>
                         <div>
-                            <input type="text" class="form-control rounded" autocomplete="off" required pattern="[A-ZñÑa-z ]+" id="remplazoUp" autocomplete="off">
-                            <!-- <span class="help-block">A block of <a href="#">help text.</a> <i class="fa fa-info"></i></span> -->
+                            <input type="date" class="form-control rounded" autocomplete="off" required  id="FaltaFecha" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label" >Horario</label>
                         <div>
-                            <select name="" id="horario"> 
+                            <select name="" id="FaltaHorario" class="form-control rounded"> 
                                 <option value="mañana">mañana</option>
                                 <option value="tarde">Tarde</option>
                                 <option value="noche">Noche</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Cod documento respaldo</label>
+                        <div>
+                            <input type="text" class="form-control rounded" required pattern="[0-9 ]+" id="FaltaCodDoc" autocomplete="off">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Registrar</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="md-faltaEdit" class="modal fade md-flipHor" tabindex="-1" data-width="400">
+    <div class="modal-header">
+        <button type="button" class="close" id="btn-md-falta2-close"  data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h3>Registrar Falta</h3>
+    </div>
+    <div class="modal-body">
+        <section class="panel">
+            <div class="panel-body">
+                <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formEditFalta">
+                    <input type="text" id="CodfaltaUp" hidden>
+                    <div class="form-group">
+                        <label class="control-label">Motivo</label>
+                        <div>
+                            <input type="text" class="form-control rounded" required pattern="[A-ZñÑa-z ]+" id="FaltaMotivoUp" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Fecha</label>
+                        <div>
+                            <input type="date" class="form-control rounded" autocomplete="off" required  id="FaltaFechaUp" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" >Horario</label>
+                        <div>
+                            <select name="" id="FaltaHorarioUp" class="form-control rounded"> 
+                                <option value="mañana">mañana</option>
+                                <option value="tarde">Tarde</option>
+                                <option value="noche">Noche</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Cod documento respaldo</label>
+                        <div>
+                            <input type="text" class="form-control rounded" required pattern="[0-9 ]+" id="FaltaCodDocUp" autocomplete="off">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-danger">Registrar</button>

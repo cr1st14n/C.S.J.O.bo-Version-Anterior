@@ -16,6 +16,14 @@ $("#formEditPermiso").on("submit", function(e) {
   e.preventDefault();
   permisoUpdate();
 });
+$("#formCreateFalta").on("submit", function(e) {
+  e.preventDefault();
+  createFalta();
+});
+$("#formEditFalta").on("submit", function(e) {
+  e.preventDefault();
+  updateFalta();
+});
 //! -----------------------------------------------------------------------
 
 function showListEmp() {}
@@ -246,16 +254,45 @@ function showUserFalPerm(codUsu1) {
 }
 
 function listFaltas() {
-  var boton = `<button class="btn btn-theme" id="btnRegisFalta">Registrar Falta</button>`;
-  var html = `<tr>
-                <td>17-05-2018</td>
-                <td>1</td>
-                <td>Falta</td>
-                <td>No se presento a su turno</td>
-                <td></td>
-            </tr>`;
-  document.getElementById("listFaltasPermisos").innerHTML = html;
+  var boton = `<button class="btn btn-theme" id="" onClick="SMNfalta()">Registrar Falta</button>`;
+  var headHtml = `<tr>
+  <th>Cod Doc</th>
+  <th>Motivo</th>
+  <th>Fecha</th>
+  <th>Horario</th>
+  <th>*</th>
+  </tr>`;
   document.getElementById("sectorBottonFaltasPermisos").innerHTML = boton;
+  document.getElementById("head-listFaltasPermisos").innerHTML = headHtml;
+  var data = { userId: $("#codUsu1").val() };
+  $.get("/C.S.J.O.bo/RRHH/personal/faltas/list", data, function(
+    data,
+    textStatus,
+    jqXHR
+  ) {
+    console.log(data);
+    var html = data
+      .map(function(e) {
+        return `<tr>
+       <td>${e.uf_codDoc}</td>
+       <td>${e.uf_motivo}</td>
+       <td>${moment(e.uf_fecha).format("DD/MM/YYYY")}</td>
+       <td>${e.uf_horario}</td>
+       <td>
+       <span class="tooltip-area">
+       <a class="btn btn-default btn-sm" title="Editar" onclick="ShowModalEditFalta(${
+         e.id
+       })"><i class="fa fa-pencil"></i></a>
+       <a class="btn btn-default btn-sm" title="Eliminar" onclick="permisoDestroy(${
+         e.id
+       })"><i class="fa fa-trash-o"></i></a>
+       </span>
+     </td>
+   </tr>`;
+      })
+      .join(" ");
+    document.getElementById("listFaltasPermisos").innerHTML = html;
+  });
 }
 
 function listPermisos() {
@@ -271,7 +308,6 @@ function listPermisos() {
   <th>*</th>
   </tr>`;
   document.getElementById("head-listFaltasPermisos").innerHTML = headhtml;
-
   var data = { userId: $("#codUsu1").val() };
   $.get("/C.S.J.O.bo/RRHH/personal/permiso/show", data, function(
     data,
@@ -381,7 +417,10 @@ function permisoCreate() {
 function ShowModalEditPermiso(idPermiso) {
   var data = { id: idPermiso };
   $.get("/C.S.J.O.bo/RRHH/personal/permiso/edit", data, function(
-    data,textStatus,jqXHR) {
+    data,
+    textStatus,
+    jqXHR
+  ) {
     $("#CodPermisoUp").val(data.id);
     $("#motivoUp").val(data.up_motivo);
     $("#remplazoUp").val(data.up_remplazo);
@@ -394,39 +433,112 @@ function ShowModalEditPermiso(idPermiso) {
   $("#md-permisos2").modal("show");
 }
 function permisoUpdate(param) {
-  data={
+  data = {
     _token: $("meta[name=csrf-token]").attr("content"),
-     id:$("#CodPermisoUp").val(),
-     up_motivo:$("#motivoUp").val(),
-     up_remplazo:$("#remplazoUp").val(),
-     up_fechaSolicitud:$("#fechaSolicitudUp").val(),
-     up_fechaPermiso:$("#fechaPermisoUp").val(),
-     up_horaInicio:$("#horaInicioUp").val(),
-     up_horaFinal:$("#horaFinalUp").val(),
-     up_codRespaldoDoc:$("#codRespaldoDocUp").val()
-  }
-  $.post("/C.S.J.O.bo/RRHH/personal/permiso/update", data,
-    function (dat, textStatus, jqXHR) {
-      console.log(dat);  
+    id: $("#CodPermisoUp").val(),
+    up_motivo: $("#motivoUp").val(),
+    up_remplazo: $("#remplazoUp").val(),
+    up_fechaSolicitud: $("#fechaSolicitudUp").val(),
+    up_fechaPermiso: $("#fechaPermisoUp").val(),
+    up_horaInicio: $("#horaInicioUp").val(),
+    up_horaFinal: $("#horaFinalUp").val(),
+    up_codRespaldoDoc: $("#codRespaldoDocUp").val()
+  };
+  $.post("/C.S.J.O.bo/RRHH/personal/permiso/update", data, function(
+    dat,
+    textStatus,
+    jqXHR
+  ) {
+    console.log(dat);
+    listPermisos();
+    document.getElementById("btn-md-permisos1-close").click();
+  }).fail(function() {
+    notif("2", "error server ACP");
+  });
+}
+
+function permisoDestroy(id) {
+  var data = { id: id };
+  $.get("/C.S.J.O.bo/RRHH/personal/permiso/destroy", data, function(
+    data,
+    textStatus,
+    jqXHR
+  ) {
+    if (data == "success") {
+      notif("1", "Permiso eliminado, Exitosamente");
       listPermisos();
-      document.getElementById('btn-md-permisos1-close').click();
-    }).fail(function () {notif('2','error server ACP')  });
+    } else {
+      notif("2", "Error. Server 401");
+    }
+  });
+}
 
-  }
+//?------
+function SMNfalta(id) {
+  $("#md-faltaCreate").modal("show");
+  $("#formCreateFalta").trigger("reset");
+}
+function createFalta() {
+  var data = {
+    _token: $("meta[name=csrf-token]").attr("content"),
+    codUsu1: $("#codUsu1").val(),
+    uf_motivo: $("#FaltaMotivo").val(),
+    uf_fecha: $("#FaltaFecha").val(),
+    uf_horario: $("#FaltaHorario").val(),
+    uf_codDoc: $("#FaltaCodDoc").val()
+  };
+  $.post("/C.S.J.O.bo/RRHH/personal/faltas/create", data, function(
+    data,
+    textStatus,
+    jqXHR
+  ) {
+    console.log(data);
+    if (data == "success") {
+      notif("1", "Falta registrada");
+      listFaltas();
+      document.getElementById("btn-md-falta1-close").click();
+    } else {
+      notif("2", "Error. vuelva a intentarlo");
+    }
+  });
+}
+function ShowModalEditFalta(idFalta) {
+  var data = { id: idFalta };
+  $.get("/C.S.J.O.bo/RRHH/personal/faltas/edit", data, function(
+    data,
+    textStatus,
+    jqXHR
+  ) {
+    console.log(data);
+    document.getElementById("CodfaltaUp").value = data.id;
+    document.getElementById("FaltaMotivoUp").value = data.uf_motivo;
+    document.getElementById("FaltaFechaUp").value = data.uf_fecha;
+    document.getElementById("FaltaHorarioUp").value = data.uf_horario;
+    document.getElementById("FaltaCodDocUp").value = data.uf_codDoc;
+    $("#md-faltaEdit").modal("show");
+  });
+}
+function updateFalta() {
+  var data = {
+    _token: $("meta[name=csrf-token]").attr("content"),
+    id: $("#CodfaltaUp").val(),
+    uf_codDoc: $("#FaltaCodDocUp").val(),
+    uf_motivo: $("#FaltaMotivoUp").val(),
+    uf_fecha: $("#FaltaFechaUp").val(),
+    uf_horario: $("#FaltaHorarioUp").val()
+  };
+  $.post("/C.S.J.O.bo/RRHH/personal/faltas/update", data,
+    function (data, textStatus, jqXHR) {
+     if (data=="success") {
+       notif('1','Falta actulizada');
+       listFaltas();
+       document.getElementById("btn-md-falta2-close").click();
+     } else {
+       notif('2','Error Vuelva al intentarlo');
+     } 
+    }
+  );
+}
+function deleteFalta() {
   
-  function permisoDestroy(id) {
-    var data= {'id': id};
-    $.get("/C.S.J.O.bo/RRHH/personal/permiso/destroy", data,
-      function (data, textStatus, jqXHR) {
-        if (data=="success") {
-          notif('1','Permiso eliminado, Exitosamente');
-          listPermisos();
-        } else {
-          notif('2','Error. Server 401');
-        }
-      }
-    );
   }
-
-//?------ 
-  function () {  }

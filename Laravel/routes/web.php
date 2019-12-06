@@ -215,6 +215,15 @@ Route::group([/*'middleware'=>['caja'],*/ 'prefix'=>'/RRHH'],function(){
 				Route::post('update','PermisosController@update');
 				Route::get('destroy','PermisosController@destroy');
 			});
+		// *rutas faltas del personal
+			Route::group(['prefix'=>'faltas'],function(){
+				Route::get('list','usuFaltaController@list');
+				Route::post('create','usuFaltaController@create');
+				Route::get('edit','usuFaltaController@edit');
+				Route::post('update','usuFaltaController@update');
+				Route::get('update','usuFaltaController@update');
+				Route::post('delete','usuFaltaController@delete');
+			});
     });
     Route::group(['prefix'=>'Areas'],function(){
         Route::get('/','areaController@homeArea')->name('home_area');

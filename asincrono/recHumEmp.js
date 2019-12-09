@@ -24,6 +24,10 @@ $("#formEditFalta").on("submit", function(e) {
   e.preventDefault();
   updateFalta();
 });
+$("#formCreateCambioTurno").on("submit", function(e) {
+  e.preventDefault();
+  CamTurnCreate();
+});
 //! -----------------------------------------------------------------------
 
 function showListEmp() {}
@@ -341,16 +345,41 @@ function listPermisos() {
 }
 
 function listCambioTurno() {
-  var boton = `<button class="btn btn-theme" id="">Registrar Cambio de turno</button>`;
-  var html = `<tr>
-                <td>12-06-2018 // 20-06-2018</td>
-                <td>8</td> 
-                <td>Permiso</td>
-                <td>Solicitud de falta</td>
-                <td></td>
-            </tr>`;
-  document.getElementById("listFaltasPermisos").innerHTML = html;
+  var boton = `<button class="btn btn-theme" onClick="SMCambioTurno()">Registrar Cambio de turno</button>`;
   document.getElementById("sectorBottonFaltasPermisos").innerHTML = boton;
+  var headhtml = `<tr>
+  <th>Cod Doc</th>
+  <th>Motivo</th>
+  <th>Remplazo</th>
+  <th>Fecha de Solicitud</th>
+  <th>Fecha a Solicitar</th>
+  <th>Horario</th>
+  <th>*</th>
+  </tr>`;
+  document.getElementById("head-listFaltasPermisos").innerHTML = headhtml;
+  var data = { id: $("#codUsu1").val() };
+  $.get("/C.S.J.O.bo/RRHH/personal/cambioTurno/list", data, function(data) {
+    console.log(data);
+    var html = data
+      .map(function(e) {
+        return `<tr>
+        <td>${e.uct_codDoc}</td>
+        <td>${e.uct_motivo}</td>
+        <td>${e.cod_usu2}</td>
+        <td>${e.ca_fecha}</td>
+        <td>${e.uct_fecha}</td>
+        <td>${e.uct_horario}</td>
+        <td>
+        <span class="tooltip-area">
+        <a class="btn btn-default btn-sm" title="Editar" onclick="ShowModalEditPermiso(${e.id})"><i class="fa fa-pencil"></i></a>
+        <a class="btn btn-default btn-sm" title="Eliminar" onclick="permisoDestroy(${e.id})"><i class="fa fa-trash-o"></i></a>
+        </span>
+      </td>
+    </tr>`;
+      })
+      .join(" ");
+    document.getElementById("listFaltasPermisos").innerHTML = html;
+  });
 }
 
 function limpiarFomrUserCreate() {
@@ -544,20 +573,44 @@ function updateFalta() {
 function deleteFalta(id) {
   var data = {
     _token: $("meta[name=csrf-token]").attr("content"),
-    'id':id
+    id: id
   };
-  var r=confirm('Confirma eliminar El registro de falta?');
-  if (r==true) {
+  var r = confirm("Confirma eliminar El registro de falta?");
+  if (r == true) {
     console.log(data);
-    $.post("/C.S.J.O.bo/RRHH/personal/faltas/delete", data,
-      function (data, textStatus, jqXHR) {
-       if (data=='success') {
-         notif('1','Falta, eliminada');
-         listFaltas();
-       } else {
-         notif('2','Error. Vuelva a intentarlo');
-       } 
+    $.post("/C.S.J.O.bo/RRHH/personal/faltas/delete", data, function(
+      data,
+      textStatus,
+      jqXHR
+    ) {
+      if (data == "success") {
+        notif("1", "Falta, eliminada");
+        listFaltas();
+      } else {
+        notif("2", "Error. Vuelva a intentarlo");
       }
-    );
+    });
   }
+}
+// *......... JS CAMBIO DE TURNO
+function SMCambioTurno(param) {
+  $("#md-cambioTurno1").modal("show");
+  $("#formCreateCambioTurno").trigger("reset");
+}
+function CamTurnCreate() {
+  var data = {
+    _token: $("meta[name=csrf-token]").attr("content"),
+    cod_usu: $("#codUsu1").val(),
+    cod_usu2: $("#CTremplazo").val(),
+    uct_codDoc: $("#CTcodRespaldoDoc").val(),
+    uct_motivo: $("#CTmotivo").val(),
+    uct_fecha: $("#CTfechaPermiso").val(),
+    uct_horario: $("#CThorario").val()
+  };
+  console.log(data);
+  $.post("/C.S.J.O.bo/RRHH/personal/faltcambioTurnoas/create", data,
+    function (data, textStatus, jqXHR) {
+     console.log(data); 
+    }
+  );
 }

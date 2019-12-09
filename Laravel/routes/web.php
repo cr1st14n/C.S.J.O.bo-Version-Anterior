@@ -224,6 +224,16 @@ Route::group([/*'middleware'=>['caja'],*/ 'prefix'=>'/RRHH'],function(){
 				Route::get('update','usuFaltaController@update');
 				Route::post('delete','usuFaltaController@delete');
 			});
+		//* rutas cambio de turno 
+			Route::group(['prefix'=>'cambioTurno'],function ()
+			{
+				Route::get('list','UsuCambioTurnoController@list');
+				Route::post('create','UsuCambioTurnoController@create');
+				Route::get('edit','UsuCambioTurnoController@edit');
+				Route::post('update','UsuCambioTurnoController@update');
+				Route::get('update','UsuCambioTurnoController@update');
+				Route::post('delete','UsuCambioTurnoController@delete');
+			});
     });
     Route::group(['prefix'=>'Areas'],function(){
         Route::get('/','areaController@homeArea')->name('home_area');

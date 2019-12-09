@@ -776,7 +776,7 @@
 </div>
 <div id="md-permisos2" class="modal fade md-flipHor" tabindex="-1" data-width="400">
     <div class="modal-header">
-        <button type="button" class="close" id="btn-md-permisos1-close"  data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <button type="button" class="close" id="btn-md-permisos1-close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Formulario de solicitud de permiso</h3>
     </div>
     <div class="modal-body">
@@ -839,7 +839,7 @@
 </div>
 <div id="md-faltaCreate" class="modal fade md-flipHor" tabindex="-1" data-width="400">
     <div class="modal-header">
-        <button type="button" class="close" id="btn-md-falta1-close"  data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <button type="button" class="close" id="btn-md-falta1-close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Registrar Falta</h3>
     </div>
     <div class="modal-body">
@@ -856,13 +856,13 @@
                     <div class="form-group">
                         <label class="control-label">Fecha</label>
                         <div>
-                            <input type="date" class="form-control rounded" autocomplete="off" required  id="FaltaFecha" autocomplete="off">
+                            <input type="date" class="form-control rounded" autocomplete="off" required id="FaltaFecha" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" >Horario</label>
+                        <label class="control-label">Horario</label>
                         <div>
-                            <select name="" id="FaltaHorario" class="form-control rounded"> 
+                            <select name="" id="FaltaHorario" class="form-control rounded">
                                 <option value="mañana">mañana</option>
                                 <option value="tarde">Tarde</option>
                                 <option value="noche">Noche</option>
@@ -883,7 +883,7 @@
 </div>
 <div id="md-faltaEdit" class="modal fade md-flipHor" tabindex="-1" data-width="400">
     <div class="modal-header">
-        <button type="button" class="close" id="btn-md-falta2-close"  data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <button type="button" class="close" id="btn-md-falta2-close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Registrar Falta</h3>
     </div>
     <div class="modal-body">
@@ -900,13 +900,13 @@
                     <div class="form-group">
                         <label class="control-label">Fecha</label>
                         <div>
-                            <input type="date" class="form-control rounded" autocomplete="off" required  id="FaltaFechaUp" autocomplete="off">
+                            <input type="date" class="form-control rounded" autocomplete="off" required id="FaltaFechaUp" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" >Horario</label>
+                        <label class="control-label">Horario</label>
                         <div>
-                            <select name="" id="FaltaHorarioUp" class="form-control rounded"> 
+                            <select name="" id="FaltaHorarioUp" class="form-control rounded">
                                 <option value="mañana">mañana</option>
                                 <option value="tarde">Tarde</option>
                                 <option value="noche">Noche</option>
@@ -925,6 +925,123 @@
         </section>
     </div>
 </div>
+<div id="md-cambioTurno1" class="modal fade md-flipHor" tabindex="-1" data-width="400">
+    <div class="modal-header">
+        <button type="button" class="close" id="btn-md-permisos1" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h3>Formulario de solicitud de Cambio de Turno</h3>
+    </div>
+    <div class="modal-body">
+        <section class="panel">
+            <div class="panel-body">
+                <form class="form-horizontal" data-collabel="3" data-alignlabel="left" id="formCreateCambioTurno">
+                    <div class="form-group">
+                        <label class="control-label">Motivo</label>
+                        <div>
+                            <input type="text" class="form-control rounded" required pattern="[A-ZñÑa-z ]+" id="CTmotivo" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Remplazo</label>
+                        <div>
+                            <input type="text" class="form-control rounded" autocomplete="off" required pattern="[A-ZñÑa-z ]+" id="CTremplazo" autocomplete="off">
+                            <!-- <span class="help-block">A block of <a href="#">help text.</a> <i class="fa fa-info"></i></span> -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Horario</label>
+                        <div>
+                            <select name="" id="CThorario" class="form-control">
+                                <option value="mañana">Mañana</option>
+                                <option value="tarde">Tarde</option>
+                                <option value="noche">Noche</option>
+                                <option value="tiempo completo">Tiempo Comleto</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Fecha a solicitar</label>
+                        <div>
+                            <input type="date" class="form-control rounded" autocomplete="off" required id="CTfechaPermiso">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Cod Documento Respaldo</label>
+                        <div>
+                            <div class="input-icon right"> <i class="fa fa-keyboard-o ico "></i>
+                                <input type="number" class="form-control rounded" autocomplete="off" required pattern="[0-9 ]+" id="CTcodRespaldoDoc">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Registrar</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="md-cambioTurno2" class="modal fade md-flipHor" tabindex="-1" data-width="400">
+    <div class="modal-header">
+        <button type="button" class="close" id="btn-md-permisos1-close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h3>Formulario de solicitud de permiso</h3>
+    </div>
+    <div class="modal-body">
+        <section class="panel">
+            <div class="panel-body">
+                <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formEditPermiso">
+                    <input type="text" id="CodPermisoUp" hidden>
+                    <div class="form-group">
+                        <label class="control-label">Motivo</label>
+                        <div>
+                            <input type="text" class="form-control rounded" required pattern="[A-ZñÑa-z ]+" id="motivoUp" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Remplazo</label>
+                        <div>
+                            <input type="text" class="form-control rounded" autocomplete="off" required pattern="[A-ZñÑa-z ]+" id="remplazoUp" autocomplete="off">
+                            <!-- <span class="help-block">A block of <a href="#">help text.</a> <i class="fa fa-info"></i></span> -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputTwo">Fecha de Solicitud</label>
+                        <div>
+                            <input type="date" class="form-control rounded" autocomplete="off" required id="fechaSolicitudUp">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Fecha a solicitar Permiso</label>
+                        <div>
+                            <input type="date" class="form-control rounded" autocomplete="off" required id="fechaPermisoUp">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Hora inicio</label>
+                        <div class="input-icon"> <i class="fa fa-clock-o ico"></i>
+                            <input type="time" class="form-control rounded" autocomplete="off" id="horaInicioUp">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Hora final</label>
+                        <div>
+                            <div class="input-icon"> <i class="fa fa-clock-o ico"></i>
+                                <input type="time" class="form-control rounded" autocomplete="off" id="horaFinalUp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Cod Documento Respaldo</label>
+                        <div>
+                            <div class="input-icon right"> <i class="fa fa-keyboard-o ico "></i>
+                                <input type="number" class="form-control rounded" autocomplete="off" required pattern="[0-9 ]+" id="codRespaldoDocUp">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Actualizar</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
 @endsection
 @section('scripts')
 <script type="text/javascript" src="{{ asset('/asincrono/recHumEmp.js') }}"></script>

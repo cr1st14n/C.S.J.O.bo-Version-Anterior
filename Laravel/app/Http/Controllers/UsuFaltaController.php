@@ -14,7 +14,7 @@ class UsuFaltaController extends Controller
      */
     public function list(Request $request)
     {
-        return usuFalta::where('cod_usu',$request->input('userId'))->get();
+        return usuFalta::where('cod_usu',$request->input('userId'))->orderby('created_at','desc')->get();
     }
     public function create(Request $request)
     {

@@ -231,7 +231,6 @@ Route::group([/*'middleware'=>['caja'],*/ 'prefix'=>'/RRHH'],function(){
 				Route::post('create','UsuCambioTurnoController@create');
 				Route::get('edit','UsuCambioTurnoController@edit');
 				Route::post('update','UsuCambioTurnoController@update');
-				Route::get('update','UsuCambioTurnoController@update');
 				Route::post('delete','UsuCambioTurnoController@delete');
 			});
     });

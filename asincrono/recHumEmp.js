@@ -178,13 +178,20 @@ function listTodosEmp() {
 function showDatosEmp(id) {
   $.get("/C.S.J.O.bo/RRHH/personal/showDatosEmp/" + id + "")
     .done(function(elem) {
+      console.log(elem);
+      if (elem.usu_acceso==1) {
+        var usu_acceso="Si";
+      } else {
+        var usu_acceso="No";
+      }
+
       var datosEMP = `CI: <strong>${elem.usu_ci}</strong><br>
                   Nombre: <strong>${elem.usu_nombre} </strong><br>
                   Apellidos: <strong>${elem.usu_appaterno} ${elem.usu_apmaterno}</strong> <br>
                   Sexo: <strong>${elem.usu_sexo}</strong><br>
-                  Fecha de nacimiento: <strong>${elem.usu_fechnac}</strong><br>
-                  Lugar de Nacimiento: <strong>La paz - Bolivia</strong><br>
-                  Tipo de sangre: <strong>O+</strong><br><hr>
+                  Fecha de nacimiento: <strong>${moment(elem.usu_fechnac).format("D/MM/YYYY")}</strong><br>
+                  Lugar de Nacimiento: <strong>${elem.usu_depnac}</strong><br>
+                  Tipo de sangre: <strong>${elem.usu_tipoSangre}</strong><br><hr>
                   Lugar de trabajo: <strong>CENTRO DE SALUD JESUS OBRERO</strong><br><hr>
                   Email: <strong>${elem.email}</strong><br>
                   Estado Civil: <strong>${elem.usu_estadocivil}</strong><br>
@@ -202,11 +209,11 @@ function showDatosEmp(id) {
                 Area : <strong>${elem.usu_area}</strong><br>
                 Cargo: <strong>${elem.usu_cargo} </strong><br>
                 Tipo de Contrato: <strong>En planta</strong><br><hr>
-                Acceso al sistema: <strong>SI</strong><br><hr>
+                Acceso al sistema: <strong>${usu_acceso}</strong><br><hr>
                 <h4>Informacion de la entidad de seguro de corto y largo plazo </h4> <br>
-                Nombre de la institucion: <strong>Previcion</strong> <br>
-                # de NUA: <strong>868768</strong> <br>
-                # de asegurado C.N.S: <strong>8767865765</strong> <br>
+                Nombre de la institucion: <strong>${elem.di_seguroNombre}</strong> <br>
+                # de NUA: <strong>${elem.di_seguroNua}</strong> <br>
+                # de asegurado C.N.S: <strong>${elem.di_seguroCns}</strong> <br>
                 `;
       document.getElementById("datosInst").innerHTML = html2;
       $("#md-stack1")
@@ -688,3 +695,22 @@ function deleteCambTurn(id) {
     });
   }
 }
+
+// document.onkeypress=function (e) { 
+//   e = e || window.event;
+//   var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
+//   alert("Character typed: " + String.fromCharCode(charCode));
+//   if (charCode) {
+//   } 
+//  }
+//  $(window).on('keypress', function(e) {
+
+//   var code = (e.keyCode ? e.keyCode : e.which);
+//   var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
+  // alert("Character typed: " + String.fromCharCode(charCode));
+//   console.log(String.fromCharCode(charCode));
+//   if(code == 13) { 
+   
+// }
+
+// });

@@ -38,7 +38,12 @@ class empleadoController extends Controller
     }
     function showDatosEmp($id)
     {
-        return User::where('id', $id)->first();
+       return User::where('users.id',$id)
+        ->join('user_datos_insts as udi','users.id','udi.cod_usu')
+        ->join('usu_contratos as uc','users.id','uc.cod_usu')
+        ->select('udi.di_titulo','udi.di_profecion','udi.di_especialidad','udi.di_seguroNombre','udi.di_seguroNua','udi.di_seguroCns')
+        ->addSelect('users.*')
+        ->first();
     }
     function segun()
     {

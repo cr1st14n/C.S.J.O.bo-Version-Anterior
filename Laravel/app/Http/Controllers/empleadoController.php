@@ -29,8 +29,8 @@ class empleadoController extends Controller
     {
         // return User::orderBy('created_at','desc')->get();
         return User::select('usu_nombre','usu_appaterno','usu_apmaterno','usu_area','usu_ci','users.created_at','users.id')
-            ->join('usu_contratos as cot','users.id','cot.cod_usu')
-            ->addSelect('cot.uc_area')
+            // ->join('usu_contratos as cot','users.id','cot.cod_usu')
+            // ->addSelect('cot.uc_area')
             ->join('user_datos_insts as udi','users.id','udi.cod_usu')
             ->addSelect('udi.di_profecion')->orderBy('created_at','desc')->get();
 
@@ -38,12 +38,20 @@ class empleadoController extends Controller
     }
     function showDatosEmp($id)
     {
-       return User::where('users.id',$id)
+       $res= User::where('users.id',$id)
         ->join('user_datos_insts as udi','users.id','udi.cod_usu')
         ->join('usu_contratos as uc','users.id','uc.cod_usu')
         ->select('udi.di_titulo','udi.di_profecion','udi.di_especialidad','udi.di_seguroNombre','udi.di_seguroNua','udi.di_seguroCns')
         ->addSelect('users.*')
         ->first();
+        $res3=usuContrato::where('cod_usu',$id)->max('uc_nroContrato');
+
+        $ret=array();
+        $cad="123456789";
+        array_push($ret,$res);
+        array_push($ret,$res3);
+        return $ret;
+
     }
     function segun()
     {

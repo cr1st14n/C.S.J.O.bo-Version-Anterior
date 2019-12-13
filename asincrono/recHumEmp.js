@@ -179,41 +179,43 @@ function showDatosEmp(id) {
   $.get("/C.S.J.O.bo/RRHH/personal/showDatosEmp/" + id + "")
     .done(function(elem) {
       console.log(elem);
-      if (elem.usu_acceso==1) {
+      console.log(elem[0]);
+      console.log(elem[1]);
+      if (elem[0].usu_acceso==1) {
         var usu_acceso="Si";
       } else {
         var usu_acceso="No";
       }
 
-      var datosEMP = `CI: <strong>${elem.usu_ci}</strong><br>
-                  Nombre: <strong>${elem.usu_nombre} </strong><br>
-                  Apellidos: <strong>${elem.usu_appaterno} ${elem.usu_apmaterno}</strong> <br>
-                  Sexo: <strong>${elem.usu_sexo}</strong><br>
-                  Fecha de nacimiento: <strong>${moment(elem.usu_fechnac).format("D/MM/YYYY")}</strong><br>
-                  Lugar de Nacimiento: <strong>${elem.usu_depnac}</strong><br>
-                  Tipo de sangre: <strong>${elem.usu_tipoSangre}</strong><br><hr>
+      var datosEMP = `CI: <strong>${elem[0].usu_ci}</strong><br>
+                  Nombre: <strong>${elem[0].usu_nombre} </strong><br>
+                  Apellidos: <strong>${elem[0].usu_appaterno} ${elem[0].usu_apmaterno}</strong> <br>
+                  Sexo: <strong>${elem[0].usu_sexo}</strong><br>
+                  Fecha de nacimiento: <strong>${moment(elem[0].usu_fechnac).format("D/MM/YYYY")}</strong><br>
+                  Lugar de Nacimiento: <strong>${elem[0].usu_depnac}</strong><br>
+                  Tipo de sangre: <strong>${elem[0].usu_tipoSangre}</strong><br><hr>
                   Lugar de trabajo: <strong>CENTRO DE SALUD JESUS OBRERO</strong><br><hr>
-                  Email: <strong>${elem.email}</strong><br>
-                  Estado Civil: <strong>${elem.usu_estadocivil}</strong><br>
-                  Telf/Cel: <strong>${elem.usu_telf}</strong><br>
-                  Telf/Cel referencia: <strong>${elem.usu_telfref}</strong> <br>
-                  Zona de sufragio: <strong>${elem.usu_zonaSufragio}</strong><br>
-                  Zona: <strong>${elem.usu_zona}</strong><br>
-                  Domicilio: <strong>${elem.usu_domicilio}</strong><br><hr>
+                  Email: <strong>${elem[0].email}</strong><br>
+                  Estado Civil: <strong>${elem[0].usu_estadocivil}</strong><br>
+                  Telf/Cel: <strong>${elem[0].usu_telf}</strong><br>
+                  Telf/Cel referencia: <strong>${elem[0].usu_telfref}</strong> <br>
+                  Zona de sufragio: <strong>${elem[0].usu_zonaSufragio}</strong><br>
+                  Zona: <strong>${elem[0].usu_zona}</strong><br>
+                  Domicilio: <strong>${elem[0].usu_domicilio}</strong><br><hr>
                   Lugar donde Sufragia: <strong>La paz el alto</strong>
                   `;
       document.getElementById("datosEmp").innerHTML = datosEMP;
       var html2 = `
                 Fecha de contratacion: <strong>08-12-2008</strong><br>
                 Titulo: <strong>Licenciada</strong><br><hr>
-                Area : <strong>${elem.usu_area}</strong><br>
-                Cargo: <strong>${elem.usu_cargo} </strong><br>
+                Area : <strong>${elem[0].usu_area}</strong><br>
+                Cargo: <strong>${elem[0].usu_cargo} </strong><br>
                 Tipo de Contrato: <strong>En planta</strong><br><hr>
                 Acceso al sistema: <strong>${usu_acceso}</strong><br><hr>
                 <h4>Informacion de la entidad de seguro de corto y largo plazo </h4> <br>
-                Nombre de la institucion: <strong>${elem.di_seguroNombre}</strong> <br>
-                # de NUA: <strong>${elem.di_seguroNua}</strong> <br>
-                # de asegurado C.N.S: <strong>${elem.di_seguroCns}</strong> <br>
+                Nombre de la institucion: <strong>${elem[0].di_seguroNombre}</strong> <br>
+                # de NUA: <strong>${elem[0].di_seguroNua}</strong> <br>
+                # de asegurado C.N.S: <strong>${elem[0].di_seguroCns}</strong> <br>
                 `;
       document.getElementById("datosInst").innerHTML = html2;
       $("#md-stack1")

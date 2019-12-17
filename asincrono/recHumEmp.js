@@ -32,6 +32,10 @@ $("#formEditCambioTurno").on("submit", function(e) {
   e.preventDefault();
   updateCambTurno();
 });
+$("#formulario1Up").on("submit", function(e) {
+  e.preventDefault();
+  updateUser();
+});
 //! -----------------------------------------------------------------------
 
 function showListEmp() {}
@@ -181,43 +185,65 @@ function showDatosEmp(id) {
       console.log(elem);
       console.log(elem[0]);
       console.log(elem[1]);
-      if (elem[0].usu_acceso==1) {
-        var usu_acceso="Si";
+      if (elem[0].usu_acceso == 1) {
+        var usu_acceso = "Si";
       } else {
-        var usu_acceso="No";
+        var usu_acceso = "No";
       }
 
       var datosEMP = `CI: <strong>${elem[0].usu_ci}</strong><br>
                   Nombre: <strong>${elem[0].usu_nombre} </strong><br>
-                  Apellidos: <strong>${elem[0].usu_appaterno} ${elem[0].usu_apmaterno}</strong> <br>
+                  Apellidos: <strong>${elem[0].usu_appaterno} ${
+        elem[0].usu_apmaterno
+      }</strong> <br>
                   Sexo: <strong>${elem[0].usu_sexo}</strong><br>
-                  Fecha de nacimiento: <strong>${moment(elem[0].usu_fechnac).format("D/MM/YYYY")}</strong><br>
-                  Lugar de Nacimiento: <strong>${elem[0].usu_depnac}</strong><br>
-                  Tipo de sangre: <strong>${elem[0].usu_tipoSangre}</strong><br><hr>
+                  Fecha de nacimiento: <strong>${moment(
+                    elem[0].usu_fechnac
+                  ).format("D/MM/YYYY")}</strong><br>
+                  Lugar de Nacimiento: <strong>${
+                    elem[0].usu_depnac
+                  }</strong><br>
+                  Tipo de sangre: <strong>${
+                    elem[0].usu_tipoSangre
+                  }</strong><br><hr>
                   Lugar de trabajo: <strong>CENTRO DE SALUD JESUS OBRERO</strong><br><hr>
                   Email: <strong>${elem[0].email}</strong><br>
                   Estado Civil: <strong>${elem[0].usu_estadocivil}</strong><br>
                   Telf/Cel: <strong>${elem[0].usu_telf}</strong><br>
-                  Telf/Cel referencia: <strong>${elem[0].usu_telfref}</strong> <br>
-                  Zona de sufragio: <strong>${elem[0].usu_zonaSufragio}</strong><br>
+                  Telf/Cel referencia: <strong>${
+                    elem[0].usu_telfref
+                  }</strong> <br>
+                  Zona de sufragio: <strong>${
+                    elem[0].usu_zonaSufragio
+                  }</strong><br>
                   Zona: <strong>${elem[0].usu_zona}</strong><br>
                   Domicilio: <strong>${elem[0].usu_domicilio}</strong><br><hr>
-                  Lugar donde Sufragia: <strong>La paz el alto</strong>
+                  Lugar donde Sufragia: <strong>${elem[0].usu_zonaSufragio}</strong>
                   `;
       document.getElementById("datosEmp").innerHTML = datosEMP;
       var html2 = `
-                Fecha de contratacion: <strong>08-12-2008</strong><br>
-                Titulo: <strong>Licenciada</strong><br><hr>
+                Fecha de contratacion: <strong>${moment(
+                  elem[1].uc_fechaInicio
+                ).format("DD-MM-YYYY")}</strong><br>
+                Titulo: <strong>${elem[0].di_titulo}</strong><br><hr>
                 Area : <strong>${elem[0].usu_area}</strong><br>
-                Cargo: <strong>${elem[0].usu_cargo} </strong><br>
-                Tipo de Contrato: <strong>En planta</strong><br><hr>
+                Cargo: <strong>${elem[1].uc_cargoDesignado} </strong><br>
+                Tipo de Contrato: <strong>${
+                  elem[1].uc_tipoContrato
+                }</strong><br><hr>
                 Acceso al sistema: <strong>${usu_acceso}</strong><br><hr>
                 <h4>Informacion de la entidad de seguro de corto y largo plazo </h4> <br>
-                Nombre de la institucion: <strong>${elem[0].di_seguroNombre}</strong> <br>
+                Nombre de la institucion: <strong>${
+                  elem[0].di_seguroNombre
+                }</strong> <br>
                 # de NUA: <strong>${elem[0].di_seguroNua}</strong> <br>
-                # de asegurado C.N.S: <strong>${elem[0].di_seguroCns}</strong> <br>
+                # de asegurado C.N.S: <strong>${
+                  elem[0].di_seguroCns
+                }</strong> <br>
                 `;
       document.getElementById("datosInst").innerHTML = html2;
+      var boton = `<button type="button" class="btn btn-theme" onclick="showEditDat1User(${elem[0].id})">Actualizar Datos</button>`;
+      document.getElementById("datosEditButon").innerHTML = boton;
       $("#md-stack1")
         .addClass("md-flipHor")
         .modal("show");
@@ -227,16 +253,70 @@ function showDatosEmp(id) {
     });
 }
 
-function showDatos() {
-  $("#md-stack2")
-    .addClass("md-flipHor")
-    .modal("show");
+function showEditDat1User(id) {
+  $("#idEdituser").val();
+  data = { id: id };
+  $.get("/C.S.J.O.bo/RRHH/personal/editDatos1Emp/", data, function(
+    data,
+    textStatus,
+    jqXHR
+  ) {
+    console.log(data);
+    $("#idEdituser").val(data.id);
+    $("#createUserCiUp").val(data.usu_ci),
+      $("#nombreUp").val(data.usu_nombre),
+      $("#apellido1Up").val(data.usu_appaterno),
+      $("#apellido2Up").val(data.usu_apmaterno),
+      document.querySelector("input[name=sexo]:checked").value,
+      $("#fechaNacimientoUp").val(data.usu_fechnac),
+      $("#paisNacimientoUp").val(data.usu_paisnac),
+      $("#depNacimientoUp").val(data.usu_depnac),
+      $("#tipoSangreUp").val(data.usu_tipoSangre),
+      $("#estadoCivilUp").val(data.usu_estadocivil),
+      $("#telfUp").val(data.usu_telf),
+      $("#telfRefUp").val(data.usu_telfref),
+      $("#zonaUp").val(data.usu_zona),
+      $("#domicilioUp").val(data.usu_domicilio),
+      $("#zonaSufragioUp").val(data.usu_zonaSufragio),
+      $("#emailUp").val(data.email);
+  });
+  $("#md-editDatUser").modal("show");
 }
 
-function showEditDat1User() {
-  $("#md-editDatUser")
-    .addClass("md-flipHor")
-    .modal("show");
+function updateUser() {
+  var cons = $("#idEdituser").val(data.id);
+  if (cons != null) {
+    console.log("se peude actualizar");
+    var dato={
+      _token: $("meta[name=csrf-token]").attr("content"),
+      'idEdituser':$("#idEdituser").val(),
+      'createUserCiUp':$("#createUserCiUp").val(),
+        'nombreUp':$("#nombreUp").val(),
+        'apellido1Up':$("#apellido1Up").val(),
+        'apellido2Up':$("#apellido2Up").val(),
+        'sexoUp':document.querySelector("input[name=sexo]:checked").value,
+        'fechaNacimientoUp':$("#fechaNacimientoUp").val(),
+        'paisNacimientoUp':$("#paisNacimientoUp").val(),
+        'depNacimientoUp':$("#depNacimientoUp").val(),
+        'tipoSangreUp':$("#tipoSangreUp").val(),
+        'estadoCivilUp':$("#estadoCivilUp").val(),
+        'telfUp':$("#telfUp").val(),
+        'telfRefUp':$("#telfRefUp").val(),
+        'zonaUp':$("#zonaUp").val(),
+        'domicilioUp':$("#domicilioUp").val(),
+        'zonaSufragioUp':$("#zonaSufragioUp").val(),
+        'emailUp':$("#emailUp").val()
+    }
+    $.post("/C.S.J.O.bo/RRHH/personal/updateDatos1Emp", dato,
+      function (data, textStatus, jqXHR) {
+       console.log(data); 
+      }
+    );
+
+
+  } else {
+    console.log("NO peude actualizar");
+  }
 }
 
 function showEditDat2User() {
@@ -698,21 +778,21 @@ function deleteCambTurn(id) {
   }
 }
 
-// document.onkeypress=function (e) { 
+// document.onkeypress=function (e) {
 //   e = e || window.event;
 //   var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
 //   alert("Character typed: " + String.fromCharCode(charCode));
 //   if (charCode) {
-//   } 
+//   }
 //  }
 //  $(window).on('keypress', function(e) {
 
 //   var code = (e.keyCode ? e.keyCode : e.which);
 //   var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-  // alert("Character typed: " + String.fromCharCode(charCode));
+// alert("Character typed: " + String.fromCharCode(charCode));
 //   console.log(String.fromCharCode(charCode));
-//   if(code == 13) { 
-   
+//   if(code == 13) {
+
 // }
 
 // });

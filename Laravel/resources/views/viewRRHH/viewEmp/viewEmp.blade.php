@@ -501,7 +501,8 @@
             <div class="col-lg-6">
                 <h3>Datos Personales</h3><br>
                 <p id="datosEmp"></p>
-                <button type="button" class="btn btn-theme" onclick="showEditDat1User()">Actualizar</button>
+                <div id="datosEditButon"></div>
+                <!-- <button type="button" class="btn btn-theme" onclick="showEditDat1User()">Actualizar</button> -->
             </div>
             <div class="col-lg-6">
                 <h3>Datos Institucionales</h3><br>
@@ -512,55 +513,82 @@
     </div>
 </div>
 
-<div id="md-editDatUser" class="modal fade" tabindex="-1" data-width="800">
+<div id="md-editDatUser" class="modal fade md-flipHor" tabindex="-1" data-width="800">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h3>Datos del Empleado</h3>
+        <h3>Actualizar datos</h3>
     </div>
     <div class="modal-body">
         <div class="row">
-            <div class="col-lg-6">
-                <form class="form-horizontal" data-collabel="3" data-alignlabel="left">
+            <form class="form-horizontal" data-collabel="6" data-alignlabel="rigth" id="formulario1Up">
+                <input type="text" id="idEdituser" hidden>
+                <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="control-label">CI</label>
+                        <label class="control-label">CI*:</label>
                         <div>
-                            <input type="text" class="form-control rounded">
+                            <input type="number" min="0" class="form-control rounded" placeholder="# de C.I." id="createUserCiUp" onkeyup="validar('createUserCi')" required autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Nombre</label>
+                        <label class="control-label">Nombre*:</label>
                         <div>
-                            <input type="text" class="form-control rounded">
+                            <input type="text" class="form-control rounded" id="nombreUp" placeholder="Nombre completo" pattern="[A-ZñÑa-z ]+" onkeyup="validar('nombre')" required autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Apellido</label>
+                        <label class="control-label">Apellidos*:</label>
                         <div>
-                            <input type="text" class="form-control rounded"><br>
-                            <input type="text" class="form-control rounded">
+                            <input type="text" class="form-control rounded" id="apellido1Up" placeholder="Apellido paterno" pattern="[A-ZñÑa-z ]+" onkeyup="validar('apellido1')" required autocomplete="off"><br>
+                            <input type="text" class="form-control rounded" id="apellido2Up" placeholder="Apellido materno" pattern="[A-ZñÑa-z ]+" onkeyup="validar('apellido2')" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="inputTwo">Fecha Nacimiento</label>
+                        <label class="control-label" for="inputTwo">Fecha Nacimiento*:</label>
                         <div>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control rounded" id="fechaNacimientoUp" required autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Pais de nacimiento*:</label>
+                        <div>
+                            <input type="text" class="form-control rounded" id="paisNacimientoUp" pattern="[A-ZñÑa-z ]+" onkeyup="validar('paisNacimiento')" required autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Departamento nacimiento*:</label>
+                        <div>
+                            <input type="text" class="form-control rounded" id="depNacimientoUp" pattern="[A-ZñÑa-z ]+" onkeyup="validar('depNacimiento')" required autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Tipo de Sangre:</label>
+                        <div>
+                            <input type="text" class="form-control rounded" id="tipoSangreUp" onkeyup="validar('tipoSangre')" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio" name="sexoEdit" value="option1" checked>
+                                <input type="radio" name="sexo" value="masculino" checked>
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio" name="sexoEdit" value="option2">
+                                <input type="radio" name="sexo" value="femenino">
                                 Femenino </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="control-label">Correo electronico*</label>
+                        <div>
+                            <input class="form-control" type="email" id="emailUp" placeholder="nombre@gmail.com" onkeyup="validar('email')" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Estado Civil</label>
                         <div>
-                            <select class="form-control" name="">
+                            <select class="form-control" id="estadoCivilUp" required>
                                 <option value="soltero">Soltero</option>
                                 <option value="casado">Casado</option>
                                 <option value="viudo">Viudo</option>
@@ -568,46 +596,51 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Telf / Cel</label>
+                        <label class="control-label">Telf / Cel*</label>
                         <div>
                             <div class="input-icon"> <i class="fa fa-map-marker ico"></i>
-                                <input class="form-control " type="number">
+                                <input class="form-control " type="text" pattern="[0-9]+" id="telfUp" maxlength="10" required onkeyup="validar('telf')" autocomplete="off">
                             </div>
                         </div>
                     </div>
-
-                </form>
-                <p>Datos personales…</p>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label class="control-label">Telf / Cel Referencia</label>
-                    <div>
-                        <div class="input-icon"> <i class="fa fa-map-marker ico"></i>
-                            <input class="form-control " type="number">
+                    <div class="form-group">
+                        <label class="control-label">Telf / Cel Referencia</label>
+                        <div>
+                            <div class="input-icon"> <i class="fa fa-user ico"></i>
+                                <input class="form-control " type="text" id="telfRefUp" pattern="[0-9]+" maxlength="10" onkeyup="validar('telfRef')" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Zona donde sufragia*:</label>
+                        <div>
+                            <div class="input-icon right"> <i class="fa fa-keyboard-o ico "></i>
+                                <input class="form-control " type="text" placeholder="Zona Especifica donde sufragia" pattern="[A-ZñÑa-z0-9 ]+" id="zonaSufragioUp" onkeyup="validar('zonaSufragio')" required autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Zona donde recide*:</label>
+                        <div>
+                            <div class="input-icon right"> <i class="fa fa-keyboard-o ico "></i>
+                                <input class="form-control " type="text" placeholder="Zona Especifica donde recide" pattern="[A-ZñÑa-z0-9# ]+" id="zonaUp" onkeyup="validar('zona')" required autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Domicilio</label>
+                        <div>
+                            <input class="form-control" type="text" placeholder="Direccion del domicilio" pattern="[A-ZÑña-z0-9# ]+" id="domicilioUp" onkeyup="validar('domicilio')" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group offset">
+                        <div>
+                            <button type="submit" class="btn btn-theme-inverse">Continuar registro</button>
+                            <!-- <button type="button" class="btn btn-theme-inverse" onclick="createUser(1)" >Continuar registro</button> -->
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label">Zona</label>
-                    <div>
-                        <div class="input-icon right"> <i class="fa fa-keyboard-o ico "></i>
-                            <input class="form-control " type="text" placeholder="Right icon">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Domicilio</label>
-                    <div>
-                        <input class="form-control" type="text">
-                    </div>
-                </div>
-                <div class="form-group offset">
-                    <div>
-                        <button type="button" class="btn btn-theme">Actualizar</button>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

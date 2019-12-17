@@ -44,7 +44,10 @@ class empleadoController extends Controller
         ->select('udi.di_titulo','udi.di_profecion','udi.di_especialidad','udi.di_seguroNombre','udi.di_seguroNua','udi.di_seguroCns')
         ->addSelect('users.*')
         ->first();
-        $res3=usuContrato::where('cod_usu',$id)->max('uc_nroContrato');
+
+        $res3=usuContrato::where('cod_usu',$id)->where('uc_nroContrato',(usuContrato::where('cod_usu',$id)->max('uc_nroContrato')))->first();
+        // $res3=usuContrato::where('cod_usu',$id)->max('uc_nroContrato');
+        // $res3=\DB::select(\DB::raw('select * from usu_contratos where id = (select max(`id`) from usu_contratos where cod_usu='+$id+')'));
 
         $ret=array();
         $cad="123456789";
@@ -53,6 +56,15 @@ class empleadoController extends Controller
         return $ret;
 
     }
+    
+    function editDatos1Emp(Request $request){
+        return User::where('id',$request->id)->first();
+    }
+
+    function updateDatos1Emp(Request $request){
+        return $request;
+    }
+    
     function segun()
     {
         //    return User::join('atencion','atencion.usu_ci','users.usu_ci')->paginate(25);
@@ -132,6 +144,7 @@ class empleadoController extends Controller
                 $nuC->cod_usu = $idNewuser;
                 $nuC->uc_fechaInicio = $request->input('fechaContratacion');
                 $nuC->uc_tipoContrato = $request->input('contrato');
+                $nuC->uc_nroContrato = 1;
                 $nuC->uc_estado = 1;
                 $nuC->uc_area = $request->input('areaDesignada');
                 $nuC->uc_cargoDesignado = $request->input('cargo');

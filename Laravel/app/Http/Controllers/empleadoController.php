@@ -62,7 +62,31 @@ class empleadoController extends Controller
     }
 
     function updateDatos1Emp(Request $request){
-        return $request;
+        if ($request->input('emailUp')==User::where('id',$request->input('idEdituser'))) {
+            return " success mismo Email";
+        }
+        if ($request->input(em)) {
+            # code...
+        }
+        if ($request->input('emailUp')!="") {
+            $emal=User::where('id',$request->input('idEdituser'))->select('email')->value('email');
+            if ($emal==$request->input('emailUp')) {
+                return "mismo email";
+            } else {
+                $email2=User::where('email',$request->input('email'))->value('email');
+                if ($email2!=null) {
+                    return "email ya registrado";
+                } else {
+                    return "se puede registrar";
+                }
+                
+            }
+            
+        } else {
+            # code...
+        }
+        
+        return $emal;
     }
     
     function segun()

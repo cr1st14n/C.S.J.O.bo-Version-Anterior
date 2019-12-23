@@ -286,7 +286,7 @@ function showEditDat1User(id) {
 function updateUser() {
   var cons = $("#idEdituser").val(data.id);
   if (cons != null) {
-    console.log("se peude actualizar");
+    // console.log("se peude actualizar");
     var dato={
       _token: $("meta[name=csrf-token]").attr("content"),
       'idEdituser':$("#idEdituser").val(),

@@ -28,67 +28,80 @@ class empleadoController extends Controller
     function showEmpTodos()
     {
         // return User::orderBy('created_at','desc')->get();
-        return User::select('usu_nombre','usu_appaterno','usu_apmaterno','usu_area','usu_ci','users.created_at','users.id')
+        return User::select('usu_nombre', 'usu_appaterno', 'usu_apmaterno', 'usu_area', 'usu_ci', 'users.created_at', 'users.id')
             // ->join('usu_contratos as cot','users.id','cot.cod_usu')
             // ->addSelect('cot.uc_area')
-            ->join('user_datos_insts as udi','users.id','udi.cod_usu')
-            ->addSelect('udi.di_profecion')->orderBy('created_at','desc')->get();
-
-        
+            ->join('user_datos_insts as udi', 'users.id', 'udi.cod_usu')
+            ->addSelect('udi.di_profecion')->orderBy('created_at', 'desc')->get();
     }
     function showDatosEmp($id)
     {
-       $res= User::where('users.id',$id)
-        ->join('user_datos_insts as udi','users.id','udi.cod_usu')
-        ->join('usu_contratos as uc','users.id','uc.cod_usu')
-        ->select('udi.di_titulo','udi.di_profecion','udi.di_especialidad','udi.di_seguroNombre','udi.di_seguroNua','udi.di_seguroCns')
-        ->addSelect('users.*')
-        ->first();
+        $res = User::where('users.id', $id)
+            ->join('user_datos_insts as udi', 'users.id', 'udi.cod_usu')
+            ->join('usu_contratos as uc', 'users.id', 'uc.cod_usu')
+            ->select('udi.di_titulo', 'udi.di_profecion', 'udi.di_especialidad', 'udi.di_seguroNombre', 'udi.di_seguroNua', 'udi.di_seguroCns')
+            ->addSelect('users.*')
+            ->first();
 
-        $res3=usuContrato::where('cod_usu',$id)->where('uc_nroContrato',(usuContrato::where('cod_usu',$id)->max('uc_nroContrato')))->first();
+        $res3 = usuContrato::where('cod_usu', $id)->where('uc_nroContrato', (usuContrato::where('cod_usu', $id)->max('uc_nroContrato')))->first();
         // $res3=usuContrato::where('cod_usu',$id)->max('uc_nroContrato');
         // $res3=\DB::select(\DB::raw('select * from usu_contratos where id = (select max(`id`) from usu_contratos where cod_usu='+$id+')'));
 
-        $ret=array();
-        $cad="123456789";
-        array_push($ret,$res);
-        array_push($ret,$res3);
+        $ret = array();
+        $cad = "123456789";
+        array_push($ret, $res);
+        array_push($ret, $res3);
         return $ret;
-
-    }
-    
-    function editDatos1Emp(Request $request){
-        return User::where('id',$request->id)->first();
     }
 
-    function updateDatos1Emp(Request $request){
-        if ($request->input('emailUp')==User::where('id',$request->input('idEdituser'))) {
-            return " success mismo Email";
-        }
-        if ($request->input(em)) {
-            # code...
-        }
-        if ($request->input('emailUp')!="") {
-            $emal=User::where('id',$request->input('idEdituser'))->select('email')->value('email');
-            if ($emal==$request->input('emailUp')) {
-                return "mismo email";
-            } else {
-                $email2=User::where('email',$request->input('email'))->value('email');
-                if ($email2!=null) {
-                    return "email ya registrado";
-                } else {
-                    return "se puede registrar";
-                }
-                
-            }
-            
+    function editDatos1Emp(Request $request)
+    {
+        return User::where('id', $request->id)->first();
+    }
+
+    function updateDatos1Emp(Request $request)
+    {
+
+        if ($request->input('emailUp') == User::where('id', $request->input('idEdituser'))->value('email')) {
         } else {
-            # code...
+            if (User::where('email', $request->input('emailUp'))->value('email') != null) {
+                return "email ya registrado";
+            }
         }
-        
-        return $emal;
+        if ($request->input('createUserCiUp') == User::where('id', $request->input('idEdituser'))->value('usu_ci')) {
+        } else {
+            if (User::where('usu_ci', $request->input('createUserCiUp'))->value('usu_ci') != null) {
+                return "ci ya registrado";
+            }
+        }
+        $resp = User::where('id', $request->input('idEdituser'))
+            ->update([
+                'usu_ci' => $request->input('createUserCiUp'),
+                'usu_nombre' => $request->input('nombreUp'),
+                'usu_appaterno' => $request->input('apellido1Up'),
+                'usu_apmaterno' => $request->input('apellido2Up'),
+                'usu_sexo' => $request->input('sexoUp'),
+                'usu_fechnac' => $request->input('fechaNacimientoUp'),
+                'usu_paisnac' => $request->input('paisNacimientoUp'),
+                'usu_depnac' => $request->input('depNacimientoUp'),
+                'usu_tipoSangre' => $request->input('tipoSangreUp'),
+                'usu_estadocivil' => $request->input('estadoCivilUp'),
+                'usu_telf' => $request->input('telfUp'),
+                'usu_telfref' => $request->input('telfRefUp'),
+                'usu_zona' => $request->input('zonaUp'),
+                'usu_domicilio' => $request->input('domicilioUp'),
+                'usu_zonaSufragio' => $request->input('zonaSufragioUp'),
+                'email' => $request->input('emailUp'),
+                'ca_tipo' => 'update',
+                'updated_at' => Carbon::now()->format('Y-m-d'),
+            ]);
+        if ($resp) {
+            return "actualizado";
+        } else {
+            return "error";
+        }
     }
-    
+
     function segun()
     {
         //    return User::join('atencion','atencion.usu_ci','users.usu_ci')->paginate(25);

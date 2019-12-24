@@ -515,7 +515,7 @@
 
 <div id="md-editDatUser" class="modal fade md-flipHor" tabindex="-1" data-width="800">
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <button type="button" id="btn-editDatuser-close" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Actualizar datos</h3>
     </div>
     <div class="modal-body">

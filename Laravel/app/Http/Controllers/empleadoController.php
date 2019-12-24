@@ -61,7 +61,7 @@ class empleadoController extends Controller
 
     function updateDatos1Emp(Request $request)
     {
-
+        // return $request;
         if ($request->input('emailUp') == User::where('id', $request->input('idEdituser'))->value('email')) {
         } else {
             if (User::where('email', $request->input('emailUp'))->value('email') != null) {
@@ -96,9 +96,9 @@ class empleadoController extends Controller
                 'updated_at' => Carbon::now()->format('Y-m-d'),
             ]);
         if ($resp) {
-            return "actualizado";
+            return "success";
         } else {
-            return "error";
+            return "fail";
         }
     }
 

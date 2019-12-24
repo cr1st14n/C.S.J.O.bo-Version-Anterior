@@ -310,6 +310,15 @@ function updateUser() {
     $.post("/C.S.J.O.bo/RRHH/personal/updateDatos1Emp", dato,
       function (data, textStatus, jqXHR) {
        console.log(data); 
+       switch (data) {
+         case "success":
+           document.getElementById("btn-editDatuser-close").click();
+           notif('1','Actualizado correctamente');
+           break;
+       
+         default:
+           break;
+       }
       }
     );
 

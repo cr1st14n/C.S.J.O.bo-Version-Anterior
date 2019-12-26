@@ -165,8 +165,8 @@ function listTodosEmp() {
                         <a class="btn btn-default btn-sm" title="Datos Registrados" onclick="showDatosEmp(${
                           elem.id
                         })"><i class="fa fa-user"></i></a>
-                        <a class="btn btn-default btn-sm" title="Doc presentados" onclick="showDocUser()"><i class="fa fa-archive"></i></a>
-                        <a class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
+                        <a class="btn btn-default btn-sm" hidden title="Doc presentados" onclick="showDocUser()"><i class="fa fa-archive"></i></a>
+                        <a class="btn btn-default btn-sm" title="Delete" onClick="deleteUser(${elem.id})"><i class="fa fa-trash-o"></i></a>
                         </span>
                     </td>
                     </tr>`;
@@ -218,7 +218,9 @@ function showDatosEmp(id) {
                   }</strong><br>
                   Zona: <strong>${elem[0].usu_zona}</strong><br>
                   Domicilio: <strong>${elem[0].usu_domicilio}</strong><br><hr>
-                  Lugar donde Sufragia: <strong>${elem[0].usu_zonaSufragio}</strong>
+                  Lugar donde Sufragia: <strong>${
+                    elem[0].usu_zonaSufragio
+                  }</strong>
                   `;
       document.getElementById("datosEmp").innerHTML = datosEMP;
       var html2 = `
@@ -287,42 +289,38 @@ function updateUser() {
   var cons = $("#idEdituser").val(data.id);
   if (cons != null) {
     // console.log("se peude actualizar");
-    var dato={
+    var dato = {
       _token: $("meta[name=csrf-token]").attr("content"),
-      'idEdituser':$("#idEdituser").val(),
-      'createUserCiUp':$("#createUserCiUp").val(),
-        'nombreUp':$("#nombreUp").val(),
-        'apellido1Up':$("#apellido1Up").val(),
-        'apellido2Up':$("#apellido2Up").val(),
-        'sexoUp':document.querySelector("input[name=sexo]:checked").value,
-        'fechaNacimientoUp':$("#fechaNacimientoUp").val(),
-        'paisNacimientoUp':$("#paisNacimientoUp").val(),
-        'depNacimientoUp':$("#depNacimientoUp").val(),
-        'tipoSangreUp':$("#tipoSangreUp").val(),
-        'estadoCivilUp':$("#estadoCivilUp").val(),
-        'telfUp':$("#telfUp").val(),
-        'telfRefUp':$("#telfRefUp").val(),
-        'zonaUp':$("#zonaUp").val(),
-        'domicilioUp':$("#domicilioUp").val(),
-        'zonaSufragioUp':$("#zonaSufragioUp").val(),
-        'emailUp':$("#emailUp").val()
-    }
-    $.post("/C.S.J.O.bo/RRHH/personal/updateDatos1Emp", dato,
-      function (data, textStatus, jqXHR) {
-       console.log(data); 
-       switch (data) {
-         case "success":
-           document.getElementById("btn-editDatuser-close").click();
-           notif('1','Actualizado correctamente');
-           break;
-       
-         default:
-           break;
-       }
+      idEdituser: $("#idEdituser").val(),
+      createUserCiUp: $("#createUserCiUp").val(),
+      nombreUp: $("#nombreUp").val(),
+      apellido1Up: $("#apellido1Up").val(),
+      apellido2Up: $("#apellido2Up").val(),
+      sexoUp: document.querySelector("input[name=sexo]:checked").value,
+      fechaNacimientoUp: $("#fechaNacimientoUp").val(),
+      paisNacimientoUp: $("#paisNacimientoUp").val(),
+      depNacimientoUp: $("#depNacimientoUp").val(),
+      tipoSangreUp: $("#tipoSangreUp").val(),
+      estadoCivilUp: $("#estadoCivilUp").val(),
+      telfUp: $("#telfUp").val(),
+      telfRefUp: $("#telfRefUp").val(),
+      zonaUp: $("#zonaUp").val(),
+      domicilioUp: $("#domicilioUp").val(),
+      zonaSufragioUp: $("#zonaSufragioUp").val(),
+      emailUp: $("#emailUp").val()
+    };
+    $.post("/C.S.J.O.bo/RRHH/personal/updateDatos1Emp", dato, function(data) {
+      console.log(data);
+      switch (data) {
+        case "success":
+          document.getElementById("btn-editDatuser-close").click();
+          notif("1", "Actualizado correctamente");
+          break;
+        case "fail":
+          notif("2", "Error. vuelva a intentarlo");
+          break;
       }
-    );
-
-
+    });
   } else {
     console.log("NO peude actualizar");
   }
@@ -786,6 +784,12 @@ function deleteCambTurn(id) {
     });
   }
 }
+// ? --------delete user
+
+function deleteUser(id) {
+  var res=confirm('desea eliminar el registro');
+  $('#md-user-delete').modal('show');
+  }
 
 // document.onkeypress=function (e) {
 //   e = e || window.event;

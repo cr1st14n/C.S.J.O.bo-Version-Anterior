@@ -198,4 +198,13 @@ class empleadoController extends Controller
             return "false";
         }
     }
+    function destroy(Request $request)
+    {
+        $res = User::where('id', $request->input('id'))->delete();
+        if ($res) {
+            return "success";
+        } else {
+            return "fail";
+        }
+    }
 }

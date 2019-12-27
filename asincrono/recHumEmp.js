@@ -166,7 +166,9 @@ function listTodosEmp() {
                           elem.id
                         })"><i class="fa fa-user"></i></a>
                         <a class="btn btn-default btn-sm" hidden title="Doc presentados" onclick="showDocUser()"><i class="fa fa-archive"></i></a>
-                        <a class="btn btn-default btn-sm" title="Delete" onClick="deleteUser(${elem.id})"><i class="fa fa-trash-o"></i></a>
+                        <a class="btn btn-default btn-sm" title="Delete" onClick="deleteUser(${
+                          elem.id
+                        })"><i class="fa fa-trash-o"></i></a>
                         </span>
                     </td>
                     </tr>`;
@@ -787,9 +789,28 @@ function deleteCambTurn(id) {
 // ? --------delete user
 
 function deleteUser(id) {
-  var res=confirm('desea eliminar el registro');
-  $('#md-user-delete').modal('show');
-  }
+  var btn = `
+  <button type="button" data-dismiss="modal" class="btn btn-theme">Cancelar</button>
+  <button type="button" class="btn btn-theme-inverse" onClick="DestroyUser(${id})">Aceptar</button>`;
+  $("#btn-user-delete").html(btn);
+  $("#md-user-delete").modal("show");
+}
+function DestroyUser(id) {
+  var data = {
+    _token: $("meta[name=csrf-token]").attr("content"),
+    id: id
+  };
+  $.post("/C.S.J.O.bo/RRHH/personal/destroy", data, function(data) {
+    if (data == "success") {
+      listTodosEmp();
+      notif("1", "Registro Eliminado");
+      document.getElementById("btn-md-user-delete").click();
+
+    } else {
+      notif("2", "Error vueva a intentarlo");
+    }
+  });
+}
 
 // document.onkeypress=function (e) {
 //   e = e || window.event;

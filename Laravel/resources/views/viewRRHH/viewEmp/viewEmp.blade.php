@@ -742,14 +742,16 @@
     </div>
 </div>
 <!-- modal delete user -->
-<div id="md-user-delete" class="modal fade" tabindex="-1" data-width="450">
+<div id="md-user-delete" class="modal fade md-stickTop" tabindex="-1" data-width="350">
     <div class="modal-header bg-inverse bd-inverse-darken">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title">Modals open effect demo</h4>
+        <button type="button" class="close" data-dismiss="modal" id="btn-md-user-delete" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title">Eliminar registro seleccionado?</h4>
     </div>
     <!-- //modal-header-->
     <div class="modal-body">
-        <p>One fine body&hellip;</p>
+        <div class="panel-body align-xs-center " id="btn-user-delete">
+            
+        </div>
     </div>
     <!-- //modal-body-->
 </div>

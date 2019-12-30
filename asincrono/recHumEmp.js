@@ -36,6 +36,10 @@ $("#formulario1Up").on("submit", function(e) {
   e.preventDefault();
   updateUser();
 });
+$("#formulario2Up").on("submit", function(e) {
+  e.preventDefault();
+  updateUser2();
+});
 //! -----------------------------------------------------------------------
 
 function showListEmp() {}
@@ -134,9 +138,11 @@ function createUser2() {
     accModSis: $("#accModSis").val(),
     accesoSistema: document.querySelector("input[name=accesoSis]:checked")
       .value,
-    seguroNombreInstitucion: $("#seguroNombreInstitucion").val(),
+    seguroNombreInstitucionCP: $("#seguroNombreInstitucionCP").val(),
+    codSeguroCP: $("#codSeguroCP").val(),
+    seguroNombreInstitucionLP: $("#seguroNombreInstitucionLP").val(),
     numNua: $("#numNua").val(),
-    numCNS: $("#numCNS").val()
+    numCua: $("#numCua").val()
   };
   return data;
 }
@@ -236,18 +242,25 @@ function showDatosEmp(id) {
                   elem[1].uc_tipoContrato
                 }</strong><br><hr>
                 Acceso al sistema: <strong>${usu_acceso}</strong><br><hr>
-                <h4>Informacion de la entidad de seguro de corto y largo plazo </h4> <br>
+                <h4>Seguro a corto plazo </h4> <br>
                 Nombre de la institucion: <strong>${
-                  elem[0].di_seguroNombre
+                  elem[0].di_seguroNombreCP
                 }</strong> <br>
-                # de NUA: <strong>${elem[0].di_seguroNua}</strong> <br>
-                # de asegurado C.N.S: <strong>${
-                  elem[0].di_seguroCns
+                Codigo de asegurado: <strong>${
+                  elem[0].di_codSeguroCP
+                }</strong> <br><hr>
+                <h4>Seguro a largo plazo </h4> <br>
+                Nombre de la institucion: <strong>${
+                  elem[0].di_seguroNombreLP
                 }</strong> <br>
+                # NUA: <strong>${elem[0].di_seguroNua}</strong> <br>
+                # CUA: <strong>${elem[0].di_seguroCua}</strong> <br>
                 `;
       document.getElementById("datosInst").innerHTML = html2;
       var boton = `<button type="button" class="btn btn-theme" onclick="showEditDat1User(${elem[0].id})">Actualizar Datos</button>`;
       document.getElementById("datosEditButon").innerHTML = boton;
+      var boton1 = `<button type="button" class="btn btn-theme" onclick="showEditDat2User(${elem[0].id})">Actualizar Datos</button>`;
+      document.getElementById("datosInstEditButon").innerHTML = boton1;
       $("#md-stack1")
         .addClass("md-flipHor")
         .modal("show");
@@ -260,11 +273,7 @@ function showDatosEmp(id) {
 function showEditDat1User(id) {
   $("#idEdituser").val();
   data = { id: id };
-  $.get("/C.S.J.O.bo/RRHH/personal/editDatos1Emp/", data, function(
-    data,
-    textStatus,
-    jqXHR
-  ) {
+  $.get("/C.S.J.O.bo/RRHH/personal/editDatos1Emp/", data, function(data) {
     console.log(data);
     $("#idEdituser").val(data.id);
     $("#createUserCiUp").val(data.usu_ci),
@@ -328,11 +337,41 @@ function updateUser() {
   }
 }
 
-function showEditDat2User() {
-  $("#md-editDatInstUser")
-    .addClass("md-flipHor")
-    .modal("show");
+function showEditDat2User(id) {
+  console.log(id);
+  var data = { id: id };
+  $.get("/C.S.J.O.bo/RRHH/personal/editDatos2Emp", data, function(data) {
+    console.log(data);
+    $('#fechaContratacionUp').val(data[0].uc_fechaInicio);
+    $('#contratoUp').val(data[0].uc_tipoContrato);
+    $('#tituloObUp').val(data[1].di_titulo);
+    $('#profecionObUP').val(data[1].di_profecion);
+    $('#areaDesignadaUP').val(data[0].uc_area);
+    $('#cargoUP').val(data[0].uc_cargoDesignado);
+    $('#accModSisUp').val(data[2].usu_area);
+    $('#accesoSis').val(data[2].usu_acceso);
+    if (data[2].usu_acceso== 1) {
+      
+      document.getElementById("accesoSi").checked=true;
+    } else {
+      document.getElementById("accesoNo").checked=true;
+      
+    }
+
+
+
+    $('#seguroNombreInstitucionCPUp').val(data[1].di_seguroNombreCP);
+    $('#codSeguroCPUp').val(data[1].di_codSeguroCP);
+    $('#seguroNombreInstitucionLPUp').val(data[1].di_seguroNombreLP);
+    $('#numNuaUp').val(data[1].di_seguroNua);
+    $('#numCuaUp').val(data[1].di_seguroCua);
+  });
+  $("#md-editDatInstUser").modal("show");
 }
+
+function updateUser2() {
+  console.log('se actualizara')
+  }
 
 function showDocUser() {
   $("#md-DocUser")
@@ -805,7 +844,6 @@ function DestroyUser(id) {
       listTodosEmp();
       notif("1", "Registro Eliminado");
       document.getElementById("btn-md-user-delete").click();
-
     } else {
       notif("2", "Error vueva a intentarlo");
     }

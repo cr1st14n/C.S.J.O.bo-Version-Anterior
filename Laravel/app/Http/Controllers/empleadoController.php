@@ -31,6 +31,8 @@ class empleadoController extends Controller
         return User::select('usu_nombre', 'usu_appaterno', 'usu_apmaterno', 'usu_area', 'usu_ci', 'users.created_at', 'users.id')
             // ->join('usu_contratos as cot','users.id','cot.cod_usu')
             // ->addSelect('cot.uc_area')
+            ->join('usu_contratos as uco','uco.cod_usu','users.id')
+            ->addSelect('uco.uc_area','uc_estado')->where('uc_estado',1)
             ->join('user_datos_insts as udi', 'users.id', 'udi.cod_usu')
             ->addSelect('udi.di_profecion')->orderBy('created_at', 'desc')->get();
     }
@@ -39,7 +41,7 @@ class empleadoController extends Controller
         $res = User::where('users.id', $id)
             ->join('user_datos_insts as udi', 'users.id', 'udi.cod_usu')
             ->join('usu_contratos as uc', 'users.id', 'uc.cod_usu')
-            ->select('udi.di_titulo', 'udi.di_profecion', 'udi.di_especialidad', 'udi.di_seguroNombre', 'udi.di_seguroNua', 'udi.di_seguroCns')
+            ->select('udi.di_titulo', 'udi.di_profecion', 'udi.di_especialidad', 'udi.di_seguroNombreCP','udi.di_codSeguroCP','udi.di_seguroNombreLP', 'udi.di_seguroNua', 'udi.di_seguroCua')
             ->addSelect('users.*')
             ->first();
 
@@ -57,6 +59,17 @@ class empleadoController extends Controller
     function editDatos1Emp(Request $request)
     {
         return User::where('id', $request->id)->first();
+    }
+    function editDatos2Emp(Request $request)
+    {
+        $dat1=usuContrato::where('cod_usu',$request->input('id'))->where('uc_nroContrato',(usuContrato::where('cod_usu',$request->input('id')))->max('uc_nroContrato'))->first();
+        $dat2=userDatosInst::where('cod_usu',$request->input('id'))->first();
+        $dat3=User::where('id',$request->input('id'))->select('usu_area','usu_acceso')->first();
+        $req=array();
+        array_push($req,$dat1);
+        array_push($req,$dat2);
+        array_push($req,$dat3);
+        return $req;
     }
 
     function updateDatos1Emp(Request $request)
@@ -168,9 +181,13 @@ class empleadoController extends Controller
             $nub->di_titulo = $request->input('tituloOB');
             $nub->di_profecion = $request->input('profecionOB');
             $nub->di_especialidad = "";
-            $nub->di_seguroNombre = $request->input('seguroNombreInstitucion');
+            $nub->di_seguroNombreCP = $request->input('seguroNombreInstitucionCP');
+            $nub->di_codSeguroCP = $request->input('codSeguroCP');
+            $nub->di_seguroNombreLP = $request->input('seguroNombreInstitucionLP');
             $nub->di_seguroNua = $request->input('numNua');
-            $nub->di_seguroCns = $request->input('numCNS');
+            $nub->di_seguroCua = $request->input('numCua');
+
+
             $nub->ca_usu_cod = Auth::user()->usu_ci;
             $nub->ca_tipo = "create";
             $nub->ca_fecha = Carbon::now()->format('Y-m-d');

@@ -215,13 +215,37 @@ class empleadoController extends Controller
             return "false";
         }
     }
+    function FunctionName(Request $request)
+    {
+        $nuC = usuContrato::where('cod_usu',)->update([
+                'uc_fechaInicio' => $request->input('fechaContratacion'),
+                'uc_tipoContrato' => $request->input('contrato'),
+                'uc_nroContrato' => 1,
+                'uc_estado' => 1,
+                'uc_area' => $request->input('areaDesignada'),
+                'uc_cargoDesignado' => $request->input('cargo'),
+                'ca_usu_cod' => Auth::user()->usu_ci,
+                'ca_tipo' => 'create',
+                'ca_fecha' => Carbon::now()->format('Y-m-d'),
+                'ca_estado' => 1
+                ]);
+                if ($nuC) {
+                    return "succes";
+                }
+    }
     function destroy(Request $request)
     {
-        $res = User::where('id', $request->input('id'))->delete();
+        $res= User::where('users.id',$request->input('id'))->join('usu_contratos as uc','uc.cod_usu','users.id')
+        ->join('user_datos_insts as udi','udi.cod_usu','users.id')->delete();
+        
+
+
+
         if ($res) {
-            return "success";
+            return 'success';
         } else {
-            return "fail";
+            return 'fail';
         }
+        
     }
 }

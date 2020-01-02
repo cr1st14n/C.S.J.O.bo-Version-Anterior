@@ -342,36 +342,52 @@ function showEditDat2User(id) {
   var data = { id: id };
   $.get("/C.S.J.O.bo/RRHH/personal/editDatos2Emp", data, function(data) {
     console.log(data);
-    $('#fechaContratacionUp').val(data[0].uc_fechaInicio);
-    $('#contratoUp').val(data[0].uc_tipoContrato);
-    $('#tituloObUp').val(data[1].di_titulo);
-    $('#profecionObUP').val(data[1].di_profecion);
-    $('#areaDesignadaUP').val(data[0].uc_area);
-    $('#cargoUP').val(data[0].uc_cargoDesignado);
-    $('#accModSisUp').val(data[2].usu_area);
-    $('#accesoSis').val(data[2].usu_acceso);
-    if (data[2].usu_acceso== 1) {
-      
-      document.getElementById("accesoSi").checked=true;
+    $("#formulario2Up-id").val("");
+    $("#formulario2Up-id").val(id);
+    $("#fechaContratacionUp").val(data[0].uc_fechaInicio);
+    $("#contratoUp").val(data[0].uc_tipoContrato);
+    $("#tituloObUp").val(data[1].di_titulo);
+    $("#profecionObUP").val(data[1].di_profecion);
+    $("#areaDesignadaUP").val(data[0].uc_area);
+    $("#cargoUP").val(data[0].uc_cargoDesignado);
+    $("#accModSisUp").val(data[2].usu_area);
+    $("#accesoSis").val(data[2].usu_acceso);
+    if (data[2].usu_acceso == 1) {
+      document.getElementById("accesoSi").checked = true;
     } else {
-      document.getElementById("accesoNo").checked=true;
-      
+      document.getElementById("accesoNo").checked = true;
     }
-
-
-
-    $('#seguroNombreInstitucionCPUp').val(data[1].di_seguroNombreCP);
-    $('#codSeguroCPUp').val(data[1].di_codSeguroCP);
-    $('#seguroNombreInstitucionLPUp').val(data[1].di_seguroNombreLP);
-    $('#numNuaUp').val(data[1].di_seguroNua);
-    $('#numCuaUp').val(data[1].di_seguroCua);
+    $("#seguroNombreInstitucionCPUp").val(data[1].di_seguroNombreCP);
+    $("#codSeguroCPUp").val(data[1].di_codSeguroCP);
+    $("#seguroNombreInstitucionLPUp").val(data[1].di_seguroNombreLP);
+    $("#numNuaUp").val(data[1].di_seguroNua);
+    $("#numCuaUp").val(data[1].di_seguroCua);
   });
   $("#md-editDatInstUser").modal("show");
 }
 
 function updateUser2() {
-  console.log('se actualizara')
+  var id = $("#formulario2Up-id").val();
+  if (id > 0) {
+    var data = {
+      uc_fechaInicio: $("#fechaContratacionUp").val(),
+      uc_tipoContrato: $("#contratoUp").val(),
+      var: $("#tituloObUp").val(),
+      var: $("#profecionObUP").val(),
+      uc_area: $("#areaDesignadaUP").val(),
+      uc_cargoDesignado: $("#cargoUP").val(),
+      var: $("#accModSisUp").val(),
+      var: $("#accesoSis").val(),
+      var: $("#seguroNombreInstitucionCPUp").val(),
+      var: $("#codSeguroCPUp").val(),
+      var: $("#seguroNombreInstitucionLPUp").val(),
+      var: $("#numNuaUp").val(),
+      var: $("#numCuaUp").val()
+    };
+  } else {
+    console.log("no se puede");
   }
+}
 
 function showDocUser() {
   $("#md-DocUser")

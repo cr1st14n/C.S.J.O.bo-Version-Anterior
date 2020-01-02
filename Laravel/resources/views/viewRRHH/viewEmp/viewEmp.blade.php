@@ -430,12 +430,7 @@
                             <input class="form-control" type="text" placeholder="Direccion del domicilio" pattern="[A-ZÑña-z0-9# ]+" id="domicilioUp" onkeyup="validar('domicilio')" autocomplete="off">
                         </div>
                     </div>
-                    <div class="form-group offset">
-                        <div>
-                            <button type="submit" class="btn btn-theme-inverse">Continuar registro</button>
-                            <!-- <button type="button" class="btn btn-theme-inverse" onclick="createUser(1)" >Continuar registro</button> -->
-                        </div>
-                    </div>
+                    <button type="submit" class="btn btn-danger btn-block">Actualizar </button>
                 </div>
             </form>
         </div>
@@ -444,11 +439,12 @@
 <div id="md-editDatInstUser" class="modal fade md-flipHor" tabindex="-1" data-width="800">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h3>Datos Profecion / institucionales</h3>
+        <h3> Actualizar Datos profecionales / institucionales</h3>
     </div>
     <div class="modal-body">
         <div class="row">
             <form class="form-horizontal" data-collabel="6" data-alignlabel="right" id="formulario2Up">
+                <input type="text" id="formulario2Up-id" hidden>
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label class="control-label">Fecha de Contratacion*</label>
@@ -555,7 +551,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-block btn-sm btn-theme-inverse" type="submit">Concluir Registro</button>
+                <div id="btn-submit-formulario2Up">
+
+                </div>
+                <button class="btn btn-block btn-sm btn-danger" type="submit">Actualizar</button>
             </form>
         </div>
     </div>

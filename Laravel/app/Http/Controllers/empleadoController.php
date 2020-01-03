@@ -31,8 +31,8 @@ class empleadoController extends Controller
         return User::select('usu_nombre', 'usu_appaterno', 'usu_apmaterno', 'usu_area', 'usu_ci', 'users.created_at', 'users.id')
             // ->join('usu_contratos as cot','users.id','cot.cod_usu')
             // ->addSelect('cot.uc_area')
-            ->join('usu_contratos as uco','uco.cod_usu','users.id')
-            ->addSelect('uco.uc_area','uc_estado')->where('uc_estado',1)
+            ->join('usu_contratos as uco', 'uco.cod_usu', 'users.id')
+            ->addSelect('uco.uc_area', 'uc_estado')->where('uc_estado', 1)
             ->join('user_datos_insts as udi', 'users.id', 'udi.cod_usu')
             ->addSelect('udi.di_profecion')->orderBy('created_at', 'desc')->get();
     }
@@ -41,7 +41,7 @@ class empleadoController extends Controller
         $res = User::where('users.id', $id)
             ->join('user_datos_insts as udi', 'users.id', 'udi.cod_usu')
             ->join('usu_contratos as uc', 'users.id', 'uc.cod_usu')
-            ->select('udi.di_titulo', 'udi.di_profecion', 'udi.di_especialidad', 'udi.di_seguroNombreCP','udi.di_codSeguroCP','udi.di_seguroNombreLP', 'udi.di_seguroNua', 'udi.di_seguroCua')
+            ->select('udi.di_titulo', 'udi.di_profecion', 'udi.di_especialidad', 'udi.di_seguroNombreCP', 'udi.di_codSeguroCP', 'udi.di_seguroNombreLP', 'udi.di_seguroNua', 'udi.di_seguroCua')
             ->addSelect('users.*')
             ->first();
 
@@ -62,13 +62,13 @@ class empleadoController extends Controller
     }
     function editDatos2Emp(Request $request)
     {
-        $dat1=usuContrato::where('cod_usu',$request->input('id'))->where('uc_nroContrato',(usuContrato::where('cod_usu',$request->input('id')))->max('uc_nroContrato'))->first();
-        $dat2=userDatosInst::where('cod_usu',$request->input('id'))->first();
-        $dat3=User::where('id',$request->input('id'))->select('usu_area','usu_acceso')->first();
-        $req=array();
-        array_push($req,$dat1);
-        array_push($req,$dat2);
-        array_push($req,$dat3);
+        $dat1 = usuContrato::where('cod_usu', $request->input('id'))->where('uc_nroContrato', (usuContrato::where('cod_usu', $request->input('id')))->max('uc_nroContrato'))->first();
+        $dat2 = userDatosInst::where('cod_usu', $request->input('id'))->first();
+        $dat3 = User::where('id', $request->input('id'))->select('usu_area', 'usu_acceso')->first();
+        $req = array();
+        array_push($req, $dat1);
+        array_push($req, $dat2);
+        array_push($req, $dat3);
         return $req;
     }
 
@@ -218,34 +218,42 @@ class empleadoController extends Controller
     function FunctionName(Request $request)
     {
         $nuC = usuContrato::where('cod_usu',)->update([
-                'uc_fechaInicio' => $request->input('fechaContratacion'),
-                'uc_tipoContrato' => $request->input('contrato'),
-                'uc_nroContrato' => 1,
-                'uc_estado' => 1,
-                'uc_area' => $request->input('areaDesignada'),
-                'uc_cargoDesignado' => $request->input('cargo'),
-                'ca_usu_cod' => Auth::user()->usu_ci,
-                'ca_tipo' => 'create',
-                'ca_fecha' => Carbon::now()->format('Y-m-d'),
-                'ca_estado' => 1
-                ]);
-                if ($nuC) {
-                    return "succes";
-                }
+            'uc_fechaInicio' => $request->input('fechaContratacion'),
+            'uc_tipoContrato' => $request->input('contrato'),
+            'uc_nroContrato' => 1,
+            'uc_estado' => 1,
+            'uc_area' => $request->input('areaDesignada'),
+            'uc_cargoDesignado' => $request->input('cargo'),
+            'ca_usu_cod' => Auth::user()->usu_ci,
+            'ca_tipo' => 'create',
+            'ca_fecha' => Carbon::now()->format('Y-m-d'),
+            'ca_estado' => 1
+        ]);
+        if ($nuC) {
+            return "succes";
+        }
     }
     function destroy(Request $request)
     {
-        $res= User::where('users.id',$request->input('id'))->join('usu_contratos as uc','uc.cod_usu','users.id')
-        ->join('user_datos_insts as udi','udi.cod_usu','users.id')->delete();
-        
-
-
-
-        if ($res) {
-            return 'success';
+        $res1 = userDatosInst::where('cod_usu', $request->input('id'))->delete();
+        if ($res1) {
+            $res2 = usuContrato::where('cod_usu', $request->input('id'));
+            if ($res2) {
+                $res3 = User::where('id', $request->input('id'))->delete();
+                if ($res3) {
+                    return 'success';
+                } else {
+                    return 'fail3';
+                }
+            } else {
+                return 'fail2';
+            }
         } else {
-            return 'fail';
+            return 'fail1';
         }
-        
+    }
+    function datos1User(Request $request)
+    {
+        return User::where('id',$request->input('id'))->first();
     }
 }

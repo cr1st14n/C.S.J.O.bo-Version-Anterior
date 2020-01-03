@@ -516,7 +516,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                   
+
                     <h4>Informacion de la entidad de seguro a corto plazo </h4><br>
                     <div class="form-group">
                         <label class="control-label">Nombre de la institucion:</label>
@@ -783,12 +783,12 @@
 <div id="md-user-delete" class="modal fade md-stickTop" tabindex="-1" data-width="350">
     <div class="modal-header bg-inverse bd-inverse-darken">
         <button type="button" class="close" data-dismiss="modal" id="btn-md-user-delete" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title">Eliminar registro seleccionado?</h4>
+        <h4 class="modal-title">Confirmar Solicitud?</h4>
     </div>
     <!-- //modal-header-->
     <div class="modal-body">
+        <label id="message-delete"></label>
         <div class="panel-body align-xs-center " id="btn-user-delete">
-
         </div>
     </div>
     <!-- //modal-body-->

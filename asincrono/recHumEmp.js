@@ -844,6 +844,12 @@ function deleteCambTurn(id) {
 // ? --------delete user
 
 function deleteUser(id) {
+  var data = { id: id };
+  $.get("/C.S.J.O.bo/RRHH/personal/datos1User", data, function(data) {
+    $("#message-delete").text(
+      `Eliminar usuario Ci:${data.usu_ci}, Nombre: ${data.usu_nombre} ${data.usu_appaterno} `
+    );
+  });
   var btn = `
   <button type="button" data-dismiss="modal" class="btn btn-theme">Cancelar</button>
   <button type="button" class="btn btn-theme-inverse" onClick="DestroyUser(${id})">Aceptar</button>`;
@@ -860,8 +866,13 @@ function DestroyUser(id) {
       listTodosEmp();
       notif("1", "Registro Eliminado");
       document.getElementById("btn-md-user-delete").click();
-    } else {
+    } else if (data == "fail1") {
       notif("2", "Error vueva a intentarlo");
+    } else if (data == "fail2") {
+      notif("2", "Error 101 ! Consulte con sistemas...");
+    } else if (data == "fail3") {
+      notif("2", "Error 101 ! Consulte con sistemas...");
+    } else {
     }
   });
 }

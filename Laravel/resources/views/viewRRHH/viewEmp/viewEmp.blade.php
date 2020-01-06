@@ -674,14 +674,31 @@
     <!-- //modal-body-->
 </div>
 <!-- modal funciones de registro de vacaciones -->
-<div id="md-UserVacaciones" class="modal fade" tabindex="-1" data-width="700">
+<div id="md-UserVacaciones" class="modal fade" tabindex="-1" data-width="900">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Registro de vacaciones</h3>
     </div>
     <div class="modal-body">
         <div class="row">
-            <div class="col-lg-7">
+            <div class="col-lg-3">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Año </th>
+                            <th>Dias</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listAñosVacaUser">
+                        <tr>
+                            <td>2018-08-08</td>
+                            <td>5</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-5">
                 <h5>Fecha de contratacion 02-12-2008</h5>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
@@ -703,9 +720,9 @@
                     </table>
                 </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-4">
                 <h4>Registrar vaciones del personal <br>
-                    Dias disponibles: 20</h4><br>
+                    Dias disponibles: <span id="userVacacinesDisponibles"></span></h4><br>
                 <form class="form-horizontal" data-collabel="4" data-alignlabel="left">
                     <div class="form-group">
                         <label for="form" class="control-label col-md-4">Inicio</label>

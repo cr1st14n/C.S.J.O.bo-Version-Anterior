@@ -395,10 +395,24 @@ function showDocUser() {
     .modal("show");
 }
 
-function showUserVacaciones() {
+function showUserVacaciones(id) {
   $("#md-UserVacaciones")
     .addClass("md-flipHor")
     .modal("show");
+  var data = { id: id };
+  $.get("/C.S.J.O.bo/RRHH/personal/vacacion/index", data, function(data) {
+    console.log(data[0].años);
+    var html = data[0].años.map(function(e) {
+      return `<tr>
+                <td>${e.a}</td>
+                <td>${e.b}</td>
+              </tr>`;
+    }).join(" ");
+    $('#listAñosVacaUser').html(html);
+
+    $('#userVacacinesDisponibles').text(data[0].dias);
+
+  });
 }
 
 function showUserFalPerm(codUsu1) {

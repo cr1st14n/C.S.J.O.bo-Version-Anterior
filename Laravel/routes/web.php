@@ -228,6 +228,10 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 			Route::post('update', 'UsuCambioTurnoController@update');
 			Route::post('delete', 'UsuCambioTurnoController@delete');
 		});
+		// * rutas vacaciones
+		Route::group(['prefix'=>'vacacion'],function(){
+			Route::get('index','UsuVacacionController@index');
+		});
 	});
 	Route::group(['prefix' => 'Areas'], function () {
 		Route::get('/', 'areaController@homeArea')->name('home_area');

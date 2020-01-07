@@ -20,30 +20,38 @@ class UsuVacacionController extends Controller
         $id = $request->input('id');
         $dato = array();
         $diasV = 0;
+        $diasVaUsados = 0;
+
         $fechaCotrato = usuContrato::where('cod_usu', $id)
             ->where('uc_nroContrato', usuContrato::where('cod_usu', $id)->max('uc_nroContrato'))->value('uc_fechaInicio');
         $fechaCon = Carbon::parse($fechaCotrato);
         $fechaCon = $fechaCon->format('d-m-Y');
-
-
         $fechaCotrato = Carbon::parse($fechaCotrato);
         $añoContrato = $fechaCotrato->format('Y');
         $fechaActual = Carbon::now();
         $AñosTrabajados = $fechaCotrato->diffInYears($fechaActual);
 
-        for ($i = 1; $i <= $AñosTrabajados+1; $i++) {
-            $a = ["a" => $fechaCon, "b" => $diasV];
+        for ($i = 1; $i <= $AñosTrabajados + 1; $i++) {
+            $a = ["a" => $fechaCon, "b" => $diasV, "c"=>$diasVaUsados ];
             $añoContrato += 1;
             array_push($dato, $a);
             $fechaCon = Carbon::parse($fechaCon)->addYear()->format('d-m-Y');
-            $diasV=15;
+            // $diasVaUsados=usuVacacion::where('cod_usu',$id)->whereBetween('')
+            if ($i == 1) {
+                $diasV = 15;
+            }
             if ($i == 4) {
                 $diasV = 20;
             } else if ($i == 11) {
                 $diasV = 30;
             }
         }
-        $dat = array(['años' => $dato, 'dias' => $diasV]);
+        $fecha1=Carbon::parse($fechaCon)->subYear(2)->format('Y-m-d');
+        $fecha2=Carbon::parse($fechaCon)->subYear(1)->format('Y-m-d');
+
+
+
+        $dat = array(['años' => $dato, 'dias' => $diasV,'date1'=>$fecha1,'date2'=>$fecha2]);
 
         return $dat;
     }

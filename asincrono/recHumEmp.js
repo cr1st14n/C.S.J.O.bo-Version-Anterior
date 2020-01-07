@@ -40,6 +40,10 @@ $("#formulario2Up").on("submit", function(e) {
   e.preventDefault();
   updateUser2();
 });
+$("#formCreateVacacion").on("submit", function(e) {
+  e.preventDefault();
+  console.log('hola añlskfjlñasdkf');
+});
 //! -----------------------------------------------------------------------
 
 function showListEmp() {}
@@ -401,13 +405,22 @@ function showUserVacaciones(id) {
     .modal("show");
   var data = { id: id };
   $.get("/C.S.J.O.bo/RRHH/personal/vacacion/index", data, function(data) {
-    console.log(data[0].años);
+    console.log(data[0].date1);
+    console.log(data[0].date2);
+    $('#date1UsuVac').attr({min:data[0].date1,max:data[0].date2});
+    $('#date2UsuVac').attr({min:data[0].date1,max:data[0].date2});
     var html = data[0].años.map(function(e) {
       return `<tr>
                 <td>${e.a}</td>
                 <td>${e.b}</td>
               </tr>`;
     }).join(" ");
+    var diasVaPen=0;
+    data[0].años.forEach(element => {
+      diasVaPen+=element.b;
+    });
+    console.log(diasVaPen);
+
     $('#listAñosVacaUser').html(html);
 
     $('#userVacacinesDisponibles').text(data[0].dias);

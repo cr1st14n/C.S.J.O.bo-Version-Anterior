@@ -36,22 +36,28 @@ class UsuVacacionController extends Controller
             $añoContrato += 1;
             array_push($dato, $a);
             $fechaCon = Carbon::parse($fechaCon)->addYear()->format('d-m-Y');
-            // $diasVaUsados=usuVacacion::where('cod_usu',$id)->whereBetween('')
             if ($i == 1) {
                 $diasV = 15;
             }
-            if ($i == 4) {
+            if ($i == 5) {
                 $diasV = 20;
-            } else if ($i == 11) {
+            } else if ($i == 12) {
                 $diasV = 30;
             }
         }
-        $fecha1=Carbon::parse($fechaCon)->subYear(2)->format('Y-m-d');
+        $diasVaUsados=usuVacacion::where('cod_usu',$id)->sum('uv_diasVac');
+        $fecha1=Carbon::parse($fechaCotrato)->format('Y-m-d');
         $fecha2=Carbon::parse($fechaCon)->subYear(1)->format('Y-m-d');
 
 
 
-        $dat = array(['años' => $dato, 'dias' => $diasV,'date1'=>$fecha1,'date2'=>$fecha2]);
+        $dat = array(['años' => $dato,
+                    'dias' => $diasV,
+                    'date1'=>$fecha1,
+                    'date2'=>$fecha2,
+                    'DVU'=>$diasVaUsados,
+                    'fechContrato'=> Carbon::parse($fechaCotrato)->format('m-d-Y'),
+                    ]);
 
         return $dat;
     }

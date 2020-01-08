@@ -42,7 +42,7 @@ $("#formulario2Up").on("submit", function(e) {
 });
 $("#formCreateVacacion").on("submit", function(e) {
   e.preventDefault();
-  console.log('hola añlskfjlñasdkf');
+  vacacionCreate();
 });
 //! -----------------------------------------------------------------------
 
@@ -403,28 +403,33 @@ function showUserVacaciones(id) {
   $("#md-UserVacaciones")
     .addClass("md-flipHor")
     .modal("show");
+  $("#usuVacacId").val(id);
   var data = { id: id };
   $.get("/C.S.J.O.bo/RRHH/personal/vacacion/index", data, function(data) {
     console.log(data[0].date1);
     console.log(data[0].date2);
-    $('#date1UsuVac').attr({min:data[0].date1,max:data[0].date2});
-    $('#date2UsuVac').attr({min:data[0].date1,max:data[0].date2});
-    var html = data[0].años.map(function(e) {
-      return `<tr>
+    $("#date1UsuVac").attr({ min: data[0].date1, max: data[0].date2 });
+    $("#date2UsuVac").attr({ max: data[0].date2, min: data[0].date1 });
+    var html = data[0].años
+      .map(function(e) {
+        return `<tr>
                 <td>${e.a}</td>
                 <td>${e.b}</td>
               </tr>`;
-    }).join(" ");
-    var diasVaPen=0;
+      })
+      .join(" ");
+    var diasVaPen = 0;
     data[0].años.forEach(element => {
-      diasVaPen+=element.b;
+      diasVaPen += element.b;
     });
     console.log(diasVaPen);
+    console.log(data[0].DVU);
+    console.log(diasVaPen - data[0].DVU);
 
-    $('#listAñosVacaUser').html(html);
+    $("#listAñosVacaUser").html(html);
 
-    $('#userVacacinesDisponibles').text(data[0].dias);
-
+    $("#userVacacinesDisponibles").text(diasVaPen - data[0].DVU);
+    console.log(data[0].fechContrato);
   });
 }
 
@@ -922,3 +927,34 @@ function DestroyUser(id) {
 // }
 
 // });
+
+//?  ----------Function crud register vacacion
+function vacacionCreate(param) {
+  var id = $("#usuVacacId").val();
+  var date1 = $("#date1UsuVac").val();
+  var date2 = $("#date2UsuVac").val();
+  if (
+    moment(date1, "YYYY-MM-DD").format("YYYY-MM-DD") <=
+    moment(date2, "YYYY-MM-DD").format("YYYY-MM-DD")
+  ) {
+    var fecha1 = moment(date1);
+    var fecha2 = moment(date2);
+
+    console.log(fecha2.diff(fecha1, "days"), " dias de diferencia");
+  } else {
+    console.log("no permitido");
+  }
+  var from = moment(fecha1, 'YYY/MM/DD'),
+  to = moment(fecha2, 'YYY/MM/DD'),
+  days = 0;
+  
+while (!from.isAfter(to)) {
+  // Si no es sabado ni domingo
+  if (from.isoWeekday() !== 6 && from.isoWeekday() !== 7) {
+    days++;
+  }
+  from.add(1, 'days');
+}
+console.log(days);
+$('#userDayVacacion').val(days);
+}

@@ -724,16 +724,31 @@
                 <h4>Registrar vaciones del personal <br>
                     Dias disponibles: <span id="userVacacinesDisponibles"></span></h4><br>
                 <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formCreateVacacion">
+                    <input type="text" name="" id="usuVacacId" required hidden>
                     <div class="form-group">
                         <label for="form" class="control-label col-md-4">Inicio</label>
                         <div class="col-md-8">
-                            <input type="date" class="form-control" id="date1UsuVac"  required>
+                            <input type="date" class="form-control" id="date1UsuVac" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="form" class="control-label col-md-4">Fin</label>
                         <div class="col-md-8">
                             <input type="date" class="form-control" id="date2UsuVac" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form" class="control-label col-md-4">Dias de vacacion</label>
+                        <div class="col-md-8">
+                            <input type="number" class="form-control" id="userDayVacacion">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><i class="fa fa-microphone"></i> Calcular dias</button>
+                            </span>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-theme-inverse">Registrar Vacaciones</button>

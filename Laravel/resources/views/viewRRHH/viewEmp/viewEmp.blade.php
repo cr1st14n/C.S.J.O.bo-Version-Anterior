@@ -738,22 +738,19 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="form" class="control-label col-md-4">Dias de vacacion</label>
+                        <label for="form" class="control-label col-md-4">Dias </label>
                         <div class="col-md-8">
-                            <input type="number" class="form-control" id="userDayVacacion">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="vacDayUser" required>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-theme-inverse btn-transparent" type="button" id="calculateVacacinUser">Calcular dias</button>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="text" class="form-control">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><i class="fa fa-microphone"></i> Calcular dias</button>
-                            </span>
-                        </div>
-                    </div>
+                    <button class="btn btn-theme-inverse btn-transparent"><i class="glyphicon glyphicon-print"></i></button>
                     <button type="submit" class="btn btn-theme-inverse">Registrar Vacaciones</button>
                 </form>
-                <button class="btn btn-theme-inverse btn-transparent"><i class="glyphicon glyphicon-print"></i></button>
             </div>
         </div>
     </div>

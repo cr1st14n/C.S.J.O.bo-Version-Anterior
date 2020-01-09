@@ -929,10 +929,32 @@ function DestroyUser(id) {
 // });
 
 //?  ----------Function crud register vacacion
+$("#calculateVacacinUser").click(function(e) {
+  var date2 = $("#date2UsuVac").val();
+  var date1 = $("#date1UsuVac").val();
+  if (!moment(date1,'DD-MM-YYYY').isValid() && !moment(date2l,'DD-MM-YYYY').isValid()) {
+    console.log('NO vale');
+  } else {
+    console.log('vale');
+    
+  }
+  if (
+    moment(date1, "YYYY-MM-DD").format("YYYY-MM-DD") <=
+    moment(date2, "YYYY-MM-DD").format("YYYY-MM-DD")
+  ) {
+    var fecha1 = moment(date1);
+    var fecha2 = moment(date2);
+
+    console.log(fecha2.diff(fecha1, "days"), " dias de diferencia");
+    $("#vacDayUser").val(fecha2.diff(fecha1, "days"));
+  } else {
+    console.log("no permitido");
+  }
+});
 function vacacionCreate(param) {
   var id = $("#usuVacacId").val();
-  var date1 = $("#date1UsuVac").val();
   var date2 = $("#date2UsuVac").val();
+  var date1 = $("#date1UsuVac").val();
   if (
     moment(date1, "YYYY-MM-DD").format("YYYY-MM-DD") <=
     moment(date2, "YYYY-MM-DD").format("YYYY-MM-DD")
@@ -944,17 +966,17 @@ function vacacionCreate(param) {
   } else {
     console.log("no permitido");
   }
-  var from = moment(fecha1, 'YYY/MM/DD'),
-  to = moment(fecha2, 'YYY/MM/DD'),
-  days = 0;
-  
-while (!from.isAfter(to)) {
-  // Si no es sabado ni domingo
-  if (from.isoWeekday() !== 6 && from.isoWeekday() !== 7) {
-    days++;
+  var from = moment(fecha1, "YYY/MM/DD"),
+    to = moment(fecha2, "YYY/MM/DD"),
+    days = 0;
+
+  while (!from.isAfter(to)) {
+    // Si no es sabado ni domingo
+    if (from.isoWeekday() !== 6 && from.isoWeekday() !== 7) {
+      days++;
+    }
+    from.add(1, "days");
   }
-  from.add(1, 'days');
-}
-console.log(days);
-$('#userDayVacacion').val(days);
+  console.log(days);
+  $("#userDayVacacion").val(days);
 }

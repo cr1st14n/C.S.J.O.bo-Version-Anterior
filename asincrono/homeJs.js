@@ -10,7 +10,7 @@ function notif(tipo, texto) {
       break;
     case "2":
       data.life = 3000;
-      data.theme = "danger" ;
+      data.theme = "danger";
       $.notific8(texto, data);
       break;
     case "3":
@@ -38,20 +38,18 @@ function veriNull(texto) {
 }
 function validar(id) {
   var elemento = document.getElementById(id);
-    if (elemento.length!=0) {
-      if (elemento.checkValidity()) {
-        elemento.style.borderColor = "";
-        elemento.style.backgroundColor = "";
-      } else if (elemento.value == "") {
-        elemento.style.borderColor = "";
-        elemento.style.backgroundColor = "";
-      } else {
-        elemento.style.borderColor = "red";
-        elemento.style.backgroundColor = "#ffd3d3";
-      }
+  if (elemento.length != 0) {
+    if (elemento.checkValidity()) {
+      elemento.style.borderColor = "";
+      elemento.style.backgroundColor = "";
+    } else if (elemento.value == "") {
+      elemento.style.borderColor = "";
+      elemento.style.backgroundColor = "";
+    } else {
+      elemento.style.borderColor = "red";
+      elemento.style.backgroundColor = "#ffd3d3";
     }
-
-
+  }
 }
 function colorRandom() {
   var res = "#" + Math.floor(Math.random() * 16777215).toString(16);

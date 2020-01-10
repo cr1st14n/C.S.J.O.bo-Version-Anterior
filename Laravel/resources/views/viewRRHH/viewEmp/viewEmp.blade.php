@@ -674,13 +674,81 @@
     <!-- //modal-body-->
 </div>
 <!-- modal funciones de registro de vacaciones -->
-<div id="md-UserVacaciones" class="modal fade" tabindex="-1" data-width="900">
+<div id="md-UserVacaciones" class="modal fade" tabindex="-1" data-width="1000">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Registro de vacaciones</h3>
     </div>
     <div class="modal-body">
         <div class="row">
+            <div class="col-lg-4">
+                <h4>Registrar vaciones:</h4><br>
+                <h5> Fecha inicio Contrato: <span id="usVaContrato"></span><br>
+                    Dias disponibles: <span id="userVacacinesDisponibles"></span>
+                </h5><br>
+                <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formCreateVacacion">
+                    <input type="text" name="" id="usuVacacId" required hidden>
+                    <div class="form-group">
+                        <label for="form" class="control-label col-md-4">Doc. respaldo</label>
+                        <div class="col-md-8">
+                            <input type="number" class="form-control" id="docRespaldo" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form" class="control-label col-md-4">Inicio</label>
+                        <div class="col-md-8">
+                            <input type="date" class="form-control" id="date1UsuVac" onkeyup="validar('date1UsuVac')" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form" class="control-label col-md-4">Fin</label>
+                        <div class="col-md-8">
+                            <input type="date" class="form-control" id="date2UsuVac" onkeyup="validar('date2UsuVac')" oninput="calcuarDias()" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="control-label col-md-4">Dias </label>
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="vacDayUser" required>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-theme-inverse btn-transparent" type="button" id="calculateVacacinUser">Calcular dias</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form" class="control-label col-md-4">observacion</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="docRespaldo" required>
+                        </div>
+                    </div>
+                    <button class="btn btn-theme-inverse btn-transparent"><i class="glyphicon glyphicon-print"></i></button>
+                    <button type="submit" class="btn btn-theme-inverse">Registrar Vacaciones</button>
+                </form>
+            </div>
+            <div class="col-lg-5">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th># Doc</th>
+                                <th>Fecha(s)</th>
+                                <th>Dias</th>
+                                <th>--//--</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listVacacionesUser" align="center">
+                            <tr>
+                                <td>-----//-----</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div class="col-lg-3">
                 <table class="table table-bordered table-striped">
                     <thead>
@@ -698,60 +766,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-5">
-                <h5>Fecha de contratacion 02-12-2008</h5>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Fecha(s)</th>
-                                <th>Dias</th>
-                                <th>--//--</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>10-08-2018 / 15-08-2018</td>
-                                <td>5</td>
-                                <td></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <h4>Registrar vaciones del personal <br>
-                    Dias disponibles: <span id="userVacacinesDisponibles"></span></h4><br>
-                <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formCreateVacacion">
-                    <input type="text" name="" id="usuVacacId" required hidden>
-                    <div class="form-group">
-                        <label for="form" class="control-label col-md-4">Inicio</label>
-                        <div class="col-md-8">
-                            <input type="date" class="form-control" id="date1UsuVac" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="form" class="control-label col-md-4">Fin</label>
-                        <div class="col-md-8">
-                            <input type="date" class="form-control" id="date2UsuVac" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="form" class="control-label col-md-4">Dias </label>
-                        <div class="col-md-8">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="vacDayUser" required>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-theme-inverse btn-transparent" type="button" id="calculateVacacinUser">Calcular dias</button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn btn-theme-inverse btn-transparent"><i class="glyphicon glyphicon-print"></i></button>
-                    <button type="submit" class="btn btn-theme-inverse">Registrar Vacaciones</button>
-                </form>
-            </div>
         </div>
     </div>
 </div>
@@ -767,6 +781,19 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-success">Registrar</button>
     </div>
+</div>
+<div id="md-vacacion-delete" class="modal fade md-stickTop" tabindex="-1" data-width="350">
+    <div class="modal-header bg-inverse bd-inverse-darken">
+        <button type="button" class="close" data-dismiss="modal" id="btn-md-vacacion-delete" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title">Confirmar Solicitud?</h4>
+    </div>
+    <!-- //modal-header-->
+    <div class="modal-body">
+        <label id="message-delete"></label>
+        <div class="panel-body align-xs-center " id="btn-vacacion-delete">
+        </div>
+    </div>
+    <!-- //modal-body-->
 </div>
 <!-- modal funciones para FALTAS Y PERMISOS -->
 <div id="md-UserFalPer" class="modal fade md-stickTop" tabindex="-1" data-width="800">

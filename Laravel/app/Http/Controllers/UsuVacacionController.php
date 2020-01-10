@@ -32,7 +32,7 @@ class UsuVacacionController extends Controller
         $AñosTrabajados = $fechaCotrato->diffInYears($fechaActual);
 
         for ($i = 1; $i <= $AñosTrabajados + 1; $i++) {
-            $a = ["a" => $fechaCon, "b" => $diasV, "c"=>$diasVaUsados ];
+            $a = ["a" => $fechaCon, "b" => $diasV, "c" => $diasVaUsados];
             $añoContrato += 1;
             array_push($dato, $a);
             $fechaCon = Carbon::parse($fechaCon)->addYear()->format('d-m-Y');
@@ -45,19 +45,20 @@ class UsuVacacionController extends Controller
                 $diasV = 30;
             }
         }
-        $diasVaUsados=usuVacacion::where('cod_usu',$id)->sum('uv_diasVac');
-        $fecha1=Carbon::parse($fechaCotrato)->format('Y-m-d');
-        $fecha2=Carbon::parse($fechaCon)->subYear(1)->format('Y-m-d');
+        $diasVaUsados = usuVacacion::where('cod_usu', $id)->sum('uv_diasVac');
+        $fecha1 = Carbon::parse($fechaCotrato)->format('Y-m-d');
+        $fecha2 = Carbon::parse($fechaCon)->subYear(1)->format('Y-m-d');
 
 
 
-        $dat = array(['años' => $dato,
-                    'dias' => $diasV,
-                    'date1'=>$fecha1,
-                    'date2'=>$fecha2,
-                    'DVU'=>$diasVaUsados,
-                    'fechContrato'=> Carbon::parse($fechaCotrato)->format('m-d-Y'),
-                    ]);
+        $dat = array([
+            'años' => $dato,
+            'dias' => $diasV,
+            'date1' => $fecha1,
+            'date2' => $fecha2,
+            'DVU' => $diasVaUsados,
+            'fechContrato' => Carbon::parse($fechaCotrato)->format('d-m-Y'),
+        ]);
 
         return $dat;
     }
@@ -67,9 +68,21 @@ class UsuVacacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $uv = new usuVacacion;
+        $uv->cod_usu = $request->input('id');
+        $uv->uv_fecha1 = $request->input('d1');
+        $uv->uv_fecha2 = $request->input('d2');
+        $uv->uv_diasVac = $request->input('dv');
+        $uv->uv_obs = $request->input('ob');
+        $uv->uv_codDocResp = $request->input('dr');
+        $res = $uv->save();
+        if ($res) {
+            return "success";
+        } else {
+            return "fail";
+        }
     }
 
     /**
@@ -78,9 +91,9 @@ class UsuVacacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function list(Request $request)
     {
-        //
+        return usuVacacion::where('cod_usu', $request->input('id'))->orderBy('created_at', 'desc')->get();
     }
 
     /**
@@ -123,8 +136,13 @@ class UsuVacacionController extends Controller
      * @param  \App\usuVacacion  $usuVacacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(usuVacacion $usuVacacion)
+    public function destroy(Request $request)
     {
-        //
+        $res = usuVacacion::where('id', $request->input('id'))->delete();
+        if ($res) {
+            return "success";
+        } else {
+            return "fail";
+        }
     }
 }

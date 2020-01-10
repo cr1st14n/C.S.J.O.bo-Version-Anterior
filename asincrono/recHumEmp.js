@@ -1,3 +1,5 @@
+$("input").attr("autocomplete", "off");
+
 //?----------- onclick de formularios
 var formCreatuser1 = document.getElementById("formuladio1");
 formCreatuser1.addEventListener("submit", function(event) {
@@ -427,10 +429,12 @@ function showUserVacaciones(id) {
     console.log(diasVaPen - data[0].DVU);
 
     $("#listAñosVacaUser").html(html);
+    $("#usVaContrato").text(data[0].fechContrato);
 
     $("#userVacacinesDisponibles").text(diasVaPen - data[0].DVU);
     console.log(data[0].fechContrato);
   });
+  listVacacUser(id);
 }
 
 function showUserFalPerm(codUsu1) {
@@ -930,13 +934,17 @@ function DestroyUser(id) {
 
 //?  ----------Function crud register vacacion
 $("#calculateVacacinUser").click(function(e) {
+  calcuarDias();
+});
+function calcuarDias() {
   var date2 = $("#date2UsuVac").val();
   var date1 = $("#date1UsuVac").val();
-  if (!moment(date1,'DD-MM-YYYY').isValid() && !moment(date2l,'DD-MM-YYYY').isValid()) {
-    console.log('NO vale');
+  if (
+    document.getElementById("date2UsuVac").checkValidity() &&
+    document.getElementById("date1UsuVac").checkValidity()
+  ) {
   } else {
-    console.log('vale');
-    
+    return;
   }
   if (
     moment(date1, "YYYY-MM-DD").format("YYYY-MM-DD") <=
@@ -944,39 +952,86 @@ $("#calculateVacacinUser").click(function(e) {
   ) {
     var fecha1 = moment(date1);
     var fecha2 = moment(date2);
-
-    console.log(fecha2.diff(fecha1, "days"), " dias de diferencia");
-    $("#vacDayUser").val(fecha2.diff(fecha1, "days"));
+    $("#vacDayUser").val(fecha2.diff(fecha1, "days") + 1);
   } else {
     console.log("no permitido");
   }
-});
+}
 function vacacionCreate(param) {
   var id = $("#usuVacacId").val();
   var date2 = $("#date2UsuVac").val();
   var date1 = $("#date1UsuVac").val();
+  var dV = $("#vacDayUser").val();
+  var dr = $("#docRespaldo").val();
+  var ob = $("#ObservacionVacacion").val();
   if (
     moment(date1, "YYYY-MM-DD").format("YYYY-MM-DD") <=
     moment(date2, "YYYY-MM-DD").format("YYYY-MM-DD")
   ) {
-    var fecha1 = moment(date1);
-    var fecha2 = moment(date2);
-
-    console.log(fecha2.diff(fecha1, "days"), " dias de diferencia");
+    var data = {
+      _token: $("meta[name=csrf-token]").attr("content"),
+      d1: date1,
+      d2: date2,
+      id: id,
+      dv: dV,
+      dr: dr,
+      ob: ob
+    };
+    $.post("/C.S.J.O.bo/RRHH/personal/vacacion/create", data, function(data) {
+      if ((data = "success")) {
+        notif("1", "Vacacion Regstrada");
+        listVacacUser(id);
+        $("#formCreateVacacion").trigger("reset");
+      } else {
+        notif("2", "Error! Vuelva a intentarlo.");
+      }
+    });
   } else {
-    console.log("no permitido");
+    notif("2", "Error!. Verificar informacion");
   }
-  var from = moment(fecha1, "YYY/MM/DD"),
-    to = moment(fecha2, "YYY/MM/DD"),
-    days = 0;
-
-  while (!from.isAfter(to)) {
-    // Si no es sabado ni domingo
-    if (from.isoWeekday() !== 6 && from.isoWeekday() !== 7) {
-      days++;
+}
+function listVacacUser(id) {
+  data = { id: id };
+  $.get("/C.S.J.O.bo/RRHH/personal/vacacion/list1", data, function(data) {
+    var html = data
+      .map(function(e) {
+        return `
+        <tr>
+        <td>${e.uv_codDocResp}</td>
+        <td>${e.uv_fecha1} / ${e.uv_fecha2}</td>
+        <td>${e.uv_diasVac}</td>
+        <td>
+          <span class="tooltip-area">
+          <a class="btn btn-default btn-sm" title="Editar" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+          <a onClick=deleteVacaUser(${e.id}) class="btn btn-default btn-sm" title="Borrar" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
+          </span>
+        </td>
+    </tr>
+        `;
+      })
+      .join(" ");
+    $("#listVacacionesUser").html(html);
+  });
+}
+function deleteVacaUser(id) {
+  var btn = `
+  <button type="button" data-dismiss="modal" class="btn btn-theme">Cancelar</button>
+  <button type="button" class="btn btn-theme-inverse" onClick="DestroyVacacion(${id})">Aceptar</button>`;
+  $("#btn-vacacion-delete").html(btn);
+  $("#md-vacacion-delete").modal("show");
+}
+function DestroyVacacion(id) {
+  data = {
+    _token: $("meta[name=csrf-token]").attr("content"),
+    id: id
+  };
+  $.post("/C.S.J.O.bo/RRHH/personal/vacacion/destroy", data, function(e) {
+    if (e == "success") {
+      notif("1", "Regsitro Eliminado");
+      $("#btn-md-vacacion-delete").click();
+    } else {
+      notif("2", "Error!. Vueva a intentarlo");
     }
-    from.add(1, "days");
-  }
-  console.log(days);
-  $("#userDayVacacion").val(days);
+  });
+  listVacacUser(id);
 }

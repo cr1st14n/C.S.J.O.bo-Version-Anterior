@@ -113,9 +113,9 @@ class UsuVacacionController extends Controller
      * @param  \App\usuVacacion  $usuVacacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(usuVacacion $usuVacacion)
+    public function edit(Request $request)
     {
-        //
+        return usuVacacion::where('id',$request->input('id'))->first();
     }
 
     /**
@@ -144,5 +144,44 @@ class UsuVacacionController extends Controller
         } else {
             return "fail";
         }
+    }
+    public function dayVacacion(Request $request)
+    {
+        $id = $request->input('id');
+        $dato = array();
+        $diasV = 0;
+        $diasV1 = 0;
+        $diasVaUsados = 0;
+
+        $fechaCotrato = usuContrato::where('cod_usu', $id)
+            ->where('uc_nroContrato', usuContrato::where('cod_usu', $id)->max('uc_nroContrato'))->value('uc_fechaInicio');
+        $fechaCon = Carbon::parse($fechaCotrato);
+        $fechaCon = $fechaCon->format('d-m-Y');
+        $fechaCotrato = Carbon::parse($fechaCotrato);
+        $añoContrato = $fechaCotrato->format('Y');
+        $fechaActual = Carbon::now();
+        $AñosTrabajados = $fechaCotrato->diffInYears($fechaActual);
+
+        for ($i = 1; $i <= $AñosTrabajados + 1; $i++) {
+            $a = ["a" => $fechaCon, "b" => $diasV, "c" => $diasVaUsados];
+            $añoContrato += 1;
+            array_push($dato, $a);
+            $fechaCon = Carbon::parse($fechaCon)->addYear()->format('d-m-Y');
+            $diasV1 +=$diasV;
+            if ($i == 1) {
+                $diasV = 15;
+            }
+            if ($i == 5) {
+                $diasV = 20;
+            } else if ($i == 12) {
+                $diasV = 30;
+            }
+        }
+        $diasVaUsados = usuVacacion::where('cod_usu', $id)->sum('uv_diasVac');
+        $dat = array([
+            'dias' => $diasV1,
+            'DVU' => $diasVaUsados,
+        ]);
+        return $dat;
     }
 }

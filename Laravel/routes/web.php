@@ -229,11 +229,14 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 			Route::post('delete', 'UsuCambioTurnoController@delete');
 		});
 		// * rutas vacaciones
-		Route::group(['prefix'=>'vacacion'],function(){
-			Route::get('index','UsuVacacionController@index');
-			Route::post('create','UsuVacacionController@create');
-			Route::get('list1','UsuVacacionController@list');
-			Route::post('destroy','UsuVacacionController@destroy');
+		Route::group(['prefix' => 'vacacion'], function () {
+			Route::get('index', 'UsuVacacionController@index');
+			Route::post('create', 'UsuVacacionController@create');
+			Route::get('list1', 'UsuVacacionController@list');
+			Route::post('destroy', 'UsuVacacionController@destroy');
+			Route::get('showDayV', 'UsuVacacionController@dayVacacion');
+			Route::get('edit', 'UsuVacacionController@edit');
+			Route::post('update', 'UsuVacacionController@post');
 		});
 	});
 	Route::group(['prefix' => 'Areas'], function () {

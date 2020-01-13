@@ -254,6 +254,10 @@ class empleadoController extends Controller
     }
     function datos1User(Request $request)
     {
-        return User::where('id',$request->input('id'))->first();
+        return User::where('id', $request->input('id'))->first();
+    }
+    function dayVacacion()
+    {
+        
     }
 }

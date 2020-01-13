@@ -674,10 +674,10 @@
     <!-- //modal-body-->
 </div>
 <!-- modal funciones de registro de vacaciones -->
-<div id="md-UserVacaciones" class="modal fade" tabindex="-1" data-width="1000">
+<div id="md-UserVacaciones" class="modal fade md-stickTop" tabindex="-1" data-width="1000">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h3>Registro de vacaciones</h3>
+        <h3>Registro vacaciones</h3>
     </div>
     <div class="modal-body">
         <div class="row">
@@ -685,9 +685,10 @@
                 <h4>Registrar vaciones:</h4><br>
                 <h5> Fecha inicio Contrato: <span id="usVaContrato"></span><br>
                     Dias disponibles: <span id="userVacacinesDisponibles"></span>
-                </h5><br>
+                </h5>
+                <br>
+                <input type="text" name="" id="usuVacacId" required hidden>
                 <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formCreateVacacion">
-                    <input type="text" name="" id="usuVacacId" required hidden>
                     <div class="form-group">
                         <label for="form" class="control-label col-md-4">Doc. respaldo</label>
                         <div class="col-md-8">
@@ -697,7 +698,7 @@
                     <div class="form-group">
                         <label for="form" class="control-label col-md-4">Inicio</label>
                         <div class="col-md-8">
-                            <input type="date" class="form-control" id="date1UsuVac" onkeyup="validar('date1UsuVac')" required>
+                            <input type="date" class="form-control" id="date1UsuVac" onkeyup="validar('date1UsuVac')" oninput="calcuarDias()" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -720,7 +721,7 @@
                     <div class="form-group">
                         <label for="form" class="control-label col-md-4">observacion</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="docRespaldo" required>
+                            <input type="text" class="form-control" id="ObservacionVacacion" required>
                         </div>
                     </div>
                     <button class="btn btn-theme-inverse btn-transparent"><i class="glyphicon glyphicon-print"></i></button>
@@ -770,17 +771,55 @@
     </div>
 </div>
 
-<div id="md-UserVacacionesRegister" class="modal fade" tabindex="-1" data-width="600">
+<div id="md-UserVacacionesRegister" class="modal fade md-stickTop" tabindex="-1" data-width="300">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h3>Registrar Vacaciones</h3>
+        <h3>Editar Vacacion</h3>
     </div>
-    <div class="modal-body">
-        <p>aca ira las vacaciones</p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success">Registrar</button>
-    </div>
+    <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formCreateVacacion">
+        <div class="modal-body">
+            <p>Actualizar Registro</p>
+            <input type="text" name="" id="usuVacacId_Up" required hidden>
+            <div class="form-group">
+                <label for="form" class="control-label col-md-4">Doc. respaldo</label>
+                <div class="col-md-8">
+                    <input type="number" class="form-control" id="docRespaldo_Up" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="form" class="control-label col-md-4">Inicio</label>
+                <div class="col-md-8">
+                    <input type="date" class="form-control" id="date1UsuVac_Up" onkeyup="validar('date1UsuVac')" oninput="calcuarDias()" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="form" class="control-label col-md-4">Fin</label>
+                <div class="col-md-8">
+                    <input type="date" class="form-control" id="date2UsuVac_Up" onkeyup="validar('date2UsuVac')" oninput="calcuarDias()" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-4">Dias </label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="vacDayUser_Up" required>
+                        <span class="input-group-btn">
+                            <button class="btn btn-theme-inverse btn-transparent" type="button" id="calculateVacacinUser">Calcular dias</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="form" class="control-label col-md-4">observacion</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="vacOb_Up" required>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-danger">Actualizar</button>
+        </div>
+    </form>
 </div>
 <div id="md-vacacion-delete" class="modal fade md-stickTop" tabindex="-1" data-width="350">
     <div class="modal-header bg-inverse bd-inverse-darken">

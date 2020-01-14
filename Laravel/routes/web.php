@@ -236,7 +236,7 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 			Route::post('destroy', 'UsuVacacionController@destroy');
 			Route::get('showDayV', 'UsuVacacionController@dayVacacion');
 			Route::get('edit', 'UsuVacacionController@edit');
-			Route::post('update', 'UsuVacacionController@post');
+			Route::post('update', 'UsuVacacionController@update');
 		});
 	});
 	Route::group(['prefix' => 'Areas'], function () {

@@ -46,6 +46,10 @@ $('#formCreateVacacion').on('submit', function(e) {
 	e.preventDefault();
 	vacacionCreate();
 });
+$('#formEditVacacion').on('submit', function(e) {
+	e.preventDefault();
+	UpdateVacaUser();
+});
 //! -----------------------------------------------------------------------
 
 function showListEmp() {}
@@ -165,10 +169,9 @@ function listTodosEmp() {
                     <td>${elem.usu_area}</td>
                     <td>
                         <span class="tooltip-area">
-                        <a class="btn btn-default btn-sm" title="Faltas Permisos" onclick="showUserFalPerm(${elem.id})"><i class="fa fa-exclamation"></i></a>
-                        <a class="btn btn-default btn-sm" title="Vacaciones" onclick="showUserVacaciones(${elem.id})"><i class="fa fa-tag"></i></a>
                         <a class="btn btn-default btn-sm" title="Datos Registrados" onclick="showDatosEmp(${elem.id})"><i class="fa fa-user"></i></a>
-                        <a class="btn btn-default btn-sm" hidden title="Doc presentados" onclick="showDocUser()"><i class="fa fa-archive"></i></a>
+                        <a class="btn btn-default btn-sm" title="Vacaciones" onclick="showUserVacaciones(${elem.id})"><i class="fa fa-tag"></i></a>
+                        <a class="btn btn-default btn-sm" title="Faltas Permisos" onclick="showUserFalPerm(${elem.id})"><i class="fa fa-exclamation"></i></a>
                         <a class="btn btn-default btn-sm" title="Delete" onClick="deleteUser(${elem.id})"><i class="fa fa-trash-o"></i></a>
                         </span>
                     </td>
@@ -882,24 +885,46 @@ function showUserVacaciones(id) {
 $('#calculateVacacinUser').click(function(e) {
 	calcuarDias();
 });
-function calcuarDias() {
-	var date2 = $('#date2UsuVac').val();
-	var date1 = $('#date1UsuVac').val();
-	if (
-		document.getElementById('date2UsuVac').checkValidity() &&
-		document.getElementById('date1UsuVac').checkValidity()
-	) {
-	} else {
-		return;
-	}
-	if (moment(date1, 'YYYY-MM-DD').format('YYYY-MM-DD') <= moment(date2, 'YYYY-MM-DD').format('YYYY-MM-DD')) {
-		var fecha1 = moment(date1);
-		var fecha2 = moment(date2);
-		$('#vacDayUser').val(fecha2.diff(fecha1, 'days') + 1);
-	} else {
-		console.log('E');
-		notif('1', 'Error! Verifique fechas agregadas');
-	}
+function calcuarDias(e) {
+  if (e==1) {
+    var date2 = $('#date2UsuVac').val();
+    var date1 = $('#date1UsuVac').val();
+    if (
+      document.getElementById('date2UsuVac').checkValidity() &&
+      document.getElementById('date1UsuVac').checkValidity()
+    ) {
+    } else {
+      return;
+    }
+    if (moment(date1, 'YYYY-MM-DD').format('YYYY-MM-DD') <= moment(date2, 'YYYY-MM-DD').format('YYYY-MM-DD')) {
+      var fecha1 = moment(date1);
+      var fecha2 = moment(date2);
+      $('#vacDayUser').val(fecha2.diff(fecha1, 'days') + 1);
+    } else {
+      console.log('E');
+      notif('1', 'Error! Verifique fechas agregadas');
+    }
+  } else {
+    var date2 = $('#date2UsuVac_Up').val();
+    var date1 = $('#date1UsuVac_Up').val();
+    if (
+      document.getElementById('date2UsuVac_Up').checkValidity() &&
+      document.getElementById('date1UsuVac_Up').checkValidity()
+    ) {
+    } else {
+      return;
+    }
+    if (moment(date1, 'YYYY-MM-DD').format('YYYY-MM-DD') <= moment(date2, 'YYYY-MM-DD').format('YYYY-MM-DD')) {
+      var fecha1 = moment(date1);
+      var fecha2 = moment(date2);
+      $('#vacDayUser_Up').val(fecha2.diff(fecha1, 'days') + 1);
+    } else {
+      console.log('E');
+      notif('1', 'Error! Verifique fechas agregadas');
+    }
+  }
+  
+	
 }
 function vacacionCreate(param) {
 	var id = $('#usuVacacId').val();
@@ -958,25 +983,52 @@ function listVacacUser(id) {
 	});
 }
 function editVacaUser(id) {
-$('#md-UserVacacionesRegister').modal('show');
+$('#md-UserVacacionesEdit').modal('show');
 var data={id:id};
 $.get("/C.S.J.O.bo/RRHH/personal/vacacion/edit", data,
   function (data) {
+    $('#formEditVacacion').trigger('reset');
     max=$('#date2UsuVac').attr('max');
-    min=$('#date2UsuVac').attr('max');
+    min=$('#date2UsuVac').attr('min');
     $('#date1UsuVac_Up').attr({min:min,max:max});
     $('#date2UsuVac_Up').attr({min:min,max:max});
     console.log(data);
+    $('#formEditVacacion_id').val("");
+    $('#formEditVacacion_id').val(data.id);
     $('#docRespaldo_Up').val(data.uv_codDocResp);
     $('#date1UsuVac_Up').val(data.uv_fecha1);
     $('#date2UsuVac_Up').val(data.uv_fecha2);
     $('#vacDayUser_Up').val(data.uv_diasVac);
     $('#vacOb_Up').val(data.uv_obs);
-
   }
 );
 }
-function UpdateVacaUser(id) {
+function UpdateVacaUser() {
+var data={
+  _token: $('meta[name=csrf-token]').attr('content'),
+  id:$('#formEditVacacion_id').val(),
+  docRes:$('#docRespaldo_Up').val(),
+  date1:$('#date1UsuVac_Up').val(),
+  date2:$('#date2UsuVac_Up').val(),
+  vacDayU:$('#vacDayUser_Up').val(),
+  vacObs:$('#vacOb_Up').val(),
+}
+console.log(data);
+$.post("/C.S.J.O.bo/RRHH/personal/vacacion/update", data,
+  data => {
+    console.log(data);
+   if (data=='1') {
+     notif('1','Registro actualizado');
+     $('#btn-close-md-UserVacacionesEdit').click();
+     $('#formEditVacacion').trigger('reset');
+     listVacacUser(0);
+     DayVacacionUser();
+   } else {
+     notif('2','Error Vuelva a intentarlo')
+   } 
+  }
+);
+
 
 }
 function deleteVacaUser(id) {

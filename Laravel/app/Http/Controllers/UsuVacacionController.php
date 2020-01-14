@@ -84,58 +84,32 @@ class UsuVacacionController extends Controller
             return "fail";
         }
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function list(Request $request)
     {
         return usuVacacion::where('cod_usu', $request->input('id'))->orderBy('created_at', 'desc')->get();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\usuVacacion  $usuVacacion
-     * @return \Illuminate\Http\Response
-     */
     public function show(usuVacacion $usuVacacion)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\usuVacacion  $usuVacacion
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Request $request)
     {
         return usuVacacion::where('id',$request->input('id'))->first();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\usuVacacion  $usuVacacion
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, usuVacacion $usuVacacion)
+    public function update(Request $request)
     {
-        //
+        return usuVacacion::where('id',$request->input('id'))->update([
+            'uv_obs'=>$request->input('vacOb_Up'),
+            'uv_fecha1'=>$request->input('date1'),
+            'uv_fecha2'=>$request->input('date2'),
+            'uv_diasVac'=>$request->input('vacDayU'),
+            'uv_obs'=>$request->input('vacObs'),
+        ]);       
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\usuVacacion  $usuVacacion
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         $res = usuVacacion::where('id', $request->input('id'))->delete();

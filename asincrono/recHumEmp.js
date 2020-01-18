@@ -237,7 +237,7 @@ function showDatosEmp(id) {
 			var boton1 = `<button type="button" class="btn btn-theme" onclick="showEditDat2User(${elem[0]
 				.id})">Actualizar Datos</button>`;
 			document.getElementById('datosInstEditButon').innerHTML = boton1;
-			$('#md-stack1').addClass('md-flipHor').modal('show');
+			$('#md-stack1').modal('show');
 		})
 		.fail(function() {
 			notif('2', 'ERROR SERVER');
@@ -510,15 +510,6 @@ function limpiarFomrUserCreate() {
 	$('#md-createUser').modal('hide');
 }
 
-function prubb() {
-	$.get('/C.S.J.O.bo/RRHH/personal/22')
-		.done(function(data) {
-			console.log(data);
-		})
-		.fail(function(data) {
-			console.log(data);
-		});
-}
 
 function jose(params) {
 	notif('1', 'hola');

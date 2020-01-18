@@ -38,7 +38,7 @@
     </div>
 </section>
 <!-- modal crud User -->
-<div id="md-createUser" class="modal fade md-flipHor " tabindex="-1" data-width="800">
+<div id="md-createUser" class="modal fade md-stickTop " tabindex="-1" data-width="800">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Datos Personales</h3>
@@ -169,7 +169,7 @@
         </div>
     </div>
 </div>
-<div id="md-createUser2" class="modal fade md-flipHor" tabindex="-1" data-width="800">
+<div id="md-createUser2" class="modal fade md-stickTop" tabindex="-1" data-width="800">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Datos Profecion / institucionales</h3>
@@ -288,7 +288,7 @@
     </div>
 </div>
 <!-- show modal datos del usuario -->
-<div id="md-stack1" class="modal fade" tabindex="-1" data-width="800">
+<div id="md-stack1" class="modal fade md-stickTop" tabindex="-1" data-width="800">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Datos del Empleado</h3>
@@ -310,7 +310,7 @@
         </div>
     </div>
 </div>
-<div id="md-editDatUser" class="modal fade md-flipHor" tabindex="-1" data-width="800">
+<div id="md-editDatUser" class="modal fade md-stickTop" tabindex="-1" data-width="800">
     <div class="modal-header">
         <button type="button" id="btn-editDatuser-close" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Actualizar datos</h3>
@@ -436,7 +436,7 @@
         </div>
     </div>
 </div>
-<div id="md-editDatInstUser" class="modal fade md-flipHor" tabindex="-1" data-width="800">
+<div id="md-editDatInstUser" class="modal fade md-stickTop" tabindex="-1" data-width="800">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3> Actualizar Datos profecionales / institucionales</h3>
@@ -563,7 +563,7 @@
 
 
 <!-- modal crud Documentos de usuario -->
-<div id="md-DocUser" class="modal fade  " tabindex="-1" data-width="800">
+<div id="md-DocUser" class="modal fade md-stickTop" tabindex="-1" data-width="800">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h4 class="modal-title">Documentos presentados</h4>

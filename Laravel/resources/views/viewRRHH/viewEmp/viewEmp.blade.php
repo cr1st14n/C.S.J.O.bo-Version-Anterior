@@ -507,10 +507,10 @@
                         <label class="control-label">Acceso al sistema:</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio" name="accesoSis" id="accesoSi" value="1">
+                                <input type="radio" name="accesoSisUp" id="accesoSiUp" value="1">
                                 Si </label>
                             <label class="radio-inline">
-                                <input type="radio" name="accesoSis" id="accesoNo" value="0">
+                                <input type="radio" name="accesoSisUp" id="accesoNoUp" value="0">
                                 No </label>
                         </div>
                     </div>

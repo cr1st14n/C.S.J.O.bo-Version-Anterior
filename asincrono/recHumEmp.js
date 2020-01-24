@@ -338,6 +338,8 @@ function updateUser2() {
 			uc_area: $('#areaDesignadaUP').val(),
 			uc_cargoDesignado: $('#cargoUP').val(),
 			var: $('#accModSisUp').val(),
+			accesoSisUp: document.querySelector('input[name=sexo]:checked').value,
+			
 			var: $('#accesoSis').val(),
 			var: $('#seguroNombreInstitucionCPUp').val(),
 			var: $('#codSeguroCPUp').val(),
@@ -345,8 +347,10 @@ function updateUser2() {
 			var: $('#numNuaUp').val(),
 			var: $('#numCuaUp').val()
 		};
+		console.log(data);
+
 	} else {
-		console.log('no se puede');
+		console.log('Error! falla de actualizacion');
 	}
 }
 

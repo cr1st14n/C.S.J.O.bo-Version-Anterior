@@ -199,6 +199,7 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 		Route::get('editDatos1Emp', 'empleadoController@editDatos1Emp');
 		Route::post('updateDatos1Emp', 'empleadoController@updateDatos1Emp');
 		Route::get('editDatos2Emp', 'empleadoController@editDatos2Emp');
+		Route::post('updateDatos2Emp', 'empleadoController@updateDatos2Emp');
 		Route::get('datos1User', 'empleadoController@datos1User');
 		Route::post('createUser', 'empleadoController@createUser');
 		Route::post('revCiEmail', 'empleadoController@revCiEmail');

@@ -438,13 +438,15 @@
 </div>
 <div id="md-editDatInstUser" class="modal fade md-stickTop" tabindex="-1" data-width="800">
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="md-editDatInstUser_btn_close" ><i class="fa fa-times"></i></button>
         <h3> Actualizar Datos profecionales / institucionales</h3>
     </div>
     <div class="modal-body">
         <div class="row">
             <form class="form-horizontal" data-collabel="6" data-alignlabel="right" id="formulario2Up">
-                <input type="text" id="formulario2Up-id" hidden>
+                <input type="text" id="formulario2Up_id_usu" hidden>
+                <input type="text" id="formulario2Up_id_contrato" hidden>
+                <input type="text" id="formulario2Up_id_datosIns" hidden>
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label class="control-label">Fecha de Contratacion*</label>

@@ -7,6 +7,7 @@ use App\User;
 use App\atencion;
 use App\usuContrato;
 use App\userDatosInst;
+use App\userDoc;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -113,6 +114,39 @@ class empleadoController extends Controller
         } else {
             return "fail";
         }
+    }
+
+    function updateDatos2Emp(Request $request)
+    {
+        $r = User::where('id', $request->input('id_usu'))
+            ->update([
+                'usu_area' => $request->input('accModSisUp'),
+                'usu_acceso' => $request->input('accesoSisUp')
+            ]);
+        $r1 = usuContrato::where('id', $request->input('id_contrato'))
+            ->update([
+                'uc_fechaInicio' => $request->input('fechaContratacionUp'),
+                'uc_tipoContrato' => $request->input('contratoUp'),
+                'uc_area' => $request->input('areaDesignadaUP'),
+                'uc_cargoDesignado' => $request->input('cargoUP'),
+
+            ]);
+        $r2 = userDatosInst::where('id', $request->input('id_datosIns'))
+            ->update([
+                'di_titulo'=>$request->input('tituloObUp'),
+                'di_profecion'=>$request->input('profecionObUP'),
+                'di_seguroNombreCP'=>$request->input('seguroNombreInstitucionCPUp'),
+                'di_codSeguroCP'=>$request->input('codSeguroCPUp'),
+                'di_seguroNombreLP'=>$request->input('seguroNombreInstitucionLPUp'),
+                'di_seguroNua'=>$request->input('numNuaUp'),
+                'di_seguroCua'=>$request->input('numCuaUp'),
+            ]);
+        if ($r && $r1 && $r2) {
+            return "success";
+        } else {
+            return "fail";
+        }
+        
     }
 
     function segun()
@@ -258,6 +292,5 @@ class empleadoController extends Controller
     }
     function dayVacacion()
     {
-        
     }
 }

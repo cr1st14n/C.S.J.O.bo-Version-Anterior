@@ -196,7 +196,6 @@ function showDatosEmp(id) {
 			} else {
 				var usu_acceso = 'No';
 			}
-
 			var datosEMP = `CI: <strong>${elem[0].usu_ci}</strong><br>
                   Nombre: <strong>${elem[0].usu_nombre} </strong><br>
                   Apellidos: <strong>${elem[0].usu_appaterno} ${elem[0].usu_apmaterno}</strong> <br>
@@ -245,14 +244,24 @@ function showDatosEmp(id) {
 }
 
 function showEditDat1User(id) {
-	$('#idEdituser').val();
 	data = { id: id };
 	$.get('/C.S.J.O.bo/RRHH/personal/editDatos1Emp/', data, function(data) {
 		console.log(data);
 		$('#idEdituser').val(data.id);
-		$('#createUserCiUp').val(
-			data.usu_ci
-		), $('#nombreUp').val(data.usu_nombre), $('#apellido1Up').val(data.usu_appaterno), $('#apellido2Up').val(data.usu_apmaterno), document.querySelector('input[name=sexo]:checked').value, $('#fechaNacimientoUp').val(data.usu_fechnac), $('#paisNacimientoUp').val(data.usu_paisnac), $('#depNacimientoUp').val(data.usu_depnac), $('#tipoSangreUp').val(data.usu_tipoSangre), $('#estadoCivilUp').val(data.usu_estadocivil), $('#telfUp').val(data.usu_telf), $('#telfRefUp').val(data.usu_telfref), $('#zonaUp').val(data.usu_zona), $('#domicilioUp').val(data.usu_domicilio), $('#zonaSufragioUp').val(data.usu_zonaSufragio), $('#emailUp').val(data.email);
+		$('#createUserCiUp').val(data.usu_ci),
+		$('#nombreUp').val(data.usu_nombre),
+		$('#apellido1Up').val(data.usu_appaterno),
+		$('#apellido2Up').val(data.usu_apmaterno),
+		 document.querySelector('input[name=sexo]:checked').value, 
+		$('#fechaNacimientoUp').val(data.usu_fechnac), 
+		$('#paisNacimientoUp').val(data.usu_paisnac), 
+		$('#depNacimientoUp').val(data.usu_depnac), 
+		$('#tipoSangreUp').val(data.usu_tipoSangre), 
+		$('#estadoCivilUp').val(data.usu_estadocivil), 
+		$('#telfUp').val(data.usu_telf), $('#telfRefUp').val(data.usu_telfref), 
+		$('#zonaUp').val(data.usu_zona), $('#domicilioUp').val(data.usu_domicilio), 
+		$('#zonaSufragioUp').val(data.usu_zonaSufragio), 
+		$('#emailUp').val(data.email);
 	});
 	$('#md-editDatUser').modal('show');
 }
@@ -294,7 +303,7 @@ function updateUser() {
 			}
 		});
 	} else {
-		console.log('NO peude actualizar');
+		console.log('NO puede actualizar');
 	}
 }
 
@@ -304,7 +313,11 @@ function showEditDat2User(id) {
 	$.get('/C.S.J.O.bo/RRHH/personal/editDatos2Emp', data, function(data) {
 		console.log(data);
 		$('#formulario2Up-id').val('');
-		$('#formulario2Up-id').val(id);
+		$('#formulario2Up-id').val('');
+		$('#formulario2Up-id').val('');
+		$('#formulario2Up_id_usu').val(id);
+		$('#formulario2Up_id_contrato').val(data[0].id);
+		$('#formulario2Up_id_datosIns').val(data[1].id);
 		$('#fechaContratacionUp').val(data[0].uc_fechaInicio);
 		$('#contratoUp').val(data[0].uc_tipoContrato);
 		$('#tituloObUp').val(data[1].di_titulo);
@@ -314,9 +327,9 @@ function showEditDat2User(id) {
 		$('#accModSisUp').val(data[2].usu_area);
 		$('#accesoSis').val(data[2].usu_acceso);
 		if (data[2].usu_acceso == 1) {
-			document.getElementById('accesoSi').checked = true;
+			document.getElementById('accesoSiUp').checked = true;
 		} else {
-			document.getElementById('accesoNo').checked = true;
+			document.getElementById('accesoNoUp').checked = true;
 		}
 		$('#seguroNombreInstitucionCPUp').val(data[1].di_seguroNombreCP);
 		$('#codSeguroCPUp').val(data[1].di_codSeguroCP);
@@ -328,26 +341,40 @@ function showEditDat2User(id) {
 }
 
 function updateUser2() {
-	var id = $('#formulario2Up-id').val();
-	if (id > 0) {
+	var id = $('#formulario2Up_id_usu').val();
+	var id1 = $('#formulario2Up_id_contrato').val();
+	var id2 = $('#formulario2Up_id_datosIns').val();
+	if (id > 0 && id1 > 0 && id2 > 0) {
 		var data = {
-			uc_fechaInicio: $('#fechaContratacionUp').val(),
-			uc_tipoContrato: $('#contratoUp').val(),
-			var: $('#tituloObUp').val(),
-			var: $('#profecionObUP').val(),
-			uc_area: $('#areaDesignadaUP').val(),
-			uc_cargoDesignado: $('#cargoUP').val(),
-			var: $('#accModSisUp').val(),
-			accesoSisUp: document.querySelector('input[name=sexo]:checked').value,
-			
-			var: $('#accesoSis').val(),
-			var: $('#seguroNombreInstitucionCPUp').val(),
-			var: $('#codSeguroCPUp').val(),
-			var: $('#seguroNombreInstitucionLPUp').val(),
-			var: $('#numNuaUp').val(),
-			var: $('#numCuaUp').val()
+			_token: $('meta[name=csrf-token]').attr('content'),
+			id_usu:$('#formulario2Up_id_usu').val(),
+			id_contrato:$('#formulario2Up_id_contrato').val(),
+			id_datosIns:$('#formulario2Up_id_datosIns').val(),
+			fechaContratacionUp: $('#fechaContratacionUp').val(),
+			tituloObUp: $('#tituloObUp').val(),
+			contratoUp: $('#contratoUp').val(),
+			profecionObUP: $('#profecionObUP').val(),
+			areaDesignadaUP: $('#areaDesignadaUP').val(),
+			cargoUP: $('#cargoUP').val(),
+			accModSisUp: $('#accModSisUp').val(),
+			accesoSisUp: document.querySelector('input[name=accesoSisUp]:checked').value,
+			seguroNombreInstitucionCPUp: $('#seguroNombreInstitucionCPUp').val(),
+			codSeguroCPUp: $('#codSeguroCPUp').val(),
+			seguroNombreInstitucionLPUp: $('#seguroNombreInstitucionLPUp').val(),
+			numNuaUp: $('#numNuaUp').val(),
+			numCuaUp: $('#numCuaUp').val(),
 		};
-		console.log(data);
+		$.post("/C.S.J.O.bo/RRHH/personal/updateDatos2Emp", data,
+			function (data) {
+				if (data=='success') {
+					notif('1','Registro Actualizado');
+					$('#md-editDatInstUser_btn_close').click();
+					showDatosEmp(id);
+				} else {
+					notif('3','Advertencia. Actualizacion no completada. Verifique Datos')
+				}
+			}
+		);
 
 	} else {
 		console.log('Error! falla de actualizacion');

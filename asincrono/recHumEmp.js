@@ -191,6 +191,12 @@ function showDatosEmp(id) {
 			console.log(elem);
 			console.log(elem[0]);
 			console.log(elem[1]);
+			$('#usu_id').val('');
+			$('#usu_id_Contrato').val('');
+			$('#usu_id_datIns').val('');
+			$('#usu_id').val(elem[0].id);
+			$('#usu_id_Contrato').val(elem[0].id_datIns);
+			$('#usu_id_datIns').val(elem[1].id);
 			if (elem[0].usu_acceso == 1) {
 				var usu_acceso = 'Si';
 			} else {
@@ -248,36 +254,42 @@ function showEditDat1User(id) {
 	$.get('/C.S.J.O.bo/RRHH/personal/editDatos1Emp/', data, function(data) {
 		console.log(data);
 		$('#idEdituser').val(data.id);
-		$('#createUserCiUp').val(data.usu_ci),
-		$('#nombreUp').val(data.usu_nombre),
-		$('#apellido1Up').val(data.usu_appaterno),
-		$('#apellido2Up').val(data.usu_apmaterno),
-		 document.querySelector('input[name=sexo]:checked').value, 
-		$('#fechaNacimientoUp').val(data.usu_fechnac), 
-		$('#paisNacimientoUp').val(data.usu_paisnac), 
-		$('#depNacimientoUp').val(data.usu_depnac), 
-		$('#tipoSangreUp').val(data.usu_tipoSangre), 
-		$('#estadoCivilUp').val(data.usu_estadocivil), 
-		$('#telfUp').val(data.usu_telf), $('#telfRefUp').val(data.usu_telfref), 
-		$('#zonaUp').val(data.usu_zona), $('#domicilioUp').val(data.usu_domicilio), 
-		$('#zonaSufragioUp').val(data.usu_zonaSufragio), 
+		$('#createUserCiUp').val(data.usu_ci);
+		$('#nombreUp').val(data.usu_nombre);
+		$('#apellido1Up').val(data.usu_appaterno);
+		$('#apellido2Up').val(data.usu_apmaterno);
+		if (data.usu_sexo=='masculino') {
+			document.getElementById('sexoUp1').checked=true;
+		} else {
+			document.getElementById('sexoUp2').checked=true;
+			
+		}
+		$('#fechaNacimientoUp').val(data.usu_fechnac);
+		$('#paisNacimientoUp').val(data.usu_paisnac);
+		$('#depNacimientoUp').val(data.usu_depnac);
+		$('#tipoSangreUp').val(data.usu_tipoSangre); 
+		$('#estadoCivilUp').val(data.usu_estadocivil); 
+		$('#telfUp').val(data.usu_telf), $('#telfRefUp').val(data.usu_telfref); 
+		$('#zonaUp').val(data.usu_zona), $('#domicilioUp').val(data.usu_domicilio); 
+		$('#zonaSufragioUp').val(data.usu_zonaSufragio); 
 		$('#emailUp').val(data.email);
 	});
 	$('#md-editDatUser').modal('show');
 }
 
 function updateUser() {
-	var cons = $('#idEdituser').val(data.id);
+	var cons = $('#idEdituser').val();
 	if (cons != null) {
 		// console.log("se peude actualizar");
 		var dato = {
 			_token: $('meta[name=csrf-token]').attr('content'),
-			idEdituser: $('#idEdituser').val(),
+			idEdituser: $('#usu_id').val(),
 			createUserCiUp: $('#createUserCiUp').val(),
 			nombreUp: $('#nombreUp').val(),
 			apellido1Up: $('#apellido1Up').val(),
 			apellido2Up: $('#apellido2Up').val(),
-			sexoUp: document.querySelector('input[name=sexo]:checked').value,
+			sexoUp: document.querySelector('input[name="sexo"]:checked').value,
+	
 			fechaNacimientoUp: $('#fechaNacimientoUp').val(),
 			paisNacimientoUp: $('#paisNacimientoUp').val(),
 			depNacimientoUp: $('#depNacimientoUp').val(),
@@ -290,12 +302,14 @@ function updateUser() {
 			zonaSufragioUp: $('#zonaSufragioUp').val(),
 			emailUp: $('#emailUp').val()
 		};
+		console.log(document.querySelector('input[name="sexoUp"]:checked').value);
 		$.post('/C.S.J.O.bo/RRHH/personal/updateDatos1Emp', dato, function(data) {
 			console.log(data);
 			switch (data) {
 				case 'success':
 					document.getElementById('btn-editDatuser-close').click();
 					notif('1', 'Actualizado correctamente');
+					showDatosEmp($('#usu_id').val());
 					break;
 				case 'fail':
 					notif('2', 'Error. vuelva a intentarlo');

@@ -293,6 +293,9 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Datos del Empleado</h3>
     </div>
+    <input type="number" id="usu_id" hidden>
+    <input type="number" id="usu_id_Contrato" hidden>
+    <input type="number" id="usu_id_datIns" hidden>
     <div class="modal-body">
         <div class="row">
             <div class="col-lg-6">
@@ -367,10 +370,10 @@
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-                                <input type="radio" name="sexo" value="masculino" checked>
+                                <input type="radio" name="sexoUp" id="sexoUp1" value="masculino" >
                                 Masculino </label>
                             <label class="radio-inline">
-                                <input type="radio" name="sexo" value="femenino">
+                                <input type="radio" name="sexoUp" id="sexoUp2" value="femenino">
                                 Femenino </label>
                         </div>
                     </div>

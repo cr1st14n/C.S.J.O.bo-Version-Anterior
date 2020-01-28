@@ -41,17 +41,11 @@ class empleadoController extends Controller
     {
         $res = User::where('users.id', $id)
             ->join('user_datos_insts as udi', 'users.id', 'udi.cod_usu')
-            ->join('usu_contratos as uc', 'users.id', 'uc.cod_usu')
-            ->select('udi.di_titulo', 'udi.di_profecion', 'udi.di_especialidad', 'udi.di_seguroNombreCP', 'udi.di_codSeguroCP', 'udi.di_seguroNombreLP', 'udi.di_seguroNua', 'udi.di_seguroCua')
+            ->select('udi.id as id_datIns', 'udi.di_titulo', 'udi.di_profecion', 'udi.di_especialidad', 'udi.di_seguroNombreCP', 'udi.di_codSeguroCP', 'udi.di_seguroNombreLP', 'udi.di_seguroNua', 'udi.di_seguroCua')
             ->addSelect('users.*')
             ->first();
-
         $res3 = usuContrato::where('cod_usu', $id)->where('uc_nroContrato', (usuContrato::where('cod_usu', $id)->max('uc_nroContrato')))->first();
-        // $res3=usuContrato::where('cod_usu',$id)->max('uc_nroContrato');
-        // $res3=\DB::select(\DB::raw('select * from usu_contratos where id = (select max(`id`) from usu_contratos where cod_usu='+$id+')'));
-
         $ret = array();
-        $cad = "123456789";
         array_push($ret, $res);
         array_push($ret, $res3);
         return $ret;
@@ -75,7 +69,6 @@ class empleadoController extends Controller
 
     function updateDatos1Emp(Request $request)
     {
-        // return $request;
         if ($request->input('emailUp') == User::where('id', $request->input('idEdituser'))->value('email')) {
         } else {
             if (User::where('email', $request->input('emailUp'))->value('email') != null) {
@@ -133,20 +126,19 @@ class empleadoController extends Controller
             ]);
         $r2 = userDatosInst::where('id', $request->input('id_datosIns'))
             ->update([
-                'di_titulo'=>$request->input('tituloObUp'),
-                'di_profecion'=>$request->input('profecionObUP'),
-                'di_seguroNombreCP'=>$request->input('seguroNombreInstitucionCPUp'),
-                'di_codSeguroCP'=>$request->input('codSeguroCPUp'),
-                'di_seguroNombreLP'=>$request->input('seguroNombreInstitucionLPUp'),
-                'di_seguroNua'=>$request->input('numNuaUp'),
-                'di_seguroCua'=>$request->input('numCuaUp'),
+                'di_titulo' => $request->input('tituloObUp'),
+                'di_profecion' => $request->input('profecionObUP'),
+                'di_seguroNombreCP' => $request->input('seguroNombreInstitucionCPUp'),
+                'di_codSeguroCP' => $request->input('codSeguroCPUp'),
+                'di_seguroNombreLP' => $request->input('seguroNombreInstitucionLPUp'),
+                'di_seguroNua' => $request->input('numNuaUp'),
+                'di_seguroCua' => $request->input('numCuaUp'),
             ]);
         if ($r && $r1 && $r2) {
             return "success";
         } else {
             return "fail";
         }
-        
     }
 
     function segun()

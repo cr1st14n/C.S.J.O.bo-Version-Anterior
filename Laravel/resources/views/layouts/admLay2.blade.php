@@ -9,9 +9,12 @@
     <!-- Title-->
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+        href="{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}">
     <link rel="shortcut icon" href="{{ asset('assets/ico/CSJO.ico') }}">
     <!-- CSS Stylesheet-->
@@ -20,10 +23,14 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
 
     <!-- Styleswitch if  you don't chang theme , you can delete -->
-    <link type="text/css" rel="alternate stylesheet" media="screen" title="style1" href="{{ asset('assets/css/styleTheme1.css') }}" />
-    <link type="text/css" rel="alternate stylesheet" media="screen" title="style2" href="{{ asset('assets/css/styleTheme2.css') }}" />
-    <link type="text/css" rel="alternate stylesheet" media="screen" title="style3" href="{{ asset('assets/css/styleTheme3.css') }}" />
-    <link type="text/css" rel="alternate stylesheet" media="screen" title="style4" href="{{ asset('assets/css/styleTheme4.css') }}" />
+    <link type="text/css" rel="alternate stylesheet" media="screen" title="style1"
+        href="{{ asset('assets/css/styleTheme1.css') }}" />
+    <link type="text/css" rel="alternate stylesheet" media="screen" title="style2"
+        href="{{ asset('assets/css/styleTheme2.css') }}" />
+    <link type="text/css" rel="alternate stylesheet" media="screen" title="style3"
+        href="{{ asset('assets/css/styleTheme3.css') }}" />
+    <link type="text/css" rel="alternate stylesheet" media="screen" title="style4"
+        href="{{ asset('assets/css/styleTheme4.css') }}" />
     @yield('head')
 
 
@@ -44,14 +51,16 @@
                     <li><a href="#" class="icon-toolsbar nav-mini"><i class="fa fa-bars"></i></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right tooltip-area">
-                    <li><a href="#menu-right" data-toggle="tooltip" title="Right Menu" data-container="body" data-placement="left"><i class="fa fa-align-right"></i></a></li>
+                    <li><a href="#menu-right" data-toggle="tooltip" title="Right Menu" data-container="body"
+                            data-placement="left"><i class="fa fa-align-right"></i></a></li>
                     <li class="hidden-xs hidden-sm"><a class="h-seperate">AREA : ADMINISTRACION</a></li>
 
                     <li><a href="#"><img alt="" src="" class="circle"></a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                            <em><strong>Usuario Activo </strong>, {{ Auth::user()->usu_nombre }} - CI: {{ Auth::user()->usu_ci}} </em> <i class="dropdown-icon fa fa-angle-down"></i>
+                            <em><strong>Usuario Activo </strong>, {{ Auth::user()->usu_nombre }} - CI:
+                                {{ Auth::user()->usu_ci}} </em> <i class="dropdown-icon fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu pull-right icon-right arrow">
                             <li><a href="{{route('store_user_adm')}} "><i class="fa fa-user"></i> Perfil</a></li>
@@ -60,7 +69,8 @@
                                                      document.getElementById('logout-form').submit();">
                                     salir
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </li>
@@ -68,7 +78,8 @@
                         <!-- //dropdown-menu-->
                     </li>
                     <li class="visible-lg">
-                        <a href="#" class="h-seperate fullscreen" data-toggle="tooltip" title="Full Screen" data-container="body" data-placement="left">
+                        <a href="#" class="h-seperate fullscreen" data-toggle="tooltip" title="Full Screen"
+                            data-container="body" data-placement="left">
                             <i class="fa fa-expand"></i>
                         </a>
                     </li>
@@ -128,91 +139,91 @@
     @yield('scripts')
 
     <script type="text/javascript">
-        $('div.alert').delay(4000).slideUp(300);
+    $('div.alert').delay(4000).slideUp(300);
     </script>
     <script>
-        function soloLe(e) {
-            key = e.keyCode || e.which;
-            tecla = String.fromCharCode(key).toLowerCase();
-            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-            especiales = [8, 37, 39, 46];
+    function soloLe(e) {
+        key = e.keyCode || e.which;
+        tecla = String.fromCharCode(key).toLowerCase();
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+        especiales = [8, 37, 39, 46];
 
-            tecla_especial = false
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    tecla_especial = true;
-                    break;
-                }
-            }
-
-            if (letras.indexOf(tecla) == -1 && !tecla_especial)
-                return false;
-        }
-
-        function limpia() {
-            var val = document.getElementById("miInput").value;
-            var tam = val.length;
-            for (i = 0; i < tam; i++) {
-                if (!isNaN(val[i]))
-                    document.getElementById("miInput").value = '';
+        tecla_especial = false
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
             }
         }
+
+        if (letras.indexOf(tecla) == -1 && !tecla_especial)
+            return false;
+    }
+
+    function limpia() {
+        var val = document.getElementById("miInput").value;
+        var tam = val.length;
+        for (i = 0; i < tam; i++) {
+            if (!isNaN(val[i]))
+                document.getElementById("miInput").value = '';
+        }
+    }
     </script>
     <script>
-        function soloNu(e) {
-            key = e.keyCode || e.which;
-            tecla = String.fromCharCode(key).toLowerCase();
-            letras = "0123456789";
-            especiales = [8, 37, 39, 46];
+    function soloNu(e) {
+        key = e.keyCode || e.which;
+        tecla = String.fromCharCode(key).toLowerCase();
+        letras = "0123456789";
+        especiales = [8, 37, 39, 46];
 
-            tecla_especial = false
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    tecla_especial = true;
-                    break;
-                }
-            }
-
-            if (letras.indexOf(tecla) == -1 && !tecla_especial)
-                return false;
-        }
-
-        function limpia() {
-            var val = document.getElementById("miInput").value;
-            var tam = val.length;
-            for (i = 0; i < tam; i++) {
-                if (!isNaN(val[i]))
-                    document.getElementById("miInput").value = '';
+        tecla_especial = false
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
             }
         }
+
+        if (letras.indexOf(tecla) == -1 && !tecla_especial)
+            return false;
+    }
+
+    function limpia() {
+        var val = document.getElementById("miInput").value;
+        var tam = val.length;
+        for (i = 0; i < tam; i++) {
+            if (!isNaN(val[i]))
+                document.getElementById("miInput").value = '';
+        }
+    }
     </script>
     <script>
-        function soloLeNu(e) {
-            key = e.keyCode || e.which;
-            tecla = String.fromCharCode(key).toLowerCase();
-            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz0123456789/-#";
-            especiales = [8, 37, 39, 46];
+    function soloLeNu(e) {
+        key = e.keyCode || e.which;
+        tecla = String.fromCharCode(key).toLowerCase();
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz0123456789/-#";
+        especiales = [8, 37, 39, 46];
 
-            tecla_especial = false
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    tecla_especial = true;
-                    break;
-                }
-            }
-
-            if (letras.indexOf(tecla) == -1 && !tecla_especial)
-                return false;
-        }
-
-        function limpia() {
-            var val = document.getElementById("miInput").value;
-            var tam = val.length;
-            for (i = 0; i < tam; i++) {
-                if (!isNaN(val[i]))
-                    document.getElementById("miInput").value = '';
+        tecla_especial = false
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
             }
         }
+
+        if (letras.indexOf(tecla) == -1 && !tecla_especial)
+            return false;
+    }
+
+    function limpia() {
+        var val = document.getElementById("miInput").value;
+        var tam = val.length;
+        for (i = 0; i < tam; i++) {
+            if (!isNaN(val[i]))
+                document.getElementById("miInput").value = '';
+        }
+    }
     </script>
 
 </body>

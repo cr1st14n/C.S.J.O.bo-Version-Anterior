@@ -89,12 +89,8 @@
     <nav id="menu"  data-search="close">
         <ul>
             <li><a href="{{route('adm.Home')}} "><i class="icon  fa fa-home"></i> Inicio  </a></li>
-            <li><a href="{{route('rrhh_tablero')}} "><i class="icon  fa fa-home"></i> Tablero  </a></li>
             <li><a href="{{route('empleado_home')}}"><i class="icon  fa fa-male"></i> Personal  </a></li>
             <li><a href="{{route('home_area')}}"><i class="icon  fa fa-building-o"></i> Areas   </a></li>
-            <li><a href="{{route('home_area')}}"><i class="icon  fa fa-building-o"></i> Nomina de sueldos   </a></li>
-            <li><a href="{{route('home_area')}}"><i class="icon  fa fa-building-o"></i> Premios   </a></li>
-            <li><a href=""><i class="icon  fa  fa-bar-chart-o"></i> Informes y Reportes </a></li>
         </ul>
     </nav>
     <!-- //nav left menu-->

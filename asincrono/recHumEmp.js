@@ -258,11 +258,20 @@ function showEditDat1User(id) {
 		$('#nombreUp').val(data.usu_nombre);
 		$('#apellido1Up').val(data.usu_appaterno);
 		$('#apellido2Up').val(data.usu_apmaterno);
+<<<<<<< Updated upstream
 		if (data.usu_sexo=='masculino') {
 			document.getElementById('sexoUp1').checked=true;
 		} else {
 			document.getElementById('sexoUp2').checked=true;
 			
+=======
+		 document.querySelector('input[name=sexo]:checked').value; 
+		 if (data.usu_sexo == 'masculino') {
+			document.getElementById('sexo1Up').checked = true;
+			
+		} else {
+			document.getElementById('sexo2Up').checked = true;
+>>>>>>> Stashed changes
 		}
 		$('#fechaNacimientoUp').val(data.usu_fechnac);
 		$('#paisNacimientoUp').val(data.usu_paisnac);
@@ -271,7 +280,11 @@ function showEditDat1User(id) {
 		$('#estadoCivilUp').val(data.usu_estadocivil); 
 		$('#telfUp').val(data.usu_telf), $('#telfRefUp').val(data.usu_telfref); 
 		$('#zonaUp').val(data.usu_zona), $('#domicilioUp').val(data.usu_domicilio); 
+<<<<<<< Updated upstream
 		$('#zonaSufragioUp').val(data.usu_zonaSufragio); 
+=======
+		$('#zonaSufragioUp').val(data.usu_zonaSufragio);
+>>>>>>> Stashed changes
 		$('#emailUp').val(data.email);
 	});
 	$('#md-editDatUser').modal('show');

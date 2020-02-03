@@ -1,4 +1,4 @@
-@extends('layouts.recHumLay')
+@extends('layouts.admLay2')
 @section('head1')
 @endsection
 @section('refUbi')
@@ -12,12 +12,11 @@
         <header class="panel-heading">
             <h2><strong>Areas</strong>registradas</h2>
         </header>
-        <div class="panel-tools fully color" align="right"  data-toolscolor="#6CC3A0" hidden>
-            <button class="btn btn-inverse btn-transparent btn-sm" onclick="listTodosEmp()">listar todos </button>
-            <button class="btn btn-inverse btn-transparent btn-sm" >listar activos </button>
-            <button class="btn btn-inverse btn-transparent btn-sm" >listar inactivos </button>
-        </div>
         <div class="panel-body">
+            <div class="panel-tools fully color" align="left"  data-toolscolor="#6CC3A0" >
+                <button class="btn btn-theme-inverse btn-transparent " >Agregar </button>
+                <button class="btn btn-theme-inverse btn-transparent" onclick="listAreas()">listar  </button>
+            </div>
             <div class="table-responsive">
                 <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
                     <thead>

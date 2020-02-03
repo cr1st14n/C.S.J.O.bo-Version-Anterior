@@ -22,3 +22,10 @@ function ShowInfArea() {
     .addClass("md-flipHor")
     .modal("show");
 }
+function listAreas() {
+$.get("/C.S.J.O.bo/adm/area/list",
+  function (data) {
+   console.log(data) 
+  }
+);  
+  }

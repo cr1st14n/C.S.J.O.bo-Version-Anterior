@@ -81,7 +81,7 @@ class empleadoController extends Controller
                 return "ci ya registrado";
             }
         }
-        $resp = User::where('id', $request->input('idEdituser'))
+        return $resp = User::where('id', $request->input('idEdituser'))
             ->update([
                 'usu_ci' => $request->input('createUserCiUp'),
                 'usu_nombre' => $request->input('nombreUp'),

@@ -30,7 +30,7 @@
 
 </head>
 
-<body class="leftMenu nav-collapse in">
+<body class="leftMenu nav-collapse">
     <div id="wrapper">
         <div id="header">
 
@@ -51,7 +51,8 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                            <em><strong>Usuario Activo </strong>, {{ Auth::user()->usu_nombre }} - CI: {{ Auth::user()->usu_ci}} </em> <i class="dropdown-icon fa fa-angle-down"></i>
+                            <em><strong>Usuario Activo </strong>, {{ Auth::user()->usu_nombre }} - CI:
+                                {{ Auth::user()->usu_ci}} </em> <i class="dropdown-icon fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu pull-right icon-right arrow">
                             <li><a href="{{route('store_user_adm')}} "><i class="fa fa-user"></i> Perfil</a></li>
@@ -86,10 +87,18 @@
             </div>
         </div>
         <!-- //main-->
-        <nav id="menu" data-search="close">
+        <nav id="menu">
             <ul>
-                <li><a href="{{route('rrhh_tablero')}}"><i class="icon  fa fa-user "></i> Recursos Humanos</a></li>
-                <li><a href="{{route('rrhh_home')}}"><i class="icon  fa fa-plus-square"></i> Recepcion</a></li>
+                <li><a href="{{route('adm.Home')}}"><i class="icon  fa fa-user "></i> Inicio</a></li>
+                <li><a href="{{route('home-admRecep')}}"><i class="icon  fa fa-plus-square"></i> Recepcion</a></li>
+                <li><span><i class="icon  fa fa-briefcase"></i>RRHH</span>
+                    <ul>
+                        <li><a href="{{route('empleado_home')}}"> Personal </a></li>
+                        <li><a href=""> Subcidios </a></li>
+                        
+                    </ul>
+                <li><a href="{{route('home_area')}}"><i class="icon  fa fa-building-o"></i> Areas </a></li>
+                </li>
             </ul>
         </nav>
 
@@ -115,7 +124,7 @@
     <!-- Library Themes Customize-->
     <script type="text/javascript" src="{{ asset('assets/js/caplet.custom.js') }}"></script>
     <!-- Library Morris Chart-->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>3
     <script type="text/javascript" src="{{ asset('assets/plugins/morris/morris.js') }}"></script>
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/plugins/morris/morris.css') }}" />
 
@@ -125,6 +134,12 @@
 
 
     <!-- scripts propios del sistema-->
+    <script>
+        $('nav#menu').mmenu({
+            searchfield: false,
+            slidingSubmenus: false,
+        });
+    </script>
     @yield('scripts')
 
     <script type="text/javascript">

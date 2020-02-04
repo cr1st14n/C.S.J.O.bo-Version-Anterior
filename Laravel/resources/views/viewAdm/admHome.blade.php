@@ -24,7 +24,6 @@
                         <li> <strong>--</strong> -- </li>
                         <li> <strong>--</strong> -- </li>
                         <li> <strong>--</strong> -- </li>
-                        <li class="plan-action"> <a href="{{route('home-admRecep')}}" class="btn btn-theme-inverse">Ingresar</a> </li>
                 </ul>
         </div>
         
@@ -37,7 +36,6 @@
                         <li> <strong>// </strong> -- </li>
                         <li> <strong>// </strong> -- </li>
                         <li> <strong>// </strong> -- </li>
-                        <li class="plan-action"> <a href="{{route('rrhh_tablero')}}" class="btn  btn-theme-inverse">Ingresar</a> </li>
                 </ul>
         </div>
         

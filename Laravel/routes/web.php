@@ -97,6 +97,9 @@ Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function 
 		Route::get('edit', 'areaController@edit');
 		Route::get('update', 'areaController@update');
 		Route::get('destroy', 'areaController@destroy');
+
+		// ?-- new app
+		Route::get('list','areaController@list');
 	});
 	Route::group(['prefix' => '/reporte'], function () {
 		Route::get('home', 'HomeController@admReportHome')->name('admReportHome');

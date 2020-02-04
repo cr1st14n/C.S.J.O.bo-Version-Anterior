@@ -60,4 +60,9 @@ class areaController extends Controller
     public function homeArea(){
         return view('viewRRHH.viewAreas.homeAreas');
     }
+    
+    public function list()
+    {
+        return area::get();
+    }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.recHumLay')
+@extends('layouts.admLay2')
 @section('head1')
 @endsection
 @section('refUbi')

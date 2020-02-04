@@ -1,4 +1,10 @@
-function ShowInfArea() {
+function ShowInfArea(id) {
+  var data={id:id};
+  $.get("/C.S.J.O.bo/adm/area/show", data,
+    function (data) {
+     console.log(data); 
+    }
+  );
   var datosEMP = `Nomnbre del area: <strong>Administracion</strong><br>
                   Encargado: <strong>Lic claudia</strong><br>
                   # personal en el area: <strong>10</strong> <hr>
@@ -26,6 +32,23 @@ function listAreas() {
 $.get("/C.S.J.O.bo/adm/area/list",
   function (data) {
    console.log(data) 
+   list=data.map(function (e) { 
+     return `
+     <tr>
+        <td>COD-${e.id}</td>
+        <td valign="middle">${e.nombre}</td>
+        <td>${e.usu_appaterno} ${e.usu_nombre}</td>
+        <td><span class="label label-success">${e.cant_usuarios}</span></td>
+        <td>
+            <span class="tooltip-area">
+            <button onclick="ShowInfArea(${e.id})" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-bullseye"></i></button>
+            <button class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></button>
+            </span>
+        </td>
+      </tr>
+     `;
+    }).join(" ");
+    $('#tableListAreas').html(list);
   }
 );  
   }

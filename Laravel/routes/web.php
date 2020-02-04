@@ -92,13 +92,13 @@ Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function 
 		Route::get('index', 'areaController@index')->name('formNewArea');
 		Route::post('create', 'areaController@create')->name('createArea');
 		Route::get('store', 'areaController@store');
-		Route::get('show', 'areaController@show');
 		Route::get('showAll', 'areaController@showAll');
 		Route::get('edit', 'areaController@edit');
 		Route::get('update', 'areaController@update');
 		Route::get('destroy', 'areaController@destroy');
-
+		
 		// ?-- new app
+		Route::get('show', 'areaController@show');
 		Route::get('list','areaController@list');
 	});
 	Route::group(['prefix' => '/reporte'], function () {

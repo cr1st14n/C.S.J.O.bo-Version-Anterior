@@ -24,11 +24,11 @@
                         <th>Cod</th>
                         <th>Nombre del area</th>
                         <th>Encargado</th>
-                        <th>Empleados asignados al area</th>
+                        <th width="15%">Empleados asignados al area</th>
                         <th width="15%">Action</th>
                     </tr>
                     </thead>
-                    <tbody align="center" id="tableUser">
+                    <tbody align="center" id="tableListAreas">
                     <tr>
                         <td>DIR</td>
                         <td valign="middle">Direccion</td>

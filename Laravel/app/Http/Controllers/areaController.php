@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\area;
+use App\User;
+use App\usuContrato;
 
 class areaController extends Controller
 {
@@ -57,12 +59,27 @@ class areaController extends Controller
         ]);
     }
 
-    public function homeArea(){
+    public function homeArea()
+    {
         return view('viewRRHH.viewAreas.homeAreas');
     }
     
     public function list()
     {
-        return area::get();
+        $list= area::join('users as us','us.id','area.ar_id_encargado')
+        ->select('area.*' )
+        ->addSelect('us.usu_appaterno','us.usu_nombre')        
+        ->get();
+        foreach ($list as $l) {
+            $cont=usuContrato::where('uc_area',$l->nombre)->where('uc_estado',1)->count();
+            array_add($l,'cant_usuarios',$cont);
+        }
+        return $list;
+    }
+    public function show (Request $request)
+    {
+        $s=area::where('id',$request->input('id'))->first();
+        array_add($s,'usu_encargado',(User::where('id')));
+        return $s;
     }
 }

@@ -2,19 +2,26 @@ function ShowInfArea(id) {
   var data={id:id};
   $.get("/C.S.J.O.bo/adm/area/show", data,
     function (data) {
-     console.log(data); 
+     console.log(data);
+     var tipEmp=data.contratos.map(function (e) { return `
+     Personal - ${e.uc_tipoContrato} : <strong> ${e.total} </strong><br>
+     ` }).join(" ");
+     var datosEMP = `Nomnbre del area: <strong>${data.nombre}</strong><br>
+     Encargado: <strong>${data.area_encargado}</strong><br>
+     # personal en el area: <strong>${data.cantidaPersonal}</strong> <hr>
+     ${tipEmp}
+     `;
+     document.getElementById("datosEmp").innerHTML = datosEMP;
+
+     var html2 = data.personal.map(function (e) { 
+     return `
+      * ${e.usu_nombre} ${e.usu_appaterno}. Contrato: ${e.uc_tipoContrato}<br>
+     `;
+      }).join(" ") 
+  document.getElementById("datosInst").innerHTML = html2;
     }
   );
-  var datosEMP = `Nomnbre del area: <strong>Administracion</strong><br>
-                  Encargado: <strong>Lic claudia</strong><br>
-                  # personal en el area: <strong>10</strong> <hr>
-                   Personal de planta: <strong>2</strong><br>
-                   Personal de Eventual: <strong>5</strong><br>
-                   Estudiante segun Convenio: <strong>7</strong><br>
-                   Voluntario: <strong>3</strong><br>
-                   Otros: <strong>3</strong><br>
-                  `;
-  document.getElementById("datosEmp").innerHTML = datosEMP;
+ 
   var html2 = `   Nombre de personal en el area<br>
                   1 personal<br>
                   2 personal<br>
@@ -25,7 +32,6 @@ function ShowInfArea(id) {
   document.getElementById("datosInst").innerHTML = html2;
 
   $("#md-InfArea")
-    .addClass("md-flipHor")
     .modal("show");
 }
 function listAreas() {
@@ -52,3 +58,7 @@ $.get("/C.S.J.O.bo/adm/area/list",
   }
 );  
   }
+
+  function formCreateArea() {
+    $('#md-createArea').modal('show');
+    }

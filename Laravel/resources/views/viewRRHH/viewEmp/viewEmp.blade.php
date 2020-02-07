@@ -460,7 +460,7 @@
                     <div class="form-group">
                         <label class="control-label">Tipo de Contrato:</label>
                         <div>
-                            <select class="form-control" name="" id="contratoUp">
+                            <select class="form-control"  id="contratoUp">
                                 <option value="indefinido">Indefinido</option>
                                 <option value="eventual">Eventual</option>
                                 <option value="verbal">Verbal</option>
@@ -491,7 +491,7 @@
                     <div class="form-group">
                         <label class="control-label" for="inputTwo">Cargo a designar:</label>
                         <div>
-                            <select class="form-control" name="" id="cargoUP">
+                            <select class="form-control"   id="cargoUP">
                                 <option value="encargado">Encargado</option>
                                 <option value="operador">Operador</option>
                             </select>

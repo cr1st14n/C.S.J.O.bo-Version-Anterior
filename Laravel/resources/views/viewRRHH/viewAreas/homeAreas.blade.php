@@ -172,71 +172,60 @@
         </div>
     </div>
 </div>
-<div id="md-createArea" class="modal fade md-stickTop " tabindex="-1" data-width="800">
+<div id="md-createArea" class="modal fade md-stickTop " tabindex="-1" data-width="400">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-        <h3>Registrar nueva area</h3>
+        <h2><strong>Registrar </strong>Area</h2>
+
     </div>
     <div class="modal-body">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <form id="form-createArea">
                     <section class="panel corner-flip">
-                        <header class="panel-heading sm" data-color="theme-inverse">
-                            <h2><strong>Registrar </strong> Nueva Area</h2>
-
-                        </header>
+                       
                         <div class="panel-tools color" align="right" data-toolscolor="#4EA582">
                         </div>
                         <div class="panel-body">
-                            <div class="form-horizontal" data-collabel="3" data-alignlabel="center">
-                                <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
+                            <div class="form-horizontal" data-collabel="4" data-alignlabel="center">
+                                <div class="form-group">
                                     <label for="nombre" class="col-md-4 control-label">Nombre</label>
                                     <div class="col-md-6">
-                                        <input id="nombre" type="text" class="form-control rounded" name="nombre" value="{{ old('nombre') }}" maxlength="50" data-always-show="true">
-                                        @if ($errors->has('nombre'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('nombre') }}</strong>
-                                        </span>
-                                        @endif
-
+                                        <input id="nombre" type="text" class="form-control rounded" name="nombre" autocomplete="off" maxlength="50" data-always-show="true">
                                     </div>
                                 </div>
-                                <div class="form-group{{ $errors->has('descripcion') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label class="control-label">Descripcion </label>
                                     <div>
-                                        <input id="descripcion" name="descripcion" value="{{ old('descripcion') }}" type="text" class="form-control rounded" maxlength="200" data-always-show="false">
-                                        @if ($errors->has('descripcion'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('descripcion') }}</strong>
-                                        </span>
-                                        @endif
+                                        <input id="descripcion" name="descripcion" type="text" class="form-control rounded" maxlength="200" data-always-show="false">
                                     </div>
                                 </div>
-                                <div class="form-group{{ $errors->has('area') ? ' has-error' : '' }}">
+                                <div class="form-group">
+                                    <label class="control-label">Personal Encargado</label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <select id="area" name="area" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
+                                                <option selected="true" disabled="disabled"></option>
+
+                                                <option value="Administrativa">pedro</option>
+                                                <option value="Salud">marta</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label">Area medica</label>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-8">
                                             <select id="area" name="area" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
                                                 <option selected="true" disabled="disabled"></option>
 
                                                 <option value="Administrativa">Administrativa</option>
                                                 <option value="Salud">Salud</option>
                                             </select>
-                                            @if ($errors->has('area'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('area') }} <br> selccione un tipo de area</strong>
-                                            </span>
-                                            @endif
-
                                         </div>
                                     </div>
-
                                 </div>
-
-
-
-
                                 <footer class="panel-footer">
                                     <button type="submit" class="btn btn-theme">Registrar</button>
                                     <button type="reset" class="btn" onclick="clearForm(this.form);"> Limpiar Formulario</button>

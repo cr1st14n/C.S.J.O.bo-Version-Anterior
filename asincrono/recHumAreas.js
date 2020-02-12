@@ -1,3 +1,7 @@
+$('#form-createArea').on('submit', function (e) {
+  e.preventDefault();
+  createArea();
+});
 function ShowInfArea(id) {
   var data={id:id};
   $.get("/C.S.J.O.bo/adm/area/show", data,
@@ -60,5 +64,38 @@ $.get("/C.S.J.O.bo/adm/area/list",
   }
 
   function formCreateArea() {
+    $('#form-createArea').trigger('reset');
+    $.get("Areas/listUsuarios",
+      function (data, textStatus, jqXHR) {
+       console.log(data)
+       var listUsu=data.map(function (e) {
+         return `
+         <option value="${e.id}">${e.usu_nombre} ${e.usu_appaterno} -  ${e.di_profecion}</option>
+         `;
+         }).join(' ');
+         $('#area_usuEncargado').html(listUsu); 
+      }
+    );
     $('#md-createArea').modal('show');
+
     }
+  function createArea() {
+   var dat={
+			_token: $('meta[name=csrf-token]').attr('content'),
+     nombre:$('#area_nombre').val(),
+     descripcion:$('#area_descripcion').val(),
+     usuEncargado:$('#area_usuEncargado').val(),
+     area_tipo:$('#area_tipo').val(),
+   }
+   $.post("Areas/create", dat,
+     function (data) {
+       console.log(data);
+       if (data) {
+         $('#btn_formCreate_close').click();
+         notif('1','Area registrada');
+        } else {
+          notif('2','Error de registro, Vuelva a intentarlo!');
+       }
+     }
+   );
+  }

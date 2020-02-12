@@ -115,6 +115,15 @@ function createUser(tip) {
 	}
 }
 function showModalCreateUser2() {
+	$.get("personal/showEmpTodos",
+		function (data) {
+			console.log(data);
+			var htmlList=data.map(function (e) {
+				return `
+				`;
+			  })
+		}
+	);
 	$('#formulario2').trigger('reset');
 	$('#md-createUser2').modal('show');
 }

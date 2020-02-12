@@ -174,7 +174,7 @@
 </div>
 <div id="md-createArea" class="modal fade md-stickTop " tabindex="-1" data-width="400">
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times" id="btn_formCreate_close"></i></button>
         <h2><strong>Registrar </strong>Area</h2>
 
     </div>
@@ -182,8 +182,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <form id="form-createArea">
-                    <section class="panel corner-flip">
-                       
+                    <section class="panel ">
+
                         <div class="panel-tools color" align="right" data-toolscolor="#4EA582">
                         </div>
                         <div class="panel-body">
@@ -191,24 +191,21 @@
                                 <div class="form-group">
                                     <label for="nombre" class="col-md-4 control-label">Nombre</label>
                                     <div class="col-md-6">
-                                        <input id="nombre" type="text" class="form-control rounded" name="nombre" autocomplete="off" maxlength="50" data-always-show="true">
+                                        <input id="area_nombre" type="text" class="form-control rounded" autocomplete="off" maxlength="50" data-always-show="true" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Descripcion </label>
                                     <div>
-                                        <input id="descripcion" name="descripcion" type="text" class="form-control rounded" maxlength="200" data-always-show="false">
+                                        <input id="area_descripcion" type="text" class="form-control rounded" maxlength="200" data-always-show="false" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Personal Encargado</label>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <select id="area" name="area" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
-                                                <option selected="true" disabled="disabled"></option>
-
-                                                <option value="Administrativa">pedro</option>
-                                                <option value="Salud">marta</option>
+                                            <select id="area_usuEncargado" class=" form-control show-menu-arrow" data-style="btn-theme-inverse" required>
+                                                
                                             </select>
                                         </div>
                                     </div>
@@ -217,7 +214,7 @@
                                     <label class="control-label">Area medica</label>
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <select id="area" name="area" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
+                                            <select id="area_tipo" class=" form-control show-menu-arrow" data-style="btn-theme-inverse" required>
                                                 <option selected="true" disabled="disabled"></option>
 
                                                 <option value="Administrativa">Administrativa</option>
@@ -226,13 +223,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <footer class="panel-footer">
-                                    <button type="submit" class="btn btn-theme">Registrar</button>
-                                    <button type="reset" class="btn" onclick="clearForm(this.form);"> Limpiar Formulario</button>
-                                </footer>
                             </div>
                         </div>
                     </section>
+                    <footer class="panel-footer">
+                        <button type="submit" class="btn btn-theme-inverse">Registrar</button>
+                        <button type="reset" class="btn" onclick="clearForm(this.form);"> Limpiar Formulario</button>
+                    </footer>
                 </form>
             </div>
 

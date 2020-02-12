@@ -245,5 +245,7 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 	});
 	Route::group(['prefix' => 'Areas'], function () {
 		Route::get('/', 'areaController@homeArea')->name('home_area');
+		Route::get('listUsuarios', 'areaController@listUsuarios');
+		Route::post('create', 'areaController@create');
 	});
 });

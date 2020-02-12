@@ -23,40 +23,25 @@ class areaController extends Controller
     {
         return view('viewAdm.FormRegistroArea');
     }
+    public function listUsuarios()
+    {
+        return User::join('user_datos_insts as ud','ud.cod_usu','users.id')
+        ->select('users.id','usu_nombre','usu_appaterno','usu_apmaterno','di_profecion')
+        ->get();
+    }
     public function create(Request $request)
     {
-        $this->validator($request->all())->validate();
-
-        $data = Request()->all();
-        $area = new area;
-        $area->nombre = $data["nombre"];
-        $area->descripcion = $data["descripcion"];
-        $area->tipo = $data["area"];
-
-        $resul = $area->save();
-        if ($resul) {
-            \Session::flash('flash_message_correcto', 'Area creada exitosamente.');
-            //return view("mensajes.msj_correcto")->with("msj","Usuario Registrado Correctamente");   
-        } else {
-            \Session::flash('flash_message_rechazado', 'Huvo un error al crear el Area vuelva a intentarlo');
-            // return view("mensajes.msj_rechazado")->with("msj","hubo un error vuelva a intentarlo");  
-
-        }
-        //event(new Registered($user = $this->create($request->all())));
-        //ingreso luego del registro  $this->guard()->login($user);      
-        return redirect()->route('formNewArea');
+        // return 'hola';
+        $ar=new area;
+        $ar->nombre= $request->input('nombre');
+        $ar->descripcion=$request->input('descripcion');
+        $ar->tipo= $request->input('area_tipo');
+        $ar->ar_id_encargado=$request->input('usuEncargado');
+        $area= $ar->save();
+        // return $area;
+        if($area){return 1;}else{return 0;}
     }
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-
-            'nombre' => ' required|string|max:50|unique:area',
-            'descripcion' => 'string|max:200|nullable',
-            'area' => 'required|string|max:20',
-
-        ]);
-    }
-
+    
     public function homeArea()
     {
         return view('viewRRHH.viewAreas.homeAreas');

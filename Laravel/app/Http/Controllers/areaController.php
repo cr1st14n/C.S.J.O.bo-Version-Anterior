@@ -76,4 +76,10 @@ class areaController extends Controller
         array_add($area, 'personal', $personal);
         return $area;
     }
+
+    // * listar areas disponibles
+    public function listAreas()
+    {
+        return area::get();
+    }
 }

@@ -207,6 +207,7 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 		Route::post('createUser', 'empleadoController@createUser');
 		Route::post('revCiEmail', 'empleadoController@revCiEmail');
 		Route::post('destroy', 'empleadoController@destroy');
+		Route::get('listAreasDisponibles','areaController@listAreas');
 		//* rutas permisos de personal
 		Route::group(['prefix' => 'permiso'], function () {
 			Route::post('create', 'PermisosController@create');

@@ -92,6 +92,7 @@ $.get("/C.S.J.O.bo/adm/area/list",
        console.log(data);
        if (data) {
          $('#btn_formCreate_close').click();
+         listAreas();
          notif('1','Area registrada');
         } else {
           notif('2','Error de registro, Vuelva a intentarlo!');

@@ -92,13 +92,13 @@ Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function 
 		Route::get('index', 'areaController@index')->name('formNewArea');
 		Route::post('create', 'areaController@create')->name('createArea');
 		Route::get('store', 'areaController@store');
-		Route::get('show', 'areaController@show');
 		Route::get('showAll', 'areaController@showAll');
 		Route::get('edit', 'areaController@edit');
 		Route::get('update', 'areaController@update');
 		Route::get('destroy', 'areaController@destroy');
-
+		
 		// ?-- new app
+		Route::get('show', 'areaController@show');
 		Route::get('list','areaController@list');
 	});
 	Route::group(['prefix' => '/reporte'], function () {
@@ -207,6 +207,7 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 		Route::post('createUser', 'empleadoController@createUser');
 		Route::post('revCiEmail', 'empleadoController@revCiEmail');
 		Route::post('destroy', 'empleadoController@destroy');
+		Route::get('listAreasDisponibles','areaController@listAreas');
 		//* rutas permisos de personal
 		Route::group(['prefix' => 'permiso'], function () {
 			Route::post('create', 'PermisosController@create');
@@ -245,5 +246,7 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 	});
 	Route::group(['prefix' => 'Areas'], function () {
 		Route::get('/', 'areaController@homeArea')->name('home_area');
+		Route::get('listUsuarios', 'areaController@listUsuarios');
+		Route::post('create', 'areaController@create');
 	});
 });

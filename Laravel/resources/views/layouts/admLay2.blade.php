@@ -95,7 +95,7 @@
                     <ul>
                         <li><a href="{{route('empleado_home')}}"> Personal </a></li>
                         <li><a href=""> Subcidios </a></li>
-                        
+
                     </ul>
                 <li><a href="{{route('home_area')}}"><i class="icon  fa fa-building-o"></i> Areas </a></li>
                 </li>
@@ -134,6 +134,7 @@
 
 
     <!-- scripts propios del sistema-->
+    <script type="text/javascript" src="{{ asset('/asincrono/homeJs.js') }}"></script>
     <script>
         $('nav#menu').mmenu({
             searchfield: false,

@@ -115,6 +115,17 @@ function createUser(tip) {
 	}
 }
 function showModalCreateUser2() {
+	$.get("personal/listAreasDisponibles",
+		function (data) {
+			console.log(data);
+			var htmlList=data.map(function (e) {
+				return `
+				<option value="${e.nombre}">${e.nombre}</option>
+				`;
+			  }).join(' ');
+			  $('#areaDesignada').html(htmlList);
+		}
+	);
 	$('#formulario2').trigger('reset');
 	$('#md-createUser2').modal('show');
 }

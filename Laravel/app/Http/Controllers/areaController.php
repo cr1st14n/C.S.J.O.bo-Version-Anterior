@@ -29,6 +29,18 @@ class areaController extends Controller
         ->select('users.id','usu_nombre','usu_appaterno','usu_apmaterno','di_profecion')
         ->get();
     }
+    public function listUsuAreaAgregar(Request $request)
+    {
+        $nomArea=area::where('id',$request->input('id'))->value('nombre');
+        return User::join('usu_contratos as uc','uc.cod_usu','users.id')
+        ->where('uc.uc_estado',1)
+        ->where('uc.uc_area','!=',$nomArea)
+        ->get();
+    }
+    public function usuAreaCambio(Request $request)
+    {
+        
+    }
     public function create(Request $request)
     {
         // return 'hola';

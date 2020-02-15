@@ -34,10 +34,11 @@
         </div>
     </div>
 </section>
-<div id="md-InfArea" class="modal fade md-flipHor" tabindex="-1" data-width="800">
+<div id="md-InfArea" class="modal fade md-stickTop" tabindex="-1" data-width="800">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Informacion del area</h3>
+        <input type="number" id="id_inf_area" hidden>
     </div>
     <div class="modal-body">
         <div class="row">
@@ -48,8 +49,30 @@
             <div class="col-lg-6">
                 <h3>Personal en el area</h3><br>
                 <p id="datosInst"></p>
+                <div>
+                    <button class="btn btn-block btn-theme-inverse btn-sm" onclick="showModalAreaAgreUsu()">Agregar Personal</button>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+<div id="md_area_argregarPersonal" class="modal fade md-stickTop" tabindex="-1" data-width="600">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h3>Lista de personal </h3>
+    </div>
+    <div class="modal-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="text-align:left">Nombre</th>
+                    <th style="text-align:left">Area asignada</th>
+                    <th style="text-align:left"></th>
+                </tr>
+            </thead>
+            <tbody id="area_list_pers_agregar">
+            </tbody>
+        </table>
     </div>
 </div>
 <div id="md-createArea" class="modal fade md-stickTop " tabindex="-1" data-width="400">
@@ -85,7 +108,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <select id="area_usuEncargado" class=" form-control show-menu-arrow" data-style="btn-theme-inverse" required>
-                                                
+
                                             </select>
                                         </div>
                                     </div>

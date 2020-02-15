@@ -4,6 +4,7 @@ $('#form-createArea').on('submit', function (e) {
 });
 function ShowInfArea(id) {
   var data={id:id};
+  $('#id_inf_area').val(id);
   $.get("/C.S.J.O.bo/adm/area/show", data,
     function (data) {
      console.log(data);
@@ -100,3 +101,33 @@ $.get("/C.S.J.O.bo/adm/area/list",
      }
    );
   }
+  function showModalAreaAgreUsu() {
+    var data={id:$('#id_inf_area').val()}
+    $.get("Areas/listUsuAreaAgregar",data, 
+      function (data) {
+       console.log(data); 
+        var listHtml=data.map(function (e) {
+          return`
+          <tr>
+              <td>${e.usu_nombre} ${e.usu_appaterno} </td>
+              <td>${e.uc_area} </td>
+              <td><button class="btn btn-theme-inverse btn-sm " onClick="cambioAreaUsuario(${e.cod_usu})">Agregar </button></td>
+          </tr>
+          `;
+          }).join(' ');
+          $('#area_list_pers_agregar').html(listHtml);
+      }
+    );
+    $('#md_area_argregarPersonal').modal('show');
+    }
+    function cambioAreaUsuario(id) {
+      console.log(id);
+      var data={
+			  _token: $('meta[name=csrf-token]').attr('content'),
+        id:id}
+      $.post("Areas/usuAreaCambio", data,
+        function (data) {
+          
+        }
+      );
+      }

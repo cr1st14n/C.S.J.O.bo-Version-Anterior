@@ -75,6 +75,25 @@
         </table>
     </div>
 </div>
+<div id="md_area_asignarUsuEncargado" class="modal fade md-stickTop" tabindex="-1" data-width="500">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h3>Sleccionar encargado de area</h3>
+    </div>
+    <div class="modal-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="text-align:left">Nombre</th>
+                    <th style="text-align:left">Tipo contrato</th>
+                    <th style="text-align:left"></th>
+                </tr>
+            </thead>
+            <tbody id="list_asignarUsuEncargado">
+            </tbody>
+        </table>
+    </div>
+</div>
 <div id="md-createArea" class="modal fade md-stickTop " tabindex="-1" data-width="400">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times" id="btn_formCreate_close"></i></button>

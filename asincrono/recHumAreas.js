@@ -48,8 +48,8 @@ $.get("/C.S.J.O.bo/adm/area/list",
      <tr>
         <td>COD-${e.id}</td>
         <td valign="middle">${e.nombre}</td>
-        <td>${e.usu_appaterno} ${e.usu_nombre}</td>
-        <td><span class="label label-success">${e.cant_usuarios}</span></td>
+        <td align="left"> <button onClick="areaActualizarUsuEncargado(${e.id})" class="btn btn-theme-inverse btn-transparent btn-sm title="Asignar nuevo encargado" ><i class="fa fa-user"></i></button> ${e.usu_appaterno} ${e.usu_nombre} </td>
+        <td><span class="label label-success">${e.cant_usuarios} </span></td>
         <td>
             <span class="tooltip-area">
             <button onclick="ShowInfArea(${e.id})" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-bullseye"></i></button>
@@ -124,10 +124,42 @@ $.get("/C.S.J.O.bo/adm/area/list",
       console.log(id);
       var data={
 			  _token: $('meta[name=csrf-token]').attr('content'),
-        id:id}
+        id:id,area:$('#id_inf_area').val()}
       $.post("Areas/usuAreaCambio", data,
         function (data) {
-          
+          if (data==1) {
+            notif('1','Usuario Agregado');
+            showModalAreaAgreUsu();
+            listAreas();
+            ShowInfArea($('#id_inf_area').val());
+          } else {
+            notif('2','Error, Vueva a intentarlo!')
+          }
         }
       );
+      }
+    function areaActualizarUsuEncargado(id) {
+      console.log(id);
+      var data={id:id};
+      $.getJSON("Areas/listUsuAreaCambUsu", data,
+        function (data) {
+          console.log(data);
+          var html=data['usu'].map(function (e) { 
+            return `
+            <tr>
+                <td>${e.usu_nombre} ${e.usu_appaterno} </td>
+                <td>${e.uc_tipoContrato} </td>
+                <td><button class="btn btn-theme-inverse btn-sm " onClick="areaActUsuEncargado(${e.cod_usu})">Agregar </button></td>
+            </tr>
+            `;
+           }).join(" ");
+           $('#md_area_asignarUsuEncargado').modal('show');
+           $('#list_asignarUsuEncargado').html(html);
+        }
+      );
+    }
+
+    function areaActUsuEncargado(usu) {
+      console.log(usu);
+      // console.log(area);
       }

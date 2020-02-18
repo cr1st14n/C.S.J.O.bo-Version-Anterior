@@ -53,7 +53,7 @@ $.get("/C.S.J.O.bo/adm/area/list",
         <td>
             <span class="tooltip-area">
             <button onclick="ShowInfArea(${e.id})" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-bullseye"></i></button>
-            <button class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></button>
+            <button class="btn btn-default btn-sm" onClick="deleteArea(${e.id})" title="Delete"><i class="fa fa-trash-o"></i></button>
             </span>
         </td>
       </tr>
@@ -149,10 +149,12 @@ $.get("/C.S.J.O.bo/adm/area/list",
             <tr>
                 <td>${e.usu_nombre} ${e.usu_appaterno} </td>
                 <td>${e.uc_tipoContrato} </td>
-                <td><button class="btn btn-theme-inverse btn-sm " onClick="areaActUsuEncargado(${e.cod_usu})">Agregar </button></td>
+                <td><button class="btn btn-theme-inverse btn-sm " onClick="areaActUsuEncargado(${e.id})">Agregar </button></td>
             </tr>
             `;
            }).join(" ");
+           $('#id_area_actualizarEncargado').val("");
+           $('#id_area_actualizarEncargado').val(data.area);
            $('#md_area_asignarUsuEncargado').modal('show');
            $('#list_asignarUsuEncargado').html(html);
         }
@@ -160,6 +162,27 @@ $.get("/C.S.J.O.bo/adm/area/list",
     }
 
     function areaActUsuEncargado(usu) {
-      console.log(usu);
-      // console.log(area);
+      var id_usu=usu;
+      var id_area=$('#id_area_actualizarEncargado').val();
+      if (id_usu > 0 && id_area > 0) {
+      var data={_token: $('meta[name=csrf-token]').attr('content'),id_usu:id_usu,id_area:id_area};
+        $.post("Areas/updateUsuEncargado", data,
+          function (data) {
+           console.log(data);
+           if (data==1) {
+             notif('1','Encaragado actualizdo!');
+             $('#btn-close_md_area_asignarUsuEncargado').click();
+             listAreas();
+           } else {
+             
+           } 
+          }
+        );
+      } else {
+        console.log('fail')
       }
+      }
+
+      function deleteArea(id_area) {
+        console.log(id_area)
+        }

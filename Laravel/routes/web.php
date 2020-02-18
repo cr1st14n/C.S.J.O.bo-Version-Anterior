@@ -251,5 +251,6 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 		Route::get('listUsuAreaCambUsu', 'areaController@listUsuAreaCambUsu');
 		Route::post('usuAreaCambio', 'areaController@usuAreaCambio');
 		Route::post('create', 'areaController@create');
+		Route::post('updateUsuEncargado', 'areaController@updateUsuEncargado');
 	});
 });

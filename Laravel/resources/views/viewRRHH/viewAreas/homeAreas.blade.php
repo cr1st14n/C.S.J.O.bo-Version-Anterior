@@ -77,8 +77,9 @@
 </div>
 <div id="md_area_asignarUsuEncargado" class="modal fade md-stickTop" tabindex="-1" data-width="500">
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <button type="button" id="btn-close_md_area_asignarUsuEncargado" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
         <h3>Sleccionar encargado de area</h3>
+        <input type="number" id="id_area_actualizarEncargado">
     </div>
     <div class="modal-body">
         <table class="table table-striped">
@@ -157,6 +158,20 @@
 
         </div>
     </div>
+</div>
+<!-- delete area -->
+<div id="md-user-delete" class="modal fade md-stickTop" tabindex="-1" data-width="350">
+    <div class="modal-header bg-inverse bd-inverse-darken">
+        <button type="button" class="close" data-dismiss="modal" id="btn-md-user-delete" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title">Confirmar Solicitud Eliminar Area?</h4>
+    </div>
+    <!-- //modal-header-->
+    <div class="modal-body">
+        <label id="message-delete"></label>
+        <div class="panel-body align-xs-center " id="btn-user-delete">
+        </div>
+    </div>
+    <!-- //modal-body-->
 </div>
 @endsection
 @section('scripts')

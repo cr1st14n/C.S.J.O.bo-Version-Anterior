@@ -45,7 +45,7 @@ class areaController extends Controller
     }
     public function listUsuAreaCambUsu(Request $request)
     {
-        $usuarios= user::select('usu_nombre','usu_appaterno')
+        $usuarios= user::select('usu_nombre','usu_appaterno','users.id')
         ->join('usu_contratos as uc','uc.cod_usu','users.id')->where('uc.uc_estado',1)
         ->addSelect('uc.uc_tipoContrato')
         ->get();
@@ -79,6 +79,7 @@ class areaController extends Controller
         $list = area::join('users as us', 'us.id', 'area.ar_id_encargado')
             ->select('area.*')
             ->addSelect('us.usu_appaterno', 'us.usu_nombre')
+            ->orderBy('id','asc')
             ->get();
         foreach ($list as $l) {
             $cont = usuContrato::where('uc_area', $l->nombre)->where('uc_estado', 1)->count();
@@ -108,5 +109,16 @@ class areaController extends Controller
     public function listAreas()
     {
         return area::get();
+    }
+
+    //* actualizar encargado de area
+    public function updateUsuEncargado(Request $request)
+    {
+       if ($request->input('id_usu')>0 && $request->input('id_area')>0) {
+           return area::where('id',$request->input('id_area'))->update(['ar_id_encargado'=>$request->input('id_usu')]);
+       } else {
+           return 'fail';
+       }
+        
     }
 }

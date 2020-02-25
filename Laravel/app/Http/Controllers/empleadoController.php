@@ -35,7 +35,8 @@ class empleadoController extends Controller
             ->join('usu_contratos as uco', 'uco.cod_usu', 'users.id')
             ->addSelect('uco.uc_area', 'uc_estado')->where('uc_estado', 1)
             ->join('user_datos_insts as udi', 'users.id', 'udi.cod_usu')
-            ->addSelect('udi.di_profecion')->orderBy('created_at', 'desc')->get();
+            ->addSelect('udi.di_profecion')->orderBy('created_at', 'desc')
+            ->get();
     }
     function showDatosEmp($id)
     {
@@ -241,24 +242,24 @@ class empleadoController extends Controller
             return "false";
         }
     }
-    function FunctionName(Request $request)
-    {
-        $nuC = usuContrato::where('cod_usu',)->update([
-            'uc_fechaInicio' => $request->input('fechaContratacion'),
-            'uc_tipoContrato' => $request->input('contrato'),
-            'uc_nroContrato' => 1,
-            'uc_estado' => 1,
-            'uc_area' => $request->input('areaDesignada'),
-            'uc_cargoDesignado' => $request->input('cargo'),
-            'ca_usu_cod' => Auth::user()->usu_ci,
-            'ca_tipo' => 'create',
-            'ca_fecha' => Carbon::now()->format('Y-m-d'),
-            'ca_estado' => 1
-        ]);
-        if ($nuC) {
-            return "succes";
-        }
-    }
+    // function FunctionName(Request $request)
+    // {
+    //     $nuC = usuContrato::where('cod_usu',)->update([
+    //         'uc_fechaInicio' => $request->input('fechaContratacion'),
+    //         'uc_tipoContrato' => $request->input('contrato'),
+    //         'uc_nroContrato' => 1,
+    //         'uc_estado' => 1,
+    //         'uc_area' => $request->input('areaDesignada'),
+    //         'uc_cargoDesignado' => $request->input('cargo'),
+    //         'ca_usu_cod' => Auth::user()->usu_ci,
+    //         'ca_tipo' => 'create',
+    //         'ca_fecha' => Carbon::now()->format('Y-m-d'),
+    //         'ca_estado' => 1
+    //     ]);
+    //     if ($nuC) {
+    //         return "succes";
+    //     }
+    // }
     function destroy(Request $request)
     {
         $res1 = userDatosInst::where('cod_usu', $request->input('id'))->delete();

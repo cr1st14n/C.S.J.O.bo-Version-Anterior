@@ -205,13 +205,11 @@
                         </div>
                     </div>
                     <hr>
+                    <h5 align="center"><span>Area y cargo designado dentro la institucion</span></h5><br>
                     <div class="form-group">
                         <label class="control-label">Area Designada:</label>
                         <div>
                             <select class="form-control" name="" id="areaDesignada">
-                                <option value="administracion">Administracion</option>
-                                <option value="contabilidad">Contabilidad</option>
-                                <option value="recepcion">Recepcion</option>
                             </select>
                         </div>
                     </div>
@@ -220,7 +218,7 @@
                         <div>
                             <select class="form-control" name="" id="cargo">
                                 <option value="encargado">Encargado</option>
-                                <option value="operador">Operador</option>
+                                <option value="operador" selected>Operador</option>
                             </select>
                         </div>
                     </div>
@@ -228,6 +226,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
+                        <h5 align="center"><span>Detalle de acceso al sistema WEB CSJO</span></h5><br>
                         <label class="control-label">Modulo del sistema Web</label>
                         <div>
                             <select id="accModSis" class="form-control">

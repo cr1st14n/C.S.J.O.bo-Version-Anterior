@@ -370,17 +370,10 @@
                         <label class="control-label">Sexo</label>
                         <div>
                             <label class="radio-inline">
-<<<<<<< Updated upstream
-                                <input type="radio" name="sexoUp" id="sexoUp1" value="masculino" >
-                                Masculino </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="sexoUp" id="sexoUp2" value="femenino">
-=======
                                 <input type="radio" name="sexoUp" id="sexo1Up" value="masculino" checked>
                                 Masculino </label>
                             <label class="radio-inline">
                                 <input type="radio" name="sexoUp" id="sexo2Up" value="femenino">
->>>>>>> Stashed changes
                                 Femenino </label>
                         </div>
                     </div>

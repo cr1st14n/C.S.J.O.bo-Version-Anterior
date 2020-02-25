@@ -233,7 +233,8 @@ function showDatosEmp(id) {
 			document.getElementById('datosEmp').innerHTML = datosEMP;
 			var html2 = `
                 Fecha de contratacion: <strong>${moment(elem[1].uc_fechaInicio).format('DD-MM-YYYY')}</strong><br>
-                Titulo: <strong>${elem[0].di_titulo}</strong><br><hr>
+                Titulo: <strong>${elem[0].di_titulo}</strong><br>
+                Profecion: <strong>${elem[0].di_profecion}</strong><br><hr>
                 Area : <strong>${elem[0].usu_area}</strong><br>
                 Cargo: <strong>${elem[1].uc_cargoDesignado} </strong><br>
                 Tipo de Contrato: <strong>${elem[1].uc_tipoContrato}</strong><br><hr>

@@ -247,6 +247,12 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 	Route::group(['prefix' => 'Areas'], function () {
 		Route::get('/', 'areaController@homeArea')->name('home_area');
 		Route::get('listUsuarios', 'areaController@listUsuarios');
+		Route::get('listUsuAreaAgregar', 'areaController@listUsuAreaAgregar');
+		Route::get('listUsuAreaCambUsu', 'areaController@listUsuAreaCambUsu');
+		Route::post('usuAreaCambio', 'areaController@usuAreaCambio');
 		Route::post('create', 'areaController@create');
+		Route::post('updateUsuEncargado', 'areaController@updateUsuEncargado');
+		Route::post('delete', 'areaController@delete');
+		Route::post('destroy', 'areaController@destroy');
 	});
 });

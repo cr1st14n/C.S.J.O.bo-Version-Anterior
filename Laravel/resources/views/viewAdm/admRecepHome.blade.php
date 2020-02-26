@@ -257,7 +257,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="align-lg-center ">
-                            <input class="form-control" type="number" name="" id="infoCajaAño" placeholder="Año" value="2019">
+                            <input class="form-control" type="number" name="" id="infoCajaAño" placeholder="Año" value="2020">
                         </div>
                     </div>
                 </div>
@@ -324,7 +324,7 @@
 
             </div>
             <div class="col-lg-4">
-                <input class="form-control" type="number" name="" id="IdDetMedCajaAño" placeholder="Gestion" value="2019">
+                <input class="form-control" type="number" name="" id="IdDetMedCajaAño" placeholder="Gestion" value="2020">
 
             </div>
             <div class="col-sm-4">

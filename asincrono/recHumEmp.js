@@ -348,6 +348,17 @@ function updateUser() {
 
 function showEditDat2User(id) {
 	console.log(id);
+	$.get("personal/listAreasDisponibles",
+		function (data) {
+			console.log(data);
+			var htmlList=data.map(function (e) {
+				return `
+				<option value="${e.nombre}">${e.nombre}</option>
+				`;
+			  }).join(' ');
+			  $('#areaDesignadaUP').html(htmlList);
+		}
+	);
 	var data = { id: id };
 	$.get('/C.S.J.O.bo/RRHH/personal/editDatos2Emp', data, function(data) {
 		console.log(data);
@@ -376,6 +387,7 @@ function showEditDat2User(id) {
 		$('#numNuaUp').val(data[1].di_seguroNua);
 		$('#numCuaUp').val(data[1].di_seguroCua);
 	});
+	
 	$('#md-editDatInstUser').modal('show');
 }
 
@@ -409,6 +421,7 @@ function updateUser2() {
 					notif('1','Registro Actualizado');
 					$('#md-editDatInstUser_btn_close').click();
 					showDatosEmp(id);
+					listTodosEmp();
 				} else {
 					notif('3','Advertencia. Actualizacion no completada. Verifique Datos')
 				}

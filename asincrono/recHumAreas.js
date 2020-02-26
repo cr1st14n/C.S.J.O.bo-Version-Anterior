@@ -14,7 +14,7 @@ function ShowInfArea(id) {
      `;
 			})
 			.join(' ');
-		var datosEMP = `Nomnbre del area: <strong>${data.nombre}</strong><br>
+		var datosEMP = `Nombre del area: <strong>${data.nombre}</strong><br>
      Encargado: <strong>${data.area_encargado}</strong><br>
      # personal en el area: <strong>${data.cantidaPersonal}</strong> <hr>
      ${tipEmp}

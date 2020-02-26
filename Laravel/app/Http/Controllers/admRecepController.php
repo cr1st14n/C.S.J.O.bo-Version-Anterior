@@ -22,7 +22,7 @@ class admRecepController extends Controller
 
     $usuariosArea = User::where('usu_area', "Recepcion")->get();
 
-    $year = 2019;
+    $year =  Carbon::now()->format('Y');
     $enero = pacientes::whereYear('created_at', $year)->whereMonth('created_at', 1)->count();
     $febrero = pacientes::whereYear('created_at', $year)->whereMonth('created_at', 2)->count();
     $marzo = pacientes::whereYear('created_at', $year)->whereMonth('created_at', 3)->count();

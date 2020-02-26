@@ -43,7 +43,7 @@
     <div class="modal-body">
         <div class="row">
             <div class="col-lg-6">
-                <h3>Informacion del area</h3><br>
+                <!-- <h3>Informacion del area</h3><br> -->
                 <p id="datosEmp"></p>
             </div>
             <div class="col-lg-6">

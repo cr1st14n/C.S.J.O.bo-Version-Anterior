@@ -116,7 +116,7 @@ class AjaxPacienteController extends Controller
 	            # code...
 	          //echo "octava iteracion N==> '$nom' AP==> '$apep' AM==> '$apem' '$dato1' ";
 	            $tabla='0';
-	          return view('viewRecepcion.formBuscarPaciente')->with("tabla",$tabla)->with("num",$var_num)->with("Busqueda",$var_Busqueda);
+	        //   return view('viewRecepcion.formBuscarPaciente')->with("tabla",$tabla)->with("num",$var_num)->with("Busqueda",$var_Busqueda);
 
 	            break;
 

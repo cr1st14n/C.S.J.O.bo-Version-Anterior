@@ -45,8 +45,7 @@ function ShowInfArea(id) {
 function listAreas() {
 	$.get('/C.S.J.O.bo/adm/area/list', function(data) {
 		console.log(data);
-		list = data
-			.map(function(e) {
+		var list = data.map(function(e) {
 				return `
      <tr>
         <td>COD-${e.id}</td>

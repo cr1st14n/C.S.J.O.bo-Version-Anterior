@@ -129,7 +129,7 @@ class AjaxPacienteController extends Controller
 
     public function buscarPacientesHCL($hcl)
     {
-      return pacientes::where('pa_ci', $hcl)->orwhere('pa_hcl','like',$hcl.'%')->orderBy('pa_hcl','asc')->limit(20)->get();
+      return pacientes::where('pa_ci', $hcl)->orwhere('pa_hcl',$hcl)->orderBy('pa_hcl','asc')->limit(10)->get();
     }
 
 }

@@ -20,7 +20,6 @@
                         <li class="plan-price"> 99874<span>Pancientes registrados</span> </li>
                         <li> <strong>--</strong> -- </li>
                         <li> <strong>--</strong> -- </li>
-                        <li> <strong>--</strong> -- </li>
                 </ul>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-6">

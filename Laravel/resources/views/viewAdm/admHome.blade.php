@@ -19,6 +19,7 @@
                         <li class="plan-name"> Recepcion </li>
                         <li class="plan-price" id="pacientesRegistrados"> -- <span>Pancientes registrados</span> </li>
                         <li> <strong>--</strong> -- </li>
+                        <li> <strong>--</strong> -- </li>
                 </ul>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-6">

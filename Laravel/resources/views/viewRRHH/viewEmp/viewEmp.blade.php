@@ -12,13 +12,13 @@
     <header class="panel-heading">
         <h2><strong>Registro</strong> Personal </h2>
     </header>
-    <div class="panel-tools fully color" align="right" data-toolscolor="#6CC3A0">
-        <button class="btn btn-theme-inverse btn-transparent btn-sm" onclick="showModalCreateUser()"><i class="fa fa-user"></i> Agregar</button>
-        <button class="btn btn-theme-inverse btn-transparent btn-sm" onclick="listTodosEmp()"><i class="fa fa-users"></i> listar todos </button>
-        <button class="btn btn-theme-inverse btn-transparent btn-sm">listar activos </button>
-        <button class="btn btn-theme-inverse btn-transparent btn-sm">listar inactivos </button>
-    </div>
     <div class="panel-body">
+        <div class="panel-tools fully color" align="left" data-toolscolor="#6CC3A0">
+            <button class="btn btn-theme-inverse btn-transparent btn-sm" onclick="showModalCreateUser()"><i class="fa fa-user"></i> Agregar</button>
+            <button class="btn btn-theme-inverse btn-transparent btn-sm" onclick="listTodosEmp()"><i class="fa fa-users"></i> listar todos </button>
+            <!-- <button class="btn btn-theme-inverse btn-transparent btn-sm">listar activos </button>
+            <button class="btn btn-theme-inverse btn-transparent btn-sm">listar inactivos </button> -->
+        </div>
         <div class="table-responsive">
             <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
                 <thead>
@@ -440,7 +440,7 @@
 </div>
 <div id="md-editDatInstUser" class="modal fade md-stickTop" tabindex="-1" data-width="800">
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="md-editDatInstUser_btn_close" ><i class="fa fa-times"></i></button>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="md-editDatInstUser_btn_close"><i class="fa fa-times"></i></button>
         <h3> Actualizar Datos profecionales / institucionales</h3>
     </div>
     <div class="modal-body">
@@ -459,7 +459,7 @@
                     <div class="form-group">
                         <label class="control-label">Tipo de Contrato:</label>
                         <div>
-                            <select class="form-control"  id="contratoUp">
+                            <select class="form-control" id="contratoUp">
                                 <option value="indefinido">Indefinido</option>
                                 <option value="eventual">Eventual</option>
                                 <option value="verbal">Verbal</option>
@@ -490,7 +490,7 @@
                     <div class="form-group">
                         <label class="control-label" for="inputTwo">Cargo a designar:</label>
                         <div>
-                            <select class="form-control"   id="cargoUP">
+                            <select class="form-control" id="cargoUP">
                                 <option value="encargado">Encargado</option>
                                 <option value="operador">Operador</option>
                             </select>

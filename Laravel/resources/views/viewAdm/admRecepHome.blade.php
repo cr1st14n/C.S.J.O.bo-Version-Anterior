@@ -368,4 +368,5 @@
 @section('scripts')
 <script type="text/javascript" src="{{ asset('asincrono/admRecepHome.js') }}"></script>
 <script type="text/javascript" src="{{ asset('asincrono/homejs.js') }}"></script>
+
 @endsection

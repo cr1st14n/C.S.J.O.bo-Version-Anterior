@@ -54,6 +54,7 @@ return $search ;
 Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function () {
 	Route::get('/home', 'HomeController@admHome')->name('adm.Home');
 	Route::get('/perfil', 'HomeController@store_perfil')->name('store_user_adm');
+	Route::get('/datosAdmHome', 'HomeController@datosAdmHome');
 	Route::post('perfil_update_datos', 'HomeController@update_perfil_datos')->name('store_user_adm_update_date');
 	Route::post('perfil_update_email', 'HomeController@update_perfil_email')->name('store_user_adm_update_email');
 

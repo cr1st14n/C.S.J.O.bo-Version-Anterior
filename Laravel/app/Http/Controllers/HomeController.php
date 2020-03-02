@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 use DB;
 use App\atencion;
+use App\pacientes;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -75,6 +76,13 @@ class HomeController extends Controller
     public function admHome()
     {
         return view('viewAdm.admHome');
+    }
+    public function datosAdmHome()
+    {
+        $data = array();
+        array_push($data, pacientes::max('pa_hcl'));
+        array_push($data, User::where('id', '>', 0)->select('id')->count('id'));
+        return $data;
     }
     public function recepHome()
     {

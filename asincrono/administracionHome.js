@@ -10,4 +10,3 @@ function datosIniciales() {
         }
     );
  }
-//* bla bla 

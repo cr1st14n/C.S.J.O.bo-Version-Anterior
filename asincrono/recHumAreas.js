@@ -2,6 +2,10 @@ $('#form-createArea').on('submit', function(e) {
 	e.preventDefault();
 	createArea();
 });
+$('#form-editArea').on('submit', function(e) {
+	e.preventDefault();
+	area_update();
+});
 function ShowInfArea(id) {
 	var data = { id: id };
 	$('#id_inf_area').val(id);
@@ -49,7 +53,7 @@ function listAreas() {
 				return `
      <tr>
         <td>COD-${e.id}</td>
-        <td valign="middle">${e.nombre}</td>
+        <td align="left"> <button onClick="md_edit_area(${e.id})" class="btn btn-info btn-transparent btn-sm title="Editar Nombre" ><i class="fa fa-pencil-square-o"></i></button> ${e.nombre}</td>
         <td align="left"> <button onClick="areaActualizarUsuEncargado(${e.id})" class="btn btn-theme-inverse btn-transparent btn-sm title="Asignar nuevo encargado" ><i class="fa fa-user"></i></button> ${e.usu_appaterno} ${e.usu_nombre} </td>
         <td><span class="label label-success">${e.cant_usuarios} </span></td>
         <td>
@@ -178,6 +182,41 @@ function areaActUsuEncargado(usu) {
 		console.log('fail');
 	}
 }
+
+function md_edit_area(id) {
+	$('#form-editArea').trigger('reset');
+	$.get("Areas/edit", {id:id},
+		function (data, textStatus, jqXHR) {
+			console.log(data)
+			$('#form-editArea-id').val(data.id);
+			$('#area_nombre_up').val(data.nombre);
+			$('#area_descripcion_up').val(data.descripcion);
+			document.getElementById('area_tipo_up').value=data.tipo;
+		}
+	);
+	$('#md_area_edit').modal('show');
+}
+
+function area_update() {
+	var data={
+		_token: $('meta[name=csrf-token]').attr('content'),
+		id:$('#form-editArea-id').val(),
+		nombre:$('#area_nombre_up').val(),
+		descripcion:$('#area_descripcion_up').val(),
+		tipoArea:$('#area_tipo_up').val(),
+	}
+	$.post("Areas/update", data,
+		function (data) {
+		if(data==1){
+			$('#btn-close_md_area_edit').trigger('click');
+			notif('1','Area actualizada');
+			listAreas();
+		}if (data=='fail1') {
+			notif('5','Nombre de area ya registrado, ingrese un nuevo nombre');
+		}	
+		}
+	);
+  }
 
 function deleteArea(id_area) {
 	var data = { 

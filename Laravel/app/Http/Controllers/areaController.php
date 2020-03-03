@@ -69,6 +69,30 @@ class areaController extends Controller
         }
     }
 
+    public function edit(Request $request)
+    {
+        return area::where('id', $request->input('id'))->first();
+    }
+
+    public function update(Request $request)
+    {
+        if ($request->input('nombre') == area::where('id', ($request->input('id')))->value('nombre') ||
+        $request->input('nombre') != area::where('nombre', ($request->input('nombre')))->value('nombre')) {
+            usuContrato::where('uc_estado',1)
+            ->where('uc_area',area::where('id', ($request->input('id')))->value('nombre'))
+            ->update(['uc_area'=>$request->input('nombre')]);
+            return area::where('id', $request->input('id'))->update([
+                'nombre' => $request->input('nombre'),
+                'descripcion' => $request->input('descripcion'),
+                'tipo' => $request->input('tipoArea'),
+            ]);
+        }
+        if ($request->input('nombre') == area::where('nombre', ($request->input('nombre')))->value('nombre')) {
+            // * nombre registrado
+            return "fail1";
+        }
+    }
+
     public function homeArea()
     {
         return view('viewRRHH.viewAreas.homeAreas');
@@ -122,18 +146,20 @@ class areaController extends Controller
     }
     public function delete(Request $request)
     {
-        if ($request->input('id')>0) {
-            return area::where('id',$request->input('id'))->first();
+        if ($request->input('id') > 0) {
+            return area::where('id', $request->input('id'))->first();
         } else {
             return "fail";
         }
     }
-    public function destroy (Request $request)
+    public function destroy(Request $request)
     {
-        if ($request->input('id')>1) {
-            return area::where('id',$request->input('id'))->delete();            
-        } 
+        if ($request->input('id') > 1) {
+            usuContrato::where('uc_area', area::where('id', $request->input('id'))->value('nombre'))
+                ->where('uc_estado', 1)
+                ->update(['uc_area' => 'sin asignar']);
+            return area::where('id', $request->input('id'))->delete();
+        }
         return 'fail';
-        
     }
 }

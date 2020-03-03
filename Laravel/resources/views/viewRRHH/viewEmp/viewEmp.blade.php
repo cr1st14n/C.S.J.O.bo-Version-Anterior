@@ -12,13 +12,13 @@
     <header class="panel-heading">
         <h2><strong>Registro</strong> Personal </h2>
     </header>
-    <div class="panel-tools fully color" align="right" data-toolscolor="#6CC3A0">
-        <button class="btn btn-theme-inverse btn-transparent btn-sm" onclick="showModalCreateUser()"><i class="fa fa-user"></i> Agregar</button>
-        <button class="btn btn-theme-inverse btn-transparent btn-sm" onclick="listTodosEmp()"><i class="fa fa-users"></i> listar todos </button>
-        <button class="btn btn-theme-inverse btn-transparent btn-sm">listar activos </button>
-        <button class="btn btn-theme-inverse btn-transparent btn-sm">listar inactivos </button>
-    </div>
     <div class="panel-body">
+        <div class="panel-tools fully color" align="left" data-toolscolor="#6CC3A0">
+            <button class="btn btn-theme-inverse btn-transparent btn-sm" onclick="showModalCreateUser()"><i class="fa fa-user"></i> Agregar</button>
+            <button class="btn btn-theme-inverse btn-transparent btn-sm" onclick="listTodosEmp()"><i class="fa fa-users"></i> listar todos </button>
+            <!-- <button class="btn btn-theme-inverse btn-transparent btn-sm">listar activos </button>
+            <button class="btn btn-theme-inverse btn-transparent btn-sm">listar inactivos </button> -->
+        </div>
         <div class="table-responsive">
             <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
                 <thead>

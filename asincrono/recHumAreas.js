@@ -28,22 +28,12 @@ function ShowInfArea(id) {
 		var html2 = data.personal
 			.map(function(e) {
 				return `
-      * ${e.usu_nombre} ${e.usu_appaterno}. Contrato: ${e.uc_tipoContrato}<br>
+      * ${e.usu_nombre} ${e.usu_appaterno}. Contrato: ${e.uc_tipoContrato} <a href="#" title="Quitar del area" onClick="area_usu_quitarDelArea(${e.cod_usu})"><i class="fa fa-trash-o"></i></a> <br>
      `;
 			})
 			.join(' ');
 		document.getElementById('datosInst').innerHTML = html2;
 	});
-
-	var html2 = `   Nombre de personal en el area<br>
-                  1 personal<br>
-                  2 personal<br>
-                  3 personal<br>
-                  4 personal<br>
-                  5 personal<br>
-                  `;
-	document.getElementById('datosInst').innerHTML = html2;
-
 	$('#md-InfArea').modal('show');
 }
 function listAreas() {
@@ -253,3 +243,18 @@ function DestroyArea(id_area) {
     }
   );
   }
+
+function area_usu_quitarDelArea(id) { 
+	data={
+		_token: $('meta[name=csrf-token]').attr('content'),
+		id:id
+	}
+	$.post("Areas/removeUsuArea", data,
+		function (data) {
+			if (data==1) {
+				listAreas();
+				ShowInfArea(id);
+			}
+		}
+	);
+ }  

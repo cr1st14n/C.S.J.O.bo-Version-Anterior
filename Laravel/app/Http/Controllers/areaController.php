@@ -114,7 +114,7 @@ class areaController extends Controller
     public function show(Request $request)
     {
         $area = area::where('id', $request->input('id'))->first();
-        $user = User::where('id', $area->ar_id_encargado)->first();
+        $user = User::where('id', $area->input('ar_id_encargado'))->first();
         $cantPersonal = usuContrato::where('uc_area', $area->nombre)->where('uc_estado', 1)->count();
         $personal = usuContrato::where('uc_estado', 1)->where('uc_area', $area->nombre)
             ->select('uc_tipoContrato', 'cod_usu')
@@ -161,5 +161,10 @@ class areaController extends Controller
             return area::where('id', $request->input('id'))->delete();
         }
         return 'fail';
+    }
+    public function removeUsuArea(Request $request)
+    {
+        return usuContrato::where('cod_usu',$request->input('id'))->where('uc_estado',1)
+        ->update(['uc_area'=>'sin asignar']);
     }
 }

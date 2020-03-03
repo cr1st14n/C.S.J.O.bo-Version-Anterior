@@ -223,6 +223,7 @@
     </div>
     <!-- //modal-body-->
 </div>
+
 @endsection
 @section('scripts')
 <script type="text/javascript" src="{{ asset('/asincrono/recHumAreas.js') }}"></script>

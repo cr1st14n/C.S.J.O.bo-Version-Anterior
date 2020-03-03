@@ -257,5 +257,6 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 		Route::post('update','areaController@update');
 		Route::post('delete', 'areaController@delete');
 		Route::post('destroy', 'areaController@destroy');
+		Route::post('removeUsuArea', 'areaController@removeUsuArea');
 	});
 });

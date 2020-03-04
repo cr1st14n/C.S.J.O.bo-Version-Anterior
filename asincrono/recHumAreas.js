@@ -253,7 +253,8 @@ function area_usu_quitarDelArea(id) {
 		function (data) {
 			if (data==1) {
 				listAreas();
-				ShowInfArea(id);
+				var dats={id:id}
+				ShowInfArea($('#id_inf_area').val());
 			}
 		}
 	);

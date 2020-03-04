@@ -14,11 +14,6 @@ class areaController extends Controller
     {
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('viewAdm.FormRegistroArea');
@@ -114,7 +109,7 @@ class areaController extends Controller
     public function show(Request $request)
     {
         $area = area::where('id', $request->input('id'))->first();
-        $user = User::where('id', $area->input('ar_id_encargado'))->first();
+        $user = User::where('id', $area->ar_id_encargado)->first();
         $cantPersonal = usuContrato::where('uc_area', $area->nombre)->where('uc_estado', 1)->count();
         $personal = usuContrato::where('uc_estado', 1)->where('uc_area', $area->nombre)
             ->select('uc_tipoContrato', 'cod_usu')

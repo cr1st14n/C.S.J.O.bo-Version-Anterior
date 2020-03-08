@@ -27,7 +27,7 @@
                             <th class="text-center">NOMBRE</th>
                             <th class="text-center">APELLIDO</th>
                             <th class="text-center"><i class="fa fa-bars"></i></th>
-                            <th width="22%" class="text-center">ACCION</th>
+                            <th width="25%" class="text-center">ACCION</th>
                         </tr>
                     </thead>
                     <tbody align="center" id="resulBusqPacientes">
@@ -108,6 +108,70 @@
                 </div>
 
             </div>
+        </div>
+    </div>
+</div>
+<div id="md-form_create_sitaPrev" class="modal fade md-stickTop " tabindex="-1" data-width="400">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times" id="btn_formCreate_close"></i></button>
+        <h2><strong>Registrar </strong>Area</h2>
+
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="form-createArea">
+                    <section class="panel ">
+
+                        <div class="panel-tools color" align="right" data-toolscolor="#4EA582">
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal" data-collabel="4" data-alignlabel="center">
+                                <div class="form-group">
+                                    <label for="nombre" class="col-md-4 control-label">Nombre</label>
+                                    <div class="col-md-6">
+                                        <input id="area_nombre" type="text" class="form-control rounded" autocomplete="off" maxlength="50" data-always-show="true" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Descripcion </label>
+                                    <div>
+                                        <input id="area_descripcion" type="text" class="form-control rounded" maxlength="200" data-always-show="false" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Personal Encargado</label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <select id="area_usuEncargado" class=" form-control show-menu-arrow" data-style="btn-theme-inverse" required>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Area medica</label>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <select id="area_tipo" class=" form-control show-menu-arrow" data-style="btn-theme-inverse" required>
+                                                <option selected="true" disabled="disabled"></option>
+
+                                                <option value="Administrativa">Administrativa</option>
+                                                <option value="Salud">Salud</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="panel-footer">
+                        <button type="submit" class="btn btn-theme-inverse">Registrar</button>
+                        <button type="reset" class="btn" onclick="clearForm(this.form);"> Limpiar Formulario</button>
+                    </footer>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>

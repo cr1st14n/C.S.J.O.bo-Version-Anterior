@@ -440,7 +440,7 @@
 </div>
 <div id="md-editDatInstUser" class="modal fade md-stickTop" tabindex="-1" data-width="800">
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="md-editDatInstUser_btn_close"><i class="fa fa-times"></i></button>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="md-editDatInstUser_btn_close" ><i class="fa fa-times"></i></button>
         <h3> Actualizar Datos profecionales / institucionales</h3>
     </div>
     <div class="modal-body">
@@ -459,7 +459,7 @@
                     <div class="form-group">
                         <label class="control-label">Tipo de Contrato:</label>
                         <div>
-                            <select class="form-control" id="contratoUp">
+                            <select class="form-control"  id="contratoUp">
                                 <option value="indefinido">Indefinido</option>
                                 <option value="eventual">Eventual</option>
                                 <option value="verbal">Verbal</option>
@@ -490,7 +490,7 @@
                     <div class="form-group">
                         <label class="control-label" for="inputTwo">Cargo a designar:</label>
                         <div>
-                            <select class="form-control" id="cargoUP">
+                            <select class="form-control"   id="cargoUP">
                                 <option value="encargado">Encargado</option>
                                 <option value="operador">Operador</option>
                             </select>

@@ -95,6 +95,56 @@
         </table>
     </div>
 </div>
+<div id="md_area_edit" class="modal fade md-stickTop" tabindex="-1" data-width="500">
+    <div class="modal-header">
+        <button type="button" id="btn-close_md_area_edit" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h3>Editar Area</h3>
+        <input type="number" id="id_area_actualizarEncargado" hidden>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="form-editArea">
+                    <input type="text" id="form-editArea-id" hidden>
+                    <section class="panel ">
+                        <div class="panel-tools color" align="right" data-toolscolor="#4EA582">
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal" data-collabel="4" data-alignlabel="center">
+                                <div class="form-group">
+                                    <label for="nombre" class="col-md-4 control-label">Nombre</label>
+                                    <div class="col-md-6">
+                                        <input id="area_nombre_up" type="text" class="form-control rounded" autocomplete="off" maxlength="50" data-always-show="true" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Descripcion </label>
+                                    <div>
+                                        <input id="area_descripcion_up" type="text" class="form-control rounded" maxlength="200" data-always-show="false" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Tipo de area</label>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <select id="area_tipo_up" class=" form-control show-menu-arrow" data-style="btn-theme-inverse" required>
+                                                <option value="Administrativa">Administrativa</option>
+                                                <option value="Salud">Salud</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="panel-footer">
+                        <button type="submit" class="btn btn-theme-inverse">Actualizar</button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="md-createArea" class="modal fade md-stickTop " tabindex="-1" data-width="400">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times" id="btn_formCreate_close"></i></button>
@@ -173,6 +223,7 @@
     </div>
     <!-- //modal-body-->
 </div>
+
 @endsection
 @section('scripts')
 <script type="text/javascript" src="{{ asset('/asincrono/recHumAreas.js') }}"></script>

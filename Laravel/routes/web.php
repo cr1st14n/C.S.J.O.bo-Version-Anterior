@@ -53,8 +53,8 @@ return $search ;
 
 Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function () {
 	Route::get('/home', 'HomeController@admHome')->name('adm.Home');
-	Route::get('/datosAdmHome', 'HomeController@datosAdmHome');
 	Route::get('/perfil', 'HomeController@store_perfil')->name('store_user_adm');
+	Route::get('/datosAdmHome', 'HomeController@datosAdmHome');
 	Route::post('perfil_update_datos', 'HomeController@update_perfil_datos')->name('store_user_adm_update_date');
 	Route::post('perfil_update_email', 'HomeController@update_perfil_email')->name('store_user_adm_update_email');
 
@@ -138,6 +138,9 @@ Route::group(['middleware' => ['recepcion'], 'prefix' => '/Recepcion'], function
 		Route::get('edit/{pa_hcl}', 'PacienteController@edit')->name('edit_paciente');
 		Route::post('update', 'PacienteController@update')->name('update_paciente');
 		Route::get('delete/{pa_hcl}', 'PacienteController@destroy')->name('destroy_pa_hcl');
+		// Route::group(['prefic'=>'citaPrevia'],function (){
+		// 	Route::get('citPrevInfo','')
+		// });
 	});
 	Route::group(['prefix' => '/atencion'], function () {
 		Route::get('index/{pa_hcl} ', 'AtencionController@index')->name('form_atencion');
@@ -253,7 +256,10 @@ Route::group([/*'middleware'=>['caja'],*/'prefix' => '/RRHH'], function () {
 		Route::post('usuAreaCambio', 'areaController@usuAreaCambio');
 		Route::post('create', 'areaController@create');
 		Route::post('updateUsuEncargado', 'areaController@updateUsuEncargado');
+		Route::get('edit','areaController@edit');
+		Route::post('update','areaController@update');
 		Route::post('delete', 'areaController@delete');
 		Route::post('destroy', 'areaController@destroy');
+		Route::post('removeUsuArea', 'areaController@removeUsuArea');
 	});
 });

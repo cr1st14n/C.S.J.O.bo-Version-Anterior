@@ -22,6 +22,7 @@ function listPacientes(data) {
                      <td>
                         <span class="tooltip-area">
                         <button name="${elem.pa_id}" onclick="rutaAtender(this.name)" class="btn btn-default btn-sm" title="Atender"><i class="fa  fa-plus-square"></i></button>
+                        <button onclick="rutaAsignarCitPrev(${elem.pa_id})" class="btn btn-default btn-sm" title="Asignar cita previa"><i class="fa  fa-stethoscope"></i></button>
                         <a name="${elem.pa_id}" onclick="rutaprintHCL(this.name)" class="btn btn-default btn-sm" target="_blank" title="Inprimir"><i class="glyphicon glyphicon-print"></i></a>
                         <button name="${elem.pa_id}" onclick="rutaEditPaciente(this.name)" class="btn btn-default btn-sm" title="Editar"><i class="fa fa-pencil"></i></i></button>
                         <button name="${elem.pa_id}" onclick="rutaDestroyPaHcl(this.name)" class="btn btn-default btn-sm" title="Eliminar"><i class="fa fa-trash-o"></i></button>
@@ -232,3 +233,12 @@ function cerrarPrestamo() {
         notif('2','Error SERVER');
     });
 }
+
+function rutaAsignarCitPrev(id) {
+    $.get("citPrevInfo", {id:id},
+        function (data) {
+            
+        }
+    );
+    $('#md-form_create_sitaPrev').modal('show');
+  }

@@ -2,6 +2,10 @@ $('#form-createArea').on('submit', function(e) {
 	e.preventDefault();
 	createArea();
 });
+$('#form-editArea').on('submit', function(e) {
+	e.preventDefault();
+	area_update();
+});
 function ShowInfArea(id) {
 	var data = { id: id };
 	$('#id_inf_area').val(id);
@@ -24,22 +28,12 @@ function ShowInfArea(id) {
 		var html2 = data.personal
 			.map(function(e) {
 				return `
-      * ${e.usu_nombre} ${e.usu_appaterno}. Contrato: ${e.uc_tipoContrato}<br>
+      * ${e.usu_nombre} ${e.usu_appaterno}. Contrato: ${e.uc_tipoContrato} <a href="#" title="Quitar del area" onClick="area_usu_quitarDelArea(${e.cod_usu})"><i class="fa fa-trash-o"></i></a> <br>
      `;
 			})
 			.join(' ');
 		document.getElementById('datosInst').innerHTML = html2;
 	});
-
-	var html2 = `   Nombre de personal en el area<br>
-                  1 personal<br>
-                  2 personal<br>
-                  3 personal<br>
-                  4 personal<br>
-                  5 personal<br>
-                  `;
-	document.getElementById('datosInst').innerHTML = html2;
-
 	$('#md-InfArea').modal('show');
 }
 function listAreas() {
@@ -49,7 +43,7 @@ function listAreas() {
 				return `
      <tr>
         <td>COD-${e.id}</td>
-        <td valign="middle">${e.nombre}</td>
+        <td align="left"> <button onClick="md_edit_area(${e.id})" class="btn btn-info btn-transparent btn-sm title="Editar Nombre" ><i class="fa fa-pencil-square-o"></i></button> ${e.nombre}</td>
         <td align="left"> <button onClick="areaActualizarUsuEncargado(${e.id})" class="btn btn-theme-inverse btn-transparent btn-sm title="Asignar nuevo encargado" ><i class="fa fa-user"></i></button> ${e.usu_appaterno} ${e.usu_nombre} </td>
         <td><span class="label label-success">${e.cant_usuarios} </span></td>
         <td>
@@ -179,6 +173,41 @@ function areaActUsuEncargado(usu) {
 	}
 }
 
+function md_edit_area(id) {
+	$('#form-editArea').trigger('reset');
+	$.get("Areas/edit", {id:id},
+		function (data, textStatus, jqXHR) {
+			console.log(data)
+			$('#form-editArea-id').val(data.id);
+			$('#area_nombre_up').val(data.nombre);
+			$('#area_descripcion_up').val(data.descripcion);
+			document.getElementById('area_tipo_up').value=data.tipo;
+		}
+	);
+	$('#md_area_edit').modal('show');
+}
+
+function area_update() {
+	var data={
+		_token: $('meta[name=csrf-token]').attr('content'),
+		id:$('#form-editArea-id').val(),
+		nombre:$('#area_nombre_up').val(),
+		descripcion:$('#area_descripcion_up').val(),
+		tipoArea:$('#area_tipo_up').val(),
+	}
+	$.post("Areas/update", data,
+		function (data) {
+		if(data==1){
+			$('#btn-close_md_area_edit').trigger('click');
+			notif('1','Area actualizada');
+			listAreas();
+		}if (data=='fail1') {
+			notif('5','Nombre de area ya registrado, ingrese un nuevo nombre');
+		}	
+		}
+	);
+  }
+
 function deleteArea(id_area) {
 	var data = { 
 		_token: $('meta[name=csrf-token]').attr('content'),
@@ -214,3 +243,19 @@ function DestroyArea(id_area) {
     }
   );
   }
+
+function area_usu_quitarDelArea(id) { 
+	data={
+		_token: $('meta[name=csrf-token]').attr('content'),
+		id:id
+	}
+	$.post("Areas/removeUsuArea", data,
+		function (data) {
+			if (data==1) {
+				listAreas();
+				var dats={id:id}
+				ShowInfArea($('#id_inf_area').val());
+			}
+		}
+	);
+ }  

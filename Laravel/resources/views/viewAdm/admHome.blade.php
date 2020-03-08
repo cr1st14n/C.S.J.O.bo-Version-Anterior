@@ -17,22 +17,24 @@
         <div class="col-lg-3 col-md-3 col-xs-6">
                 <ul class="plan corner-flip flip-gray">
                         <li class="plan-name"> Recepcion </li>
-                        <li class="plan-price" id="pacientesRegistrados"> -- <span>Pancientes registrados</span> </li>
+                        <li class="plan-price" id="pacientesRegistrados"> --- <span>Pancientes registrados</span> </li>
+                        <li> <strong>--</strong> -- </li>
                         <li> <strong>--</strong> -- </li>
                 </ul>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-6">
                 <ul class="plan corner-flip flip-gray">
                         <li class="plan-name"> RRHH </li>
-                        <li class="plan-price" id="usuariosRegistrados"> -- <span>Usuarios registrados</span> </li>
+                        <li class="plan-price" id="usuariosRegistrados"> --- <span>Usuarios registrados</span> </li>
                         <li> <strong>// </strong> -- </li>
+
                 </ul>
         </div>
         <div class="clearfix"></div>
 </div>
 @endsection
 @section('scripts')
-<script type="text/javascript" src="{{ asset('asincrono/administracionHome.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/asincrono/administracionHome.js') }}"></script>
 <script>
         $(document).ready(function() {
                 $("#formID").submit(function(e) {

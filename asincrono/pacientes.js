@@ -1,6 +1,15 @@
 //var frase = "Son tres mil trescientos treinta y tres con nueve";
 //frase3 = frase.replace(/[ ]/gi,'.');
 //alert(frase3);
+$('#form_create_CitPrev').on('submit', function (event) {
+    event.preventDefault();
+    if ($('#id_paciente_create_citPrev').val()>0 ) {
+          createCitPrev();
+    } else {
+        notif('4','Error Vueva a intentarlo');
+    }
+});
+//* --------------
 $(function(){
 	$('#HCLpaciente').on('keyup',buscarHCLpaciente);
 	$('#NOMBRESpaciente').on('keyup',buscarNOMBRESpaciente);
@@ -235,10 +244,47 @@ function cerrarPrestamo() {
 }
 
 function rutaAsignarCitPrev(id) {
-    $.get("citPrevInfo", {id:id},
+      $('#form_create_CitPrev').trigger('reset');
+    $.get("../citaPrevia/infoPaci", {id:id},
         function (data) {
-            
+            console.log(data);
+            $('#id_paciente_create_citPrev').val('');
+            $('#id_paciente_create_citPrev').val(data.pac.pa_id);
+           var espcia=data.esp.map(function (e) { 
+               return `<option value="${e.id}">${e.nombre}</option>`
+            }).join(' '); 
+            var med= data.med.map(function (e) {
+                return ` <option value="${e.id}">${e.ps_appaterno}</option>`;
+              }).join(' ');
+            $('#ate_especialidad_citPrev').html(espcia);                
+            $('#ate_med_citPrev').html(med);
+            $('#fecha_citPrev').val(data.date);
+            var horario= "Tarde";
+            $("#ate_turno_citPrev option[value="+horario+ "]").attr("selected",true);
+            $('#md-form_create_sitaPrev').modal('show');
+            var dt = new Date();
+            var h =  dt.getHours(), m = dt.getMinutes();
+            (h > 12) ? ($("#ate_turno_citPrev option[value=Tarde]").attr("selected",true)) :
+                            ($("#ate_turno_citPrev option[value=Mañana]").attr("selected",true));
+        });
+  }
+  function createCitPrev() {
+    var data={
+		_token: $('meta[name=csrf-token]').attr('content'),
+        ip_Pa:$('#id_paciente_create_citPrev').val(),
+        especialidad:$('#ate_especialidad_citPrev').val(),
+        procedimiento:document.querySelector('input[name="ateProcedimiento"]:checked').value,
+        medico:$('#ate_med_citPrev').val(),
+        nroTicked:$('#ticked_citPrev').val(),
+        turno:$('#ate_turno_citPrev').val(),
+        fecha:$('#fecha_citPrev').val(),
+        hora:$('#time_citPrev').val(),
+    }
+    $.post("../citaPrevia/create", data,
+        function (data) {
+            console.log(data)            
         }
     );
-    $('#md-form_create_sitaPrev').modal('show');
-  }
+    }
+
+

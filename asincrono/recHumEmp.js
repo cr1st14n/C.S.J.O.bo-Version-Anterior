@@ -137,7 +137,7 @@ function createUser2() {
 		nombre: $('#nombre').val(),
 		apellido1: $('#apellido1').val(),
 		apellido2: $('#apellido2').val(),
-		sexo: document.querySelector('input[name=sexo]:checked').value,
+		sexo: .querySelector('input[name=sexo]:cdocumenthecked').value,
 		fechaNacimiento: $('#fechaNacimiento').val(),
 		paisNacimiento: $('#paisNacimiento').val(),
 		depNacimiento: $('#depNacimiento').val(),

@@ -138,9 +138,6 @@ Route::group(['middleware' => ['recepcion'], 'prefix' => '/Recepcion'], function
 		Route::get('edit/{pa_hcl}', 'PacienteController@edit')->name('edit_paciente');
 		Route::post('update', 'PacienteController@update')->name('update_paciente');
 		Route::get('delete/{pa_hcl}', 'PacienteController@destroy')->name('destroy_pa_hcl');
-		// Route::group(['prefic'=>'citaPrevia'],function (){
-		// 	Route::get('citPrevInfo','')
-		// });
 	});
 	Route::group(['prefix' => '/atencion'], function () {
 		Route::get('index/{pa_hcl} ', 'AtencionController@index')->name('form_atencion');
@@ -151,6 +148,10 @@ Route::group(['middleware' => ['recepcion'], 'prefix' => '/Recepcion'], function
 		Route::post('show', 'AtencionController@show')->name('show');
 		Route::get('delete/{id}', 'AtencionController@destroy')->name('delete_atencion');
 		Route::get('pagar_ate/{id} ', 'AtencionController@pago')->name('recep_pago');
+	});
+	Route::group(['prefix'=>'citaPrevia'],function (){
+		Route::get('infoPaci','CitPrevController@infoPaci');
+		Route::post('create','CitPrevController@create');
 	});
 	Route::group(['prefix' => '/reporte'], function () {
 

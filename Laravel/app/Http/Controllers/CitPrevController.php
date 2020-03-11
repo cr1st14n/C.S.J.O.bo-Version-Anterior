@@ -48,4 +48,9 @@ class CitPrevController extends Controller
         }
         
     }
+    public function indexCitasPrevias()
+    {
+        // return 'hola';
+        return view('viewRecepcion.homeCitasPrevias');
+    }
 }

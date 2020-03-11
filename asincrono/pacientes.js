@@ -243,8 +243,8 @@ function cerrarPrestamo() {
     });
 }
 
-function rutaAsignarCitPrev(id) {
-      $('#form_create_CitPrev').trigger('reset');
+function rutaAsignarCitPrev(id) {  
+  $('#form_create_CitPrev').trigger('reset');
     $.get("../citaPrevia/infoPaci", {id:id},
         function (data) {
             console.log(data);

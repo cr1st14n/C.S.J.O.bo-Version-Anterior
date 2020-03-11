@@ -148,7 +148,8 @@
 				
 				<li class="Label label-lg text-center">Gestionar Atencion</li>
 				<li><a href="{{route('inf_atencion')}} "><span><i class="icon fa fa-book"></i> Paciente - Especialidad </span></a></li>
-				<li><a href="{{route('showAll_atencion')}} "><span><i class="icon fa fa-book"></i> Registro de Atencion </span></a></li>
+				<li><a href="{{route('showAll_atencion')}} "><span><i class="icon fa fa-book"></i> Atencion </span></a></li>
+				<li><a href="{{route('citasPrecias_Index')}} "><span><i class="icon fa fa-book"></i> Citas Previas </span></a></li>
 				<li><a href="{{route('reporte_index')}} "> <i class="icon  fa fa-bar-chart-o"></i>Informes / Reportes </a></li>
 				<li><a href="{{route('notas-index')}} "> <i class="icon  fa fa-file-o"></i>Notas / Prestamos</a></li>
 

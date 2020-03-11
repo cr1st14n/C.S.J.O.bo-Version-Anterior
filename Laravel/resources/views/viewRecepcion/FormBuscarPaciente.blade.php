@@ -112,13 +112,25 @@
         </div>
     </div>
 </div>
+<div id="md-form_create_sitaPrev1" class="modal fade md-stickTop " tabindex="-1" data-width="1000">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times" id=""></i></button>
+        <h2><strong>Registrar </strong>Cita Previa</h2>
+    </div>
+    <div class="modal-body">
+        <embed src="" type="application/pdf" width=”100%” height=”100%” style="width: 940px; height: 809px;">
+    </div>
+
+</div>
+
 <div id="md-form_create_sitaPrev" class="modal fade md-stickTop " tabindex="-1" data-width="700">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times" id=""></i></button>
         <h2><strong>Registrar </strong>Cita Previa</h2>
     </div>
+
     <form id="form_create_CitPrev">
-        <input type="number" id="id_paciente_create_citPrev" hidden >
+        <input type="number" id="id_paciente_create_citPrev" hidden>
         <div class="modal-body">
             <div class="panel-body">
                 <div class="form-horizontal" data-collabel="4" data-alignlabel="center">
@@ -126,7 +138,7 @@
                         <label class="control-label">Especialidad:</label>
                         <div class="row">
                             <div class="col-md-8">
-                                <select required=""  id="ate_especialidad_citPrev" name="ate_especialidad" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
+                                <select required="" id="ate_especialidad_citPrev" name="ate_especialidad" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
                                     <option selected="true" disabled="disabled">Seleccionar</option>
                                 </select>
                             </div>
@@ -138,15 +150,15 @@
                             <div class="col-lg-6">
                                 <ul class="iCheck" data-color="blue">
                                     <li>
-                                        <input type="radio" name="ateProcedimiento"  value="Consulta" checked="true">
+                                        <input type="radio" name="ateProcedimiento" value="Consulta" checked="true">
                                         <label class=""> Consulta</label>
                                     </li>
                                     <li>
-                                        <input type="radio" name="ateProcedimiento"  value="Control">
+                                        <input type="radio" name="ateProcedimiento" value="Control">
                                         <label class="">Control </label>
                                     </li>
                                     <li>
-                                        <input type="radio" name="ateProcedimiento"  value="Emergencias">
+                                        <input type="radio" name="ateProcedimiento" value="Emergencias">
                                         <label class="">Emergencias</label>
                                     </li>
 
@@ -184,7 +196,7 @@
                     <div class="form-group">
                         <label for="ticked" class="col-md-4 control-label"> # de ticked</label>
                         <div class="col-md-3">
-                            <input type="number" class="form-control" placeholder="# ticked" id="ticked_citPrev" required="" autocomplete="off" ></input>
+                            <input type="number" class="form-control" placeholder="# ticked" id="ticked_citPrev" required="" autocomplete="off"></input>
                         </div>
                     </div>
 

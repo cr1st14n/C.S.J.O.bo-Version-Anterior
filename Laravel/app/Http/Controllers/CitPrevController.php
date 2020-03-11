@@ -32,13 +32,20 @@ class CitPrevController extends Controller
     public function create(Request $request)
     {
         $cp= new citPrev();
-        $cp->cp_paciente= $request->input('');
-        $cp->cp_especialidad= $request->input('');
-        $cp->cp_procedimiento= $request->input('');
-        $cp->cp_med = $request->input('');
-        $cp->cp_turno= $request->input('');
-        $cp->cp_num_ticked= $request->input('');
-        $cp->cp_fecha= $request->input('');
-        $cp->cp_time= $request->input('');
+        $cp->cp_paciente= $request->input('ip_Pa');
+        $cp->cp_especialidad= $request->input('especialidad');
+        $cp->cp_procedimiento= $request->input('procedimiento');
+        $cp->cp_med = $request->input('medico');
+        $cp->cp_num_ticked= $request->input('nroTicked');
+        $cp->cp_turno= $request->input('turno');
+        $cp->cp_fecha= $request->input('fecha');
+        $cp->cp_time= $request->input('hora');
+        $res=$cp->save();
+        if ($res) {
+            return 1;
+        } else {
+            return 0;
+        }
+        
     }
 }

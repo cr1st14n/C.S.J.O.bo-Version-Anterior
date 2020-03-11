@@ -282,7 +282,13 @@ function rutaAsignarCitPrev(id) {
     }
     $.post("../citaPrevia/create", data,
         function (data) {
-            console.log(data)            
+            if (data==1) {
+                notif('1','Cita previa Registrada');
+                $('#md-form_create_sitaPrev').modal('hide');
+            }else{
+                notif('3','Error de registro vuelva a intentarlo!')
+                $('#md-form_create_sitaPrev').modal('hide');
+            }           
         }
     );
     }

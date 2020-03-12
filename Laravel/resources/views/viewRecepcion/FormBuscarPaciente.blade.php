@@ -222,6 +222,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label">Observacion</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <textarea id="observacion_citPrev" cols="30" rows="2" require></textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

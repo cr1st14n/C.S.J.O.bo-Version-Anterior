@@ -70,7 +70,6 @@
 						</ul>
 				</div>
 				<!-- //tools-bar-->
-				
 		</div>
 		<!-- //header-->
 		<div id="main">

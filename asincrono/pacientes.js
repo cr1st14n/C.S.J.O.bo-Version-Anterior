@@ -279,6 +279,7 @@ function rutaAsignarCitPrev(id) {
         turno:$('#ate_turno_citPrev').val(),
         fecha:$('#fecha_citPrev').val(),
         hora:$('#time_citPrev').val(),
+        observacion:$('#observacion_citPrev').val(),
     }
     $.post("../citaPrevia/create", data,
         function (data) {

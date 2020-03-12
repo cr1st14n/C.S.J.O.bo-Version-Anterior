@@ -1,11 +1,6 @@
-function listEsp() { 
-   
- }
-
 function listCitasPrevias() {
     var data={
         date:$('#citPrevDate_list').val(),
-        especialidad:$('#especialidada_list').val(),
         turno:$('#turno_list').val(),
     }
     $.get("listCitasPrevias", data,
@@ -21,8 +16,9 @@ function listCitasPrevias() {
                 <td><span class="label label-success">${e.cp_time}</span></td>
                 <td>
                     <span class="tooltip-area">
-                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
+                        <a onclick="" class="btn btn-default btn-sm" title="Agendar"><i class="fa fa-exclamation"></i></a>
+                        <a onclick="" class="btn btn-default btn-sm" title="Editar"><i class="fa fa-pencil"></i></a>
+                        <a onclick="" class="btn btn-default btn-sm" title="Eliminar"><i class="fa fa-trash-o"></i></a>
                     </span>
                 </td>
             </tr>   

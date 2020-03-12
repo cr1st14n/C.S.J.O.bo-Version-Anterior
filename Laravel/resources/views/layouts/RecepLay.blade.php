@@ -7,10 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <!-- Title-->
 <title>{{ config('app.name', 'Laravel') }}</title>
-
-
-
-
 <!-- Favicons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}">
@@ -32,11 +28,6 @@
 </head>
 <body class="leftMenu nav-collapse">
 <div id="wrapper">
-		<!--
-		/////////////////////////////////////////////////////////////////////////
-		//////////     HEADER  CONTENT     ///////////////
-		//////////////////////////////////////////////////////////////////////
-		-->
 		<div id="header">
 				<div class="logo-area clearfix">
 						<a href="#" class="logo"></a>
@@ -82,26 +73,6 @@
 				
 		</div>
 		<!-- //header-->
-		<!--
-		/////////////////////////////////////////////////////////////////////////
-		//////////     SLIDE LEFT CONTENT     //////////
-		//////////////////////////////////////////////////////////////////////
-		-->
-		<!-- //seccion eliminada-->
-		<!-- //nav-->
-
-		<!--
-		/////////////////////////////////////////////////////////////////////////
-		//////////     TOP SEARCH CONTENT     ///////
-		//////////////////////////////////////////////////////////////////////
-		-->
-		<!-- seccion eliminada-->
-		<!-- //widget-top-search-->
-		<!--
-		/////////////////////////////////////////////////////////////////////////
-		//////////     MAIN SHOW CONTENT     //////////
-		//////////////////////////////////////////////////////////////////////
-		-->
 		<div id="main">
 		@yield('refUbi')
 @if(Session::has('flash_message_correcto'))

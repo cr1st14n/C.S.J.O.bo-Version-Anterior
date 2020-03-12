@@ -53,4 +53,11 @@ class CitPrevController extends Controller
         // return 'hola';
         return view('viewRecepcion.homeCitasPrevias');
     }
+    public function listCitasPrevias(Request $req)
+    {
+        return citPrev::where('cp_fecha',Carbon::parse($req->input('date')))->select('cp_turno','cp_num_ticked','cp_time')
+        ->join('pacientes as pa','pa.pa_id','cit_prevs.cp_paciente')->addSelect('pa_hcl','pa_nombre','pa_appaterno')
+        ->join('especialidad as esp','esp.id','cit_prevs.cp_especialidad')->addSelect('esp.nombre')
+        ->get();
+    }
 }

@@ -273,7 +273,7 @@
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
-    $('#ate_procedimiento > option[value="{{ old('ate_procedimiento') }}"]').attr('selected', 'selected');
+    // $('#ate_procedimiento > option[value="{{ old('ate_procedimiento') }}"]').attr('selected', 'selected');
      $('#ate_turno > option[value="{{$atencion->ate_turno}}"]').attr('selected', 'selected');
      $('#ate_med > option[value={{$atencion->ate_med}} ]').attr('selected', 'selected');
 

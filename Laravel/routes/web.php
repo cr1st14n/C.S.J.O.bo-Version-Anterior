@@ -155,6 +155,8 @@ Route::group(['middleware' => ['recepcion'], 'prefix' => '/Recepcion'], function
 		Route::get('index','CitPrevController@indexCitasPrevias')->name('citasPrecias_Index');
 		Route::get('listCitasPrevias','CitPrevController@listCitasPrevias');
 		Route::get('agendarCitPrev','CitPrevController@agendarCitPrev');
+		Route::post('createCitPrevAgendar','CitPrevController@createCitPrevAgendar');
+		Route::post('destroy','CitPrevController@destroy');
 	});
 	Route::group(['prefix' => '/reporte'], function () {
 

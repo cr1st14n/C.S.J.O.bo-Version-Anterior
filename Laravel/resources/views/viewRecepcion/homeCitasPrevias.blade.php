@@ -59,7 +59,7 @@
         <h2><strong>Agendar</strong>Cita </h2>
     </div>
     <form id="form_create_CitPrev">
-        <input type="number" id="id_form_citPrevAgendar" hidden>
+        <input type="number" id="id_form_citPrevAgendar_ag" hidden require>
         <div class="modal-body">
             <div class="panel-body">
                 <div class="form-horizontal" data-collabel="4" data-alignlabel="center">
@@ -67,8 +67,11 @@
                         <label class="control-label">Especialidad:</label>
                         <div class="row">
                             <div class="col-md-8">
-                                <select required="" id="ate_especialidad_citPrev" name="ate_especialidad" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
+                                <select required="" id="ate_especialidad_citPrev_ag" name="ate_especialidad" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
                                     <option selected="true" disabled="disabled">Seleccionar</option>
+                                    @foreach($especialidades as $esp)
+                                    <option value="{{$esp->id}}">{{$esp->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -76,39 +79,15 @@
                     <div class="form-group">
                         <label class="control-label">Procedimiento</label>
                         <div class="row">
-                            <div class="col-lg-6">
-                                <ul class="iCheck" data-color="blue">
-                                    <li>
-                                        <input type="radio" name="ateProcedimiento" value="Consulta" checked="true">
-                                        <label class=""> Consulta</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="ateProcedimiento" value="Control">
-                                        <label class="">Control </label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="ateProcedimiento" value="Emergencias">
-                                        <label class="">Emergencias</label>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul class="iCheck" data-color="blue">
-                                    <li>
-                                        <input type="radio" name="ateProcedimiento" value="Curacion Mayor">
-                                        <label class="">CRN Mayor</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="ateProcedimiento" value="Curacion Menor">
-                                        <label class="">CRN Menor</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="ateProcedimiento" value="Enfermeria">
-                                        <label class="">Enfermeria</label>
-                                    </li>
-
-                                </ul>
+                            <div class="col-md-8">
+                                <select required="" id="ateProcedimiento_ag" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
+                                    <option value="Consulta">Consulta</option>
+                                    <option value="Control">Control</option>
+                                    <option value="Emergencias">Emergencias</option>
+                                    <option value="Curacion Mayor">Curacion Mayor</option>
+                                    <option value="Curacion Menor">Curacion Menor</option>
+                                    <option value="Enfermeria">Enfermeria</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -116,8 +95,11 @@
                         <label class="control-label">Medico Asignado</label>
                         <div class="row">
                             <div class="col-md-8">
-                                <select id="ate_med_citPrev" class="form-control" data-size="10" required="">
+                                <select id="ate_med_citPrev_ag" class="form-control" data-size="10" required="">
                                     <option selected="true" disabled="disabled">Buscar medico</option>
+                                    @foreach($medicos as $med)
+                                    <option value="{{$med->id}}">{{$med->ps_appaterno}}, {{$med->ps_nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -125,7 +107,7 @@
                     <div class="form-group">
                         <label for="ticked" class="col-md-4 control-label"> # de ticked</label>
                         <div class="col-md-3">
-                            <input type="number" class="form-control" placeholder="# ticked" id="ticked_citPrev" required="" autocomplete="off"></input>
+                            <input type="number" class="form-control" placeholder="# ticked" id="ticked_citPrev_ag" required="" autocomplete="off"></input>
                         </div>
                     </div>
 
@@ -133,7 +115,7 @@
                         <label class="control-label">Turno T/M</label>
                         <div class="row">
                             <div class="col-md-6">
-                                <select id="ate_turno_citPrev" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
+                                <select id="ate_turno_citPrev_ag" class=" form-control show-menu-arrow" data-style="btn-theme-inverse">
                                     <option value="Mañana">Mañana</option>
                                     <option value="Tarde">Tarde</option>
                                 </select>
@@ -144,10 +126,10 @@
                         <label class="control-label">Fecha</label>
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="date" id="fecha_citPrev" class="form-control rounded" required>
+                                <input type="date" id="fecha_citPrev_ag" class="form-control rounded" required>
                             </div>
                             <div class="col-md-4">
-                                <input type="time" id="time_citPrev" class="form-control rounded" required>
+                                <input type="time" id="time_citPrev_ag" class="form-control rounded" required>
                             </div>
                         </div>
                     </div>
@@ -155,7 +137,17 @@
                         <label class="control-label">Observacion</label>
                         <div class="row">
                             <div class="col-md-6">
-                                <textarea id="observacion_citPrev" cols="30" rows="2" require></textarea>
+                                <textarea id="observacion_citPrev_ag" cols="30" rows="2" require></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Registrar como pagado</label>
+                        <div class="row">
+                            <div class="col-sm-4 ios-switch red">
+                                <div class="switch">
+                                    <input type="checkbox" name="R_P_ag" id="R_P_ag">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -167,6 +159,19 @@
             <!-- <button type="reset" class="btn" onclick="clearForm(this.form);"> Limpiar Formulario</button> -->
         </footer>
     </form>
+</div>
+<div id="md-citasPrevias_delete" class="modal fade md-stickTop" tabindex="-1" data-width="350">
+    <div class="modal-header bg-inverse bd-inverse-darken">
+        <button type="button" class="close" data-dismiss="modal" id="" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title">Eliminar Cita Previa?</h4>
+    </div>
+    <!-- //modal-header-->
+    <div class="modal-body">
+        <label id="message-delete"></label>
+        <div class="panel-body align-xs-center " id="btn-citaPrevia-delete">
+        </div>
+    </div>
+    <!-- //modal-body-->
 </div>
 @endsection
 @section('scripts')

@@ -58,17 +58,20 @@ class CitPrevController extends Controller
     public function listCitasPrevias(Request $req)
     {
         if ($req->input('turno')=='Jornal') {
-            return citPrev::where('cp_fecha',Carbon::parse($req->input('date')))->select('cp_turno','cp_num_ticked','cp_time')
+            return citPrev::where('cp_fecha',Carbon::parse($req->input('date')))->select('cit_prevs.id','cp_turno','cp_num_ticked','cp_time')
             ->join('pacientes as pa','pa.pa_id','cit_prevs.cp_paciente')->addSelect('pa_hcl','pa_nombre','pa_appaterno')
             ->join('especialidad as esp','esp.id','cit_prevs.cp_especialidad')->addSelect('esp.nombre')
             ->get();
         } else {
-            return citPrev::where('cp_fecha',Carbon::parse($req->input('date')))->select('cp_turno','cp_num_ticked','cp_time')
+            return citPrev::where('cp_fecha',Carbon::parse($req->input('date')))->select('cit_prevs.id','cp_turno','cp_num_ticked','cp_time')
             ->join('pacientes as pa','pa.pa_id','cit_prevs.cp_paciente')->addSelect('pa_hcl','pa_nombre','pa_appaterno')
             ->join('especialidad as esp','esp.id','cit_prevs.cp_especialidad')->addSelect('esp.nombre')
             ->where('cp_turno',$req->input('turno'))
             ->get();
         }
-        
+    }
+    public function agendarCitPrev(Request $request)
+    {
+        return citPrev::where('id',$request->input('id'))->first();
     }
 }

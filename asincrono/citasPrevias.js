@@ -16,7 +16,7 @@ function listCitasPrevias() {
                 <td><span class="label label-success">${e.cp_time}</span></td>
                 <td>
                     <span class="tooltip-area">
-                        <a onclick="" class="btn btn-default btn-sm" title="Agendar"><i class="fa fa-exclamation"></i></a>
+                        <a onclick="agendarCitPrev(${e.id})" class="btn btn-default btn-sm" title="Agendar"><i class="fa fa-exclamation"></i></a>
                         <a onclick="" class="btn btn-default btn-sm" title="Editar"><i class="fa fa-pencil"></i></a>
                         <a onclick="" class="btn btn-default btn-sm" title="Eliminar"><i class="fa fa-trash-o"></i></a>
                     </span>
@@ -28,3 +28,13 @@ function listCitasPrevias() {
         }
     );
   }
+
+  function agendarCitPrev(id) {
+      $.get("agendarCitPrev", {id:id},
+          function (data) {
+              console.log(data);
+          }
+      );
+      $('#md-form_citPrevAgendar').modal('show');
+      jqap
+    }

@@ -294,4 +294,8 @@ function rutaAsignarCitPrev(id) {
     );
     }
 
+    function listCitasPreviasEspecialidad() {
+        $( ).remove();
+      }
+
 

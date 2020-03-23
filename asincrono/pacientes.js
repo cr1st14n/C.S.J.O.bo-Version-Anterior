@@ -295,7 +295,17 @@ function rutaAsignarCitPrev(id) {
     }
 
     function listCitasPreviasEspecialidad() {
-        $( ).remove();
+        if ($('#ate_especialidad_citPrev').val()!=' ') {
+            
+            console.log($('#ate_especialidad_citPrev').val());
+        } else {
+            console.log('error');
+        }
+        $.get("../citaPrevia/listagenda1", {id:$('#ate_especialidad_citPrev').val()},
+            function (data) {
+             return data;   
+            }
+        );
       }
 
 

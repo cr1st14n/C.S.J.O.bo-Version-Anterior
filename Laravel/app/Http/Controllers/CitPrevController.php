@@ -117,4 +117,8 @@ class CitPrevController extends Controller
         $res= citPrev::where('id',$request->input('id'))->delete();            
         return $res;
     }
+    public function listagenda1(Request $request)
+    {
+        return $request;
+    }
 }

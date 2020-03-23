@@ -164,6 +164,17 @@
                     <div class="panel-body">
                         <div class="form-horizontal" data-collabel="3" data-alignlabel="center">
                             <div class="form-group">
+                                <label class="control-label">Fecha</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="date" id="fecha_citPrev" class="form-control rounded" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="time" id="time_citPrev" class="form-control rounded" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label">Especialidad:</label>
                                 <div class="row">
                                     <div class="col-md-8">
@@ -173,7 +184,7 @@
                                                     <option selected="true" disabled="disabled">Seleccionar</option>
                                                 </select>
                                             </div>
-                                            <div class="col-lg-4"> 
+                                            <div class="col-lg-4">
                                                 <button class="btn btn-theme-inverse" type="button" onclick="listCitasPreviasEspecialidad()"><i class="fa fa-search"></i></button>
                                             </div>
                                         </div>
@@ -244,17 +255,6 @@
                                             <option value="Mañana">Mañana</option>
                                             <option value="Tarde">Tarde</option>
                                         </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Fecha</label>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input type="date" id="fecha_citPrev" class="form-control rounded" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="time" id="time_citPrev" class="form-control rounded" required>
                                     </div>
                                 </div>
                             </div>

@@ -141,16 +141,10 @@
                         </thead>
                         <tbody id="listCitPrev">
                             <tr id="12">
-                                <td align="right">111111</td>
-                                <td align="left">carolina maria pedro</td>
-                                <td align="right">2</td>
-                                <td align="right">12:12</td>
-                            </tr>
-                            <tr>
-                                <td>ñlakjsdlkf</td>
-                                <td>ñlakjsdlkf</td>
-                                <td>ñlakjsdlkf</td>
-                                <td>ñlakjsdlkf</td>
+                                <td align="right">#</td>
+                                <td align="left">---</td>
+                                <td align="right">---</td>
+                                <td align="right">---</td>
                             </tr>
                         </tbody>
                     </table>

@@ -119,6 +119,10 @@ class CitPrevController extends Controller
     }
     public function listagenda1(Request $request)
     {
-        return $request;
+        return citPrev::where(['cp_especialidad'=>$request->input('id'),'cp_fecha'=>$request->input('date')])
+        ->join('pacientes as pa','pa.pa_id','cit_prevs.cp_paciente')
+        ->select('cit_prevs.*')
+        ->addSelect('pa.pa_hcl','pa.pa_nombre','pa.pa_appaterno')
+        ->get();
     }
 }

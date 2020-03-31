@@ -139,7 +139,7 @@
                                 <th>Hora</th>
                             </tr>
                         </thead>
-                        <tbody id="list111">
+                        <tbody id="listCitPrev">
                             <tr id="12">
                                 <td align="right">111111</td>
                                 <td align="left">carolina maria pedro</td>
@@ -167,7 +167,7 @@
                                 <label class="control-label">Fecha</label>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="date" id="fecha_citPrev" class="form-control rounded" required>
+                                        <input type="date" id="fecha_citPrev" class="form-control rounded" min="2000-01-01" max="2025-12-31" required>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="time" id="time_citPrev" class="form-control rounded" required>

@@ -157,7 +157,7 @@ Route::group(['middleware' => ['recepcion'], 'prefix' => '/Recepcion'], function
 		Route::get('agendarCitPrev','CitPrevController@agendarCitPrev');
 		Route::post('createCitPrevAgendar','CitPrevController@createCitPrevAgendar');
 		Route::post('destroy','CitPrevController@destroy');
-		Route::post('listagenda1','CitPrevController@listagenda1');
+		Route::get('listagenda1','CitPrevController@listagenda1');
 	});
 	Route::group(['prefix' => '/reporte'], function () {
 

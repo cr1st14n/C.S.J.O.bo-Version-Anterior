@@ -119,6 +119,10 @@ Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function 
 		Route::get('actRegistroMed', 'admRecepController@actRegistroMed');
 		Route::get('DatosEstAnualesMedico', 'admRecepController@DatosEstAnualesMedico');
 	});
+	Route::group(['prefix' => '/cotizaciones'],function ()
+	{
+		route::get('home','cotizacionController@index');
+	});
 });
 
 //--------------RECEPCION---------//

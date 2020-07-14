@@ -99,6 +99,7 @@
                     </ul>
                 <li><a href="{{route('home_area')}}"><i class="icon  fa fa-building-o"></i> Areas </a></li>
                 </li>
+                <li><a href="#" id="btn_index_pre_cotizaciones"><i class="icon fa fa-file"></i>Pre-Cotizaciones</a></li>
             </ul>
         </nav>
 

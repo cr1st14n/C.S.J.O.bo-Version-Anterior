@@ -122,6 +122,7 @@ Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function 
 	Route::group(['prefix' => '/cotizaciones'],function ()
 	{
 		route::get('home','cotizacionController@index');
+		route::get('list1','cotizacionController@list1');
 	});
 });
 

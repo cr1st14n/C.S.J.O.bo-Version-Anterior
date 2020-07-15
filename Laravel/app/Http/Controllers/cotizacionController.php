@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\cotizacion;
 use Illuminate\Http\Request;
+use View;
 
 class cotizacionController extends Controller
 {
     public function index()
     {
-        return 'hola mundo';
+        return View('viewCotizaciones.home');
+    }
+    public function list1()
+    {
+       return cotizacion::get();
     }
 }

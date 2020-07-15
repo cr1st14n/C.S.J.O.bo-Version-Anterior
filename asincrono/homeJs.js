@@ -81,7 +81,7 @@ $('#btn_index_pre_cotizaciones').on('click', function () {
     data: "data",
     // dataType: "dataType",
     success: function (response) {
-      console.log(response);
+      $('#content').html(response);
     }
   });
 });

@@ -16,4 +16,8 @@ class cotizacionController extends Controller
     {
        return cotizacion::get();
     }
+    public function store1(Request $request)
+    {
+        return cotizacion::where('id',$request->input('id'))->first();
+    }
 }

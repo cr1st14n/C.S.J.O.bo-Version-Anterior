@@ -1,11 +1,12 @@
-$('#btn_list_precotizaciones').click(function (e) { 
-    e.preventDefault();
-    $.ajax({
-        type: "get",
-        url: "cotizaciones/list1",
-        success: function (response) {
-            var html=response.map(function (e) {
-                return ` 
+$("#btn_list_precotizaciones").click(function (e) {
+  e.preventDefault();
+  $.ajax({
+    type: "get",
+    url: "cotizaciones/list1",
+    success: function (response) {
+      var html = response
+        .map(function (e) {
+          return ` 
                 <tr>
                     <td>${e.cod_cot}</td>
                     <td valign="middle">${e.cot_id_paciente}</td>
@@ -19,20 +20,31 @@ $('#btn_list_precotizaciones').click(function (e) {
                     </td>
                 </tr>
                 `;
-            }).join(" ");
-           $('#table-list_precotizaciones').html(html); 
-        }
-    });
+        })
+        .join(" ");
+      $("#table-list_precotizaciones").html(html);
+    },
+  });
 });
 
 function show_option_otizacion(id) {
-    $('#md-optionCotizacion').modal('show');
-    $.ajax({
-        type: "get",
-        url: "cotizaciones/store1",
-        data: {id:id},
-        success: function (e) {
-            console.log(e);
-        }
-    });
-  }
+  $("#md-optionCotizacion").modal("show");
+  $.ajax({
+    type: "get",
+    url: "cotizaciones/store1",
+    data: { id: id },
+    success: function (e) {
+      $("#md-optionCotizacion").html("");
+      $("#md-optionCotizacion").html(e);
+    },
+  });
+}
+$("#form-cotizacion_register_precio").on("submit", function (e) {
+  e.preventDefault();
+  console.log("ñalskdfj");
+  console.log($("#form-cotizacion_register_precio").serialize());
+});
+$('#123123').on('click', function () {
+    console.log('hola que tal ');
+});
+

@@ -18,6 +18,9 @@ class cotizacionController extends Controller
     }
     public function store1(Request $request)
     {
-        return cotizacion::where('id',$request->input('id'))->first();
+        $data=cotizacion::where('id',$request->input('id'))
+                        ->join('pacientes as pc','pc.pa_id','cotizacions.cot_id_paciente')
+                        ->first();
+        return view('viewCotizaciones.view1-cotizacion')->with('data',$data);
     }
 }

@@ -5,7 +5,7 @@
                 <h2><strong>Pre</strong> Cotizaciones </h2>
             </header>
             <div class="panel-body">
-                <button class="btn btn-theme-inverse btn-sm" id="btn_list_precotizaciones"><i class="fa fa-search"></i></button>
+                <button class="btn btn-theme-inverse btn-sm" onclick="paralisis()" id="btn_list_precotizaciones"><i class="fa fa-search"></i></button>
                 <div class="table-responsive">
                     <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
                         <thead>
@@ -36,4 +36,4 @@
 </div>
 <!-- //modal-->
 
-<script type="text/javascript" src="{{ asset('/asincrono/cotizaciones.js') }}"></script>
+<!-- <script type="text/javascript" src="{{ asset('/asincrono/cotizaciones.js') }}"></script> -->

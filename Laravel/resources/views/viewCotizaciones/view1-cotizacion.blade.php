@@ -63,7 +63,8 @@
     </div>
     <hr>
     <div class=" content">
-        <form id="form-cotizacion_register_precio" >
+    <button class="btn btn-circle btn-danger"  >jeje</button>
+        <form id="form-cotizacion_register_precio" onsubmit="bla()">
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="control-label">Precio a cotizar: </label>
@@ -73,7 +74,7 @@
                 </div>
                 <div class="form-group offset">
                     <div>
-                        <button type="submit" class="btn btn-theme">Registraqwsfr</button>
+                        <button type="submit" class="btn btn-theme">Registrar</button>
                         <button id="123123" class="btn ">Cancelar</button>
                     </div>
                 </div>
@@ -86,10 +87,13 @@
                     </div>
                 </div>
             </div>
-
         </form>
-        <div>
-        </div>
+
+        <form id="prapra">
+            <input type="text" name="nombre" class="form-control" >
+            <button class="btn btn-color btn-danger" id="btnDePrueba" type="button">5555</button>
+        </form>
+      
     </div>
 </div>
 </div>

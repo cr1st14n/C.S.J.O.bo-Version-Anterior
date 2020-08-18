@@ -136,6 +136,10 @@
 
     <!-- scripts propios del sistema-->
     <script type="text/javascript" src="{{ asset('/asincrono/homeJs.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/asincrono/cotizaciones.js') }}"></script>
+
+
+    <!--  -->
     <script>
         $('nav#menu').mmenu({
             searchfield: false,

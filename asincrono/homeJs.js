@@ -77,8 +77,8 @@ function aniCarga(divId) {
 $('#btn_index_pre_cotizaciones').on('click', function () {
   $.ajax({
     type: "get",
-    url: "cotizaciones/home",
-    data: "data",
+    url: "../adm/cotizaciones/home",
+    // data: "data",
     // dataType: "dataType",
     success: function (response) {
       $('#content').html(response);

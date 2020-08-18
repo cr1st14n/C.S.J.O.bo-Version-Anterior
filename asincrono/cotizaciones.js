@@ -1,8 +1,8 @@
-$("#btn_list_precotizaciones").click(function (e) {
-  e.preventDefault();
+function paralisis() {
+  console.log('tendree');
   $.ajax({
     type: "get",
-    url: "cotizaciones/list1",
+    url: "../adm/cotizaciones/list1",
     success: function (response) {
       var html = response
         .map(function (e) {
@@ -25,13 +25,18 @@ $("#btn_list_precotizaciones").click(function (e) {
       $("#table-list_precotizaciones").html(html);
     },
   });
-});
+  }
 
+
+
+$("#btn_list_precotizaciones").click(function (e) {
+  
+});
 function show_option_otizacion(id) {
   $("#md-optionCotizacion").modal("show");
   $.ajax({
     type: "get",
-    url: "cotizaciones/store1",
+    url: "../adm/cotizaciones/store1",
     data: { id: id },
     success: function (e) {
       $("#md-optionCotizacion").html("");
@@ -39,12 +44,9 @@ function show_option_otizacion(id) {
     },
   });
 }
-$("#form-cotizacion_register_precio").on("submit", function (e) {
+$('#btnDePrueba').click(function (e) { 
   e.preventDefault();
-  console.log("ñalskdfj");
-  console.log($("#form-cotizacion_register_precio").serialize());
-});
-$('#123123').on('click', function () {
-    console.log('hola que tal ');
+  var casa= $('#prapra').serealize();
+  console.log(casa);
 });
 

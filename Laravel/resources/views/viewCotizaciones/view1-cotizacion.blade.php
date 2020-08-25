@@ -63,13 +63,12 @@
     </div>
     <hr>
     <div class=" content">
-    <button class="btn btn-circle btn-danger"  >jeje</button>
-        <form id="form-cotizacion_register_precio" onsubmit="bla()">
+        <form id="form_registerCotizacion1" >
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="control-label">Precio a cotizar: </label>
                     <div class="input-group"> <span class="input-group-addon">Bs.- </span>
-                        <input type="text" class="form-control" placeholder="Monto">
+                        <input type="text" name="precio" class="form-control" placeholder="Monto">
                     </div>
                 </div>
                 <div class="form-group offset">
@@ -83,12 +82,12 @@
                 <div class="form-group">
                     <label class="control-label">Observaciones: </label>
                     <div>
-                        <textarea class="form-control" placeholder="Describa una observación de la precotizacion..." rows="3"></textarea>
+                        <textarea class="form-control" name="observacion" placeholder="Describa una observación de la precotizacion..." rows="3"></textarea>
                     </div>
                 </div>
             </div>
         </form>
-
+<button type="button" id="primero" class="btn btn-darkorange">hola mundo</button>
         <form id="prapra">
             <input type="text" name="nombre" class="form-control" >
             <button class="btn btn-color btn-danger" id="btnDePrueba" type="button">5555</button>
@@ -97,3 +96,6 @@
     </div>
 </div>
 </div>
+<script type="text/javascript" src="{{ asset('/asincrono/cotizaciones.js') }}"></script>
+
+    

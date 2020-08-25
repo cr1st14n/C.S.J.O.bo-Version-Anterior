@@ -5,7 +5,7 @@
                 <h2><strong>Pre</strong> Cotizaciones </h2>
             </header>
             <div class="panel-body">
-                <button class="btn btn-theme-inverse btn-sm" onclick="paralisis()" id="btn_list_precotizaciones"><i class="fa fa-search"></i></button>
+                <button class="btn btn-theme-inverse btn-sm" onclick="listCotizacines1()"><i class="fa fa-search"></i></button>
                 <div class="table-responsive">
                     <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
                         <thead>
@@ -32,7 +32,8 @@
         </section>
     </div>
 </div>
-<div id="md-optionCotizacion" class="modal fade md-slideDown" data-width="60%" data-header-color="#736086" >
+
+<div id="md-optionCotizacion" class="modal fade md-slideDown" data-width="60%" data-header-color="#736086">
 </div>
 <!-- //modal-->
 

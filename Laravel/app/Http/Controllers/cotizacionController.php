@@ -23,4 +23,8 @@ class cotizacionController extends Controller
                         ->first();
         return view('viewCotizaciones.view1-cotizacion')->with('data',$data);
     }
+    public function create(Request $request)
+    {
+        return $request;
+    }
 }

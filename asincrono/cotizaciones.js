@@ -1,12 +1,11 @@
-function paralisis() {
-  console.log('tendree');
+function listCotizacines1() {
   $.ajax({
     type: "get",
     url: "../adm/cotizaciones/list1",
     success: function (response) {
       var html = response
         .map(function (e) {
-          return ` 
+          return  html=` 
                 <tr>
                     <td>${e.cod_cot}</td>
                     <td valign="middle">${e.cot_id_paciente}</td>
@@ -25,28 +24,35 @@ function paralisis() {
       $("#table-list_precotizaciones").html(html);
     },
   });
-  }
+}
 
-
-
-$("#btn_list_precotizaciones").click(function (e) {
-  
+$('#btn_list_precotizaciones').click(function () {
 });
 function show_option_otizacion(id) {
-  $("#md-optionCotizacion").modal("show");
   $.ajax({
     type: "get",
     url: "../adm/cotizaciones/store1",
     data: { id: id },
-    success: function (e) {
-      $("#md-optionCotizacion").html("");
-      $("#md-optionCotizacion").html(e);
+    success: function (html) {
+      // $("#md-optionCotizacion").html("");
+      $("#md-optionCotizacion").html(html);
     },
   });
+  $("#md-optionCotizacion").modal("show");
 }
-$('#btnDePrueba').click(function (e) { 
-  e.preventDefault();
-  var casa= $('#prapra').serealize();
-  console.log(casa);
-});
+function dart1() {
+  console.log('hola mundo');
+  }
+ $('#form_registerCotizacion1').submit(function (e) { 
+   e.preventDefault();
+   $.ajax({
+     type: "post",
+     url: "../adm/cotizaciones/create",
+     data: "data",
+     dataType: "dataType",
+     success: function (response) {
+       
+     }
+   });
+ });
 

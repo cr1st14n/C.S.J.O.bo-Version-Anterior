@@ -48,10 +48,10 @@ function dart1() {
    $.ajax({
      type: "post",
      url: "../adm/cotizaciones/create",
-     data: "data",
-     dataType: "dataType",
+     data: $('#form_registerCotizacion1').serialize(),
+     dataType: "bolean",
      success: function (response) {
-       
+       console.log(response);
      }
    });
  });

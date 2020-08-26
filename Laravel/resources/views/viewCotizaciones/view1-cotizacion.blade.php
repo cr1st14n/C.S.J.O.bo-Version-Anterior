@@ -64,6 +64,8 @@
     <hr>
     <div class=" content">
         <form id="form_registerCotizacion1" >
+              @csrf
+              
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="control-label">Precio a cotizar: </label>

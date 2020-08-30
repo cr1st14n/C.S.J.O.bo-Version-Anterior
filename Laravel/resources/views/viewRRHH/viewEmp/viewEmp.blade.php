@@ -20,7 +20,7 @@
             <button class="btn btn-theme-inverse btn-transparent btn-sm">listar inactivos </button> -->
         </div>
         <div class="table-responsive">
-            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped" >
                 <thead>
                     <tr>
                         <th>CI</th>

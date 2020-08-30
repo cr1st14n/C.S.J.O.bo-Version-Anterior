@@ -1,3 +1,11 @@
+//?Funciones de auto inicio
+setTimeout(() => {
+	listTodosEmp();
+}, 2000);
+
+
+
+
 $('input').attr('autocomplete', 'off');
 
 //?----------- onclick de formularios
@@ -137,7 +145,8 @@ function createUser2() {
 		nombre: $('#nombre').val(),
 		apellido1: $('#apellido1').val(),
 		apellido2: $('#apellido2').val(),
-		sexo: document.querySelector('input[name=sexo]:cdocumenthecked').value,
+		// sexo: document.querySelector('input[name=sexo]:documentchecked').value,
+		sexo: $('input[name=sexo').filter(":checked").val(),
 		fechaNacimiento: $('#fechaNacimiento').val(),
 		paisNacimiento: $('#paisNacimiento').val(),
 		depNacimiento: $('#depNacimiento').val(),
@@ -1128,3 +1137,6 @@ function DestroyVacacion(id) {
 		}
 	});
 }
+
+
+

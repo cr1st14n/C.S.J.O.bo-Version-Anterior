@@ -63,14 +63,14 @@
     </div>
     <hr>
     <div class=" content">
-        <form id="form_registerCotizacion1" >
-              @csrf
-              
+        <form id="form_registerCotizacion1">
+            <input name="_token" value="{{ csrf_token() }}" hidden>
+            <input id="id_paciente_cotizacion_create" type="number" name="id_cotizacion_create" value="{{$data->id}}" hidden>
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="control-label">Precio a cotizar: </label>
                     <div class="input-group"> <span class="input-group-addon">Bs.- </span>
-                        <input type="text" name="precio" class="form-control" placeholder="Monto">
+                        <input type="number" name="precio" class="form-control" placeholder="Monto" autocomplete="off">
                     </div>
                 </div>
                 <div class="form-group offset">
@@ -89,15 +89,7 @@
                 </div>
             </div>
         </form>
-<button type="button" id="primero" class="btn btn-darkorange">hola mundo</button>
-        <form id="prapra">
-            <input type="text" name="nombre" class="form-control" >
-            <button class="btn btn-color btn-danger" id="btnDePrueba" type="button">5555</button>
-        </form>
-      
     </div>
 </div>
 </div>
 <script type="text/javascript" src="{{ asset('/asincrono/cotizaciones.js') }}"></script>
-
-    

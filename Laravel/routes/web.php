@@ -123,6 +123,7 @@ Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function 
 	{
 		route::get('home','cotizacionController@index');
 		route::get('list1','cotizacionController@list1');
+		route::get('list2','cotizacionController@list2');
 		route::get('store1','cotizacionController@store1');
 		route::post('create','cotizacionController@create');
 	});

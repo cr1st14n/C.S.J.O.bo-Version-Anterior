@@ -20,11 +20,11 @@ class cotizacionController extends Controller
     }
     public function list1()
     {
-       return cotizacion::where('cot_estado',0)->get();
+       return cotizacion::where('cot_estado',0)->orderBy('created_at','desc')->get();
     }
     public function list2()
     {
-       return cotizacion::where('cot_estado',1)->get();
+       return cotizacion::where('cot_estado',1)->orderBy('created_at','desc')->get();
     }
     public function store1(Request $request)
     {

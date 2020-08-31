@@ -809,7 +809,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" id="vacDayUser_Up" required>
                         <span class="input-group-btn">
-                            <button class="btn btn-theme-inverse btn-transparent" type="button" id="calculateVacacinUser">Calcular dias</button>
+                            <button class="btn btn-theme-inverse btn-transparent" type="button" id="calculateVacacinUser1">Calcular dias</button>
                         </span>
                     </div>
                 </div>
@@ -1031,7 +1031,7 @@
         <section class="panel">
             <div class="panel-body">
                 <form class="form-horizontal" data-collabel="4" data-alignlabel="left" id="formCreateFalta">
-                    <input type="text" id="CodPermisoUp" hidden>
+                    <input type="text" id="CodPermiso" hidden>
                     <div class="form-group">
                         <label class="control-label">Motivo</label>
                         <div>

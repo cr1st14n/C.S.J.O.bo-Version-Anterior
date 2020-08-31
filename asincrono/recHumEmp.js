@@ -1,7 +1,7 @@
 //?Funciones de auto inicio
 setTimeout(() => {
 	listTodosEmp();
-}, 2000);
+}, 800);
 
 
 
@@ -966,6 +966,9 @@ function showUserVacaciones(id) {
   }, 500);
 }
 $('#calculateVacacinUser').click(function(e) {
+	calcuarDias();
+});
+$('#calculateVacacinUser1').click(function(e) {
 	calcuarDias();
 });
 function calcuarDias(e) {

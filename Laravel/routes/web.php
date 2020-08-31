@@ -12,29 +12,7 @@ Route::get('print', function () {
 	return view('true');
 });
 
-Route::get('1234', function () {
-	Session::flash('flash_message', 'Mensaje de prueba');
-	return 'jejeje';
-})->middleware('administracion');
 Route::post('searchredirect', 'PacienteController@buscar');
-/* Route::get('home/searchredirect', function(){
-     
-     Nuevo: si el argumento search está vacío regresar a la página anterior 
-    if (empty(Input::get('search'))) return redirect()->back();
-    
-    $search = urlencode(e(Input::get('search')));
-    $route = "home/search/$search";
-    return redirect($route);
-});
-Route::get("home/search/{search}", function($search){
-
-return $search ;
-
-});
-*/
-//----------vistas generales ---------//
-
-
 
 //--------------administracion---------//
 

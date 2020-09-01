@@ -49,7 +49,7 @@
     </div>
 </div>
 
-<div id="md-optionCotizacion" class="modal fade md-slideDown" data-width="48%" data-header-color="#736086">
+<div id="md-optionCotizacion" class="modal fade md-slideDown" data-width="70%" data-header-color="#736086">
 </div>
 <!-- //modal-->
 

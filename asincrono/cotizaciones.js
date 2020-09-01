@@ -82,7 +82,7 @@ $("#form_registerCotizacion1").submit(function (e) {
     //  dataType: "bolean",
     success: function (response) {
       if (response==1) {
-        listCotizacines1();
+        listCotizacines1($('#form_list_cotizaciones').serialize());
         $('#md-optionCotizacion').modal('hide');
       } else {
         $('#md-optionCotizacion').modal('hide');

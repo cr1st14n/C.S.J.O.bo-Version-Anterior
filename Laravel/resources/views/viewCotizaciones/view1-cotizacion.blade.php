@@ -19,7 +19,7 @@
     </p>
     <hr>
     <div class="row">
-        <div class="col-md-6 col-sm-6">
+        <div class="col-md-4 col-sm-6">
             <ul class="list-item angle">
                 <li>-Especialidad Medica: <strong>{{ $data->cot_EspecialidadCirugia}}</strong></li>
                 <li>-Nombre del Procedimiento: <strong>{{ $data->cot_tipoCirugia}}</strong> </li>
@@ -30,65 +30,69 @@
             </ul>
         </div>
         <!-- //col-md-3 -->
-        <div class="col-md-6 col-sm-6">
-            <ul class="list-item arrow">
+        <div class="col-md-8 col-sm-6">
             <strong>Servicios requeridos: </strong>
-                @if($data->cot_espAneesteseologo == 1)
-                <li>-Especialista anesteseologo.</li>
-                @endif
-                @if($data->cot_quirofanoMayor == 1)
-                <li>- Quirofano mayor.</li>
-                @endif
-                @if($data->cot_salaEndoscopia == 1)
-                <li>- Sala de Endoscopia.</li>
-                @endif
-                @if($data->cot_salaPartos == 1)
-                <li>- Sala de partos.</li>
-                @endif
-                @if($data->cot_equipoLaparosopica == 1)
-                <li>- Equipo de Laparoscopia.</li>
-                @endif
-                @if($data->cot_ayudante1 == 1)
-                <li>- 1 Ayudante.</li>
-                @endif
-                @if($data->cot_ayudante2 == 1)
-                <li>- 2 Ayudante.</li>
-                @endif
-                @if($data->cot_instrumentador == 1)
-                <li>- Instrumentador.</li>
-                @endif
+            <ul class="list-item arrow">
+                <div class="col-md-6" >
+                    @if($data->cot_espAneesteseologo == 1)
+                    <li>-Especialista anesteseologo.</li>
+                    @endif
+                    @if($data->cot_quirofanoMayor == 1)
+                    <li>- Quirofano mayor.</li>
+                    @endif
+                    @if($data->cot_salaEndoscopia == 1)
+                    <li>- Sala de Endoscopia.</li>
+                    @endif
+                    @if($data->cot_salaPartos == 1)
+                    <li>- Sala de partos.</li>
+                    @endif
+                    @if($data->cot_equipoLaparosopica == 1)
+                    <li>- Equipo de Laparoscopia.</li>
+                    @endif
+                    @if($data->cot_ayudante1 == 1)
+                    <li>- 1 Ayudante.</li>
+                    @endif
+                    @if($data->cot_ayudante2 == 1)
+                    <li>- 2 Ayudante.</li>
+                    @endif
+                    @if($data->cot_instrumentador == 1)
+                    <li>- Instrumentador.</li>
+                    @endif
+                </div>
+                <div class="col-md-6" >
+                    @if($data->cot_circulante == 1)
+                    <li>- Circulante.</li>
+                    @endif
+                    @if($data->cot_oxigeno == 1)
+                    <li>- Oxigeno.</li>
+                    @endif
+                    @if($data->cot_agujaK == 1)
+                    <li>- Aguja K.</li>
+                    @endif
+                                    
+                    @if($data->cot_insumoQuirofano == 1)
+                    <li>- Insumos en quirofano.</li>
+                    @endif
+                    @if($data->cot_medicamentosQuirofano == 1)
+                    <li>- Medicamentos en quirafano.</li>
+                    @endif
+                                    
+                    <li>-Otros: <strong>{{ $data->cot_otros }}</strong></li>
+                    <li>-Procedimiento:
+                        <strong>
+                            @if($data->cot_procedimiento == 1)
+                            <strong>Mayor</strong>
+                            @endif
+                            @if($data->cot_procedimiento == 2)
+                            <strong>Mediana</strong>
+                            @endif
+                            @if($data->cot_procedimiento == 3)
+                            <strong>Menor</strong>
+                            @endif
+                        </strong>
+                    </li>
+                </div>
                 
-                @if($data->cot_circulante == 1)
-                <li>- Circulante.</li>
-                @endif
-                @if($data->cot_oxigeno == 1)
-                <li>- Oxigeno.</li>
-                @endif
-                @if($data->cot_agujaK == 1)
-                <li>- Aguja K.</li>
-                @endif
-                                
-                @if($data->cot_insumoQuirofano == 1)
-                <li>- Insumos en quirofano.</li>
-                @endif
-                @if($data->cot_medicamentosQuirofano == 1)
-                <li>- Medicamentos en quirafano.</li>
-                @endif
-                                
-                <li>-Otros: <strong>{{ $data->cot_otros }}</strong></li>
-                <li>-Procedimiento:
-                    <strong>
-                        @if($data->cot_procedimiento == 1)
-                        <strong>Mayor</strong>
-                        @endif
-                        @if($data->cot_procedimiento == 2)
-                        <strong>Mediana</strong>
-                        @endif
-                        @if($data->cot_procedimiento == 3)
-                        <strong>Menor</strong>
-                        @endif
-                    </strong>
-                </li>
             </ul>
         </div>
         <!-- //col-md-3 -->
@@ -114,7 +118,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="control-label">Observaciones: </label>
+                    <label class="control-label">Observaciones de cotizacion: </label>
                     <div>
                         <textarea class="form-control" name="observacion" placeholder="Describa una observación de la precotizacion..." rows="3"></textarea>
                     </div>

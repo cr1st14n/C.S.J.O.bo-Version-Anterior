@@ -18,18 +18,24 @@ class cotizacionController extends Controller
     {
         return View('viewCotizaciones.home');
     }
-    public function list1()
+    public function list1(Request $request)
     {
+        $date=Carbon::createFromFormat('Y-m-d', $request->input('date_list_cotizaciones'))->format('Y-m-d');
+        // return $date;
        return cotizacion::where('cot_estado',0)
        ->join('pacientes as pa','pa.pa_id','cot_id_paciente')
        ->join('users as u','u.id','cotizacions.ca_usu_cod')
+       ->whereDate('cotizacions.created_at',$date)
        ->select('cotizacions.*','pa.pa_nombre','pa.pa_appaterno','pa.pa_apmaterno','u.usu_nombre','u.usu_appaterno')
        ->orderBy('created_at','desc')
        ->get();
     }
-    public function list2()
+    public function list2(Request $request)
     {
+        $date=Carbon::createFromFormat('Y-m-d', $request->input('date_list_cotizaciones'))->format('Y-m-d');
+        // return $date;
         return cotizacion::where('cot_estado',1)
+       ->whereDate('cotizacions.created_at',$date)
        ->join('pacientes as pa','pa.pa_id','cot_id_paciente')
        ->join('users as u','u.id','cotizacions.ca_usu_cod')
        ->select('cotizacions.*','pa.pa_nombre','pa.pa_appaterno','pa.pa_apmaterno','u.usu_nombre','u.usu_appaterno')

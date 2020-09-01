@@ -5,20 +5,20 @@
                 <h2><strong>Pre</strong> Cotizaciones </h2>
             </header>
             <div class="panel-body">
-                <div class=" col-lg-3">
-                    <button class="btn btn-theme-inverse btn-sm" onclick="listCotizacines1()">Sin Cotizar<i class="fa fa-th-list "></i></button>
-                    <button class="btn btn-theme-inverse btn-sm" onclick="listCotizacines2()">Cotizado<i class="fa fa-th-list"></i></button>
-                </div>
-                <div class="col-lg-3">
                 <form id="form_list_cotizaciones">
-                    <div class="input-group">
-                        <input type="date" class="form-control" id="date_list_cotizaciones" required>
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-theme-inverse" id="btn_list_cotizaciones1"><i class="fa fa-search"></i></button>
-                        </div>
+                    <div class="col-lg-2">
+                        <select name="estado_cotizacion" class="form-control" required>
+                            <option value="0">Sin cotizar</option>
+                            <option value="1">Cotizado</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="date" class="form-control" name="date_list_cotizaciones" required>
+                    </div>
+                    <div class="col-lg-1">
+                        <button type="submit" class="btn btn-circle btn-theme-inverse"><i class="fa fa-search"></i></button>
                     </div>
                 </form>
-                </div>
                 <div class="table-responsive">
                     <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
                         <thead>

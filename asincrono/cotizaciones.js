@@ -1,8 +1,11 @@
-function listCotizacines1() {
+function listCotizacines1(data) {
   $.ajax({
     type: "get",
+    data:data,
     url: "../adm/cotizaciones/list1",
     success: function (response) {
+      console.log(response);
+
       var html = response
         .map(function (e) {
           return (html = ` 
@@ -25,11 +28,13 @@ function listCotizacines1() {
     },
   });
 }
-function listCotizacines2() {
+function listCotizacines2(data) {
   $.ajax({
     type: "get",
+    data:data,
     url: "../adm/cotizaciones/list2",
     success: function (response) {
+      console.log(response);
       var html = response
         .map(function (e) {
           return (html = ` 
@@ -89,5 +94,10 @@ $("#form_registerCotizacion1").submit(function (e) {
 
 $('#form_list_cotizaciones').submit(function (e) {
   e.preventDefault();
-  
+  var data=$('#form_list_cotizaciones').serialize();
+  if (data.estado_cotizacion==0) {
+    listCotizacines1(data);
+  }else{
+    listCotizacines2(data);
+  }
 });

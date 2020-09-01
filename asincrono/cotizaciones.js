@@ -95,7 +95,7 @@ $("#form_registerCotizacion1").submit(function (e) {
 $('#form_list_cotizaciones').submit(function (e) {
   e.preventDefault();
   var data=$('#form_list_cotizaciones').serialize();
-  if (data.estado_cotizacion==0) {
+  if ($('#estado_cotizacion').val()==0) {
     listCotizacines1(data);
   }else{
     listCotizacines2(data);

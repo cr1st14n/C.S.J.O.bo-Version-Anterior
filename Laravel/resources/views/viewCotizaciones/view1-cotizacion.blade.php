@@ -23,26 +23,58 @@
             <ul class="list-item angle">
                 <li>-Especialidad Medica: <strong>{{ $data->cot_EspecialidadCirugia}}</strong></li>
                 <li>-Nombre del Procedimiento: <strong>{{ $data->cot_tipoCirugia}}</strong> </li>
-                <li>-Tiempo aproximado: <strong>{{ $data->cot_tiempoAproximado }}</strong></li>
+                <li>-Tiempo aproximado: <strong>{{ $data->cot_tiempoAproximado }} Horas</strong></li>
                 <li>-Cirujano - Honorarios solicitados: <strong>{{ $data->cot_cirujanoHonorarios }}</strong></li>
-                <li>-Especialista anesteseologo: <strong>{{ $data->cot_espAneesteseologo }}</strong></li>
-                <li>-Quirofano Mayor: <strong>{{ $data->cot_quirofanoMayor }}</strong></li>
-                <li>-Sala de Endoscopia: <strong>{{ $data->cot_salaEndoscopia }}</strong></li>
-                <li>-Sala de partos: <strong>{{ $data->cot_salaPartos }}</strong></li>
-                <li>-Equipo de laparocopia: <strong>{{ $data->cot_equipoLaparosopica }}</strong></li>
-                <li>-Ayudante 1: <strong>{{ $data->cot_ayudante1 }}</strong></li>
-                <li>-Ayudante 2:<strong>{{ $data->cot_ayudante2 }}</strong></li>
+                
+                
             </ul>
         </div>
         <!-- //col-md-3 -->
         <div class="col-md-6 col-sm-6">
             <ul class="list-item arrow">
-                <li>-Instrumentador: <strong>{{ $data->cot_instrumentador }}</strong></li>
-                <li>-Circulante: <strong>{{ $data->cot_circulante }}</strong></li>
-                <li>-Oxigeno: <strong>{{ $data->cot_oxigeno }}</strong></li>
-                <li>-Aguja K: <strong>{{ $data->cot_agujaK }}</strong></li>
-                <li>-Insumos en quirofano: <strong>{{ $data->cot_insumoQuirofano }}</strong></li>
-                <li>-Medicamentosw en quirofano: <strong>{{ $data->cot_medicamentosQuirofano }}</strong></li>
+            <strong>Servicios requeridos: </strong>
+                @if($data->cot_espAneesteseologo == 1)
+                <li>-Especialista anesteseologo.</li>
+                @endif
+                @if($data->cot_quirofanoMayor == 1)
+                <li>- Quirofano mayor.</li>
+                @endif
+                @if($data->cot_salaEndoscopia == 1)
+                <li>- Sala de Endoscopia.</li>
+                @endif
+                @if($data->cot_salaPartos == 1)
+                <li>- Sala de partos.</li>
+                @endif
+                @if($data->cot_equipoLaparosopica == 1)
+                <li>- Equipo de Laparoscopia.</li>
+                @endif
+                @if($data->cot_ayudante1 == 1)
+                <li>- 1 Ayudante.</li>
+                @endif
+                @if($data->cot_ayudante2 == 1)
+                <li>- 2 Ayudante.</li>
+                @endif
+                @if($data->cot_instrumentador == 1)
+                <li>- Instrumentador.</li>
+                @endif
+                
+                @if($data->cot_circulante == 1)
+                <li>- Circulante.</li>
+                @endif
+                @if($data->cot_oxigeno == 1)
+                <li>- Oxigeno.</li>
+                @endif
+                @if($data->cot_agujaK == 1)
+                <li>- Aguja K.</li>
+                @endif
+                                
+                @if($data->cot_insumoQuirofano == 1)
+                <li>- Insumos en quirofano.</li>
+                @endif
+                @if($data->cot_medicamentosQuirofano == 1)
+                <li>- Medicamentos en quirafano.</li>
+                @endif
+                                
                 <li>-Otros: <strong>{{ $data->cot_otros }}</strong></li>
                 <li>-Procedimiento:
                     <strong>

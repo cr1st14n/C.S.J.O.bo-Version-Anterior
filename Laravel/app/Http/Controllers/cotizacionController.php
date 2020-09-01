@@ -25,8 +25,8 @@ class cotizacionController extends Controller
        return cotizacion::where('cot_estado',0)
        ->join('pacientes as pa','pa.pa_id','cot_id_paciente')
        ->join('users as u','u.id','cotizacions.ca_usu_cod')
-       ->whereDate('cotizacions.created_at',$date)
        ->select('cotizacions.*','pa.pa_nombre','pa.pa_appaterno','pa.pa_apmaterno','u.usu_nombre','u.usu_appaterno')
+       ->whereDate('cotizacions.created_at',$date)
        ->orderBy('created_at','desc')
        ->get();
     }
@@ -35,10 +35,10 @@ class cotizacionController extends Controller
         $date=Carbon::createFromFormat('Y-m-d', $request->input('date_list_cotizaciones'))->format('Y-m-d');
         // return $date;
         return cotizacion::where('cot_estado',1)
-       ->whereDate('cotizacions.created_at',$date)
-       ->join('pacientes as pa','pa.pa_id','cot_id_paciente')
-       ->join('users as u','u.id','cotizacions.ca_usu_cod')
-       ->select('cotizacions.*','pa.pa_nombre','pa.pa_appaterno','pa.pa_apmaterno','u.usu_nombre','u.usu_appaterno')
+        ->join('pacientes as pa','pa.pa_id','cot_id_paciente')
+        ->join('users as u','u.id','cotizacions.ca_usu_cod')
+        ->select('cotizacions.*','pa.pa_nombre','pa.pa_appaterno','pa.pa_apmaterno','u.usu_nombre','u.usu_appaterno')
+        ->whereDate('cotizacions.created_at',$date)
        ->orderBy('created_at','desc')
        ->get();
     }

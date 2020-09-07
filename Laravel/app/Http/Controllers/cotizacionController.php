@@ -47,7 +47,12 @@ class cotizacionController extends Controller
         $data=cotizacion::where('id',$request->input('id'))
                         ->join('pacientes as pc','pc.pa_id','cotizacions.cot_id_paciente')
                         ->first();
-        return view('viewCotizaciones.view1-cotizacion')->with('data',$data);
+        if ($data->cot_estado==0) {
+            return view('viewCotizaciones.view1-cotizacion')->with('data',$data);
+        } else {
+            return view('viewCotizaciones.view1-cotizacion_edit')->with('data',$data);
+        }
+        
     }
     public function create(Request $request)
     {

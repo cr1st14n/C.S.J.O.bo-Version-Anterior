@@ -12,7 +12,7 @@ function listCotizacines1(data) {
                 <tr>
                     <td>${e.cod_cot}</td>
                     <td valign="middle"> ${veriNull(e.pa_nombre)} ${veriNull(e.pa_appaterno)} </td>
-                    <td><span class="label label-success">${e.cot_tipoCirugia}</span></td>
+                    <td><span class="label label-success">${e.cot_EspecialidadCirugia} - ${e.cot_tipoCirugia}</span></td>
                     <td>${veriNull(e.usu_nombre)} ${veriNull(e.usu_appaterno)}</td>
                     <td>---</td>
                     <td>
@@ -41,12 +41,12 @@ function listCotizacines2(data) {
                 <tr>
                     <td>${e.cod_cot}</td>
                     <td valign="middle">${veriNull(e.pa_nombre)} ${veriNull(e.pa_appaterno)} </td>
-                    <td><span class="label label-success">${e.cot_tipoCirugia}</span></td>
+                    <td><span class="label label-success">${e.cot_EspecialidadCirugia} - ${e.cot_tipoCirugia}</span></td>
                     <td>${veriNull(e.usu_nombre)} ${veriNull(e.usu_appaterno)}</td>
                     <td>${e.cot_costoProcedimiento} Bs.-</td>
                     <td>
                         <span class="tooltip-area">
-                            <button onClick="show_option_otizacion(${e.id})"  class="btn btn-default btn-sm" title="" data-original-title="Edit"><i class="fa fa-edit"></i></button>
+                            <button onClick="show_option_otizacion_edit(${e.id})"  class="btn btn-default btn-sm" title="" data-original-title="Edit"><i class="fa fa-edit"></i></button>
                         </span>
                     </td>
                 </tr>
@@ -58,8 +58,20 @@ function listCotizacines2(data) {
   });
 }
 
-$("#btn_list_precotizaciones").click(function () {});
 function show_option_otizacion(id) {
+  $("#form_registerCotizacion1").trigger("reset");
+  $.ajax({
+    type: "get",
+    url: "../adm/cotizaciones/store1",
+    data: { id: id },
+    success: function (html) {
+      // $("#md-optionCotizacion").html("");
+      $("#md-optionCotizacion").html(html);
+    },
+  });
+  $("#md-optionCotizacion").modal("show");
+}
+function show_option_otizacion_edit(id) {
   $("#form_registerCotizacion1").trigger("reset");
   $.ajax({
     type: "get",
@@ -91,6 +103,24 @@ $("#form_registerCotizacion1").submit(function (e) {
     },
   });
 });
+// $("#form_registerCotizacion2").submit(function (e) {
+//   e.preventDefault();
+//   $.ajax({
+//     type: "post",
+//     url: "../adm/cotizaciones/create",
+//     data: $("#form_registerCotizacion1").serialize(),
+//     //  dataType: "bolean",
+//     success: function (response) {
+//       if (response==1) {
+//         listCotizacines2($('#form_list_cotizaciones').serialize());
+//         $('#md-optionCotizacion').modal('hide');
+//       } else {
+//         $('#md-optionCotizacion').modal('hide');
+//         notif('2','Error! Vuelva a intentarlo.')
+//       }
+//     },
+//   });
+// });
 
 $('#form_list_cotizaciones').submit(function (e) {
   e.preventDefault();

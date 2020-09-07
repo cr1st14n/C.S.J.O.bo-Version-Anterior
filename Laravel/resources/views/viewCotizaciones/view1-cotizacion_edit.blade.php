@@ -1,6 +1,6 @@
-<div class="modal-header bg-theme-inverse " >
+<div class="modal-header bg-danger" >
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-    <h4 class="modal-title">Precotizacion</h4>
+    <h4 class="modal-title">Editar datos De precotizacion</h4>
 </div>
 <!-- //modal-header-->
 
@@ -30,14 +30,14 @@
             <hr>
             <h3>Precio y observacion</h3> <br>
             <div class=" content">
-                <form id="form_registerCotizacion1">
+                <form id="form_registerCotizacion2">
                     <input name="_token" value="{{ csrf_token() }}" hidden>
                     <input id="id_paciente_cotizacion_create" type="number" name="id_cotizacion_create" value="{{$data->id}}" hidden>
                     <div class="col-md-12">
                         <div class="form-group">
                             <!-- <label class="control-label">Observaciones de cotizacion: </label> -->
                             <div>
-                                <textarea class="form-control" name="observacion" placeholder="Observacion ..." rows="3"></textarea>
+                                <textarea class="form-control" name="observacion" placeholder="Observacion ..." rows="3" >{{$data->cot_otros}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -45,12 +45,12 @@
                         <div class="form-group">
                             <!-- <label class="control-label">Precio a cotizar: </label> -->
                             <div class="input-group"> <span class="input-group-addon">Bs.- </span>
-                                <input type="number" name="precio" class="form-control" placeholder="Precio" autocomplete="off">
+                                <input type="number" name="precio" class="form-control" placeholder="Precio" autocomplete="off" value="{{ $data->cot_costoProcedimiento}}">
                             </div>
                         </div>
                         <div class="form-group offset">
                             <div>
-                                <button type="submit" class="btn btn-theme">Registrar</button>
+                                <button type="submit" class="btn btn-theme">Actualizar</button>
                                 <button id="123123" class="btn ">Cancelar</button>
                             </div>
                         </div>

@@ -37,7 +37,7 @@
                         <div class="form-group">
                             <!-- <label class="control-label">Observaciones de cotizacion: </label> -->
                             <div>
-                                <textarea class="form-control" name="observacion" placeholder="Observacion ..." rows="3" >{{$data->cot_otros}}</textarea>
+                                <textarea class="form-control" name="observacion" placeholder="Observacion ..." rows="3" >{{$data->cot_costoObservacion}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <!-- <label class="control-label">Precio a cotizar: </label> -->
                             <div class="input-group"> <span class="input-group-addon">Bs.- </span>
-                                <input type="number" name="precio" class="form-control" placeholder="Precio" autocomplete="off" value="{{ $data->cot_costoProcedimiento}}">
+                                <input type="number" name="precio" class="form-control" placeholder="Precio" autocomplete="off" value="{{ $data->cot_costoProcedimiento}}" required>
                             </div>
                         </div>
                         <div class="form-group offset">

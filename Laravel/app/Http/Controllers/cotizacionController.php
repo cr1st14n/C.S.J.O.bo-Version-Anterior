@@ -58,9 +58,21 @@ class cotizacionController extends Controller
     {
         return cotizacion::where('id',$request->id_cotizacion_create)->update([
             'cot_costoProcedimiento'=>$request->input('precio'),
+            'cot_costoObservacion'=>$request->input('observacion'),
             'cot_fechaCotizacion'=>Carbon::now(),
             'cot_usu_cod_cotiza'=>Auth::user()->usu_ci,
             'cot_estado'=>1,
+        ]);
+    }
+    
+    public function update(Request $request)
+    {
+        return  cotizacion::where('id',$request->id_cotizacion_create)
+        ->update(['cot_costoProcedimiento'=>$request->input('precio'),
+        'cot_costoObservacion'=>$request->input('observacion'),
+        'ca_tipo'=>'update',
+        'ca_fecha'=>Carbon::now(),
+        'cot_usu_cod_cotiza'=>Auth::user()->usu_ci,        
         ]);
     }
 }

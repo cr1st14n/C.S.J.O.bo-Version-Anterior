@@ -103,24 +103,26 @@ $("#form_registerCotizacion1").submit(function (e) {
     },
   });
 });
-// $("#form_registerCotizacion2").submit(function (e) {
-//   e.preventDefault();
-//   $.ajax({
-//     type: "post",
-//     url: "../adm/cotizaciones/create",
-//     data: $("#form_registerCotizacion1").serialize(),
-//     //  dataType: "bolean",
-//     success: function (response) {
-//       if (response==1) {
-//         listCotizacines2($('#form_list_cotizaciones').serialize());
-//         $('#md-optionCotizacion').modal('hide');
-//       } else {
-//         $('#md-optionCotizacion').modal('hide');
-//         notif('2','Error! Vuelva a intentarlo.')
-//       }
-//     },
-//   });
-// });
+$("#form_registerCotizacion2").submit(function (e) {
+  e.preventDefault();
+  $.ajax({
+    type: "post",
+    url: "../adm/cotizaciones/update",
+    data: $("#form_registerCotizacion2").serialize(),
+    //  dataType: "bolean",
+    success: function (response) {
+      console.log(response);
+      if (response==1) {
+        listCotizacines2($('#form_list_cotizaciones').serialize());
+        $('#md-optionCotizacion').modal('hide');
+        notif('1','Actualizado.');
+      } else {
+        $('#md-optionCotizacion').modal('hide');
+        notif('2','Error! Vuelva a intentarlo.');
+      }
+    },
+  });
+});
 
 $('#form_list_cotizaciones').submit(function (e) {
   e.preventDefault();

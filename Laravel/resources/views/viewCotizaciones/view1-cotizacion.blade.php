@@ -24,28 +24,25 @@
                 <li>-Nombre del Procedimiento: <strong> {{ $data->cot_tipoCirugia}}</strong> </li>
                 <li>-Tiempo aproximado: <strong>{{ $data->cot_tiempoAproximado }} Horas</strong></li>
                 <li>-Cirujano - Honorarios solicitados: <strong>{{ $data->cot_cirujanoHonorarios }}</strong></li>
-
-
             </ul>
-            <hr>
-            <h3>Precio y observacion</h3> <br>
+            <br>
             <div class=" content">
                 <form id="form_registerCotizacion1">
                     <input name="_token" value="{{ csrf_token() }}" hidden>
                     <input id="id_paciente_cotizacion_create" type="number" name="id_cotizacion_create" value="{{$data->id}}" hidden>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <!-- <label class="control-label">Observaciones de cotizacion: </label> -->
+                            <label class="control-label">Observaciones de cotizacion: </label>
                             <div>
-                                <textarea class="form-control" name="observacion" placeholder="Observacion ..." rows="3"></textarea>
+                                <textarea class="form-control" name="observacion" placeholder="Describa una observación de la precotizacion..." rows="3"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <!-- <label class="control-label">Precio a cotizar: </label> -->
+                            <label class="control-label">Precio a cotizar: </label>
                             <div class="input-group"> <span class="input-group-addon">Bs.- </span>
-                                <input type="number" name="precio" class="form-control" placeholder="Precio" autocomplete="off">
+                                <input type="number" name="precio" class="form-control" placeholder="Monto" autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group offset">
@@ -62,21 +59,6 @@
         <div class="col-md-6 col-sm-6">
             <ul class="list-item arrow">
                 <div class="col-md-12">
-                    <li>- Grado del Procedimiento:
-                        <strong>
-                            @if($data->cot_procedimiento == 1)
-                            <strong>Mayor</strong>
-                            @endif
-                            @if($data->cot_procedimiento == 2)
-                            <strong>Mediana</strong>
-                            @endif
-                            @if($data->cot_procedimiento == 3)
-                            <strong>Menor</strong>
-                            @endif
-                        </strong>
-                    </li>
-                    <hr>
-                    <strong>Servicios requeridos: </strong>
                     @if($data->cot_espAneesteseologo == 1)
                     <li>-Especialista anesteseologo.</li>
                     @endif
@@ -93,14 +75,15 @@
                     <li>- Equipo de Laparoscopia.</li>
                     @endif
                     @if($data->cot_ayudante1 == 1)
-                    <li>- 1 Ayudante.</li>
+                    <li>- Un Ayudante.</li>
                     @endif
                     @if($data->cot_ayudante2 == 1)
-                    <li>- 2 Ayudante.</li>
+                    <li>- Dos Ayudantes.</li>
                     @endif
                     @if($data->cot_instrumentador == 1)
                     <li>- Instrumentador.</li>
                     @endif
+                
                     @if($data->cot_circulante == 1)
                     <li>- Circulante.</li>
                     @endif
@@ -117,15 +100,29 @@
                     @if($data->cot_medicamentosQuirofano == 1)
                     <li>- Medicamentos en quirafano.</li>
                     @endif
-                    <hr>
-                    <li>- Otros: <strong>{{ $data->cot_otros }}</strong></li>
 
+                    <li>-Otros: <strong>{{ $data->cot_otros }}</strong></li>
+                    <li>-Procedimiento:
+                        <strong>
+                            @if($data->cot_procedimiento == 1)
+                            <strong>Mayor</strong>
+                            @endif
+                            @if($data->cot_procedimiento == 2)
+                            <strong>Mediana</strong>
+                            @endif
+                            @if($data->cot_procedimiento == 3)
+                            <strong>Menor</strong>
+                            @endif
+                        </strong>
+                    </li>
                 </div>
 
             </ul>
         </div>
         <!-- //col-md-3 -->
     </div>
+    <hr>
+
 </div>
 </div>
 <script type="text/javascript" src="{{ asset('/asincrono/cotizaciones.js') }}"></script>

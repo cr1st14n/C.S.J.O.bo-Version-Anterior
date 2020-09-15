@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\cotizacion;
 use Auth;
+use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use View;
@@ -74,5 +75,10 @@ class cotizacionController extends Controller
         'ca_fecha'=>Carbon::now(),
         'cot_usu_cod_cotiza'=>Auth::user()->usu_ci,        
         ]);
+    }
+    public function createPdf()
+    {
+        $pdf = PDF::loadView('viewCotizaciones.vista');
+        return $pdf->stream('lista de usuarios.pdf');
     }
 }

@@ -19,6 +19,7 @@
                     <div class="col-lg-3">
                         <button type="submit" class="btn btn-theme-inverse"><i class="fa fa-search"></i></button>
                         <button type="button" class="btn btn-theme-inverse" id="btn_showMdSearchPaciente"><i class="fa fa-plus-square "></i></button>
+                        <button type="button" class="btn btn-theme-inverse" id="btn_pdf"><i class="fa fa-plus-square "></i></button>
                     </div>
                 </form>
                 <div class="table-responsive">
@@ -50,6 +51,9 @@
     </div>
 </div>
 
+<div id="md-showPDF" class="modal fade md-slideDown" data-width="50%" data-header-color="#736086">
+    <embed src="http://localhost/C.S.J.O.bo/adm/cotizaciones/createPdf" type="application/pdf" width="100%" height="800px">
+</div>
 <div id="md-optionCotizacion" class="modal fade md-slideDown" data-width="50%" data-header-color="#736086">
 </div>
 <div id="md-searchPacientePrecoti" class="modal fade md-slideDown" data-width="50%" data-header-color="#736086">

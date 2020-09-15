@@ -243,3 +243,8 @@ function listPacientes(data) {
     .join(" ");
   document.getElementById("resulBusqPacientes_proCot").innerHTML = html;
 }
+
+$('#btn_pdf').click(function (e) { 
+  e.preventDefault();
+  $('#md-showPDF').modal('show');
+});

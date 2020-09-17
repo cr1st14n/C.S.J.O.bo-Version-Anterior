@@ -95,6 +95,10 @@ Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function 
 		route::post('update','cotizacionController@update');
 		route::get('createPdf','cotizacionController@createPdf');
 	});
+	Route::group(['prefix'=>'descargosQE'],function ()
+	{
+		route::get('home','DescargosQEController@index');
+	});
 });
 
 //--------------RECEPCION---------//

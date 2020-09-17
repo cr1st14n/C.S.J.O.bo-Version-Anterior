@@ -6,6 +6,7 @@ use App\cotizacion;
 use Auth;
 use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use View;
 
@@ -78,7 +79,12 @@ class cotizacionController extends Controller
     }
     public function createPdf()
     {
+        // $a= view('viewCotizaciones.vista');
+        // $pdf = new Dompdf();
+        // $vista->loadHtml($a);
         $pdf = PDF::loadView('viewCotizaciones.vista');
+        // $pdf->render();
         return $pdf->stream('lista de usuarios.pdf');
+        return view('viewCotizaciones.vista');
     }
 }

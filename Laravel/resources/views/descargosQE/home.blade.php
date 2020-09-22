@@ -7,8 +7,8 @@
             <section class="panel bg-inverse">
                 <div class="tabbable">
                     <ul class="nav nav-tabs chart-change">
-                        <li class=""><a href="javascript:void(0)" data-change-type="bars" data-for-id="#stack-chart" class=""><i class="fa fa-bar-chart-o"></i> &nbsp; opcion 1</a></li>
-                        <li class="active"><a href="javascript:void(0)" data-change-type="lines" data-for-id="#stack-chart" class=""><i class="fa fa-qrcode"></i> &nbsp; opcion 2</a></li>
+                        <li class="active"><a href="javascript:void(0)" data-change-type="bars" data-for-id="#stack-chart" class=""><i class="fa fa-bar-chart-o"></i> &nbsp; opcion 1</a></li>
+                        <li class=""><a href="javascript:void(0)" data-change-type="lines" data-for-id="#stack-chart" class=""><i class="fa fa-qrcode"></i> &nbsp; opcion 2</a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade in active">

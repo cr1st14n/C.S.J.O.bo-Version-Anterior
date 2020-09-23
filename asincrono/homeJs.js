@@ -88,7 +88,7 @@ $('#btn_index_pre_cotizaciones').on('click', function () {
 $('#btn_index_descargosQuiEndo').on('click', function () {
   $.ajax({
     type: "get",
-    url: "../adm/descargosQE/home",
+    url: "../adm/descargosMedicos/home",
     // data: "data",
     // dataType: "dataType",
     success: function (response) {

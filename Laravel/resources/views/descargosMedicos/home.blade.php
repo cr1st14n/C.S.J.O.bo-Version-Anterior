@@ -226,12 +226,12 @@
                                                 </button>
                                                 <div class="dropdown-menu open">
                                                     <ul class="dropdown-menu inner selectpicker" role="menu">
-                                                        <li rel="0"><a tabindex="0" class="" style=""><span class="text">Australia</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                                                        <li rel="1"><a tabindex="0" class="" style=""><span class="text">China</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                                                        <li rel="2"><a tabindex="0" class="" style=""><span class="text">Japan</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                                                        <li rel="3"><a tabindex="0" class="" style=""><span class="text">Thailand</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                                                        <li rel="4"><a tabindex="0" class="" style=""><span class="text">United States</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                                                        <li rel="5"><a tabindex="0" class="" style=""><span class="text">United Kingdom</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="0"><a tabindex="0" ><span class="text">Australia</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="1"><a tabindex="0" ><span class="text">China</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="2"><a tabindex="0" ><span class="text">Japan</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="3"><a tabindex="0" ><span class="text">Thailand</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="4"><a tabindex="0" ><span class="text">United States</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="5"><a tabindex="0" ><span class="text">United Kingdom</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -308,7 +308,7 @@
             <div class="form-group">
                 <label class="control-label">Nombre</label>
                 <div>
-                    <select class="form-control" name="tipoItem" >
+                    <select class="form-control1121" name="tipoItem" >
                         <option value="medicamento">Medicamento</option>
                         <option value="insumo">Insumo</option>
                     </select>

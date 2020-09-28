@@ -1,64 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        table,
+        td,
+        th {
+            border: 1px solid black;
+        }
 
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            height: 50px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="container-fluid">
-        <h1>Hello World!</h1>
-        <p>Resize the browser window to see the effect.</p>
-        <p>The columns will automatically stack on top of each other when the screen is less than 768px wide.</p>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th width="60%" class="text-left">Product</th>
-                <th>Quantity</th>
-                <th class="text-right">Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="text-center">1</td>
-                <td>Lorem Ipsum</td>
-                <td class="text-center">1</td>
-                <td class="text-right">$852</td>
-            </tr>
-            <tr>
-                <td class="text-center">2</td>
-                <td>Nulla pellentesque</td>
-                <td class="text-center">1</td>
-                <td class="text-right">$785</td>
-            </tr>
-            <tr>
-                <td class="text-center">4</td>
-                <td>Leo ornare lacinia</td>
-                <td class="text-center">1</td>
-                <td class="text-right">$1524</td>
-            </tr>
-            <tr>
-                <td class="text-center">5</td>
-                <td>Est arcu integer consectetuer</td>
-                <td class="text-center">1</td>
-                <td class="text-right">$74</td>
-            </tr>
-        </tbody>
+    <h2>The width and height Properties</h2>
+    <p>Set the width of the table, and the height of the table header row:</p>
+    <table>
+        <tr>
+            <th>
+
+                nombre  
+                cirugia
+                medico
+            </th>
+        </tr>
+        <tr>
+            <th>
+
+                tipo 
+                duracion
+                hora inicio
+            </th>
+
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Savings</th>
+        </tr>
+        <tr>
+            <td>Peter</td>
+            <td>Griffin</td>
+            <td>$100</td>
+        </tr>
+        <tr>
+            <td>Lois</td>
+            <td>Griffin</td>
+            <td>$150</td>
+        </tr>
+        <tr>
+            <td>Joe</td>
+            <td>Swanson</td>
+            <td>$300</td>
+        </tr>
+        <tr>
+            <td>Cleveland</td>
+            <td>Brown</td>
+            <td>$250</td>
+        </tr>
     </table>
 
 </body>

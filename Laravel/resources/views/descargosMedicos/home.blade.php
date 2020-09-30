@@ -57,75 +57,89 @@
                     </div>
                     <!-- /#tab1-->
                     <div class="tab-pane fade col-lg-12" id="tab2">
-                        <div class="widget-timeline">
-                            <ul>
-                                <li class="history">
-                                    <span>
-                                        October 2013
-                                    </span>
-                                </li>
-                                <li class="right">
-                                    <section>
-                                        <div class="mark bgimg" style="background-image: url(&quot;assets/photos_preview/300/city/1.jpg&quot;); line-height: 166px;"></div>
-                                        <div class="timeline-content">
-                                            <time><i class="fa fa-clock-o"></i>Today ,10:36am</time>
-                                            <h3>Image Mark</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                                        </div>
-                                    </section>
-                                </li>
-                                <li class="left">
-
-                                    <section>
-                                        <div class="mark bg-primary" style="line-height: 186px;"><i class=" fa fa-trophy"></i></div>
-                                        <div class="timeline-content">
-                                            <time><i class="fa fa-clock-o"></i>Today ,09:18pm</time>
-                                            <h3>Color Mark</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        </div>
-                                    </section>
-                                </li>
-                                <li class="right">
-                                    <section>
-                                        <div class="mark bg-inverse" style="line-height: 186px;"><i class="fa fa-paste"></i></div>
-                                        <div class="timeline-content">
-                                            <time><i class="fa fa-clock-o"></i>Yesterday ,01:18pm</time>
-                                            <h3>Icon Mark Right</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        </div>
-                                    </section>
-                                </li>
-                                <li class="left">
-                                    <section>
-                                        <time><i class="fa fa-clock-o"></i>2 Day ago ,08:49pm</time>
-                                        <h3>Image Normal Position</h3>
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                        <img alt="" src="assets/photos_preview/700/nature/1.jpg">
-                                    </section>
-                                </li>
-                                <li class="right corner-flip flip-bg-white bd-darkorange">
-                                    <section class="bg-darkorange">
-                                        <h3>Customize Color</h3>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                    </section>
-                                    <div class="flip">
-                                    </div>
-                                    <div class="flip"></div>
-                                </li>
-                                <li class="highlight">
-                                    <section>
-                                        <time><i class="fa fa-clock-o"></i>19 Saturday ,10:18pm</time>
-                                        <h3>Time Line Class Highlight</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    </section>
-                                </li>
-                                <li class="history">
-                                    <span>
-                                        Load More
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
+                        <section class="panel">
+                            <header class="panel-heading">
+                                    <input type="text" class="form-control ">
+                            </header>
+                            <hr>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Status</th>
+                                                <th width="30%">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody align="center">
+                                            <tr>
+                                                <td>1</td>
+                                                <td valign="middle">Sander</td>
+                                                <td>example@demo.com</td>
+                                                <td><span class="label label-success">Purchased</span></td>
+                                                <td>
+                                                    <span class="tooltip-area">
+                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Martie</td>
+                                                <td>example@demo.com</td>
+                                                <td><span class="label label-warning">Pending</span></td>
+                                                <td>
+                                                    <span class="tooltip-area">
+                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Lucien</td>
+                                                <td>example@demo.com</td>
+                                                <td><span class="label label-success ">Purchased</span></td>
+                                                <td>
+                                                    <span class="tooltip-area">
+                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Fulvio</td>
+                                                <td>example@demo.com</td>
+                                                <td><span class="label label-warning">Pending</span></td>
+                                                <td>
+                                                    <span class="tooltip-area">
+                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Shavonne</td>
+                                                <td>example@demo.com</td>
+                                                <td><span class="label label-danger">Suspended</span></td>
+                                                <td>
+                                                    <span class="tooltip-area">
+                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                     <!-- /#tab2-->
                     <div class="tab-pane fade col-lg-12" id="tab3">
@@ -226,12 +240,12 @@
                                                 </button>
                                                 <div class="dropdown-menu open">
                                                     <ul class="dropdown-menu inner selectpicker" role="menu">
-                                                        <li rel="0"><a tabindex="0" ><span class="text">Australia</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                                                        <li rel="1"><a tabindex="0" ><span class="text">China</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                                                        <li rel="2"><a tabindex="0" ><span class="text">Japan</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                                                        <li rel="3"><a tabindex="0" ><span class="text">Thailand</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                                                        <li rel="4"><a tabindex="0" ><span class="text">United States</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                                                        <li rel="5"><a tabindex="0" ><span class="text">United Kingdom</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="0"><a tabindex="0"><span class="text">Australia</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="1"><a tabindex="0"><span class="text">China</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="2"><a tabindex="0"><span class="text">Japan</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="3"><a tabindex="0"><span class="text">Thailand</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="4"><a tabindex="0"><span class="text">United States</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                                                        <li rel="5"><a tabindex="0"><span class="text">United Kingdom</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -308,7 +322,7 @@
             <div class="form-group">
                 <label class="control-label">Nombre</label>
                 <div>
-                    <select class="form-control1121" name="tipoItem" >
+                    <select class="form-control1121" name="tipoItem">
                         <option value="medicamento">Medicamento</option>
                         <option value="insumo">Insumo</option>
                     </select>
@@ -317,7 +331,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" data-dismiss="modal" class="btn btn-inverse">Cancelar</button>
-            <button type="submit" class="btn btn-theme-inverse" >Agregar</button>
+            <button type="submit" class="btn btn-theme-inverse">Agregar</button>
         </div>
     </form>
 </div>

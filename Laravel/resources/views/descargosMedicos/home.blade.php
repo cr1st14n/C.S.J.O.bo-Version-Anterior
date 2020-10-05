@@ -8,14 +8,14 @@
                     </li>
                     <li><a href="#" id="prevtab" data-change="prev"><i class="fa fa-chevron-left"></i></a></li>
                     <li><a href="#" id="nexttab" class="change" data-change="next"><i class="fa fa-chevron-right"></i></a></li>
-                    <li class="active"><a href="#tab1" data-toggle="tab">Items</a></li>
-                    <li class=""><a href="#tab2" data-toggle="tab" class="timeline-show">Descargo Quirofano</a></li>
-                    <li class=""><a href="#tab3" data-toggle="tab" class="portfolio-show">Descargo Endoscopia</a></li>
+                    <li class="active"><a href="#tab2" data-toggle="tab" class="timeline-show">Descargo Medicos</a></li>
+                    <li class=""><a href="#tab1" data-toggle="tab">Items</a></li>
+                    <li class=""><a href="#tab3" data-toggle="tab" class="portfolio-show">Datos</a></li>
                     <li><a href="#tab4" data-toggle="tab">Account</a></li>
                 </ul>
                 <div class="tab-content row">
 
-                    <div class="tab-pane fade col-lg-12 active in" id="tab1">
+                    <div class="tab-pane fade col-lg-12  " id="tab1">
                         <div class="panel-body">
                             <div>
                                 <button class="btn btn-theme-inverse col-lg-4" id="btn-md_agregar_item"><i class="fa fa-plus"></i> Agregar item</button>
@@ -56,10 +56,34 @@
                         </div>
                     </div>
                     <!-- /#tab1-->
-                    <div class="tab-pane fade col-lg-12" id="tab2">
+                    <div class="tab-pane fade col-lg-12 active in"  id="tab2">
                         <section class="panel">
                             <header class="panel-heading">
-                                    <input type="text" class="form-control ">
+                                <form id="listTipoDesc" class="form-horizontal labelcustomize" data-collabel="2" data-label="color">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-theme-inverse col-lg-2"><i class="fa fa-search"></i> Listar</button>
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <div class="form-group">
+                                                        <div class="col-md-9">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" value="3" name="lisTipoDES" checked="">
+                                                                Ambos</label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" value="1" name="lisTipoDES">
+                                                                Quirofano </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" value="2" name="lisTipoDES">
+                                                                Endoscopia</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-group-->
+
+                                </form>
                             </header>
                             <hr>
                             <div class="panel-body">
@@ -67,73 +91,24 @@
                                     <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>No.</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Status</th>
+                                                <th>Codigo</th>
+                                                <th>HCL</th>
+                                                <th>Paciente</th>
+                                                <th>Diagnostico</th>
+                                                <th>Operacion</th>
+                                                <th>Area Medica</th>
                                                 <th width="30%">Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody align="center">
+                                        <tbody align="center" id="listDesMedBody">
                                             <tr>
-                                                <td>1</td>
-                                                <td valign="middle">Sander</td>
-                                                <td>example@demo.com</td>
-                                                <td><span class="label label-success">Purchased</span></td>
-                                                <td>
-                                                    <span class="tooltip-area">
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Martie</td>
-                                                <td>example@demo.com</td>
-                                                <td><span class="label label-warning">Pending</span></td>
-                                                <td>
-                                                    <span class="tooltip-area">
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Lucien</td>
-                                                <td>example@demo.com</td>
-                                                <td><span class="label label-success ">Purchased</span></td>
-                                                <td>
-                                                    <span class="tooltip-area">
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Fulvio</td>
-                                                <td>example@demo.com</td>
-                                                <td><span class="label label-warning">Pending</span></td>
-                                                <td>
-                                                    <span class="tooltip-area">
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Shavonne</td>
-                                                <td>example@demo.com</td>
-                                                <td><span class="label label-danger">Suspended</span></td>
-                                                <td>
-                                                    <span class="tooltip-area">
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                        <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                                    </span>
-                                                </td>
+                                                <td>--//--</td>
+                                                <td>--//--</td>
+                                                <td>--//--</td>
+                                                <td>--//--</td>
+                                                <td>--//--</td>
+                                                <td>--//--</td>
+                                                <td>--//--</td>
                                             </tr>
                                         </tbody>
                                     </table>

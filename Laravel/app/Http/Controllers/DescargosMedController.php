@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\descargoItem;
+use App\descargoMedico;
 use App\descargosQE;
 use App\User;
 use Auth;
@@ -27,11 +28,24 @@ class DescargosMedController extends Controller
         return $items;
     }   
     
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function list1(Request $request)
+    {
+        if ($request->input('lisTipoDES')==3) {
+            return descargoMedico::whereMonth('created_at',Carbon::now()->format('m'))
+            ->whereYear('created_at',Carbon::now()->format('Y'))->get();
+        }
+        if ($request->input('lisTipoDES')==2) {
+            return descargoMedico::whereMonth('created_at',Carbon::now()->format('m'))
+            ->where('dm_area','Endoscopia')
+            ->whereYear('created_at',Carbon::now()->format('Y'))->get();
+        }
+        if ($request->input('lisTipoDES')==1) {
+            return descargoMedico::whereMonth('created_at',Carbon::now()->format('m'))
+            ->where('dm_area','Quirofano')
+            ->whereYear('created_at',Carbon::now()->format('Y'))->get();
+        }
+    }
+
     public function create()
     {
         //

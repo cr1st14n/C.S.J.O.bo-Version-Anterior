@@ -82,9 +82,9 @@ class cotizacionController extends Controller
         // $a= view('viewCotizaciones.vista');
         // $pdf = new Dompdf();
         // $vista->loadHtml($a);
-        $pdf = PDF::loadView('viewCotizaciones.vista2');
+        $pdf = PDF::loadView('pdf.pdf1');
         // $pdf->render();
         return $pdf->stream('lista de usuarios.pdf');
-        return view('viewCotizaciones.vista');
+        // return view('viewCotizaciones.vista');
     }
 }

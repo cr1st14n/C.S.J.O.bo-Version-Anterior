@@ -1,4 +1,7 @@
 <?php
+
+use App\Http\Controllers\DescargosMedController;
+
 Route::get('/', function () {
 	return redirect('login');
 });
@@ -8,9 +11,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/time', 'HomeController@time');
-Route::get('print', function () {
-	return view('true');
-});
+Route::get('print', 'pdfController@make1');
 
 Route::post('searchredirect', 'PacienteController@buscar');
 
@@ -98,6 +99,7 @@ Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function 
 	Route::group(['prefix'=>'descargosMedicos'],function ()
 	{
 		route::get('home','DescargosMedController@home');
+		Route::get('index1','DescargosMedController@list1');
 		route::resource('desMed','DescargosMedController');
 	});
 });

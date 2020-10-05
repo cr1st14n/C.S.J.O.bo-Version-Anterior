@@ -22,14 +22,15 @@ $("#form-createItemDesMed").submit(function (e) {
   });
 });
 function listItemsDesMed() {
-    $.ajax({
-        type: "get",
-        url: "descargosMedicos/desMed",
-        // data: "data",
-        // dataType: "dataType",
-        success: function (response) {
-            var html=response.map(function (e) { 
-                return a=`
+  $.ajax({
+    type: "get",
+    url: "descargosMedicos/desMed",
+    // data: "data",
+    // dataType: "dataType",
+    success: function (response) {
+      var html = response
+        .map(function (e) {
+          return (a = `
                 <tr>
                     <td>${e.id}</td>
                     <td valign="middle">${e.dmi_nombre}</td>
@@ -40,9 +41,42 @@ function listItemsDesMed() {
                             <a href="javascript:void(0)" class="btn btn-default btn-sm" title="" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
                         </span>
                     </td>
-                </tr>`;
-             }).join(' ');
-             $('#list-items1').html(html);
-        }
-    });
-  }
+                </tr>`);
+        })
+        .join(" ");
+      $("#list-items1").html(html);
+    },
+  });
+}
+// *lista por tipo de descargo en mez actual
+$("#listTipoDesc").submit(function (e) {
+  e.preventDefault();
+  $.ajax({
+    type: "get",
+    url: "descargosMedicos/index1",
+    data: $("#listTipoDesc").serialize(),
+    // dataType: "dataType",
+    success: function (response) {
+      console.log(response);
+      var html = response.map(function (e) {
+        return (a = `
+          <tr>
+              <td>${e.id}</td>
+              <td valign="middle">${e.id_paciente}</td>
+              <td valign="middle">nombre</td>
+              <td>${e.dm_diagnostico}</td>
+              <td>${e.dm_operacion}</td>
+              <td><span class="label label-success">${e.dm_area}</span></td>
+              <td>
+                  <span class="tooltip-area">
+                      <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                      <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
+                  </span>
+              </td>
+          </tr>
+          `);
+      }).join(' ');
+      $('#listDesMedBody').html(html);
+    },
+  });
+});

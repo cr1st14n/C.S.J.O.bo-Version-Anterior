@@ -248,3 +248,4 @@ $('#btn_pdf').click(function (e) {
   e.preventDefault();
   $('#md-showPDF').modal('show');
 });
+

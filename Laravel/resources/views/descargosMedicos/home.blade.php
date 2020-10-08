@@ -97,7 +97,7 @@
                                                 <th>Diagnostico</th>
                                                 <th>Operacion</th>
                                                 <th>Area Medica</th>
-                                                <th width="30%">Action</th>
+                                                <th width="10%"></th>
                                             </tr>
                                         </thead>
                                         <tbody align="center" id="listDesMedBody">
@@ -163,7 +163,7 @@
                             <div class="col-md-8">
                                 <br>
                                 <h3><strong>Account</strong> Setting</h3>
-                                <hr>
+                                <hr> 
                                 <form>
                                     <div class="form-group">
                                         <label class="control-label">User name</label>

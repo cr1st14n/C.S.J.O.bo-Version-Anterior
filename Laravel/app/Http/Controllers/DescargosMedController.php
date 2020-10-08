@@ -31,18 +31,27 @@ class DescargosMedController extends Controller
     public function list1(Request $request)
     {
         if ($request->input('lisTipoDES')==3) {
-            return descargoMedico::whereMonth('created_at',Carbon::now()->format('m'))
-            ->whereYear('created_at',Carbon::now()->format('Y'))->get();
+            return descargoMedico::whereMonth('descargo_medicos.created_at',Carbon::now()->format('m'))
+            ->whereYear('descargo_medicos.created_at',Carbon::now()->format('Y'))
+            ->join('pacientes as pa','pa.pa_id','descargo_medicos.id_paciente')
+            ->select('descargo_medicos.*','pa.pa_nombre','pa.pa_appaterno')
+            ->get();
         }
         if ($request->input('lisTipoDES')==2) {
-            return descargoMedico::whereMonth('created_at',Carbon::now()->format('m'))
+            return descargoMedico::whereMonth('descargo_medicos.created_at',Carbon::now()->format('m'))
             ->where('dm_area','Endoscopia')
-            ->whereYear('created_at',Carbon::now()->format('Y'))->get();
+            ->whereYear('descargo_medicos.created_at',Carbon::now()->format('Y'))
+            ->join('pacientes as pa','pa.pa_id','descargo_medicos.id_paciente')
+            ->select('descargo_medicos.*','pa.pa_nombre')
+            ->get();
         }
         if ($request->input('lisTipoDES')==1) {
-            return descargoMedico::whereMonth('created_at',Carbon::now()->format('m'))
+            return descargoMedico::whereMonth('descargo_medicos.created_at',Carbon::now()->format('m'))
             ->where('dm_area','Quirofano')
-            ->whereYear('created_at',Carbon::now()->format('Y'))->get();
+            ->whereYear('descargo_medicos.created_at',Carbon::now()->format('Y'))
+            ->join('pacientes as pa','pa.pa_id','descargo_medicos.id_paciente')
+            ->select('descargo_medicos.*','pa.pa_nombre','pa.pa_appaterno')
+            ->get();
         }
     }
 

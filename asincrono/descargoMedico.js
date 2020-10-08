@@ -63,14 +63,13 @@ $("#listTipoDesc").submit(function (e) {
           <tr>
               <td>${e.id}</td>
               <td valign="middle">${e.id_paciente}</td>
-              <td valign="middle">nombre</td>
+              <td valign="middle">${e.pa_appaterno}  ${e.pa_nombre} </td>
               <td>${e.dm_diagnostico}</td>
               <td>${e.dm_operacion}</td>
               <td><span class="label label-success">${e.dm_area}</span></td>
               <td>
                   <span class="tooltip-area">
                       <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                      <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Delete"><i class="fa fa-trash-o"></i></a>
                   </span>
               </td>
           </tr>

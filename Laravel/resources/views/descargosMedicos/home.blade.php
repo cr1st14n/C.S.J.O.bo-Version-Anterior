@@ -33,6 +33,7 @@
                                             <th>COD</th>
                                             <th width="40%">Nombre</th>
                                             <th>Estado</th>
+                                            <th>Precio</th>
                                             <th width="20%">Accion</th>
                                         </tr>
                                     </thead>
@@ -42,6 +43,7 @@
                                             <td>{{$item->id}}</td>
                                             <td valign="middle">{{$item->dmi_nombre}}</td>
                                             <td><span class="label label-success">{{$item->dmi_tipo}}</span></td>
+                                            <td><span class="label label-success">----</span></td>
                                             <td>
                                                 <span class="tooltip-area">
                                                     <a href="javascript:void(0)" class="btn btn-default btn-sm" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
@@ -62,11 +64,11 @@
                                 <form id="listTipoDesc" class="form-horizontal labelcustomize" data-collabel="2" data-label="color">
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-theme-inverse col-lg-2"><i class="fa fa-search"></i> Listar</button>
-                                        <div class="col-md-10">
+                                        <div class="col-md-12">
                                             <div class="row">
-                                                <div class="col-sm-7">
+                                                <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <div class="col-md-9">
+                                                        <div class="col-md-12">
                                                             <label class="radio-inline">
                                                                 <input type="radio" value="3" name="lisTipoDES" checked="">
                                                                 Ambos</label>
@@ -297,7 +299,7 @@
             <div class="form-group">
                 <label class="control-label">Nombre</label>
                 <div>
-                    <select class="form-control1121" name="tipoItem">
+                    <select class="form-control" name="tipoItem">
                         <option value="medicamento">Medicamento</option>
                         <option value="insumo">Insumo</option>
                     </select>
@@ -309,6 +311,12 @@
             <button type="submit" class="btn btn-theme-inverse">Agregar</button>
         </div>
     </form>
+</div>
+<div id="md-formRealizarCotizacion" class="modal fade md-stickTop" tabindex="-1" data-width="500">
+<div class="modal-header">
+
+</div>
+
 </div>
 <!-- Jquery Library -->
 <!-- <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script> -->

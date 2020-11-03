@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DescargosMedController;
+use Illuminate\Routing\RouteAction;
 
 Route::get('/', function () {
 	return redirect('login');
@@ -14,6 +15,12 @@ Route::get('/time', 'HomeController@time');
 Route::get('print', 'pdfController@make1');
 
 Route::post('searchredirect', 'PacienteController@buscar');
+
+
+
+
+// -------pantalla de informaciones-----------//
+Route::get('pantallaInformacion','pantInf@index');
 
 //--------------administracion---------//
 

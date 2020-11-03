@@ -35,6 +35,7 @@ function listItemsDesMed() {
                     <td>${e.id}</td>
                     <td valign="middle">${e.dmi_nombre}</td>
                     <td><span class="label label-success">${e.dmi_tipo}</span></td>
+                    <td><span class="label label-success">----</span></td>
                     <td>
                         <span class="tooltip-area">
                             <a href="javascript:void(0)" class="btn btn-default btn-sm" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
@@ -69,7 +70,7 @@ $("#listTipoDesc").submit(function (e) {
               <td><span class="label label-success">${e.dm_area}</span></td>
               <td>
                   <span class="tooltip-area">
-                      <a href="javascript:void(0)" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                      <button onClick="showFormCotizacion1(${e.id})"  class="btn btn-default btn-sm" title="Edit"><i class="fa  fa-circle"></i></button>
                   </span>
               </td>
           </tr>
@@ -79,3 +80,6 @@ $("#listTipoDesc").submit(function (e) {
     },
   });
 });
+function showFormCotizacion1(idCot) {
+  console.log(idCot);
+  }

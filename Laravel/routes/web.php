@@ -108,6 +108,7 @@ Route::group(['middleware' => ['administracion'], 'prefix' => '/adm'], function 
 		route::get('home','DescargosMedController@home');
 		Route::get('index1','DescargosMedController@list1');
 		route::resource('desMed','DescargosMedController');
+		route::get('showDetalleDescargo1','DescargosMedController@showDetalleDescargo1');
 	});
 });
 

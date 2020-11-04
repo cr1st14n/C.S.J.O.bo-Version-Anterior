@@ -70,7 +70,7 @@ $("#listTipoDesc").submit(function (e) {
               <td><span class="label label-success">${e.dm_area}</span></td>
               <td>
                   <span class="tooltip-area">
-                      <button onClick="showFormCotizacion1(${e.id})"  class="btn btn-default btn-sm" title="Edit"><i class="fa  fa-circle"></i></button>
+                      <button onClick="f_show_descargoM1(${e.id})" class="btn btn-default btn-sm" title="Edit"><i class="fa fa-bars"></i></button>
                   </span>
               </td>
           </tr>
@@ -80,6 +80,15 @@ $("#listTipoDesc").submit(function (e) {
     },
   });
 });
-function showFormCotizacion1(idCot) {
-  console.log(idCot);
-  }
+function f_show_descargoM1(id) {
+ $('#md-view_cot_descargoMed').modal('show');
+ $.ajax({
+   type: "get",
+   url: "descargosMedicos/showDetalleDescargo1",
+   data: {id:id},
+  //  dataType: "dataType",
+   success: function (response) {
+     $('#bodyShowDescargoView1').html(response);
+   }
+ });
+}

@@ -130,4 +130,9 @@ class DescargosMedController extends Controller
     {
         //
     }
+
+    public function showDetalleDescargo1(Request $request)
+    {
+        return view('descargosMedicos.detalleDescargoView1')->with('data',$request->input('id'));
+    }
 }

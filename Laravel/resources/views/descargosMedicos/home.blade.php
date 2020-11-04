@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <!-- /#tab1-->
-                    <div class="tab-pane fade col-lg-12 active in"  id="tab2">
+                    <div class="tab-pane fade col-lg-12 active in" id="tab2">
                         <section class="panel">
                             <header class="panel-heading">
                                 <form id="listTipoDesc" class="form-horizontal labelcustomize" data-collabel="2" data-label="color">
@@ -165,7 +165,7 @@
                             <div class="col-md-8">
                                 <br>
                                 <h3><strong>Account</strong> Setting</h3>
-                                <hr> 
+                                <hr>
                                 <form>
                                     <div class="form-group">
                                         <label class="control-label">User name</label>
@@ -281,6 +281,18 @@
     </div>
     <!-- //content > row-->
 
+</div>
+<div id="md-view_cot_descargoMed" class="modal fade md-stickTop" tabindex="-1" data-width="500">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h3>Detalle descargo medico</h3>
+    </div>
+    <form class="form-horizontal" id="form-createItemDesMed" data-collabel="3" data-alignlabel="left" data-label="color">
+        <input type="text" name="_token" value="{{ csrf_token() }}" hidden>
+        <div id="bodyShowDescargoView1">
+
+        </div>
+    </form>
 </div>
 <div id="md-create_item_descargoMed" class="modal fade md-stickTop" tabindex="-1" data-width="500">
     <div class="modal-header">

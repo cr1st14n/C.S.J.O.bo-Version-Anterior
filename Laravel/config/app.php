@@ -187,7 +187,7 @@ return [
 
         //Agregados
         Yajra\DataTables\DataTablesServiceProvider::class,
-        niklasravnsborg\LaravelPdf\PdfServiceProvider::class
+        // niklasravnsborg\LaravelPdf\PdfServiceProvider::class
 
     ],
 

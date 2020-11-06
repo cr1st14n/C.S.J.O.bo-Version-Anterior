@@ -233,7 +233,7 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            height: 60px;
+            height: 20px;
             background: rgba(51, 51, 51, 0.5);
             display: -webkit-box;
             display: flex;
@@ -514,13 +514,89 @@
             }
         }
     </style>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+        }
+
+        /* FONDO VIDEO */
+        .contenido__video {
+            background: #7DD174;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Estilos para la etiqueta "video" con la calse (.video)  */
+        .video {
+            position: absolute;
+            max-width: 300%;
+            width: 100%;
+        }
+
+        /* media queries (personalizarlo a su antojo)*/
+        @media(max-width: 900px) {
+            .video {
+                width: 150%;
+            }
+        }
+
+        @media(max-width: 650px) {
+            .video {
+                width: 280%;
+            }
+        }
+
+        @media(max-width: 480px) {
+            .video {
+                width: 300%;
+            }
+        }
+
+        .presentacion,
+        footer {
+            background: rgba(255, 255, 255, .3);
+            padding: 15px;
+        }
+
+        .presentacion {
+            height: 100vh;
+        }
+
+        .contenido {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        .titulo {
+            color: #357DA2;
+            font-size: 5vw;
+            text-align: center;
+        }
+
+        .informacion {
+            font-size: 2vw;
+        }
+
+        .autor {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
     <br><br>
     <div class="row">
         <div class="col-lg-11" align="center">
-            <h1> <strong> CENTRO DE SALUD JESUS OBRERO - HORARIOS DE ATENCIÓN</strong></h1>
+            <h1 style="color: white;"> <strong > CENTRO DE SALUD JESUS OBRERO - HORARIOS DE ATENCIÓN</strong></h1>
 
         </div>
         <div class="col-lg-1">
@@ -734,12 +810,27 @@
 
 
     </div>
+
+
+    <div class="contenido__video">
+        <!-- 
+    autoplay: propiedad para que se reproduzca una ves que carga la página
+    loop: propiedad para el vídeo se repita infinitamente
+    muted: propiedad para que el vídeo no emita sonido
+    poster: propiedad que muestra una imagen hasta que cargue el vídeo 
+  -->
+        <video class="video" autoplay="autoplay" loop="loop" muted="muted" poster="images/artesano.png">
+            <source src="{{ asset('plantillaPantalla/mod1/video/nuves.mp4') }}" type="video/mp4" />
+            <!-- <source src="{{ asset('plantillaPantalla/mod1/video/video2.mp4') }}" type="video/mp4" /> -->
+            <!-- <source src="{{ asset('plantillaPantalla/mod1/video/artesano-1920x1080.webm') }}" type="video/webm" /> -->
+        </video>
+    </div>
     <!-- <div class="scroll-down">SCROLL DOWN
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
             <path d="M16 3C8.832031 3 3 8.832031 3 16s5.832031 13 13 13 13-5.832031 13-13S23.167969 3 16 3zm0 2c6.085938 0 11 4.914063 11 11 0 6.085938-4.914062 11-11 11-6.085937 0-11-4.914062-11-11C5 9.914063 9.914063 5 16 5zm-1 4v10.28125l-4-4-1.40625 1.4375L16 23.125l6.40625-6.40625L21 15.28125l-4 4V9z" />
         </svg>
     </div> -->
-    <!-- <div class="container"></div>
+    <!-- <div class="container"></div> -->
     <div class="modal">
         <div class="modal-container">
             <div class="modal-left">
@@ -768,7 +859,7 @@
                 </svg>
             </button>
         </div>
-        <button class="modal-button">Click here to login</button>
+        <!-- <button class="modal-button">Click here to login</button> -->
     </div>
     <script>
         const body = document.querySelector("body");
@@ -806,11 +897,13 @@
 
         setInterval(() => {
             openModal();
-            setTimeout(() => {
-                closeModal();
-            }, 2000);
+
         }, 5000);
-    </script> -->
+    </script>
+    <script>
+        var anio = new Date();
+        document.getElementById('anio').innerHTML = anio.getFullYear();
+    </script>
 </body>
 
 </html>

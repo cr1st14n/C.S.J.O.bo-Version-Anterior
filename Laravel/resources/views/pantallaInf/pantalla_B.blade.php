@@ -590,13 +590,15 @@
             text-align: center;
         }
     </style>
+    <link rel="stylesheet" href="{{ asset('plantillaPantalla/modal/css/reset.cs')}}s"> <!-- CSS reset -->
+    <link rel="stylesheet" href="{{ asset('plantillaPantalla/modal/css/style.css')}}"> <!-- Resource style -->
 </head>
 
-<body>
+<body class="clones-transition">
     <br><br>
     <div class="row">
         <div class="col-lg-11" align="center">
-            <h1 style="color: #515150;"> <strong > CENTRO DE SALUD JESUS OBRERO - HORARIOS DE ATENCIÓN</strong></h1>
+            <h1 style="color: white;"> <strong> CENTRO DE SALUD JESUS OBRERO - HORARIOS DE ATENCIÓN</strong></h1>
 
         </div>
         <div class="col-lg-1">
@@ -611,81 +613,14 @@
                     <tr>
                         <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
                         <td>Dr. Montecinos</td>
-                        <td>Lunes, Martes, Jueves y Viernes</td>
+                        <td>Lunes, Martes, Jueves y Viernes / Miercoles 14:30 - 20:00 </td>
                         <td>Hrs 9:30am - 13:30</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dr. Montecinos</td>
-                        <td>Miercoles </td>
-                        <td>Hrs 14:30 - 20:00</td>
                     </tr>
                     <tr>
                         <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
                         <td>Dra. Mollinedo</td>
                         <td>Lunes a Sabado </td>
-                        <td>Hrs 9:00 - 13:00</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="table-users">
-                <div class="header">Otorrinolaringologia</div>
-                <table cellspacing="0">
-                    <tr>
-                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dra. LLano</td>
-                        <td>Lunes </td>
-                        <td>Hrs 9:00 - 11:00</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="table-users">
-                <div class="header">Traumatologia</div>
-                <table cellspacing="0">
-                    <tr>
-                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dr. Quispe</td>
-                        <td>Lunes, Martes, Miercoles, Viernes, Sabado </td>
-                        <td>Hrs 8:00 - 12:00</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dr. Guzman</td>
-                        <td>Lunes, Miercoles, Viernes </td>
-                        <td>Hrs 15:00 / Jueves 9:00</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dr. Guzman</td>
-                        <td>Jueves</td>
-                        <td>Hrs 15:00</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dr. Huchani</td>
-                        <td>Martes, Jueves </td>
-                        <td>Hrs 15:00</td>
-                    </tr>
-                </table>
-            </div>
-
-
-        </div>
-        <div class="col-lg-4">
-            <div class="table-users">
-                <div class="header">Medicina General</div>
-                <table cellspacing="0">
-                    <tr>
-                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dr. Huayllani</td>
-                        <td>Lunes A Viernes </td>
-                        <td>Hrs 14:00 - 20:00</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dra. Villalobos</td>
-                        <td>Miercoles,Sabado </td>
-                        <td>Hrs 8:00 - 12:00</td>
+                        <td>Hrs 9:00 - 14:00</td>
                     </tr>
                 </table>
             </div>
@@ -710,11 +645,49 @@
                         <td>Martes a Viernes</td>
                         <td>14:00 - 18:00</td>
                     </tr>
+                </table>
+            </div>
+            <div class="table-users">
+                <div class="header">Traumatologia</div>
+                <table cellspacing="0">
                     <tr>
                         <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dra. Gutierrez</td>
-                        <td>Citas a LLamado</td>
-                        <td></td>
+                        <td>Dr. Quispe</td>
+                        <td>Lunes, Martes, Miercoles, Viernes, Sabado </td>
+                        <td>Hrs 8:00 - 12:00</td>
+                    </tr>
+                    <tr>
+                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
+                        <td>Dr. Guzman</td>
+                        <td>Martes, Miercoles, Viernes </td>
+                        <td>Hrs 15:00 / Jueves 9:00</td>
+                    </tr>
+                    <tr>
+                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
+                        <td>Dr. Huchani</td>
+                        <td>Martes, Jueves </td>
+                        <td>Hrs 15:00</td>
+                    </tr>
+                </table>
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="table-users">
+                <div class="header">Medicina General</div>
+                <table cellspacing="0">
+                    <tr>
+                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
+                        <td>Dr. Huallani</td>
+                        <td>Lunes A Viernes </td>
+                        <td>Hrs 14:00 - 20:00</td>
+                    </tr>
+                    <tr>
+                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
+                        <td>Dra. Villalobos</td>
+                        <td>Miercoles,Sabado </td>
+                        <td>Hrs 8:00 - 12:00</td>
                     </tr>
                 </table>
             </div>
@@ -736,6 +709,17 @@
                 </table>
             </div>
             <div class="table-users">
+                <div class="header">Otorrinolaringologia</div>
+                <table cellspacing="0">
+                    <tr>
+                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
+                        <td>Dra. LLanos</td>
+                        <td>Lunes </td>
+                        <td>Hrs 9:00 - 11:00</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-users">
                 <div class="header">Fisioterapia</div>
                 <table cellspacing="0">
                     <tr>
@@ -743,6 +727,17 @@
                         <td>Lic. Irma Rojas</td>
                         <td>Lunes a Viernes </td>
                         <td>Hrs 9:00 - 13:00</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-users">
+                <div class="header">Dermatologia</div>
+                <table cellspacing="0">
+                    <tr>
+                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
+                        <td>Dr. Salazar</td>
+                        <td>Miercoles </td>
+                        <td>Hrs 10:30 - 12:00</td>
                     </tr>
                 </table>
             </div>
@@ -782,23 +777,13 @@
                     </tr>
                 </table>
             </div>
-            <div class="table-users">
-                <div class="header">Dermatologia</div>
-                <table cellspacing="0">
-                    <tr>
-                        <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dr. Salazar</td>
-                        <td>Miercoles </td>
-                        <td>Hrs 10:30 - 12:00</td>
-                    </tr>
-                </table>
-            </div>
+
             <div class="table-users">
                 <div class="header">Urologia</div>
                 <table cellspacing="0">
                     <tr>
                         <td><img src="{{ asset('plantillaPantalla/images/logo_csjo.jpg') }}" alt="" /></td>
-                        <td>Dr. Hennings</td>
+                        <td>Dr. Henning</td>
                         <td>Martes y Jueves </td>
                         <td>Hrs 8:00 </td>
                     </tr>
@@ -807,6 +792,27 @@
                         <td>Dr. Candia</td>
                         <td> Lunes y Viernes </td>
                         <td>Hrs 9:00</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-users">
+                <div class="header" style="background-color: #D2F72C; color:black">Precio Bs.-</div>
+                <table cellspacing="0">
+                    <tr>
+                        <td>Consulta medica</td>
+                        <td>60 Bs.- </td>
+                    </tr>
+                    <tr>
+                        <td>Control Medico Programado</td>
+                        <td> 40 Bs.- </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-users">
+                <table cellspacing="0">
+                    <tr>
+                        <td>Servicio de emergencias las 24 Horas</td>
+                        <td> </td>
                     </tr>
                 </table>
             </div>
@@ -879,6 +885,67 @@
         </div>
         <!-- <button class="modal-button">Click here to login</button> -->
     </div>
+
+    <!-- modal  -->
+    <main class="cd-main-content">
+        <div class="center">
+            <h1>Clones</h1>
+            <a href="#modal-1" class="cd-btn cd-modal-trigger">Start Effect</a>
+        </div>
+    </main> <!-- .cd-main-content -->
+
+    <div class="cd-modal" id="modal-1">
+        <div class="modal-content">
+            <h1 style="color: black;" align="center"> Medicina familiar</h1>
+            <table>
+
+                <tr>
+                    <td>
+                        <img style=" border-radius: 10%;
+                                        height: 300px;
+                                        width: 300px;" src="{{ asset('plantillaPantalla/images/medicinaFamiliar1.jpg') }}">
+                    </td>
+
+                    <td>
+                        <p style="color: black; font-size:15">
+                            La Medicina Familiar es una especialidad del ámbito clínico ambulatorio que se ocupa de la atención integral del paciente y su familia.
+                            Por tratarse de una disciplina integradora, su campo de acción no se limita a un órgano o sistema en particular sino a la globalidad
+                            y contexto de las diferentes situaciones de salud /enfermedad que pueden ocurrir a lo largo de la vida de una persona.
+
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img style=" border-radius: 10%;
+                                        height: 300px;
+                                        width: 300px;" src="{{ asset('plantillaPantalla/images/med1.png') }}">
+                    </td>
+
+                    <td>
+                        <p style="color: black; font-size:15">
+                            Doctor: Montecinos <br>
+                            Lunes, Martes, Jueves y Viernes Hrs 9:30am - 13:30 <br>
+                            Miercoles 14:30 - 20:00 <br>
+                            Costo de la consulta 60 Bs.- <br>
+                            Costo de Control medico 40 Bs.-
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div> <!-- .modal-content -->
+
+        <a href="#0" id="closeModal" class="modal-close" hidden>Close</a>
+    </div> <!-- .cd-modal -->
+
+    <div class="cd-transition-layer" data-frame="25">
+        <div class="bg-layer"></div>
+    </div> <!-- .cd-transition-layer -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <script>
+        if (!window.jQuery) document.write('<script src="js/jquery-2.2.1-min.js"><\/script>');
+    </script>
     <script>
         const body = document.querySelector("body");
         const modal = document.querySelector(".modal");
@@ -921,6 +988,16 @@
     <script>
         var anio = new Date();
         document.getElementById('anio').innerHTML = anio.getFullYear();
+    </script>
+    <script src="{{ asset('plantillaPantalla/modal/js/modernizr.js')}}"></script> <!-- Modernizr -->
+    <script src="{{ asset('plantillaPantalla/modal/js/main.js')}}"></script> <!-- Resource jQuery -->
+    <script>
+        setInterval(() => {
+            $('.cd-modal-trigger').click();
+            setTimeout(() => {
+                $('#closeModal').click();
+            }, 20000);
+        }, 900000);
     </script>
 </body>
 
